@@ -1,0 +1,30 @@
+Projekto pavadinimas: Archeologinės keramikos formos
+
+
+Kursiu archeologinės keramikos mokslinių tyrimų įrankį,
+kuris leistų duomenų bazėje saugoti adinių profilio geometrines koordinates,
+lyginti formas tarpusavyje,
+sudaryti užklausos reikalavimus atitinkančių formų brėžinius,
+rodyti atrinktų radinių vietas žemėlapyje (jeigu spėsiu šio projekto metu, kitu atveju darysiu savarankiškai)
+
+Projektas aktualus mano kasdieniniame darbe, bus naudojamas tyrinėjant Vilniaus istoriją
+
+
+Projekto dalys ir uždaviniai:
+*  duomenų bazė, kurioje saugomos radinių profilio koordinatės,
+    charakteringi vizualūs požymiai, datavimas,
+    tyrimų vieta, nuoroda į tyrimų dokumentus (postgres duomenų bazė)
+* radinių profilio koordinačių nuskaitymas iš brėžinio ir patalpinimas į duomenų bazę (Pillow, Numpy, Pandas bibliotekos, ...)
+* radinių formų palyginimas (Pandas biblioteka, koreliacijos koeficientas - taip pat saugomas duomenų bazėje)
+* radinių formų atvaizdavimas pagal užklausą (profilių braižymas ir radimo vietų vaizdavimas žemėlapyje)
+* įrankio testavimas atliekant vieno archeologinio objekto radinių tyrimą
+    (statistiniai duomenys, grafikai, Numpy, Pandas, Matplotlib, Seaborn bibliotekos)
+
+
+Turima medžiaga (visų duomenų autorinės teisės - mano):
+* Apie 1500 keramikos brėžinių iš XIV-XV a. archeologinio objekto Subačiaus g. 11 (failų formatas - tif)
+* Vilniaus archeologinių tyrimų bibliografinė duomenų bazė
+* Vilniaus archeologinių tyrimų GIS žemėlapis (geoJSON, Folium biblioteka)
+* Nedidelė  kodo dalis buvo parašyta studijojant Python pradedančiųjų kursuose,
+    tačiau dabar ją iš esmės perdarinėju, taikau naujas žinias
+
