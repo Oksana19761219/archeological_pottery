@@ -1,4 +1,4 @@
-Projekto pavadinimas: Archeologinės keramikos formos
+Projekto pavadinimas: Archeologinės keramikos formos ir jų analizė
 
 
 Kursiu archeologinės keramikos mokslinių tyrimų įrankį,
