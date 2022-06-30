@@ -71,7 +71,7 @@ class PotteryOrnamentForm(models.Model):
         null=True
     )
     ornament_nr = models.IntegerField(
-        'old lip number',
+        'old ornament number',
         null=True,
         help_text='temporary field, ornament number from old database'
     )
