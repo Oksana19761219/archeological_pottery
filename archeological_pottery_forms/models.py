@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+
+
 class Bibliography(models.Model):
     author = models.CharField(
         'Author',
@@ -36,3 +38,19 @@ class Bibliography(models.Model):
 
     def __str__(self):
         return f"{self.author}, {self.title}, {self.report_year}"
+
+
+class BibliographicReference(models.Model):
+    reference = models.CharField(
+        'Bibliographic Reference',
+        max_length=200,
+        help_text='enter a bibliographic reference (archive, document number, etc.)'
+    )
+    report = models.ForeignKey(
+        'Bibliography',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    def __str__(self):
+        return self.reference
