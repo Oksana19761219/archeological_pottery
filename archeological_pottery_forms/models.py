@@ -30,11 +30,6 @@ class Bibliography(models.Model):
         null=True,
         help_text="enter the research object number"
     )
-    record_nr  = models.IntegerField(
-        'Record Number',
-        null=True,
-        help_text="temporary field, ID from old database"
-    )
 
     def __str__(self):
         return f"{self.author}, {self.title}, {self.report_year}"
