@@ -6,27 +6,27 @@ from django.db import models
 
 class Bibliography(models.Model):
     author = models.CharField(
-        'Author',
+        'author',
         max_length=250,
         help_text="enter the author's name"
     )
     title = models.CharField(
-        'Title',
+        'title',
         max_length=700,
         help_text="enter the title of the report"
     )
     research_year = models.CharField(
-        'Research Year',
+        'research year',
         max_length=100,
         help_text="enter the year of archaeological research"
     )
     report_year = models.CharField(
-        'Report Year',
+        'report year',
         max_length=100,
         help_text="enter the year of the research report"
     )
     research_object_nr = models.IntegerField(
-        'Research Object Number',
+        'research object number',
         null=True,
         help_text="enter the research object number"
     )
@@ -37,7 +37,7 @@ class Bibliography(models.Model):
 
 class BibliographicReference(models.Model):
     reference = models.CharField(
-        'Bibliographic Reference',
+        'bibliographic reference',
         max_length=200,
         help_text='enter a bibliographic reference (archive, document number, etc.)'
     )
@@ -66,7 +66,7 @@ class PotteryLipShape(models.Model):
 
 class PotteryOrnamentShape(models.Model):
     ornament_form = models.ImageField(
-        'Ornament form',
+        'ornament form',
         upload_to='images',
         null=True
     )
@@ -75,3 +75,44 @@ class PotteryOrnamentShape(models.Model):
         null=True,
         help_text='temporary field, ornament number from old database'
     )
+
+
+class PotteryDescription(models.Model):
+    find_registration_nr = models.CharField(
+        'registration number',
+        max_length=20,
+        help_text='enter the registration number of the archaeological find'
+    )
+    arc_length = models.IntegerField(
+        'arc length',
+        null=True,
+        help_text='enter length of lip arc (milimeters)'
+    )
+    color = models.CharField(
+        'color',
+        max_length=10,
+        help_text='color of archaeological find'
+    )
+    lip_nr = models.ForeignKey(
+        'PotteryLipShape',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+    ornament_nr = models.ForeignKey(
+        'PotteryOrnamentShape',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+    note = models.CharField(
+        'note',
+        max_length=500,
+        help_text='enter some text you need'
+    )
+    research_object_nr = models.IntegerField(
+        'research object number',
+        null=True,
+        help_text="enter the research object number"
+    )
+
+    def __str__(self):
+        return f"{self.find_registration_nr}, {self.research_object_nr}"
