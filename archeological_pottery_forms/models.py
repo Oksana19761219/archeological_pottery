@@ -51,7 +51,7 @@ class BibliographicReference(models.Model):
         return self.reference
 
 
-class PotteryLipForm(models.Model):
+class PotteryLipShape(models.Model):
     lip_form = models.ImageField(
         'Lip form',
         upload_to='images',
@@ -64,7 +64,7 @@ class PotteryLipForm(models.Model):
     )
 
 
-class PotteryOrnamentForm(models.Model):
+class PotteryOrnamentShape(models.Model):
     ornament_form = models.ImageField(
         'Ornament form',
         upload_to='images',
