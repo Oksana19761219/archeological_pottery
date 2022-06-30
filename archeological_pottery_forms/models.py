@@ -49,3 +49,29 @@ class BibliographicReference(models.Model):
 
     def __str__(self):
         return self.reference
+
+
+class PotteryLipForm(models.Model):
+    lip_form = models.ImageField(
+        'Lip form',
+        upload_to='images',
+        null=True
+    )
+    lip_nr = models.IntegerField(
+        'old lip number',
+        null=True,
+        help_text='temporary field, lip number from old database'
+    )
+
+
+class PotteryOrnamentForm(models.Model):
+    ornament_form = models.ImageField(
+        'Ornament form',
+        upload_to='images',
+        null=True
+    )
+    ornament_nr = models.IntegerField(
+        'old lip number',
+        null=True,
+        help_text='temporary field, ornament number from old database'
+    )
