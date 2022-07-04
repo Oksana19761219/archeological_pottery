@@ -8,8 +8,49 @@ from .models import \
 
 # Register your models here.
 
-admin.site.register(Bibliography)
+
+class BibliographicReferenceInline(admin.TabularInline):
+    model = BibliographicReference
+    extra = 0
+    can_delete = False
+
+
+class BibliographyAdmin(admin.ModelAdmin):
+    list_display = ('author',
+                    'title',
+                    'research_year',
+                    'report_year',
+                    'research_object_nr',
+                    'display_references')
+    inlines = [BibliographicReferenceInline]
+    search_fields = ('author',
+                    'title',
+                    'research_year',
+                    'report_year',
+                     'references__reference')
+
+
+class PotteryDescriptionAdmin(admin.ModelAdmin):
+    list_display = ('find_registration_nr',
+                    'arc_length',
+                    'color',
+                    'lip',
+                    'ornament',
+                    'note',
+                    'research_object_nr',
+                    'neck_nr')
+    list_filter = ('lip',
+                   'ornament')
+    fieldsets = (
+        ('General', {'fields': ('find_registration_nr', 'research_object_nr')}),
+        ('Description', {'fields': ('arc_length','color', 'lip', 'ornament', 'neck_nr')}),
+        ('Note', {'fields': ('note',)}),
+    )
+
+
+admin.site.register(Bibliography, BibliographyAdmin)
 admin.site.register(BibliographicReference)
 admin.site.register(PotteryLipShape)
 admin.site.register(PotteryOrnamentShape)
-admin.site.register(PotteryDescription)
+admin.site.register(PotteryDescription, PotteryDescriptionAdmin)
+

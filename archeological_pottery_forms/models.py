@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 
 
@@ -31,8 +31,21 @@ class Bibliography(models.Model):
         help_text="enter the research object number"
     )
 
+    class Meta:
+        ordering = ['report_year']
+        verbose_name = 'report'
+        verbose_name_plural = 'reports'
+
     def __str__(self):
         return f"{self.author}, {self.title}, {self.report_year}"
+
+    def get_absolute_url(self):
+        return reverse('bibliography', args=[str(self.id)])
+
+    def display_references(self):
+        return ', '.join(reference.reference for reference in self.references.all())
+
+    display_references.short_description = 'references'
 
 
 class BibliographicReference(models.Model):
@@ -44,7 +57,8 @@ class BibliographicReference(models.Model):
     report = models.ForeignKey(
         'Bibliography',
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
+        related_name='references'
     )
 
     def __str__(self):
@@ -97,12 +111,14 @@ class PotteryDescription(models.Model):
     lip = models.ForeignKey(
         'PotteryLipShape',
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
+        related_name='findings'
     )
     ornament = models.ForeignKey(
         'PotteryOrnamentShape',
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
+        related_name='findings'
     )
     note = models.CharField(
         'note',
@@ -121,5 +137,12 @@ class PotteryDescription(models.Model):
         help_text='temporary field, neck id from old database'
     )
 
+    class Meta:
+        ordering = ['research_object_nr', 'find_registration_nr']
+
+
     def __str__(self):
-        return f"{self.find_registration_nr}, {self.research_object_nr}"
+        return f"reg. nr.: {self.find_registration_nr}, research id: {self.research_object_nr}"
+
+    def get_absolute_url(self):
+        return reverse('findings', args=[str(self.id)])
