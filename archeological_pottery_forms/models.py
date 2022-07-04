@@ -93,12 +93,12 @@ class PotteryDescription(models.Model):
         max_length=10,
         help_text='color of archaeological find'
     )
-    lip_nr = models.ForeignKey(
+    lip = models.ForeignKey(
         'PotteryLipShape',
         on_delete=models.SET_NULL,
         null=True
     )
-    ornament_nr = models.ForeignKey(
+    ornament = models.ForeignKey(
         'PotteryOrnamentShape',
         on_delete=models.SET_NULL,
         null=True
@@ -111,7 +111,12 @@ class PotteryDescription(models.Model):
     research_object_nr = models.IntegerField(
         'research object number',
         null=True,
-        help_text="enter the research object number"
+        help_text='enter the research object number'
+    )
+    neck_nr = models.IntegerField(
+        'neck number',
+        null=True,
+        help_text='temporary field, neck id from old database'
     )
 
     def __str__(self):
