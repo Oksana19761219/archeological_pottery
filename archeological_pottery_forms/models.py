@@ -61,6 +61,11 @@ class BibliographicReference(models.Model):
         related_name='references'
     )
 
+    class Meta:
+        ordering = ['reference']
+        verbose_name = 'reference'
+        verbose_name_plural = 'references'
+
     def __str__(self):
         return self.reference
 
