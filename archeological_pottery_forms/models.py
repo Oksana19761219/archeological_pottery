@@ -91,6 +91,7 @@ class PotteryDescription(models.Model):
     color = models.CharField(
         'color',
         max_length=10,
+        null=True,
         help_text='color of archaeological find'
     )
     lip = models.ForeignKey(
@@ -106,12 +107,13 @@ class PotteryDescription(models.Model):
     note = models.CharField(
         'note',
         max_length=500,
+        null=True,
         help_text='enter some text you need'
     )
     research_object_nr = models.IntegerField(
         'research object number',
         null=True,
-        help_text='enter the research object number'
+        help_text='enter research object number'
     )
     neck_nr = models.IntegerField(
         'neck number',
