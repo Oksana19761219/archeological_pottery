@@ -29,9 +29,11 @@ class BibliographyAdmin(admin.ModelAdmin):
                     'report_year',
                      'references__reference')
 
+
 class BibliographicReferenceAdmin(admin.ModelAdmin):
     list_display = ('reference',)
     search_fields = ('reference',)
+
 
 class PotteryDescriptionAdmin(admin.ModelAdmin):
     list_display = ('find_registration_nr',
