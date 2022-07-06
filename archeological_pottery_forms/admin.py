@@ -4,7 +4,8 @@ from .models import \
     BibliographicReference, \
     PotteryLipShape, \
     PotteryOrnamentShape, \
-    PotteryDescription
+    PotteryDescription, \
+    ResearchObject
 
 # Register your models here.
 
@@ -52,10 +53,18 @@ class PotteryDescriptionAdmin(admin.ModelAdmin):
         ('Note', {'fields': ('note',)}),
     )
 
+class ResearchObjectAdmin(admin.ModelAdmin):
+    list_display = ('name',
+                    'year',
+                    'research_type')
+    list_filter = ('research_type',)
+    search_fields = ('name',
+                    'year')
 
 admin.site.register(Bibliography, BibliographyAdmin)
 admin.site.register(BibliographicReference, BibliographicReferenceAdmin)
 admin.site.register(PotteryLipShape)
 admin.site.register(PotteryOrnamentShape)
 admin.site.register(PotteryDescription, PotteryDescriptionAdmin)
+admin.site.register(ResearchObject, ResearchObjectAdmin)
 

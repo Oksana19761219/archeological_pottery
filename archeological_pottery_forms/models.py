@@ -151,3 +151,33 @@ class PotteryDescription(models.Model):
 
     def get_absolute_url(self):
         return reverse('findings', args=[str(self.id)])
+
+
+class ResearchObject(models.Model):
+    research_object_nr = models.IntegerField(
+        'research object number',
+        null=True,
+        help_text='enter research object number'
+    )
+    name = models.CharField(
+        'title',
+        max_length=500,
+        help_text='name of research object, object description'
+    )
+    year = models.CharField(
+        'year',
+        max_length=50,
+        help_text="enter the year of archaeological research"
+    )
+    research_type = models.CharField(
+        'research type',
+        max_length=250
+    )
+
+    class Meta:
+        ordering=['year', 'research_type']
+        verbose_name = 'research object'
+        verbose_name_plural = 'research objects'
+
+    def __str__(self):
+        return f'{self.name}, {self.year}, {self.research_type}'
