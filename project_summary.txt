@@ -10,7 +10,7 @@ rodyti atrinktų radinių vietas žemėlapyje (jeigu spėsiu šio projekto metu,
 Projektas aktualus mano kasdieniniame darbe, bus naudojamas tyrinėjant Vilniaus istoriją
 
 
-Projekto dalys ir uždaviniai:
+Projekto dalys:
 *  duomenų bazė, kurioje saugomos radinių profilio koordinatės,
     charakteringi vizualūs požymiai, datavimas,
     tyrimų vieta, nuoroda į tyrimų dokumentus (postgres duomenų bazė)
@@ -28,3 +28,22 @@ Turima medžiaga (visų duomenų autorinės teisės - mano):
 * Nedidelė  kodo dalis buvo parašyta studijojant Python pradedančiųjų kursuose,
     tačiau dabar ją iš esmės perdarinėju, taikau naujas žinias
 
+
+
+
+Archeologinių tyrimų ataskaitos:
+sutvarkyti paiešką pagal autorių, adresą, metus.
+jeigu ataskaitos nėra duomenų bazėje, įvesti naujus duomenis
+
+Buitinės keramikos radiniai:
+pasirinkti archeologinį objektą (konkretaus ploto arba šurfo, kuriame aptikti radiniai, ID)
+aprašyti keramikos radinį (PotteryDescription model)
+
+
+Keramikos profilio koordinačių nuskaitymas:
+pasirinkti archeologinį objektą (konkretaus ploto arba šurfo, kuriame aptikti radiniai, ID)
+pasirinkti folderį, kuriame yra brėžiniai iš šito objekto
+automatiškai nuskaityti koordinates ir įdėti į DB (radinio reg_nr - tai brėžinio failo pavadinimas)
+po nuskaitymo parodyti rezultatą kokybės patikrinimui - suvestinį eskizinį brėžinį, kuriame būtų nuskaityti profiliai ir registraciniai numeriai.
+jeigu nepavyksta nuskaityti brėžinio - logging į failą
+padaryti, kad būtų galima ištrinti neteisingai nuskaitytas koordinates (tuomet brėžinys pataisomas ir koordinatės įvedamos iš naujo)
