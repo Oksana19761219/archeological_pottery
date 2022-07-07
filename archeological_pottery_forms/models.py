@@ -71,6 +71,21 @@ class BibliographicReference(models.Model):
         return self.reference
 
 
+class PotteryMakingAction(models.Model):
+    action = models.CharField(
+        'action',
+        max_length=200
+    )
+    sequence = models.IntegerField(
+        'sequence',
+        null=True
+    )
+    class Meta:
+        ordering = ['sequence', 'action']
+
+    def __str__(self):
+        return self.action
+
 class PotteryLipShape(models.Model):
     lip_form = models.ImageField(
         'Lip form',
@@ -82,6 +97,7 @@ class PotteryLipShape(models.Model):
         null=True,
         help_text='temporary field, lip number from old database'
     )
+    action = models.ManyToManyField(PotteryMakingAction)
 
 
 class PotteryOrnamentShape(models.Model):
@@ -95,6 +111,7 @@ class PotteryOrnamentShape(models.Model):
         null=True,
         help_text='temporary field, ornament number from old database'
     )
+    action = models.ManyToManyField(PotteryMakingAction)
 
 
 class PotteryDescription(models.Model):
@@ -149,7 +166,7 @@ class PotteryDescription(models.Model):
 
 
     def __str__(self):
-        return f"reg. nr.: {self.find_registration_nr}, research id: {self.research_object_nr_old}"
+        return f"reg. nr.: {self.find_registration_nr}, research id: {self.research_object}"
 
     def get_absolute_url(self):
         return reverse('findings', args=[str(self.id)])
@@ -183,3 +200,5 @@ class ResearchObject(models.Model):
 
     def __str__(self):
         return f'{self.name}, {self.year}, {self.research_type}'
+
+

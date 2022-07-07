@@ -5,7 +5,8 @@ from .models import \
     PotteryLipShape, \
     PotteryOrnamentShape, \
     PotteryDescription, \
-    ResearchObject
+    ResearchObject, \
+    PotteryMakingAction
 
 # Register your models here.
 
@@ -61,10 +62,12 @@ class ResearchObjectAdmin(admin.ModelAdmin):
     search_fields = ('name',
                     'year')
 
+
 admin.site.register(Bibliography, BibliographyAdmin)
 admin.site.register(BibliographicReference, BibliographicReferenceAdmin)
 admin.site.register(PotteryLipShape)
 admin.site.register(PotteryOrnamentShape)
 admin.site.register(PotteryDescription, PotteryDescriptionAdmin)
 admin.site.register(ResearchObject, ResearchObjectAdmin)
+admin.site.register(PotteryMakingAction)
 
