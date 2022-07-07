@@ -16,3 +16,4 @@ def bibliography(request):
                }
 
     return render(request, 'bibliography.html', context=context)
+

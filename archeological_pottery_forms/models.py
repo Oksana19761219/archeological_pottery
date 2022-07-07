@@ -25,10 +25,11 @@ class Bibliography(models.Model):
         max_length=100,
         help_text="enter the year of the research report"
     )
-    research_object_nr = models.IntegerField(
-        'research object number',
+    research_object = models.ForeignKey(
+        'ResearchObject',
+        on_delete=models.SET_NULL,
         null=True,
-        help_text="enter the research object number"
+        related_name='reports'
     )
 
     class Meta:
@@ -131,10 +132,11 @@ class PotteryDescription(models.Model):
         null=True,
         help_text='enter some text you need'
     )
-    research_object_nr = models.IntegerField(
-        'research object number',
+    research_object = models.ForeignKey(
+        'ResearchObject',
+        on_delete=models.SET_NULL,
         null=True,
-        help_text='enter research object number'
+        related_name='findings'
     )
     neck_nr = models.IntegerField(
         'neck number',
@@ -143,11 +145,11 @@ class PotteryDescription(models.Model):
     )
 
     class Meta:
-        ordering = ['research_object_nr', 'find_registration_nr']
+        ordering = ['research_object', 'find_registration_nr']
 
 
     def __str__(self):
-        return f"reg. nr.: {self.find_registration_nr}, research id: {self.research_object_nr}"
+        return f"reg. nr.: {self.find_registration_nr}, research id: {self.research_object_nr_old}"
 
     def get_absolute_url(self):
         return reverse('findings', args=[str(self.id)])

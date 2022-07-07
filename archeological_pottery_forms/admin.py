@@ -21,7 +21,7 @@ class BibliographyAdmin(admin.ModelAdmin):
                     'title',
                     'research_year',
                     'report_year',
-                    'research_object_nr',
+                    'research_object',
                     'display_references')
     inlines = [BibliographicReferenceInline]
     search_fields = ('author',
@@ -43,12 +43,12 @@ class PotteryDescriptionAdmin(admin.ModelAdmin):
                     'lip',
                     'ornament',
                     'note',
-                    'research_object_nr',
+                    'research_object',
                     'neck_nr')
     list_filter = ('lip',
                    'ornament')
     fieldsets = (
-        ('General', {'fields': ('find_registration_nr', 'research_object_nr')}),
+        ('General', {'fields': ('find_registration_nr', 'research_object',)}),
         ('Description', {'fields': ('arc_length','color', 'lip', 'ornament', 'neck_nr')}),
         ('Note', {'fields': ('note',)}),
     )
