@@ -86,6 +86,7 @@ class PotteryMakingAction(models.Model):
     def __str__(self):
         return self.action
 
+
 class PotteryLipShape(models.Model):
     lip_form = models.ImageField(
         'Lip form',
@@ -176,7 +177,7 @@ class ResearchObject(models.Model):
     research_object_nr = models.IntegerField(
         'research object number',
         null=True,
-        help_text='enter research object number'
+        help_text='temporary field, object id from old database'
     )
     name = models.CharField(
         'title',
@@ -200,5 +201,4 @@ class ResearchObject(models.Model):
 
     def __str__(self):
         return f'{self.name}, {self.year}, {self.research_type}'
-
 

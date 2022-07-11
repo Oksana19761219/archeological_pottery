@@ -7,6 +7,12 @@
 <body>
 <div>Testas</div>
 
+<li>
+    <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
+    <input name="query" class="form-control" type="text" placeholder="Paieška">
+    </form>
+</li>
+
 <div>{% block content %}{% endblock %}</div>
 
 </body>
