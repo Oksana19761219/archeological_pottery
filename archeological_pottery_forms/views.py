@@ -13,9 +13,15 @@ from .models import \
 
 def search(request):
     query = request.GET.get('query')
-    # search_results = ResearchObject.objects.filter(Q(name__icontains=query))
-    search_results = Bibliography.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
-
+    query_words =query.split(' ')
+    reports = Bibliography.objects.all()
+    for word in query_words:
+        search_results = reports.filter(
+            Q(author__icontains=word) |
+            Q(title__icontains=word) |
+            Q(research_year__icontains=word)
+        )
+        reports = search_results
 
     context = {
         'reports': search_results,
