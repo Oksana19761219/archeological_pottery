@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.contrib.auth.forms import User
+from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
 from django.db.models import Q
 from django.views import generic
 from django.views.generic.edit import FormMixin
@@ -51,6 +53,35 @@ def object(request, object_id):
         'reports': reports,
     }
     return render(request, 'object.html', context=context)
+
+
+@csrf_protect
+def register(request):
+    if request.method == "POST":
+        # pasiimame reikšmes iš registracijos formos
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        # tikriname, ar sutampa slaptažodžiai
+        if password == password2:
+            # tikriname, ar neužimtas username
+            if User.objects.filter(username=username).exists():
+                messages.error(request, f'Vartotojo vardas {username} užimtas!')
+                return redirect('register')
+            else:
+                # tikriname, ar nėra tokio pat email
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
+                    return redirect('register')
+                else:
+                    # jeigu viskas tvarkoje, sukuriame naują vartotoją
+                    User.objects.create_user(username=username, email=email, password=password)
+        else:
+            messages.error(request, 'Slaptažodžiai nesutampa!')
+            return redirect('register')
+    return render(request, 'register.html')
+
 
 
 class PotteryDescriptionView(FormMixin, generic.DetailView):
