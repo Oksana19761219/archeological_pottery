@@ -29,7 +29,18 @@
             </div>
             <button type="submit" class="btn btn-primary register-button">Register</button>
         </form>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
         <p>If you have already registered, <a href="/login"><strong>login.</strong></a></p>
     </div>
+
+
 
 {% endblock %}
