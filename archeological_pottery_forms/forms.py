@@ -2,6 +2,8 @@ from .models import PotteryDescription
 from django import forms
 
 class PotteryDescriptionForm(forms.ModelForm):
+
+
     class Meta:
         model = PotteryDescription
         fields = (
@@ -11,6 +13,6 @@ class PotteryDescriptionForm(forms.ModelForm):
             'lip',
             'ornament',
             'note',
-            'research_object'
+            'research_object',
         )
-        # widgets = {'book': forms.HiddenInput(), 'reviewer': forms.HiddenInput()}
+        widgets = {'research_object': forms.HiddenInput()}

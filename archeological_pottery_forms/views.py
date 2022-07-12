@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.contrib.auth.forms import User
-from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from django.contrib.auth.forms import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.decorators.csrf import csrf_protect
+from django.views.generic import CreateView
 from django.db.models import Q
 from django.views import generic
 from django.views.generic.edit import FormMixin
@@ -84,24 +86,43 @@ def register(request):
 
 
 
-class PotteryDescriptionView(FormMixin, generic.DetailView):
+# class PotteryDescriptionView(FormMixin, generic.DetailView):
+#     model = PotteryDescription
+#     template_name = 'object.html'
+#     form_class = PotteryDescriptionForm
+#
+#     def get_success_url(self):
+#         return reverse('object', kwargs={'pk': self.object.id})
+#
+#     def post(self, request, *args, **kwargs):
+#         self.object = self.get_object()
+#         form = self.get_form()
+#         if form.is_valid():
+#             return self.form_valid(form)
+#         else:
+#             return self.form_invalid(form)
+#
+#     def form_valid(self, form):
+#         form.instance.research_object = self.object
+#         # form.save()
+#         # print('ok')
+#         return super(PotteryDescriptionView, self).form_valid(form)
+
+class PotteryDescriptionCreateView(LoginRequiredMixin, CreateView):
     model = PotteryDescription
+    fields = [
+        'find_registration_nr',
+        'arc_length',
+        'color',
+        'lip',
+        'ornament',
+        'note',
+        'research_object'
+    ]
+    success_url = '/pottery/object/'
     template_name = 'object.html'
-    form_class = PotteryDescriptionForm
-
-    def get_success_url(self):
-        return reverse('object', kwargs={'pk': self.object.id})
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
 
     def form_valid(self, form):
-        form.instance.research_object = self.object
-        # form.save()
-        print('ok')
-        return super(PotteryDescriptionView, self).form_valid(form)
+        form.instance.reader = self.request.user
+        return super().form_valid(form)
+

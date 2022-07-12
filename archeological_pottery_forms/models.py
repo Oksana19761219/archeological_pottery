@@ -170,7 +170,7 @@ class PotteryDescription(models.Model):
         return f"reg. nr.: {self.find_registration_nr}, research id: {self.research_object}"
 
     def get_absolute_url(self):
-        return reverse('findings', args=[str(self.id)])
+        return reverse('pottery_description', args=[str(self.id)])
 
 
 class ResearchObject(models.Model):
