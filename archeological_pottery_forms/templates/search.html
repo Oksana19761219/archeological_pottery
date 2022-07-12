@@ -7,7 +7,7 @@
   <ul>
     {% for report in reports %}
       <li>
-        <a href="{{ report.research_object }}">{{ report.author }}</a>, {{report.title}}, {{report.report_year}}
+        <a href="{% url 'object' report.research_object.id %}">{{report.research_object.id}}{{ report.author }}</a>, {{report.title}}, {{report.report_year}}
       </li>
     {% endfor %}
   </ul>

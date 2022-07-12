@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if object%}
+        <p>{{object.name}}, {{ object.year }}</p>
+    {% endif %}
+    {% for report in reports %}
+        <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
+    {% endfor %}
+
+{% endblock %}

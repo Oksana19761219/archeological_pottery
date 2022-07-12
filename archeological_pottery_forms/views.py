@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.db.models import Q
 from .models import \
@@ -19,9 +19,10 @@ def search(request):
         search_results = reports.filter(
             Q(author__icontains=word) |
             Q(title__icontains=word) |
-            Q(research_year__icontains=word)
+            Q(report_year__icontains=word)
         )
         reports = search_results
+
 
     context = {
         'reports': search_results,
@@ -42,3 +43,11 @@ def bibliography(request):
 
     return render(request, 'bibliography.html', context=context)
 
+def object(request, object_id):
+    single_object = get_object_or_404(ResearchObject, pk=object_id)
+    reports = Bibliography.objects.filter(research_object__exact = object_id)
+    context = {
+        'object': single_object,
+        'reports': reports,
+    }
+    return render(request, 'object.html', context=context)
