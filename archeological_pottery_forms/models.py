@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -124,30 +125,35 @@ class PotteryDescription(models.Model):
     arc_length = models.IntegerField(
         'arc length',
         null=True,
+        blank=True,
         help_text='enter length of lip arc (milimeters)'
     )
     color = models.CharField(
         'color',
         max_length=10,
         null=True,
+        blank=True,
         help_text='color of archaeological find'
     )
     lip = models.ForeignKey(
         'PotteryLipShape',
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name='findings'
     )
     ornament = models.ForeignKey(
         'PotteryOrnamentShape',
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name='findings'
     )
     note = models.CharField(
         'note',
         max_length=500,
         null=True,
+        blank=True,
         help_text='enter some text you need'
     )
     research_object = models.ForeignKey(
@@ -159,7 +165,14 @@ class PotteryDescription(models.Model):
     neck_nr = models.IntegerField(
         'neck number',
         null=True,
+        blank=True,
         help_text='temporary field, neck id from old database'
+    )
+    researcher = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
     )
 
     class Meta:

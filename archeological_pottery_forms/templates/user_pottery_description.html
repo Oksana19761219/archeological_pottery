@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Mano radiniai</h1>
+    {% if potterydescription_list %}
+        {% for find in potterydescription_list %}
+            <p>{{find.find_registration_nr}}, {{find.research_object}}</p>
+        {% endfor %}
+    {% else %}
+        <p>Nėra suregistruotų radinių</p>
+    {% endif %}
+
+{% endblock %}

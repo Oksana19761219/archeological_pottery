@@ -85,6 +85,15 @@ def register(request):
     return render(request, 'register.html')
 
 
+class UserPotteryListView(LoginRequiredMixin,generic.ListView):
+    model = PotteryDescription
+    template_name = 'user_pottery_description.html'
+
+    def get_queryset(self):
+        return PotteryDescription.objects.filter(researcher=self.request.user)
+
+
+
 
 # class PotteryDescriptionView(FormMixin, generic.DetailView):
 #     model = PotteryDescription
@@ -108,21 +117,21 @@ def register(request):
 #         # print('ok')
 #         return super(PotteryDescriptionView, self).form_valid(form)
 
-class PotteryDescriptionCreateView(LoginRequiredMixin, CreateView):
-    model = PotteryDescription
-    fields = [
-        'find_registration_nr',
-        'arc_length',
-        'color',
-        'lip',
-        'ornament',
-        'note',
-        'research_object'
-    ]
-    success_url = '/pottery/object/'
-    template_name = 'object.html'
-
-    def form_valid(self, form):
-        form.instance.reader = self.request.user
-        return super().form_valid(form)
+# class PotteryDescriptionCreateView(LoginRequiredMixin, CreateView):
+#     model = PotteryDescription
+#     fields = [
+#         'find_registration_nr',
+#         'arc_length',
+#         'color',
+#         'lip',
+#         'ornament',
+#         'note',
+#         'research_object'
+#     ]
+#     success_url = '/pottery/object/'
+#     template_name = 'object.html'
+#
+#     def form_valid(self, form):
+#         form.instance.reader = self.request.user
+#         return super().form_valid(form)
 
