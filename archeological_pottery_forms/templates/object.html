@@ -8,4 +8,11 @@
         <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
     {% endfor %}
 
+
+    <form action="" method="post">
+      {{ form.content }}
+      <input type="submit" value="Submit">
+    </form>
+
+
 {% endblock %}
