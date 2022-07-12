@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 # Create your models here.
 
 
@@ -81,6 +82,7 @@ class PotteryMakingAction(models.Model):
         'sequence',
         null=True
     )
+
     class Meta:
         ordering = ['sequence', 'action']
 
@@ -205,6 +207,11 @@ class ResearchObject(models.Model):
     research_type = models.CharField(
         'research type',
         max_length=250
+    )
+    description = HTMLField(
+        'description',
+        null=True,
+        blank=True
     )
 
     class Meta:

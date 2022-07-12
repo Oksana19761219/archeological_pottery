@@ -58,7 +58,8 @@ class PotteryDescriptionAdmin(admin.ModelAdmin):
 class ResearchObjectAdmin(admin.ModelAdmin):
     list_display = ('name',
                     'year',
-                    'research_type')
+                    'research_type',
+                    'description')
     list_filter = ('research_type',)
     search_fields = ('name',
                     'year')
