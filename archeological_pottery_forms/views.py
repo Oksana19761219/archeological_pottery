@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
@@ -47,6 +48,8 @@ def bibliography(request):
     return render(request, 'bibliography.html', context=context)
 
 
+
+
 def object(request, object_id):
     single_object = get_object_or_404(ResearchObject, pk=object_id)
     reports = Bibliography.objects.filter(research_object__exact = object_id)
@@ -93,45 +96,40 @@ class UserPotteryListView(LoginRequiredMixin,generic.ListView):
         return PotteryDescription.objects.filter(researcher=self.request.user)
 
 
+@csrf_protect
+def get_pottery_description(request):
+    if request.method == 'POST':
+        form = PotteryDescriptionForm(request.POST)
+        if form.is_valid():
+            find_registration_nr = form.cleaned_data['find_registration_nr']
+            arc_length = form.cleaned_data['arc_length']
+            color = form.cleaned_data['color']
+            lip_id = form.cleaned_data['lip_id']
+            ornament_id = form.cleaned_data['ornament_id']
+            note = form.cleaned_data['note']
+            research_object_id = form.cleaned_data['research_object_id']
+
+            data = PotteryDescription(
+                find_registration_nr=find_registration_nr,
+                arc_length=arc_length,
+                color=color,
+                lip_id=lip_id,
+                ornament_id=ornament_id,
+                note=note,
+                research_object_id=research_object_id
+            )
+            data.save()
+
+    else:
+        form = PotteryDescriptionForm()
+    return render(request, 'pottery_description.html', {'form': form})
 
 
-# class PotteryDescriptionView(FormMixin, generic.DetailView):
-#     model = PotteryDescription
-#     template_name = 'object.html'
-#     form_class = PotteryDescriptionForm
-#
-#     def get_success_url(self):
-#         return reverse('object', kwargs={'pk': self.object.id})
-#
-#     def post(self, request, *args, **kwargs):
-#         self.object = self.get_object()
-#         form = self.get_form()
-#         if form.is_valid():
-#             return self.form_valid(form)
-#         else:
-#             return self.form_invalid(form)
-#
-#     def form_valid(self, form):
-#         form.instance.research_object = self.object
-#         # form.save()
-#         # print('ok')
-#         return super(PotteryDescriptionView, self).form_valid(form)
 
-# class PotteryDescriptionCreateView(LoginRequiredMixin, CreateView):
-#     model = PotteryDescription
-#     fields = [
-#         'find_registration_nr',
-#         'arc_length',
-#         'color',
-#         'lip',
-#         'ornament',
-#         'note',
-#         'research_object'
-#     ]
-#     success_url = '/pottery/object/'
-#     template_name = 'object.html'
-#
-#     def form_valid(self, form):
-#         form.instance.reader = self.request.user
-#         return super().form_valid(form)
+
+
+
+
+
+
 
