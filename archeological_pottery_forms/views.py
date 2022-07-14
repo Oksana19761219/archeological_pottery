@@ -18,6 +18,9 @@ from .models import \
 from .forms import PotteryDescriptionForm
 
 
+def index(request):
+    return render(request, 'index.html')
+
 
 def search(request):
     query = request.GET.get('query')
@@ -112,7 +115,6 @@ def get_pottery_description(request):
             )
             data.save()
             form = PotteryDescriptionForm()
-
     else:
         form = PotteryDescriptionForm()
     return render(request, 'pottery_description.html', {'form': form})

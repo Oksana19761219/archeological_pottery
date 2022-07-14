@@ -22,3 +22,13 @@ class PotteryDescriptionForm(forms.ModelForm):
             'research_object_id',
         )
         # widgets = {'research_object': forms.HiddenInput()}
+
+    def __init__(self, *args, **kwargs):
+        super(PotteryDescriptionForm, self).__init__(*args, **kwargs)
+        self.fields['find_registration_nr'].widget.attrs.update({'class': 'form-control'})
+        self.fields['arc_length'].widget.attrs.update({'class': 'form-control'})
+        self.fields['color'].widget.attrs.update({'class': 'form-control'})
+        self.fields['lip_id'].widget.attrs.update({'class': 'form-control'})
+        self.fields['ornament_id'].widget.attrs.update({'class': 'form-control'})
+        self.fields['note'].widget.attrs.update({'class': 'form-control'})
+        self.fields['research_object_id'].widget.attrs.update({'class': 'form-control'})
