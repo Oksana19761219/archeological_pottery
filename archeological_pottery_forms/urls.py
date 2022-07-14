@@ -9,7 +9,9 @@ urlpatterns = [
     path('object/<int:object_id>', views.object, name='object'),
     path('register/', views.register, name='register'),
     path('my_pottery/', views.UserPotteryListView.as_view(), name='my_pottery'),
-    path('pottery_description/', views.get_pottery_description, name='pottery_description'),
+    path('describe/', views.get_pottery_description, name='describe'),
+    path('read_drawings', views.read_drawings, name='read_drawings')
+
 ]
 
 

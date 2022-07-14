@@ -117,6 +117,8 @@ def get_pottery_description(request):
             form = PotteryDescriptionForm()
     else:
         form = PotteryDescriptionForm()
-    return render(request, 'pottery_description.html', {'form': form})
+    return render(request, 'describe.html', {'form': form})
 
 
+def read_drawings(request):
+    return render(request, 'read_drawings.html')
