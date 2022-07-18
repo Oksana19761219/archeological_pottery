@@ -32,3 +32,17 @@ class PotteryDescriptionForm(forms.ModelForm):
         self.fields['ornament_id'].widget.attrs.update({'class': 'form-control'})
         self.fields['note'].widget.attrs.update({'class': 'form-control'})
         self.fields['research_object_id'].widget.attrs.update({'class': 'form-control'})
+
+
+
+
+
+class DrawingForm(forms.Form):
+    # drawing = forms.ImageField(label='drawing', widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    drawing1 = forms.ImageField()
+
+
+
+
+
+

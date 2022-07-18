@@ -93,7 +93,7 @@ class PotteryMakingAction(models.Model):
 class PotteryLipShape(models.Model):
     lip_form = models.ImageField(
         'Lip form',
-        upload_to='images',
+        upload_to='pottery_form_types',
         null=True
     )
     lip_nr = models.IntegerField(
@@ -107,7 +107,7 @@ class PotteryLipShape(models.Model):
 class PotteryOrnamentShape(models.Model):
     ornament_form = models.ImageField(
         'ornament form',
-        upload_to='images',
+        upload_to='pottery_form_types',
         null=True
     )
     ornament_nr = models.IntegerField(
@@ -176,6 +176,12 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
+    drawing = models.ImageField(
+        'drawing',
+        upload_to='drawings',
+        null=True
+    )
+
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']

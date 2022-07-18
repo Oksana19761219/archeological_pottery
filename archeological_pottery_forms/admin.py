@@ -38,19 +38,21 @@ class BibliographicReferenceAdmin(admin.ModelAdmin):
 
 
 class PotteryDescriptionAdmin(admin.ModelAdmin):
-    list_display = ('researcher',
+    list_display = ('research_object',
                     'find_registration_nr',
+                    'drawing',
                     'arc_length',
                     'color',
                     'lip',
                     'ornament',
                     'note',
-                    'research_object',
-                    'neck_nr')
+                    'researcher',
+                    'neck_nr',
+                    )
     list_filter = ('lip',
-                   'ornament')
+                   'ornament',)
     fieldsets = (
-        ('General', {'fields': ('find_registration_nr', 'research_object', 'researcher')}),
+        ('General', {'fields': ('find_registration_nr', 'research_object', 'researcher', 'drawing')}),
         ('Description', {'fields': ('arc_length','color', 'lip', 'ornament', 'neck_nr')}),
         ('Note', {'fields': ('note',)}),
     )

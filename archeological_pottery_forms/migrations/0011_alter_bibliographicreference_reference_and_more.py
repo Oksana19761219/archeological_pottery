@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='potteryornamentshape',
             name='ornament_form',
-            field=models.ImageField(null=True, upload_to='images', verbose_name='ornament form'),
+            field=models.ImageField(null=True, upload_to='pottery_form_types', verbose_name='ornament form'),
         ),
         migrations.CreateModel(
             name='PotteryDescription',

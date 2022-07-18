@@ -10,7 +10,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('my_pottery/', views.UserPotteryListView.as_view(), name='my_pottery'),
     path('describe/', views.get_pottery_description, name='describe'),
-    path('read_drawings', views.read_drawings, name='read_drawings')
+    path('read_drawings/', views.read_drawings, name='read_drawings')
 
 ]
 
