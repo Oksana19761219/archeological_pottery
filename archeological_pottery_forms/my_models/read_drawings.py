@@ -3,8 +3,9 @@ import numpy as np
 import pandas as pd
 
 
-def get_data_from_image(im):
-    data = im.getdata()
+
+def get_data_from_image(image):
+    data = image.getdata()
     data_np = np.array(data)
     return data_np
 

@@ -50,23 +50,3 @@ padaryti, kad būtų galima ištrinti neteisingai nuskaitytas koordinates (tuome
 
 
 
-
-
-
-
-        <div class="card">
-      <div class="card-body">
-        <form action="" method="post">
-            {% csrf_token %}
-            <div class="input-group mb-3">
-
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" multiple name="file">
-                <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
-              </div>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary register-button">Submit</button>
-        </form>
-      </div>
-    </div>

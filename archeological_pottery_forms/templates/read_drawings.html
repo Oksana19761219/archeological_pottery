@@ -1,27 +1,25 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 
-{% if user.is_authenticated %}
-
-    <div class="card">
-      <div class="card-body">
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form}}
-
-            <br>
-            <button type="submit" class="btn btn-primary register-button">Submit</button>
-            {% if form.errors%}
-            {{form.errors}}
-            {{ form.non_field_errors }}
-            {% endif %}
-        </form>
-
-      </div>
-    </div>
-
+    {% if user.is_authenticated %}
+        <br>
+        <div class="container">
+          <div class="row align-items-start">
+            <div class="col">
+              <form action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{form}}
+                  <br>
+                  <button type="submit" class="btn btn-primary register-button">Submit</button>
+              </form>
+            </div>
+            <div class="col">
+               <img src="{% static "media/drawing_example.png" %}" alt="home" >
+            </div>
+          </div>
 
     {% endif %}
 

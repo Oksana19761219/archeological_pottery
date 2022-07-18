@@ -18,6 +18,7 @@ from .models import \
 from .forms import \
     PotteryDescriptionForm, DrawingForm
 from PIL import Image
+from .my_models.read_drawings import transform_image, get_contour_coords
 
 
 def index(request):
@@ -122,48 +123,23 @@ def get_pottery_description(request):
 @csrf_protect
 def read_drawings(request):
     if request.method == 'POST':
-        print('post')
-        print(request.POST)
-        print(request.FILES)
-
         form = DrawingForm(request.POST, request.FILES)
-        print(form)
         if form.is_valid():
-            print('form is valid')
-            # files = request.FILES['drawing']
-            # for file in files:
-            #     data = file.read()
-            #     print(type(data))
-        else:
-            print('form is not valid')
+            files = request.FILES.getlist('drawing')
+            frame_width = int(request.POST['frame_width'])
+            frame_height = int(request.POST['frame_height'])
+            frame_color = request.POST['frame_color']
+            ceramic_color = request.POST['ceramic_color']
+            if files and frame_width>0 and frame_height>0:
+                for file in files:
+                    image = Image.open(file)
+                    image.show()
+                    transformed_image = transform_image(image, frame_color, frame_width, frame_height)
+                    transformed_image.show()
+        form = DrawingForm()
     else:
-        print(request.method)
         form = DrawingForm()
     return render(request, 'read_drawings.html', {'form': form})
-    # return render(request, 'read_drawings.html')
 
 
 
-
-
-
-
-
-
-
-# class FileFieldFormView(generic.FormView):
-#     form_class = FileFieldForm
-#     template_name = 'read_drawings.html'  # Replace with your template.
-#     # success_url = 'read_drawings'  # Replace with your URL or reverse().
-#
-#     def post(self, request, *args, **kwargs):
-#         form_class = self.get_form_class()
-#         form = self.get_form(form_class)
-#         files = request.FILES.getlist('file_field')
-#         if form.is_valid():
-#
-#
-#
-#             return self.form_valid(form)
-#         else:
-#             return self.form_invalid(form)

@@ -34,15 +34,25 @@ class PotteryDescriptionForm(forms.ModelForm):
         self.fields['research_object_id'].widget.attrs.update({'class': 'form-control'})
 
 
-
-
+COLOR_CHOICES = (
+    ('red', 'red'),
+    ('green', 'green'),
+    ('blue', 'blue'),
+    ('black', 'black')
+)
 
 class DrawingForm(forms.Form):
-    # drawing = forms.ImageField(label='drawing', widget=forms.ClearableFileInput(attrs={'multiple': True}))
-    drawing1 = forms.ImageField()
+    drawing = forms.ImageField(label='drawings', widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    frame_width = forms.IntegerField(label='frame width, mm')
+    frame_height = forms.IntegerField(label='frame height, mm')
+    frame_color = forms.ChoiceField(label='frame color', choices=COLOR_CHOICES)
+    ceramic_color = forms.ChoiceField(label='ceramic color', choices=COLOR_CHOICES)
 
-
-
-
-
+    def __init__(self, *args, **kwargs):
+        super(DrawingForm, self).__init__(*args, **kwargs)
+        self.fields['drawing'].widget.attrs.update({'class': 'form-control'})
+        self.fields['frame_width'].widget.attrs.update({'class': 'form-control'})
+        self.fields['frame_height'].widget.attrs.update({'class': 'form-control'})
+        self.fields['frame_color'].widget.attrs.update({'class': 'form-control'})
+        self.fields['ceramic_color'].widget.attrs.update({'class': 'form-control'})
 
