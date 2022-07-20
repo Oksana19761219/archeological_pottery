@@ -4,13 +4,22 @@ import pandas as pd
 
 
 
-def get_data_from_image(image):
+def flip_image(image, ceramic_orientation):
+    if ceramic_orientation == 'left':
+        image = image.transpose(Image.FLIP_TOP_BOTTOM)
+    elif ceramic_orientation == 'right':
+        image = image.transpose(Image.FLIP_LEFT_RIGHT)
+        image = image.transpose(Image.FLIP_TOP_BOTTOM)
+    return image
+
+
+def _get_data_from_image(image):
     data = image.getdata()
     data_np = np.array(data)
     return data_np
 
 
-def select_color(r, g, b, color):
+def _select_color(r, g, b, color):
     colors = {'red' : (r > 200) & (r - g > 150) & (r - b > 150),
               'green' : (g > 200) & (g - r > 100) & (g - b > 100),
               'blue' : (b > 200) & (b - g > 150) & (b - r > 150),
@@ -20,29 +29,31 @@ def select_color(r, g, b, color):
     return colors[color]
 
 
-def find_pixels(image, selected_color):
-    pixels = get_data_from_image(image)
+def _find_pixels(image, selected_color):
+    pixels = _get_data_from_image(image)
     r, g, b = pixels[:,0], pixels[:, 1], pixels[:,2]
-    color = select_color(r, g, b, selected_color)
+    color = _select_color(r, g, b, selected_color)
     pixel_place = np.where(color)
     return pixel_place
 
-def calculate_pixel_coords(pixel_index, image_width):
+
+def _calculate_pixel_coords(pixel_index, image_width):
+
     x = pixel_index % image_width
     y = pixel_index // image_width
     return x, y
 
 
-def get_pixels_coords(image, selected_color):
-    pixel_place = find_pixels(image, selected_color)
-    calculate_coordinates_v = np.vectorize(calculate_pixel_coords)
+def _get_pixels_coords(image, selected_color):
+    pixel_place = _find_pixels(image, selected_color)
+    calculate_coordinates_v = np.vectorize(_calculate_pixel_coords)
     image_width = image.size[0]
     x, y = calculate_coordinates_v(pixel_place, image_width)
     return x, y
 
 
-def find_frame_corners_coords(image, selected_color):
-    x, y = get_pixels_coords(image, selected_color)
+def _find_frame_corners_coords(image, selected_color):
+    x, y = _get_pixels_coords(image, selected_color)
     coordinates = list(zip(x[0], y[0]))
     x_avg, y_avg = np.average(x), np.average(y)
     top_left = [c for c in coordinates if c[0] < x_avg and c[1] < y_avg]
@@ -53,7 +64,7 @@ def find_frame_corners_coords(image, selected_color):
     return frame_coords
 
 
-def calculate_transform_coeffs(new_coords, old_coords):
+def _calculate_transform_coeffs(new_coords, old_coords):
     """
     calculate coefficients for image perspective transformation
     based on 4 points coordinates
@@ -72,7 +83,7 @@ def calculate_transform_coeffs(new_coords, old_coords):
     return coeffs
 
 
-def calculate_new_frame_coords(old_frame_coords):
+def _calculate_new_frame_coords(old_frame_coords):
     top_left, \
     top_right, \
     bottom_left, \
@@ -89,7 +100,7 @@ def calculate_new_frame_coords(old_frame_coords):
     return new_frame_coords
 
 
-def resize_image(image, frame_width_mm, frame_height_mm, frame_coords):
+def _resize_image(image, frame_width_mm, frame_height_mm, frame_coords):
 
     frame_width_px = frame_coords[1][0] - frame_coords[0][0]
     frame_height_px = frame_coords[2][1] - frame_coords[0][1]
@@ -106,30 +117,45 @@ def resize_image(image, frame_width_mm, frame_height_mm, frame_coords):
     return image
 
 
-def transform_image(image, selected_color, frame_width, frame_height):
-    old_frame_coords = find_frame_corners_coords(image, selected_color)
-    new_frame_coords = calculate_new_frame_coords(old_frame_coords)
-    coeffs = calculate_transform_coeffs(new_frame_coords, old_frame_coords)
+def orthogonalize_image(image, selected_color, frame_width, frame_height):
+    old_frame_coords = _find_frame_corners_coords(image, selected_color)
+    new_frame_coords = _calculate_new_frame_coords(old_frame_coords)
+    coeffs = _calculate_transform_coeffs(new_frame_coords, old_frame_coords)
     width, height = image.size
     image = image.transform((width, height),
                             Image.Transform.PERSPECTIVE, coeffs,
                             Image.Resampling.BICUBIC)
-    image = resize_image(image, frame_width, frame_height, new_frame_coords)
+    image = _resize_image(image, frame_width, frame_height, new_frame_coords)
     return image
 
 
-def get_contour_coords(image, selected_color):
-    x, y = get_pixels_coords(image, selected_color)
-    coords_all = pd.DataFrame({'x': x[0], 'y': y[0]})
-    coords_grouped = coords_all.groupby('x')
+def _scan_contour(coordinates, group_field, diff_field):
+    coords_grouped = coordinates.groupby(group_field)
     coords_min = coords_grouped.min().reset_index()
     coords_max = coords_grouped.max().reset_index()
 
-    indexes_intermediate = list(coords_grouped.diff(periods=1)
-                                [coords_grouped.diff(periods=1)['y'] > 1]
+    inner_contour_indexes = list(coords_grouped.diff(periods=1)
+                                [coords_grouped.diff(periods=1)[diff_field] > 1]
                                 .index)
-    coords_intermediate = coords_all.iloc[indexes_intermediate]
+    inner_contour_indexes = inner_contour_indexes + [index-1 for index in inner_contour_indexes]
+    inner_contour_coords = coordinates.iloc[inner_contour_indexes]
 
-    coords_contour = pd.concat([coords_min, coords_max, coords_intermediate])
+    coords_contour = pd.concat([coords_min, coords_max, inner_contour_coords])
     return coords_contour
 
+
+def get_contour_coords(image, ceramic_color, frame_color):
+    x, y = _get_pixels_coords(image, ceramic_color)
+    coords = pd.DataFrame({'x': x[0], 'y': y[0]})
+    coords_scanned_x_axis = _scan_contour(coords, 'x', 'y')
+    coords_snanned_y_axis = _scan_contour(coords, 'y', 'x')
+    coords_all = pd.concat([coords_scanned_x_axis, coords_snanned_y_axis])\
+                            .drop_duplicates()\
+                            .sort_values(by=['x', 'y'])
+
+    ceramic_center_x_coord = _find_frame_corners_coords(image, frame_color)[0][0]
+    ceramic_center_y_coord = coords_all['y'].min()
+
+    coords_all['x'] = coords_all['x'].apply(lambda  x: x-ceramic_center_x_coord)
+    coords_all['y'] = coords_all['y'].apply(lambda y: y - ceramic_center_y_coord)
+    return coords_all

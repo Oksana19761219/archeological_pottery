@@ -18,7 +18,10 @@ from .models import \
 from .forms import \
     PotteryDescriptionForm, DrawingForm
 from PIL import Image
-from .my_models.read_drawings import transform_image, get_contour_coords
+from .my_models.read_drawings import \
+    orthogonalize_image, \
+    get_contour_coords, \
+    flip_image
 
 
 def index(request):
@@ -41,19 +44,6 @@ def search(request):
         'query': query
     }
     return render(request,'search.html', context=context)
-
-
-def bibliography(request):
-    reports = Bibliography.objects.all()
-    reports_count = Bibliography.objects.all().count()
-    context = {
-        'reports': reports,
-        'reports_count': reports_count
-               }
-
-    return render(request, 'bibliography.html', context=context)
-
-
 
 
 @csrf_protect
@@ -127,7 +117,6 @@ def get_pottery_description(request, object_id):
 
 @csrf_protect
 def read_drawings(request, object_id):
-
     if request.method == 'POST':
         form = DrawingForm(request.POST, request.FILES)
         if form.is_valid():
@@ -141,12 +130,12 @@ def read_drawings(request, object_id):
             if files and frame_width>0 and frame_height>0:
                 for file in files:
                     file_name = str(file).split('.')[0]
-                    print(file_name)
                     image = Image.open(file)
-                    # transformed_image = transform_image(image, frame_color, frame_width, frame_height)
-                    # transformed_image.show()
-                    # coords = get_contour_coords(transformed_image, ceramic_color)
-                    # print(coords)
+                    flipped_image = flip_image(image, ceramic_orientation)
+                    ortho_image = orthogonalize_image(flipped_image, frame_color, frame_width, frame_height)
+                    # ortho_image.show()
+                    contour_coords = get_contour_coords(ortho_image, ceramic_color, frame_color)
+                    print(contour_coords)
         form = DrawingForm()
     else:
         form = DrawingForm()
