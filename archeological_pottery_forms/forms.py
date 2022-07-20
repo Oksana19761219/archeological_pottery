@@ -8,7 +8,6 @@ class PotteryDescriptionForm(forms.ModelForm):
     lip_id = forms.IntegerField(label='lip id', required=False)
     ornament_id = forms.IntegerField(label='ornament id', required=False)
     note = forms.CharField(label='note', max_length=500, required=False)
-    research_object_id = forms.IntegerField(label='research object id')
 
     class Meta:
         model = PotteryDescription
@@ -19,9 +18,7 @@ class PotteryDescriptionForm(forms.ModelForm):
             'lip_id',
             'ornament_id',
             'note',
-            'research_object_id',
         )
-        # widgets = {'research_object': forms.HiddenInput()}
 
     def __init__(self, *args, **kwargs):
         super(PotteryDescriptionForm, self).__init__(*args, **kwargs)
@@ -31,7 +28,6 @@ class PotteryDescriptionForm(forms.ModelForm):
         self.fields['lip_id'].widget.attrs.update({'class': 'form-control'})
         self.fields['ornament_id'].widget.attrs.update({'class': 'form-control'})
         self.fields['note'].widget.attrs.update({'class': 'form-control'})
-        self.fields['research_object_id'].widget.attrs.update({'class': 'form-control'})
 
 
 COLOR_CHOICES = (
@@ -41,12 +37,18 @@ COLOR_CHOICES = (
     ('black', 'black')
 )
 
+ORIENTATION_CHOICES = (
+    ('left', 'left'),
+    ('right', 'right')
+)
+
 class DrawingForm(forms.Form):
     drawing = forms.ImageField(label='drawings', widget=forms.ClearableFileInput(attrs={'multiple': True}))
     frame_width = forms.IntegerField(label='frame width, mm')
     frame_height = forms.IntegerField(label='frame height, mm')
     frame_color = forms.ChoiceField(label='frame color', choices=COLOR_CHOICES)
     ceramic_color = forms.ChoiceField(label='ceramic color', choices=COLOR_CHOICES)
+    ceramic_orientation = forms.ChoiceField(label='ceramic orientation', choices=ORIENTATION_CHOICES)
 
     def __init__(self, *args, **kwargs):
         super(DrawingForm, self).__init__(*args, **kwargs)
@@ -55,4 +57,5 @@ class DrawingForm(forms.Form):
         self.fields['frame_height'].widget.attrs.update({'class': 'form-control'})
         self.fields['frame_color'].widget.attrs.update({'class': 'form-control'})
         self.fields['ceramic_color'].widget.attrs.update({'class': 'form-control'})
+        self.fields['ceramic_orientation'].widget.attrs.update({'class': 'form-control'})
 

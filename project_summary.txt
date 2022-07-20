@@ -50,3 +50,10 @@ padaryti, kad būtų galima ištrinti neteisingai nuskaitytas koordinates (tuome
 
 
 
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'read_drawings'%}">Read drawings</a>
+            </li>
+
+                        <li class="nav-item">
+                <a class="nav-link" href="{% url 'describe'%}">Describe</a>
+            </li>

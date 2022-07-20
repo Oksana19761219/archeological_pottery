@@ -121,12 +121,12 @@ def transform_image(image, selected_color, frame_width, frame_height):
 def get_contour_coords(image, selected_color):
     x, y = get_pixels_coords(image, selected_color)
     coords_all = pd.DataFrame({'x': x[0], 'y': y[0]})
-    coords_grouped = coords_all.groupby('y')
+    coords_grouped = coords_all.groupby('x')
     coords_min = coords_grouped.min().reset_index()
     coords_max = coords_grouped.max().reset_index()
 
     indexes_intermediate = list(coords_grouped.diff(periods=1)
-                                [coords_grouped.diff(periods=1)['x'] > 1]
+                                [coords_grouped.diff(periods=1)['y'] > 1]
                                 .index)
     coords_intermediate = coords_all.iloc[indexes_intermediate]
 

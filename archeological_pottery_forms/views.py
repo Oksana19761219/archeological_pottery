@@ -56,16 +56,6 @@ def bibliography(request):
 
 
 
-def object(request, object_id):
-    single_object = get_object_or_404(ResearchObject, pk=object_id)
-    reports = Bibliography.objects.filter(research_object__exact = object_id)
-    context = {
-        'object': single_object,
-        'reports': reports,
-    }
-    return render(request, 'object.html', context=context)
-
-
 @csrf_protect
 def register(request):
     if request.method == "POST":
@@ -98,7 +88,22 @@ class UserPotteryListView(LoginRequiredMixin,generic.ListView):
 
 
 @csrf_protect
-def get_pottery_description(request):
+def object(request, object_id):
+    single_object = get_object_or_404(ResearchObject, pk=object_id)
+    reports = Bibliography.objects.filter(research_object__exact = object_id)
+    context = {
+        'object': single_object,
+        'reports': reports,
+    }
+    if request.method == 'POST' and 'describe' in request.POST:
+        return HttpResponseRedirect(reverse('describe', args=[object_id]))
+    elif request.method == 'POST' and 'read_drawings' in request.POST:
+        return HttpResponseRedirect(reverse('read_drawings', args=[object_id]))
+    return render(request, 'object.html', context=context)
+
+
+@csrf_protect
+def get_pottery_description(request, object_id):
     if request.method == 'POST':
         form = PotteryDescriptionForm(request.POST)
         if form.is_valid():
@@ -109,7 +114,7 @@ def get_pottery_description(request):
                 lip_id=form.cleaned_data['lip_id'],
                 ornament_id=form.cleaned_data['ornament_id'],
                 note=form.cleaned_data['note'],
-                research_object_id=form.cleaned_data['research_object_id']
+                research_object_id=object_id
             )
             data.save()
             form = PotteryDescriptionForm()
@@ -121,7 +126,8 @@ def get_pottery_description(request):
 
 
 @csrf_protect
-def read_drawings(request):
+def read_drawings(request, object_id):
+
     if request.method == 'POST':
         form = DrawingForm(request.POST, request.FILES)
         if form.is_valid():
@@ -130,16 +136,21 @@ def read_drawings(request):
             frame_height = int(request.POST['frame_height'])
             frame_color = request.POST['frame_color']
             ceramic_color = request.POST['ceramic_color']
+            ceramic_orientation = request.POST['ceramic_orientation']
+
             if files and frame_width>0 and frame_height>0:
                 for file in files:
+                    file_name = str(file).split('.')[0]
+                    print(file_name)
                     image = Image.open(file)
-                    image.show()
-                    transformed_image = transform_image(image, frame_color, frame_width, frame_height)
-                    transformed_image.show()
+                    # transformed_image = transform_image(image, frame_color, frame_width, frame_height)
+                    # transformed_image.show()
+                    # coords = get_contour_coords(transformed_image, ceramic_color)
+                    # print(coords)
         form = DrawingForm()
     else:
         form = DrawingForm()
-    return render(request, 'read_drawings.html', {'form': form})
+    return render(request, 'read_drawings.html', {'form': form} )
 
 
 
