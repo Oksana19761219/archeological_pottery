@@ -1,13 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>
-        <p>vieta projekto santraukai</p>
-    </div>
 
-    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    {% if user.is_authenticated %}
+        <div class="card">
+            <div class="card-body">
+                <p>Archeologinio objekto paieška. Įveskite raktinius žodžius</p>
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                      <button class="btn btn-primary register-button" type="submit">Paieška</button>
+                </form>
+            </div>
+         </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            <p>vieta projekto santraukai :)</p>
+        </div>
+    </div>
 
 
 {% endblock %}

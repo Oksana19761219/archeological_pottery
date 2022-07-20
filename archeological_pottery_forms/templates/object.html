@@ -7,18 +7,27 @@
         <br>
 
         {% if object%}
-            <p>{{object.id}}, {{object.name}}, {{ object.year }}</p>
+            <div class="card">
+              <div class="card-body">
+                <strong>Archeologinių tyrimų objektas: </strong>
+                <p>{{object.name}}, {{ object.year }}</p>
+                <br>
+                <strong>Dokumentai:</strong>
+                {% for report in reports %}
+                    <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
+                {% endfor %}
+              </div>
+            </div>
 
-            {% for report in reports %}
-                <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
-            {% endfor %}
-
-              <form action="" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <button type="submit" class="btn btn-primary register-button" id="describe" name="describe">describe ceramic</button>
-                  <button type="submit" class="btn btn-primary register-button" id="read_drawings" name="read_drawings" >Read drawings</button>
-              </form>
-
+            <div class="card">
+              <div class="card-body">
+                  <form action="" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-primary register-button" id="describe" name="describe">aprašyti radinius</button>
+                      <button type="submit" class="btn btn-primary register-button" id="read_drawings" name="read_drawings" >vektorizuoti brėžinius</button>
+                  </form>
+              </div>
+            </div>
 
         {% endif %}
     {% endif %}

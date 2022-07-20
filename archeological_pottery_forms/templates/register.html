@@ -7,27 +7,27 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="username">User name</label>
+                <label for="username">Vartotojo vardas</label>
                 <input name="username" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
                 <small id="usernameHelp" class="form-text text-muted">up to 150 symbols.</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">email</label>
+                <label for="exampleInputEmail1">el. paštas</label>
                 <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <small id="emailHelp" class="form-text text-muted">Nesidalinsime su niekuo, nesiųsime jokio spamo.
                     Reikalingas naujam slaptažodžiui išsiųsti. </small>
             </div>
             <div class="form-group">
-                <label for="password">password</label>
+                <label for="password">slaptažodis</label>
                 <input name="password" type="password" class="form-control" id="password" aria-describedby="pwdHelp">
                 <small id="pwdHelp" class="form-text text-muted">Ne mažiau, kaip 8 simboliai. Negali būti vien tik
                     skaičiai</small>
             </div>
             <div class="form-group">
-                <label for="password2">repeat password</label>
+                <label for="password2">pakartoti slaptažodį</label>
                 <input name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
             </div>
-            <button type="submit" class="btn btn-primary register-button">Register</button>
+            <button type="submit" class="btn btn-primary register-button">registruotis</button>
         </form>
         {% if messages %}
             {% for message in messages %}
@@ -38,7 +38,7 @@
         {% endif %}
 
 
-        <p>If you have already registered, <a href="/login"><strong>login.</strong></a></p>
+        <p>Jeigu jau užsiregistravote, <a href="/login"><strong>galite prisijungti.</strong></a></p>
     </div>
 
 
