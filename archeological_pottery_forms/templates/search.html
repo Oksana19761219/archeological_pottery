@@ -1,18 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
-  </br>
-  {% if reports %}
-  <ul>
-    {% for report in reports %}
-      <li>
-        <a href="{% url 'object' report.research_object.id %}">{{ report.author }}</a>, {{report.title}}, {{report.report_year}}
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>Oops. Nieko neradome :(</p>
-  {% endif %}
+  <div class="card">
+    <div class="card-body">
+      <strong>Paieškos pagal "{{query}}" rezultatai:</strong>
+      <br>
+      <br>
+      {% if reports %}
+        <ul>
+          {% for report in reports %}
+            <li>
+              <a href="{% url 'object' report.research_object.id %}">{{ report.author }}, {{report.title}}, {{report.report_year}}</a>
+            </li>
+          <br>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Oops. Nieko neradome :(</p>
+      {% endif %}
+    </div>
+  </div>
 
-  {% endblock %}
+{% endblock %}
