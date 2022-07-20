@@ -182,7 +182,6 @@ class PotteryDescription(models.Model):
         null=True
     )
 
-
     class Meta:
         ordering = ['research_object', 'find_registration_nr']
 
@@ -228,3 +227,22 @@ class ResearchObject(models.Model):
     def __str__(self):
         return f'{self.name}, {self.year}, {self.research_type}'
 
+
+class CeramicContour(models.Model):
+    x = models.IntegerField(
+        'x',
+        null=False,
+        blank=False
+    )
+    y = models.IntegerField(
+        'y',
+        null=False,
+        blank=False
+    )
+
+    find = models.ForeignKey(
+        'PotteryDescription',
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False
+    )

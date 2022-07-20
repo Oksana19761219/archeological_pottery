@@ -6,7 +6,9 @@ from .models import \
     PotteryOrnamentShape, \
     PotteryDescription, \
     ResearchObject, \
-    PotteryMakingAction
+    PotteryMakingAction, \
+    CeramicContour
+
 
 # Register your models here.
 
@@ -74,4 +76,4 @@ admin.site.register(PotteryOrnamentShape)
 admin.site.register(PotteryDescription, PotteryDescriptionAdmin)
 admin.site.register(ResearchObject, ResearchObjectAdmin)
 admin.site.register(PotteryMakingAction)
-
+admin.site.register(CeramicContour)
