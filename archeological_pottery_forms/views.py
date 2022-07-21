@@ -2,29 +2,17 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.csrf import csrf_protect
-from django.views.generic import CreateView
 from django.db.models import Q
-from django.views import generic
-from django.views.generic.edit import FormMixin
 from .models import \
     Bibliography, \
-    BibliographicReference, \
-    PotteryLipShape, \
-    PotteryOrnamentShape, \
     PotteryDescription, \
     ResearchObject, \
     CeramicContour
-
 from .forms import \
     PotteryDescriptionForm, DrawingForm
 from PIL import Image
-from .my_models.read_drawings import \
-    orthogonalize_image, \
-    _get_contour_coords, \
-    flip_image, \
-    read_image_data
+from .my_models.read_drawings import read_image_data
 
 
 def index(request):
@@ -70,14 +58,6 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'register.html')
-
-
-class UserPotteryListView(LoginRequiredMixin,generic.ListView):
-    model = PotteryDescription
-    template_name = 'user_pottery_description.html'
-
-    def get_queryset(self):
-        return PotteryDescription.objects.filter(researcher=self.request.user)
 
 
 @csrf_protect
