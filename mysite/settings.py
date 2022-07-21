@@ -179,11 +179,22 @@ TINYMCE_DEFAULT_CONFIG = {
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {name} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'encoding': 'UTF-8',
+            'formatter': 'verbose',
             'filename': 'archeological_pottery_forms/my_models/info.log',
         },
     },

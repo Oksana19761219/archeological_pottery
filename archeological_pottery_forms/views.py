@@ -155,7 +155,7 @@ def _vectorize_files_to_model(
             this_ceramic.distance_to_center = distance_to_pot_center
             this_ceramic.save()
             _write_coordinates_to_model(contour_coords)
-            logger.info(f'įrašytos profilio koordinatės: {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+            logger.info(f'įrašytos profilio koordinatės: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
 
 
 @csrf_protect
