@@ -50,10 +50,9 @@ padaryti, kad būtų galima ištrinti neteisingai nuskaitytas koordinates (tuome
 
 
 
+
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'read_drawings'%}">Read drawings</a>
+                <a class="nav-link" href="{% url 'my_pottery'%}">Mano radiniai</a>
             </li>
 
-                        <li class="nav-item">
-                <a class="nav-link" href="{% url 'describe'%}">Describe</a>
-            </li>
+            ctx.fillRect({{coordinate.x}}, {{coordinate.y}},1,1);

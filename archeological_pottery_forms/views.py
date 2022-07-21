@@ -14,14 +14,17 @@ from .models import \
     PotteryLipShape, \
     PotteryOrnamentShape, \
     PotteryDescription, \
-    ResearchObject
+    ResearchObject, \
+    CeramicContour
+
 from .forms import \
     PotteryDescriptionForm, DrawingForm
 from PIL import Image
 from .my_models.read_drawings import \
     orthogonalize_image, \
-    get_contour_coords, \
-    flip_image
+    _get_contour_coords, \
+    flip_image, \
+    read_image_data
 
 
 def index(request):
@@ -113,10 +116,61 @@ def get_pottery_description(request, object_id):
     return render(request, 'describe.html', {'form': form})
 
 
+def _get_ceramic_id(file, object_id):
+    file_name = str(file).split('.')[0]
+    finds = PotteryDescription.objects.all()
+    queryset = finds.filter(
+        Q(find_registration_nr__exact=file_name) &
+        Q(research_object__exact=object_id)
+    )
+    find_id = []
+    for item in queryset:
+        find_id.append(item.id)
+    if len(find_id) == 1:
+        return find_id[0]
+    print('klaida, dubliuojasi radinių duomenys')
+    return None
+
+
+def _write_coordinates_to_model(coordinates):
+    """How to write a Pandas Dataframe to Django model
+    https://newbedev.com/how-to-write-a-pandas-dataframe-to-django-model"""
+    if not coordinates.empty:
+        df_records = coordinates.to_dict('records')
+        model_instances = [CeramicContour(
+            x=record['x'],
+            y=record['y'],
+            find_id=record['find']
+        ) for record in df_records]
+        CeramicContour.objects.bulk_create(model_instances)
+
+
+def _vectorize_files_to_model(
+        files,
+        frame_width,
+        frame_height,
+        object_id,
+        ceramic_color,
+        frame_color,
+        ceramic_orientation
+):
+    if files and frame_width > 0 and frame_height > 0:
+        for file in files:
+            ceramic_id = _get_ceramic_id(file, object_id)
+            contour_coords = read_image_data(
+                file,
+                ceramic_id,
+                ceramic_color,
+                frame_color,
+                frame_width,
+                frame_height,
+                ceramic_orientation
+            )
+            _write_coordinates_to_model(contour_coords)
 
 
 @csrf_protect
-def read_drawings(request, object_id):
+def vectorize_drawings(request, object_id):
     if request.method == 'POST':
         form = DrawingForm(request.POST, request.FILES)
         if form.is_valid():
@@ -126,20 +180,33 @@ def read_drawings(request, object_id):
             frame_color = request.POST['frame_color']
             ceramic_color = request.POST['ceramic_color']
             ceramic_orientation = request.POST['ceramic_orientation']
-
-            if files and frame_width>0 and frame_height>0:
-                for file in files:
-                    file_name = str(file).split('.')[0]
-                    image = Image.open(file)
-                    flipped_image = flip_image(image, ceramic_orientation)
-                    ortho_image = orthogonalize_image(flipped_image, frame_color, frame_width, frame_height)
-                    # ortho_image.show()
-                    contour_coords = get_contour_coords(ortho_image, ceramic_color, frame_color)
-                    print(contour_coords)
+            _vectorize_files_to_model(
+                files,
+                frame_width,
+                frame_height,
+                object_id,
+                ceramic_color,
+                frame_color,
+                ceramic_orientation
+            )
         form = DrawingForm()
     else:
         form = DrawingForm()
-    return render(request, 'read_drawings.html', {'form': form} )
+    return render(request, 'read_drawings.html', {'form': form})
 
 
+@csrf_protect
+def show_ceramic_profiles(request):
+    queryset = CeramicContour.objects.values_list('find_id').distinct()
+    ceramic_vectorized = PotteryDescription.objects.filter(pk__in=queryset)
+    coordinates = None
 
+    if request.method == 'POST':
+        ceramic_id = int(request.POST['my_ceramic'])
+        coordinates = CeramicContour.objects.filter(find_id=ceramic_id)
+
+    context = {
+        'my_ceramic': ceramic_vectorized,
+        'coordinates': coordinates
+    }
+    return render(request, 'my_ceramic.html', context=context)

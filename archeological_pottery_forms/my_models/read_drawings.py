@@ -144,7 +144,7 @@ def _scan_contour(coordinates, group_field, diff_field):
     return coords_contour
 
 
-def get_contour_coords(image, ceramic_color, frame_color):
+def _get_contour_coords(image, ceramic_color, frame_color, ceramic_id):
     x, y = _get_pixels_coords(image, ceramic_color)
     coords = pd.DataFrame({'x': x[0], 'y': y[0]})
     coords_scanned_x_axis = _scan_contour(coords, 'x', 'y')
@@ -158,4 +158,35 @@ def get_contour_coords(image, ceramic_color, frame_color):
 
     coords_all['x'] = coords_all['x'].apply(lambda  x: x-ceramic_center_x_coord)
     coords_all['y'] = coords_all['y'].apply(lambda y: y - ceramic_center_y_coord)
+    coords_all['find'] = ceramic_id
     return coords_all
+
+
+def read_image_data(file,
+                    ceramic_id,
+                    ceramic_color,
+                    frame_color,
+                    frame_width,
+                    frame_height,
+                    ceramic_orientation):
+    if ceramic_id:
+        image = Image.open(file)
+        flipped_image = flip_image(
+            image,
+            ceramic_orientation
+        )
+        ortho_image = orthogonalize_image(
+            flipped_image,
+            frame_color,
+            frame_width,
+            frame_height
+        )
+        ceramic_contour_coordinates = _get_contour_coords(
+            ortho_image,
+            ceramic_color,
+            frame_color,
+            ceramic_id
+        )
+        return ceramic_contour_coordinates
+    else:
+        return None

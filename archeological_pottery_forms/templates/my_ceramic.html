@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <div class="container">
+          <br>
+          <div class="row align-items-start">
+            <div class="col">
+              {% if my_ceramic %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="my_ceramic">pasirinkite radinį:</label>
+                    <br>
+                    <select class="col" name="my_ceramic" id="my_ceramic" multiple>
+                        {% for object in my_ceramic %}
+                            <option value="{{object.id}}">reg. nr. {{object.find_registration_nr}}, {{object.research_object}}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-primary register-button">Ok</button>
+                </form>
+              {% endif %}
+            </div>
+            <div class="col">
+                <canvas id="myCanvas" width="600" height="500" class="border"></canvas>
+                <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "#FF0000";
+                    {% if coordinates%}
+                        {% for coordinate in coordinates %}
+                            ctx.fillRect({{coordinate.x}}, {{coordinate.y}},1,1);
+                        {% endfor %}
+                    {% endif %}
+                </script>
+            </div>
+          </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

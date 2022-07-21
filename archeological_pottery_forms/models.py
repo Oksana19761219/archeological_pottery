@@ -244,5 +244,6 @@ class CeramicContour(models.Model):
         'PotteryDescription',
         on_delete=models.CASCADE,
         null=False,
-        blank=False
+        blank=False,
+        related_name='coordinates'
     )

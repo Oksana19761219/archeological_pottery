@@ -26,9 +26,8 @@
 
         {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'my_pottery'%}">Mano radiniai</a>
+                <a class="nav-link" href="{% url 'my_ceramic'%}">Mano radiniai</a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Atsijungti</a>
             </li>
