@@ -107,8 +107,8 @@ def _resize_image(image, frame_width_mm, frame_height_mm, frame_coords):
 
     image_width, image_height = image.size
 
-    width_coeff = frame_width_mm / frame_width_px
-    height_coeff = frame_height_mm / frame_height_px
+    width_coeff = (frame_width_mm / frame_width_px)*5 # result: image dpi= 5px/mm
+    height_coeff = (frame_height_mm / frame_height_px)*5 # result: image dpi= 5px/mm
 
     new_image_width = int(image_width * width_coeff)
     new_image_height = int(image_height * height_coeff)
@@ -153,13 +153,14 @@ def _get_contour_coords(image, ceramic_color, frame_color, ceramic_id):
                             .drop_duplicates()\
                             .sort_values(by=['x', 'y'])
 
-    ceramic_center_x_coord = _find_frame_corners_coords(image, frame_color)[0][0]
-    ceramic_center_y_coord = coords_all['y'].min()
+    x_min = coords_all['x'].min()
+    y_min = coords_all['y'].min()
+    distance_to_pot_center = _find_frame_corners_coords(image, frame_color)[0][0] - x_min
 
-    coords_all['x'] = coords_all['x'].apply(lambda  x: x-ceramic_center_x_coord)
-    coords_all['y'] = coords_all['y'].apply(lambda y: y - ceramic_center_y_coord)
+    coords_all['x'] = coords_all['x'].apply(lambda  x: x-x_min)
+    coords_all['y'] = coords_all['y'].apply(lambda y: y - y_min)
     coords_all['find'] = ceramic_id
-    return coords_all
+    return coords_all, distance_to_pot_center
 
 
 def read_image_data(file,
@@ -181,12 +182,12 @@ def read_image_data(file,
             frame_width,
             frame_height
         )
-        ceramic_contour_coordinates = _get_contour_coords(
+        ceramic_contour_coordinates, distance_to_pot_center = _get_contour_coords(
             ortho_image,
             ceramic_color,
             frame_color,
             ceramic_id
         )
-        return ceramic_contour_coordinates
+        return ceramic_contour_coordinates, distance_to_pot_center
     else:
         return None

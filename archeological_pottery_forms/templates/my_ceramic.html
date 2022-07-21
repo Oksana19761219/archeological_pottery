@@ -14,26 +14,35 @@
                 <label for="my_ceramic">pasirinkite radinį:</label>
                 <br>
                 <select class="col" name="my_ceramic" id="my_ceramic" multiple>
-                    {% for object in my_ceramic %}
-                    <option value="{{object.id}}">reg. nr. {{object.find_registration_nr}}, {{object.research_object}}</option>
+                    {% for item in my_ceramic %}
+                    <option value="{{item.id}}">reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</option>
                     {% endfor %}
                 </select>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary register-button">Parodyti profilį</button>
+                <button type="submit" class="btn btn-primary register-button" id="show" name="show">Parodyti profilį</button>
+                <button type="submit" class="btn btn-primary register-button" id="delete" name="delete">Trinti</button>
             </form>
+            {% else %}
+            <p>duomenų nėra</p>
             {% endif %}
         </div>
         <div class="col">
+            {% if profile_description %}
+                {% for item in profile_description %}
+                    <p>reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</p>
+                {% endfor %}
+            {% endif %}
+
             <canvas id="myCanvas" width="600" height="500" class="border"></canvas>
             <script>
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
-                    ctx.scale(3, 3);
-                    ctx.fillStyle = "#FF0000";
-                    {% if coordinates%}
-                        {% for coordinate in coordinates %}
-                            ctx.fillRect({{coordinate.x}}, {{coordinate.y}},1,1);
+                    ctx.scale(1, 1);
+<!--                    ctx.fillStyle = "#FF0000";-->
+                    {% if profile%}
+                        {% for pixel in profile %}
+                            ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
                         {% endfor %}
                     {% endif %}
             </script>

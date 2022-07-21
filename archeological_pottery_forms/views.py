@@ -13,6 +13,7 @@ from .forms import \
     PotteryDescriptionForm, DrawingForm
 from PIL import Image
 from .my_models.read_drawings import read_image_data
+import time
 
 
 def index(request):
@@ -137,7 +138,7 @@ def _vectorize_files_to_model(
     if files and frame_width > 0 and frame_height > 0:
         for file in files:
             ceramic_id = _get_ceramic_id(file, object_id)
-            contour_coords = read_image_data(
+            contour_coords, distance_to_pot_center = read_image_data(
                 file,
                 ceramic_id,
                 ceramic_color,
@@ -146,7 +147,12 @@ def _vectorize_files_to_model(
                 frame_height,
                 ceramic_orientation
             )
+            this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
+            this_ceramic.distance_to_center = distance_to_pot_center
+            this_ceramic.save()
+            # print(this_ceramic)
             _write_coordinates_to_model(contour_coords)
+            print(this_ceramic)
 
 
 @csrf_protect
@@ -160,6 +166,8 @@ def vectorize_drawings(request, object_id):
             frame_color = request.POST['frame_color']
             ceramic_color = request.POST['ceramic_color']
             ceramic_orientation = request.POST['ceramic_orientation']
+
+            start_time = time.perf_counter()  # skaiciuoja laika
             _vectorize_files_to_model(
                 files,
                 frame_width,
@@ -169,6 +177,10 @@ def vectorize_drawings(request, object_id):
                 frame_color,
                 ceramic_orientation
             )
+            end_time = time.perf_counter()
+            run_time = end_time - start_time
+            print(run_time)
+
         form = DrawingForm()
     else:
         form = DrawingForm()
@@ -176,17 +188,26 @@ def vectorize_drawings(request, object_id):
 
 
 @csrf_protect
-def show_ceramic_profiles(request):
+def review_ceramic_profiles(request):
     queryset = CeramicContour.objects.values_list('find_id').distinct()
     ceramic_vectorized = PotteryDescription.objects.filter(pk__in=queryset)
-    coordinates = None
+    this_profile = None
+    this_profile_description = None
 
     if request.method == 'POST':
         ceramic_id = int(request.POST['my_ceramic'])
-        coordinates = CeramicContour.objects.filter(find_id=ceramic_id)
+        this_profile = CeramicContour.objects.filter(find_id=ceramic_id)
+        this_profile_description = PotteryDescription.objects.filter(pk=ceramic_id)
+        if 'delete' in request.POST:
+            try:
+                this_profile.delete()
+                this_profile_description=None
+            except:
+                print('nepavyko')
 
     context = {
         'my_ceramic': ceramic_vectorized,
-        'coordinates': coordinates
+        'profile': this_profile,
+        'profile_description': this_profile_description
     }
     return render(request, 'my_ceramic.html', context=context)

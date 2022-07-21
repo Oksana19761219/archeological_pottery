@@ -176,10 +176,11 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
-    drawing = models.ImageField(
-        'drawing',
-        upload_to='drawings',
-        null=True
+    distance_to_center = models.IntegerField(
+        'distance to center',
+        null=True,
+        blank=True,
+        help_text='distance from  profile min x coordinate to the center of pot (mm*5)'
     )
 
     class Meta:
