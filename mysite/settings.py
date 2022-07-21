@@ -175,3 +175,23 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'encoding': 'UTF-8',
+            'filename': 'archeological_pottery_forms/my_models/info.log',
+        },
+    },
+    'loggers': {
+        'archeological_pottery_forms.views': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}

@@ -14,6 +14,9 @@ from .forms import \
 from PIL import Image
 from .my_models.read_drawings import read_image_data
 import time
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -126,6 +129,7 @@ def _write_coordinates_to_model(coordinates):
         CeramicContour.objects.bulk_create(model_instances)
 
 
+
 def _vectorize_files_to_model(
         files,
         frame_width,
@@ -150,9 +154,8 @@ def _vectorize_files_to_model(
             this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
             this_ceramic.distance_to_center = distance_to_pot_center
             this_ceramic.save()
-            # print(this_ceramic)
             _write_coordinates_to_model(contour_coords)
-            print(this_ceramic)
+            logger.info(f'įrašytos profilio koordinatės: {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
 
 
 @csrf_protect
