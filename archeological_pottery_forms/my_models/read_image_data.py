@@ -1,7 +1,10 @@
 from PIL import Image
 import numpy as np
 import pandas as pd
+import logging
 
+
+logger = logging.getLogger(__name__)
 
 
 def flip_image(image, ceramic_orientation):

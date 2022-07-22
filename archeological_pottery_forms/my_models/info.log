@@ -1,1 +1,66 @@
-INFO 2022-07-21 21:27:25,329 archeological_pottery_forms.views įrašytos profilio koordinatės: reg. nr. 94, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 13:27:37,305 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 75, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 13:28:32,692 archeological_pottery_forms.views įrašytos profilio koordinatės: reg. nr. 75, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 13:28:32,693 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 15.877130499999993 sek.
+INFO 2022-07-22 13:50:03,865 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 68, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 13:50:03,866 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 14.643793099999996 sek.
+INFO 2022-07-22 13:59:30,830 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 68, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 14:02:51,285 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 75, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 14:04:15,192 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 8, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 14:04:15,192 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 15.194706800000063 sek.
+INFO 2022-07-22 14:04:29,528 archeological_pottery_forms.views patvirtinta profilio kokybė: reg. nr. 8, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 15:02:02,814 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 9.5438881 sek.
+INFO 2022-07-22 15:10:35,174 archeological_pottery_forms.my_models.read_image_data neteisingai įvestos rėmo ir/arba keramikos profilio spalvos: reg. nr. 12.tif
+INFO 2022-07-22 15:10:35,185 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 9.883806700000001 sek.
+INFO 2022-07-22 15:12:11,958 archeological_pottery_forms.my_models.vectorize_files nepatvirtintas radinio unikalumas PotteryDescription modelyje (reg. nr. 10.tif, objekto id 670)
+INFO 2022-07-22 15:12:11,958 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 0.07703630000000317 sek.
+INFO 2022-07-22 16:34:06,864 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:34:22,358 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 20, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:34:37,344 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 21, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:34:52,838 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 31, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:35:06,904 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 34_1010, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:36:32,065 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:36:39,933 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 20, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:37:14,819 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 31, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:37:24,683 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 34_1010, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:37:24,683 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 34_1010, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:38:08,051 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 21, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:38:43,940 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:38:43,940 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 12.4223845 sek.
+INFO 2022-07-22 16:39:12,537 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:43:40,499 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:43:40,499 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 16.245631900000003 sek.
+INFO 2022-07-22 16:50:01,374 archeological_pottery_forms.my_models.vectorize_files nepatvirtintas radinio unikalumas CeramicContour modelyje (reg. nr. 12.tif, objekto id 670)
+INFO 2022-07-22 16:50:01,375 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 0.21970380000000134 sek.
+INFO 2022-07-22 16:50:41,940 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:53:58,790 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:53:58,791 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 14.894339599999999 sek.
+INFO 2022-07-22 16:54:52,783 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:55:27,779 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:55:27,779 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 14.7332034 sek.
+INFO 2022-07-22 16:56:37,890 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:57:16,910 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:57:16,911 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 14.384668400000002 sek.
+INFO 2022-07-22 16:57:27,811 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:59:13,764 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:59:28,510 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 20, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:59:43,315 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 21, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 16:59:58,057 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 31, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:00:13,051 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 34_1010, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:00:27,570 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 35, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:00:41,956 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 39, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:00:56,189 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 42, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:01:11,478 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 44, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:01:25,052 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 46, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:01:39,441 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 54, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:01:54,127 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 63, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:02:08,504 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 68, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:02:23,412 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 71, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:02:38,316 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 74, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:02:53,009 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 75, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:03:06,885 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 93, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:03:06,885 archeological_pottery_forms.my_models.my_decorators failų vektorizavimo laikas 247.3334679 sek.
+INFO 2022-07-22 17:35:29,707 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 12, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:35:35,624 archeological_pottery_forms.views patvirtinta profilio kokybė: reg. nr. 20, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:36:36,520 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 21, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:36:46,565 archeological_pottery_forms.views radinio profilis ištrintas: reg. nr. 31, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-22 17:36:59,360 archeological_pottery_forms.views patvirtinta profilio kokybė: reg. nr. 34_1010, Subačiaus g. 11, 1996, detalūs tyrimai

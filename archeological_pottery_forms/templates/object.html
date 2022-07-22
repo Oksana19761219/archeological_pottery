@@ -16,6 +16,18 @@
                 {% for report in reports %}
                     <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
                 {% endfor %}
+
+                {% if vectors %}
+                  <br>
+                  <br>
+                  <label for="vectors">vektorizuotų radinių registracijos numeriai:</label>
+                  <br>
+                  <select class="w-25 p-3" id="vectors" name="vectors" multiple>
+                      {% for vector in vectors %}
+                        <option >{{vector.find_registration_nr}}</option>
+                      {% endfor %}
+                  </select>
+                {% endif %}
               </div>
             </div>
 

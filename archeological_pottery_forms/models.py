@@ -182,6 +182,10 @@ class PotteryDescription(models.Model):
         blank=True,
         help_text='distance from  profile min x coordinate to the center of pot (mm*5)'
     )
+    profile_reviewed = models.BooleanField(
+        'profile reviewed',
+        default=False
+    )
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']

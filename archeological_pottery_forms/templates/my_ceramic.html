@@ -20,26 +20,29 @@
                 </select>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary register-button" id="show" name="show">Parodyti profilį</button>
-                <button type="submit" class="btn btn-primary register-button" id="delete" name="delete">Trinti</button>
+                <button type="submit" class="btn btn-primary register-button" id="submit" name="submit">Ok</button>
+                <br>
+                <br>
+                {% if profile_description %}
+                    <p>reg. nr. {{profile_description.find_registration_nr}}, {{profile_description.research_object}}</p>
+                    <input type="radio" id="confirm" name="review" value="confirm {{profile_description.id}}">
+                    <label for="confirm">patvirtinti</label><br>
+                    <br>
+                    <input type="radio" id="delete" name="review" value="delete {{profile_description.id}}">
+                    <label for="delete">trinti</label><br>
+
+                {% endif %}
             </form>
             {% else %}
-            <p>duomenų nėra</p>
+            <p>neperžiūrėtų radinių nėra</p>
             {% endif %}
         </div>
         <div class="col">
-            {% if profile_description %}
-                {% for item in profile_description %}
-                    <p>reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</p>
-                {% endfor %}
-            {% endif %}
-
             <canvas id="myCanvas" width="600" height="500" class="border"></canvas>
             <script>
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
                     ctx.scale(1, 1);
-<!--                    ctx.fillStyle = "#FF0000";-->
                     {% if profile%}
                         {% for pixel in profile %}
                             ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);

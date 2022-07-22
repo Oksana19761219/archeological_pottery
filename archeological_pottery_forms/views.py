@@ -4,16 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.db.models import Q
-from .models import \
-    Bibliography, \
-    PotteryDescription, \
-    ResearchObject, \
-    CeramicContour
-from .forms import \
-    PotteryDescriptionForm, DrawingForm
-from PIL import Image
-from .my_models.read_drawings import read_image_data
-import time
+from .models import Bibliography, \
+                    PotteryDescription, \
+                    ResearchObject, \
+                    CeramicContour
+from .forms import PotteryDescriptionForm, DrawingForm
+from .my_models.vectorize_files import vectorize_files
 import logging
 
 logger = logging.getLogger(__name__)
@@ -67,10 +63,18 @@ def register(request):
 @csrf_protect
 def object(request, object_id):
     single_object = get_object_or_404(ResearchObject, pk=object_id)
-    reports = Bibliography.objects.filter(research_object__exact = object_id)
+    reports = Bibliography.objects.filter(research_object = object_id)
+
+    vectors_queryset = CeramicContour.objects.values_list('find_id').distinct()
+    vectors_id = [item[0] for item in vectors_queryset]
+    this_object_vectors = PotteryDescription.objects\
+        .filter(Q(research_object = object_id) & Q(pk__in=vectors_id))\
+        .order_by('find_registration_nr')
+
     context = {
         'object': single_object,
         'reports': reports,
+        'vectors': this_object_vectors
     }
     if request.method == 'POST' and 'describe' in request.POST:
         return HttpResponseRedirect(reverse('describe', args=[object_id]))
@@ -100,62 +104,46 @@ def get_pottery_description(request, object_id):
     return render(request, 'describe.html', {'form': form})
 
 
-def _get_ceramic_id(file, object_id):
-    file_name = str(file).split('.')[0]
-    finds = PotteryDescription.objects.all()
-    queryset = finds.filter(
-        Q(find_registration_nr__exact=file_name) &
-        Q(research_object__exact=object_id)
-    )
-    find_id = []
-    for item in queryset:
-        find_id.append(item.id)
-    if len(find_id) == 1:
-        return find_id[0]
-    print('klaida, dubliuojasi radinių duomenys')
-    return None
+@csrf_protect
+def review_ceramic_profiles(request):
+    queryset = CeramicContour.objects.values_list('find_id').distinct()
+    ceramic_vectors = PotteryDescription.objects.filter(Q(pk__in=queryset) & Q(profile_reviewed=False))
+    this_profile = None
+    this_profile_description = None
 
+    show_profile = request.method == 'POST' and 'my_ceramic' in request.POST
+    review = request.method == 'POST' and 'review' in request.POST
 
-def _write_coordinates_to_model(coordinates):
-    """How to write a Pandas Dataframe to Django model
-    https://newbedev.com/how-to-write-a-pandas-dataframe-to-django-model"""
-    if not coordinates.empty:
-        df_records = coordinates.to_dict('records')
-        model_instances = [CeramicContour(
-            x=record['x'],
-            y=record['y'],
-            find_id=record['find']
-        ) for record in df_records]
-        CeramicContour.objects.bulk_create(model_instances)
+    if show_profile:
+        ceramic_id = int(request.POST['my_ceramic'])
+        this_profile = CeramicContour.objects.filter(find_id=ceramic_id)
+        this_profile_description = PotteryDescription.objects.filter(pk=ceramic_id)[0]
 
-
-
-def _vectorize_files_to_model(
-        files,
-        frame_width,
-        frame_height,
-        object_id,
-        ceramic_color,
-        frame_color,
-        ceramic_orientation
-):
-    if files and frame_width > 0 and frame_height > 0:
-        for file in files:
-            ceramic_id = _get_ceramic_id(file, object_id)
-            contour_coords, distance_to_pot_center = read_image_data(
-                file,
-                ceramic_id,
-                ceramic_color,
-                frame_color,
-                frame_width,
-                frame_height,
-                ceramic_orientation
-            )
-            this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
-            this_ceramic.distance_to_center = distance_to_pot_center
+    if review:
+        action, object = request.POST['review'].split(' ')
+        ceramic_id = int(object)
+        if action == 'delete':
+            queryset = CeramicContour.objects.filter(find_id=ceramic_id)
+            this_ceramic = PotteryDescription.objects.filter(pk=ceramic_id)[0]
+            for item in queryset:
+                item.delete()
+            this_ceramic.distance_to_center = None
             this_ceramic.save()
-            _write_coordinates_to_model(contour_coords)
-            logger.info(f'įrašytos profilio koordinatės: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+            this_profile_description = None
+            logger.info(f'radinio profilis ištrintas: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+        elif action == 'confirm':
+            this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
+            this_ceramic.profile_reviewed = True
+            this_ceramic.save()
+            this_profile_description = None
+            logger.info(f'patvirtinta profilio kokybė: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+
+    context = {
+        'my_ceramic': ceramic_vectors,
+        'profile': this_profile,
+        'profile_description': this_profile_description
+    }
+    return render(request, 'my_ceramic.html', context=context)
 
 
 @csrf_protect
@@ -169,48 +157,14 @@ def vectorize_drawings(request, object_id):
             frame_color = request.POST['frame_color']
             ceramic_color = request.POST['ceramic_color']
             ceramic_orientation = request.POST['ceramic_orientation']
-
-            start_time = time.perf_counter()  # skaiciuoja laika
-            _vectorize_files_to_model(
-                files,
-                frame_width,
-                frame_height,
-                object_id,
-                ceramic_color,
-                frame_color,
-                ceramic_orientation
-            )
-            end_time = time.perf_counter()
-            run_time = end_time - start_time
-            print(run_time)
-
+            vectorize_files(files,
+                            frame_width,
+                            frame_height,
+                            object_id,
+                            ceramic_color,
+                            frame_color,
+                            ceramic_orientation)
         form = DrawingForm()
     else:
         form = DrawingForm()
     return render(request, 'read_drawings.html', {'form': form})
-
-
-@csrf_protect
-def review_ceramic_profiles(request):
-    queryset = CeramicContour.objects.values_list('find_id').distinct()
-    ceramic_vectorized = PotteryDescription.objects.filter(pk__in=queryset)
-    this_profile = None
-    this_profile_description = None
-
-    if request.method == 'POST':
-        ceramic_id = int(request.POST['my_ceramic'])
-        this_profile = CeramicContour.objects.filter(find_id=ceramic_id)
-        this_profile_description = PotteryDescription.objects.filter(pk=ceramic_id)
-        if 'delete' in request.POST:
-            try:
-                this_profile.delete()
-                this_profile_description=None
-            except:
-                print('nepavyko')
-
-    context = {
-        'my_ceramic': ceramic_vectorized,
-        'profile': this_profile,
-        'profile_description': this_profile_description
-    }
-    return render(request, 'my_ceramic.html', context=context)
