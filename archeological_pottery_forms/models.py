@@ -93,7 +93,7 @@ class PotteryMakingAction(models.Model):
 class PotteryLipShape(models.Model):
     lip_form = models.ImageField(
         'Lip form',
-        upload_to='pottery_form_types',
+        upload_to='images',
         null=True
     )
     lip_nr = models.IntegerField(
@@ -107,7 +107,7 @@ class PotteryLipShape(models.Model):
 class PotteryOrnamentShape(models.Model):
     ornament_form = models.ImageField(
         'ornament form',
-        upload_to='pottery_form_types',
+        upload_to='images',
         null=True
     )
     ornament_nr = models.IntegerField(

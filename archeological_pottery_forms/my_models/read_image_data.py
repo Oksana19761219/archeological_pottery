@@ -2,6 +2,8 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 import logging
+from .messages import messages
+
 
 
 logger = logging.getLogger(__name__)
@@ -65,7 +67,9 @@ def find_frame_corners_coords(image, pixels):
         bottom_right = [c for c in coordinates if c[0] > x_avg and c[1] > y_avg]
         frame_coords = [top_left[0], top_right[0], bottom_left[0], bottom_right[0]]
         return frame_coords
-    logger.exception(f'netinkamai nubraižytas rėmas, nepakanka taškų: {coordinates}')
+    message = f'netinkamai nubraižytas rėmas, nepakanka taškų: {coordinates}'
+    messages.append(message)
+    logger.exception(message)
     return None
 
 
@@ -158,7 +162,6 @@ def get_contour_coords(image, ceramic_pixels, frame_pixels, ceramic_id):
     coords_all = pd.concat([coords_scanned_x_axis, coords_snanned_y_axis])\
                             .drop_duplicates()\
                             .sort_values(by=['x', 'y'])
-
     x_min = coords_all['x'].min()
     y_min = coords_all['y'].min()
     distance_to_pot_center = find_frame_corners_coords(image, frame_pixels)[0][0] - x_min

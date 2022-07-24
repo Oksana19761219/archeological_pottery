@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='potterydescription',
             name='drawing',
-            field=models.ImageField(null=True, upload_to='pottery_form_types', verbose_name='drawing'),
+            field=models.ImageField(null=True, upload_to='images', verbose_name='drawing'),
         ),
     ]

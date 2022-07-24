@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='PotteryLipForm',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('lip_form', models.ImageField(null=True, upload_to='pottery_form_types', verbose_name='Lip form')),
+                ('lip_form', models.ImageField(null=True, upload_to='images', verbose_name='Lip form')),
                 ('lip_nr', models.IntegerField(help_text='temporary field, lip number from old database', null=True, verbose_name='old lip number')),
             ],
         ),
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             name='PotteryOrnamentForm',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ornament_form', models.ImageField(null=True, upload_to='pottery_form_types', verbose_name='Ornament form')),
+                ('ornament_form', models.ImageField(null=True, upload_to='images', verbose_name='Ornament form')),
                 ('ornament_nr', models.IntegerField(help_text='temporary field, ornament number from old database', null=True, verbose_name='old lip number')),
             ],
         ),

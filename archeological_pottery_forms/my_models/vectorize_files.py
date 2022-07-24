@@ -9,6 +9,7 @@ from .read_image_data import \
     orthogonalize_image, \
     get_contour_coords
 from .my_decorators import calculate_time
+from .messages import messages
 
 
 logger = logging.getLogger(__name__)
@@ -28,9 +29,13 @@ def _get_ceramic_id(file, object_id):
         if unique_profile:
             return find_id[0]
         else:
-            logger.exception(f'nepatvirtintas radinio unikalumas CeramicContour modelyje (reg. nr. {str(file)}, objekto id {object_id})')
+            message = f'nepatvirtintas radinio unikalumas CeramicContour modelyje (reg. nr. {str(file)}, objekto id {object_id})'
+            messages.append(message)
+            logger.exception(message)
     else:
-        logger.exception(f'nepatvirtintas radinio unikalumas PotteryDescription modelyje (reg. nr. {str(file)}, objekto id {object_id})')
+        message = f'nepatvirtintas radinio unikalumas PotteryDescription modelyje (reg. nr. {str(file)}, objekto id {object_id})'
+        messages.append(message)
+        logger.exception(message)
         return None
 
 
@@ -53,10 +58,14 @@ def _write_coords_to_model(contour_coords, distance_to_pot_center, ceramic_id):
         this_ceramic.distance_to_center = distance_to_pot_center
         this_ceramic.save()
         _write_coordinates_to_model(contour_coords)
-        logger.info(f'įrašytos profilio koordinatės: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+        message = f'įrašytos profilio koordinatės: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}'
+        messages.append(message)
+        logger.info(message)
     else:
         this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
-        logger.exception(f'nepavyko nuskaityti profilio koordinačių, reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+        message = f'nepavyko nuskaityti profilio koordinačių, reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}'
+        messages.append(message)
+        logger.exception(message)
 
 
 def _vectorize_one_file(file,
@@ -81,7 +90,6 @@ def _vectorize_one_file(file,
                                               frame_pixels,
                                               frame_width,
                                               frame_height)
-            ortho_image.show()
             ceramic_pixels = find_pixels(ortho_image, ceramic_color)
             frame_pixels = find_pixels(ortho_image, frame_color)
             ceramic_contour_coordinates, distance_to_pot_center = get_contour_coords(ortho_image,
@@ -92,9 +100,13 @@ def _vectorize_one_file(file,
                                    distance_to_pot_center,
                                    ceramic_id)
         else:
-            logger.exception(f'failas {file} nevektorizuotas, nes nepavyko nuskaityti rėmo kampų koordinačių')
+            message = f'failas {file} nevektorizuotas, nes nepavyko nuskaityti rėmo kampų koordinačių'
+            messages.append(message)
+            logger.exception(message)
     else:
-        logger.exception(f' brėžinyje nepavyko rasti pasirinktų spalvų: {file}, rėmo spalva {frame_color}, keramikos profilio spalva {ceramic_color}')
+        message = f' brėžinyje nepavyko rasti pasirinktų spalvų: {file}, rėmo spalva {frame_color}, keramikos profilio spalva {ceramic_color}'
+        messages.append(message)
+        logger.exception(message)
 
 
 @calculate_time
@@ -118,6 +130,10 @@ def vectorize_files(files,
                                     frame_height,
                                     ceramic_orientation)
             else:
-                logger.exception(f'toks radinys neaprašytas modelyje PotteryDescription: {file}, tyrimų objekto id {object_id}')
+                message = f'brėžinys nevektorizuotas: {file}, tyrimų objekto id {object_id}'
+                messages.append(message)
+                logger.exception(message)
     else:
-        logger.exception(f'netinkamai įvesti duomenys: files: {files}, frame_width: {frame_width}, frame_height: {frame_height}')
+        message = f'netinkamai įvesti duomenys: files: {files}, frame_width: {frame_width}, frame_height: {frame_height}'
+        messages.append(message)
+        logger.exception(message)

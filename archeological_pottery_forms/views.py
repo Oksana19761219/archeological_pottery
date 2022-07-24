@@ -10,6 +10,7 @@ from .models import Bibliography, \
                     CeramicContour
 from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
+from .my_models.messages import messages
 import logging
 
 logger = logging.getLogger(__name__)
@@ -148,6 +149,7 @@ def review_ceramic_profiles(request):
 
 @csrf_protect
 def vectorize_drawings(request, object_id):
+    messages.clear()
     if request.method == 'POST':
         form = DrawingForm(request.POST, request.FILES)
         if form.is_valid():
@@ -157,6 +159,7 @@ def vectorize_drawings(request, object_id):
             frame_color = request.POST['frame_color']
             ceramic_color = request.POST['ceramic_color']
             ceramic_orientation = request.POST['ceramic_orientation']
+
             vectorize_files(files,
                             frame_width,
                             frame_height,
@@ -167,4 +170,4 @@ def vectorize_drawings(request, object_id):
         form = DrawingForm()
     else:
         form = DrawingForm()
-    return render(request, 'read_drawings.html', {'form': form})
+    return render(request, 'read_drawings.html', {'form': form, 'messages': messages})
