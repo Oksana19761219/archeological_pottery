@@ -16,7 +16,7 @@ def flip_image(image, ceramic_orientation):
     return image
 
 
-def _get_data_from_image(image):
+def get_data_from_image(image):
     data = image.getdata()
     data_np = np.array(data)
     return data_np
@@ -32,8 +32,8 @@ def _select_color(r, g, b, color):
     return colors[color]
 
 
-def _find_pixels(image, selected_color):
-    pixels = _get_data_from_image(image)
+def find_pixels(image, selected_color):
+    pixels = get_data_from_image(image)
     r, g, b = pixels[:,0], pixels[:, 1], pixels[:,2]
     color = _select_color(r, g, b, selected_color)
     pixel_place = np.where(color)
@@ -41,30 +41,32 @@ def _find_pixels(image, selected_color):
 
 
 def _calculate_pixel_coords(pixel_index, image_width):
-
     x = pixel_index % image_width
     y = pixel_index // image_width
     return x, y
 
 
-def _get_pixels_coords(image, selected_color):
-    pixel_place = _find_pixels(image, selected_color)
+
+def _get_pixels_coords(image, pixels):
     calculate_coordinates_v = np.vectorize(_calculate_pixel_coords)
     image_width = image.size[0]
-    x, y = calculate_coordinates_v(pixel_place, image_width)
+    x, y = calculate_coordinates_v(pixels, image_width)
     return x, y
 
 
-def _find_frame_corners_coords(image, selected_color):
-    x, y = _get_pixels_coords(image, selected_color)
+def find_frame_corners_coords(image, pixels):
+    x, y = _get_pixels_coords(image, pixels)
     coordinates = list(zip(x[0], y[0]))
-    x_avg, y_avg = np.average(x), np.average(y)
-    top_left = [c for c in coordinates if c[0] < x_avg and c[1] < y_avg]
-    top_right = [c for c in coordinates if c[0] > x_avg and c[1] < y_avg]
-    bottom_left = [c for c in coordinates if c[0] < x_avg and c[1] > y_avg]
-    bottom_right = [c for c in coordinates if c[0] > x_avg and c[1] > y_avg]
-    frame_coords = [top_left[0], top_right[0], bottom_left[0], bottom_right[0]]
-    return frame_coords
+    if len(coordinates) >= 4:
+        x_avg, y_avg = np.average(x), np.average(y)
+        top_left = [c for c in coordinates if c[0] < x_avg and c[1] < y_avg]
+        top_right = [c for c in coordinates if c[0] > x_avg and c[1] < y_avg]
+        bottom_left = [c for c in coordinates if c[0] < x_avg and c[1] > y_avg]
+        bottom_right = [c for c in coordinates if c[0] > x_avg and c[1] > y_avg]
+        frame_coords = [top_left[0], top_right[0], bottom_left[0], bottom_right[0]]
+        return frame_coords
+    logger.exception(f'netinkamai nubraižytas rėmas, nepakanka taškų: {coordinates}')
+    return None
 
 
 def _calculate_transform_coeffs(new_coords, old_coords):
@@ -120,8 +122,8 @@ def _resize_image(image, frame_width_mm, frame_height_mm, frame_coords):
     return image
 
 
-def orthogonalize_image(image, selected_color, frame_width, frame_height):
-    old_frame_coords = _find_frame_corners_coords(image, selected_color)
+def orthogonalize_image(image, pixels, frame_width, frame_height):
+    old_frame_coords = find_frame_corners_coords(image, pixels)
     new_frame_coords = _calculate_new_frame_coords(old_frame_coords)
     coeffs = _calculate_transform_coeffs(new_frame_coords, old_frame_coords)
     width, height = image.size
@@ -147,9 +149,10 @@ def _scan_contour(coordinates, group_field, diff_field):
     return coords_contour
 
 
-def _get_contour_coords(image, ceramic_color, frame_color, ceramic_id):
-    x, y = _get_pixels_coords(image, ceramic_color)
+def get_contour_coords(image, ceramic_pixels, frame_pixels, ceramic_id):
+    x, y = _get_pixels_coords(image, ceramic_pixels)
     coords = pd.DataFrame({'x': x[0], 'y': y[0]})
+
     coords_scanned_x_axis = _scan_contour(coords, 'x', 'y')
     coords_snanned_y_axis = _scan_contour(coords, 'y', 'x')
     coords_all = pd.concat([coords_scanned_x_axis, coords_snanned_y_axis])\
@@ -158,39 +161,10 @@ def _get_contour_coords(image, ceramic_color, frame_color, ceramic_id):
 
     x_min = coords_all['x'].min()
     y_min = coords_all['y'].min()
-    distance_to_pot_center = _find_frame_corners_coords(image, frame_color)[0][0] - x_min
+    distance_to_pot_center = find_frame_corners_coords(image, frame_pixels)[0][0] - x_min
 
     coords_all['x'] = coords_all['x'].apply(lambda  x: x-x_min)
     coords_all['y'] = coords_all['y'].apply(lambda y: y - y_min)
     coords_all['find'] = ceramic_id
     return coords_all, distance_to_pot_center
 
-
-def read_image_data(file,
-                    ceramic_id,
-                    ceramic_color,
-                    frame_color,
-                    frame_width,
-                    frame_height,
-                    ceramic_orientation):
-    if ceramic_id:
-        image = Image.open(file)
-        flipped_image = flip_image(
-            image,
-            ceramic_orientation
-        )
-        ortho_image = orthogonalize_image(
-            flipped_image,
-            frame_color,
-            frame_width,
-            frame_height
-        )
-        ceramic_contour_coordinates, distance_to_pot_center = _get_contour_coords(
-            ortho_image,
-            ceramic_color,
-            frame_color,
-            ceramic_id
-        )
-        return ceramic_contour_coordinates, distance_to_pot_center
-    else:
-        return None
