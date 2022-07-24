@@ -138,30 +138,21 @@ def orthogonalize_image(image, pixels, frame_width, frame_height):
     return image
 
 
-def _scan_contour(coordinates, group_field, diff_field):
-    coords_grouped = coordinates.groupby(group_field)
-    coords_min = coords_grouped.min().reset_index()
-    coords_max = coords_grouped.max().reset_index()
-
-    inner_contour_indexes = list(coords_grouped.diff(periods=1)
-                                [coords_grouped.diff(periods=1)[diff_field] > 1]
-                                .index)
-    inner_contour_indexes = inner_contour_indexes + [index-1 for index in inner_contour_indexes]
-    inner_contour_coords = coordinates.iloc[inner_contour_indexes]
-
-    coords_contour = pd.concat([coords_min, coords_max, inner_contour_coords])
-    return coords_contour
-
-
 def get_contour_coords(image, ceramic_pixels, frame_pixels, ceramic_id):
     x, y = _get_pixels_coords(image, ceramic_pixels)
     coords = pd.DataFrame({'x': x[0], 'y': y[0]})
+    index_list = []
+    data_list = [['x', 'y', False], ['x', 'y', True], ['y', 'x', False], ['y', 'x', True]]
+    for data in data_list:
+        column1, column2, ascending = data
+        coordinates = coords.sort_values(by=[column1, column2], ascending=ascending)
+        differences = coordinates.diff()
+        indexes = list(differences[abs(differences[column2]) > 1].index)
+        index_list += indexes
+    coords_all = coords.iloc[sorted(index_list)] \
+        .drop_duplicates() \
+        .sort_values(by=['x', 'y'])
 
-    coords_scanned_x_axis = _scan_contour(coords, 'x', 'y')
-    coords_snanned_y_axis = _scan_contour(coords, 'y', 'x')
-    coords_all = pd.concat([coords_scanned_x_axis, coords_snanned_y_axis])\
-                            .drop_duplicates()\
-                            .sort_values(by=['x', 'y'])
     x_min = coords_all['x'].min()
     y_min = coords_all['y'].min()
     distance_to_pot_center = find_frame_corners_coords(image, frame_pixels)[0][0] - x_min
