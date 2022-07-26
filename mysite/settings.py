@@ -209,6 +209,11 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'archeological_pottery_forms.my_models.correlation': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
         'archeological_pottery_forms.my_models.vectorize_files': {
             'handlers': ['file'],
             'level': 'INFO',

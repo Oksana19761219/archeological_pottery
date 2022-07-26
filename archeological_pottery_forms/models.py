@@ -252,3 +252,21 @@ class CeramicContour(models.Model):
         blank=False,
         related_name='coordinates'
     )
+
+
+class ContourCorrelation(models.Model):
+    find_1 = models.IntegerField(
+        'find_1',
+        null=False,
+        blank=False
+    )
+    find_2 = models.IntegerField(
+        'find_2',
+        null=False,
+        blank=False
+    )
+    correlation = models.FloatField(
+        'correlation',
+        null=False,
+        blank=False
+    )

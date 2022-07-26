@@ -11,6 +11,8 @@ from .models import Bibliography, \
 from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.messages import messages
+from .my_models.correlation import  calculate_correlation
+import pandas as pd
 import logging
 
 logger = logging.getLogger(__name__)
@@ -123,6 +125,7 @@ def review_ceramic_profiles(request):
     if review:
         action, object = request.POST['review'].split(' ')
         ceramic_id = int(object)
+
         if action == 'delete':
             queryset = CeramicContour.objects.filter(find_id=ceramic_id)
             this_ceramic = PotteryDescription.objects.filter(pk=ceramic_id)[0]
@@ -132,12 +135,21 @@ def review_ceramic_profiles(request):
             this_ceramic.save()
             this_profile_description = None
             logger.info(f'radinio profilis ištrintas: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+
         elif action == 'confirm':
+            this_contour = CeramicContour.objects.filter(find_id=ceramic_id).values()
+            this_contour_df = pd.DataFrame.from_records(this_contour)
+
+            contours = CeramicContour.objects.filter(find__profile_reviewed=True).values()
+            contours_df = pd.DataFrame.from_records(contours)
+            if not contours_df.empty:
+                calculate_correlation(this_contour_df, contours_df, ceramic_id)
+
             this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
             this_ceramic.profile_reviewed = True
             this_ceramic.save()
             this_profile_description = None
-            logger.info(f'patvirtinta profilio kokybė: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
+            logger.info(f'patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
 
     context = {
         'my_ceramic': ceramic_vectors,

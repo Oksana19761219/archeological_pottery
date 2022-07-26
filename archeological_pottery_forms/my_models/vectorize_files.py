@@ -39,7 +39,7 @@ def _get_ceramic_id(file, object_id):
         return None
 
 
-def _write_coordinates_to_model(coordinates):
+def _write_dataframe_coords(coordinates):
     """How to write a Pandas Dataframe to Django model
     https://newbedev.com/how-to-write-a-pandas-dataframe-to-django-model"""
     if not coordinates.empty:
@@ -57,7 +57,7 @@ def _write_coords_to_model(contour_coords, distance_to_pot_center, ceramic_id):
         this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
         this_ceramic.distance_to_center = distance_to_pot_center
         this_ceramic.save()
-        _write_coordinates_to_model(contour_coords)
+        _write_dataframe_coords(contour_coords)
         message = f'įrašytos profilio koordinatės: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}'
         messages.append(message)
         logger.info(message)
@@ -96,9 +96,12 @@ def _vectorize_one_file(file,
                                                                                     ceramic_pixels,
                                                                                     frame_pixels,
                                                                                     ceramic_id)
+
             _write_coords_to_model(ceramic_contour_coordinates,
                                    distance_to_pot_center,
                                    ceramic_id)
+
+
         else:
             message = f'failas {file} nevektorizuotas, nes nepavyko nuskaityti rėmo kampų koordinačių'
             messages.append(message)

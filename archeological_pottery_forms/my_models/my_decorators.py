@@ -9,5 +9,5 @@ def calculate_time(func):
         func(*args, **kwargs)
         end_time = time.perf_counter()
         run_time = end_time - start_time
-        logger.info(f'failų vektorizavimo laikas {run_time} sek.')
+        logger.info(f'programa vykdyta {run_time} sek.')
     return wrapper
