@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+    <br>
+    <div class="row align-items-start">
+        <div class="col">
+            {% if ceramic %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="my_ceramic">pasirinkite radinį:</label>
+                <br>
+                <select class="col" name="my_ceramic" id="my_ceramic" multiple>
+                    {% for item in ceramic %}
+                    <option value="{{item.id}}">reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+                <strong>Lyginamų radinių atrankos lygiai:</strong>
+                <br>
+                <br>
+                <input type="radio" id="contour" name="level" value="contour">
+                <label for="contour">tik puodo kontūras</label><br>
+                <input type="radio" id="contour_lip" name="level" value="contour_lip">
+                <label for="contour_lip">puodo kontūras ir snapelio forma</label><br>
+                <input type="radio" id="contour_ornament" name="level" value="contour_ornament">
+                <label for="contour_lip">puodo kontūras ir ornamentas</label><br>
+                <input type="radio" id="contour_ornament_lip" name="level" value="contour_ornament_lip">
+                <label for="contour_ornament_lip">puodo kontūras, ornamentas ir snapelio forma</label><br>
+                <br>
+                <br>
+                <strong>Koreliacijos rėžiai: </strong>
+                <br>
+                <label for="correlation1">pirmas rėžis</label>
+                <input type="number" id="correlation1" name="correlation1" min="-1" max="1" step="0.01" value="-1">
+                <br>
+                <label for="correlation2">antras rėžis</label>
+                <input type="number" id="correlation2" name="correlation2" min="-1" max="1" step="0.01" value="1">
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary register-button" id="submit" name="submit">Ok</button>
+                <br>
+                <br>
+            </form>
+            {% endif%}
+        </div>
+        <div class="col">
+
+            {% if correlated_contours %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <strong>pasirinkite antrą radinį</strong>
+                <select class="col" name="correlated_contours" id="correlated_contours" multiple>
+                    {% for item in correlated_contours %}
+                    <option value="{{ceramic_id}} {{item.find_1}} {{item.find_2}}"> corr: {{item.correlation}}, length: {{item.length_compared}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary register-button" id="submit_1" name="submit1" value="{{correlated_contours}}">Ok</button>
+                <br>
+                <br>
+            </form>
+
+            {% endif %}
+        </div>
+        <div class="col">
+            <canvas id="myCanvas" width="300" height="500" class="border"></canvas>
+            <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.scale(1, 1);
+                    {% if this_contour %}
+                        {% for pixel in this_contour %}
+                            ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
+                        {% endfor %}
+                    {% endif %}
+                    {% if second_contour %}
+                        {% for pixel in second_contour %}
+                        ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'
+                        ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
+                        {% endfor %}
+                    {% endif %}
+            </script>
+        </div>
+
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

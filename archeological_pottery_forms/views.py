@@ -7,7 +7,8 @@ from django.db.models import Q
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
-                    CeramicContour
+                    CeramicContour, \
+                    ContourCorrelation
 from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.messages import messages
@@ -183,3 +184,69 @@ def vectorize_drawings(request, object_id):
     else:
         form = DrawingForm()
     return render(request, 'read_drawings.html', {'form': form, 'messages': messages})
+
+
+@csrf_protect
+def view_correlation(request):
+    ceramic = PotteryDescription.objects.filter(coordinates__isnull=False).distinct()
+    this_contour = None
+    second_contour = None
+    correlated_contours = None
+    ceramic_id = None
+
+    select_1_contour = request.method == 'POST' and 'my_ceramic' in request.POST
+    select_2_contour = request.method == 'POST' and 'correlated_contours' in request.POST
+
+    if select_1_contour:
+        ceramic_id = int(request.POST['my_ceramic'])
+        this_contour = CeramicContour.objects.filter(Q(find__profile_reviewed=True) & Q(find_id=ceramic_id))
+
+        correlation = float(request.POST['correlation1']), float(request.POST['correlation2'])
+        corr_min = min(correlation)
+        corr_max= max(correlation)
+
+        correlated_contours = ContourCorrelation.objects.filter(
+            (Q(find_1=ceramic_id) | Q(find_2=ceramic_id)) &
+            (Q(correlation__gte=corr_min) & Q(correlation__lte=corr_max))
+        ).order_by('-correlation', '-length_compared')
+
+
+        if 'level' in request.POST:
+            level = request.POST['level']
+        else:
+            level = 'contour'
+
+    if select_2_contour:
+        ids = request.POST['correlated_contours']
+        first_id = ids.split()[0]
+        second_id = int(ids.replace(first_id, '').strip())
+        this_contour = CeramicContour.objects.filter(find_id=first_id)
+        second_contour = CeramicContour.objects.filter(find_id=second_id)
+
+
+
+
+
+
+        #
+        # if level == 'contour':
+        #     print(level)
+        # elif level == 'contour_lip':
+        #     print(level)
+        # elif level == 'contour_ornament':
+        #     print(level)
+        # elif level == 'contour_ornament_lip':
+        #     print(level)
+
+
+
+
+
+    context = {
+        'ceramic': ceramic,
+        'ceramic_id': ceramic_id,
+        'this_contour': this_contour,
+        'second_contour': second_contour,
+        'correlated_contours': correlated_contours
+    }
+    return render(request, 'view_correlation.html', context=context)
