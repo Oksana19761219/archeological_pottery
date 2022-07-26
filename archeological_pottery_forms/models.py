@@ -270,3 +270,8 @@ class ContourCorrelation(models.Model):
         null=False,
         blank=False
     )
+    length_compared = models.FloatField(
+        'length_compared',
+        null=True,
+        blank=True
+    )

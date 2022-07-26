@@ -679,3 +679,144 @@ INFO 2022-07-26 19:20:40,611 archeological_pottery_forms.views patvirtinta profi
 INFO 2022-07-26 19:20:44,121 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
 INFO 2022-07-26 19:20:44,122 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.056001400000013746 sek.
 INFO 2022-07-26 19:20:44,160 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 99g, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:30:17,256 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 2, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:30:17,275 archeological_pottery_forms.my_models.my_decorators programa vykdyta 24.334269000000006 sek.
+INFO 2022-07-26 20:30:28,387 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 2, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:31:16,250 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 3, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:31:41,504 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 4, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:31:41,519 archeological_pottery_forms.my_models.my_decorators programa vykdyta 50.20352649999998 sek.
+INFO 2022-07-26 20:31:50,826 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:31:50,827 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.09446219999998107 sek.
+INFO 2022-07-26 20:31:50,832 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 3, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:31:55,400 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:31:55,400 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.07844209999998952 sek.
+INFO 2022-07-26 20:31:55,445 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 4, Subačiaus g. 11, 1996, detalūs tyrimai
+ERROR 2022-07-26 20:33:53,894 archeological_pottery_forms.my_models.vectorize_files nepatvirtintas radinio unikalumas CeramicContour modelyje (reg. nr. 4.tif, objekto id 670)
+NoneType: None
+ERROR 2022-07-26 20:33:53,895 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 4.tif, tyrimų objekto id 670
+NoneType: None
+INFO 2022-07-26 20:34:19,206 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 5, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:34:44,437 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 6, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:35:07,772 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 11, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:35:32,300 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 15, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:35:54,799 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 17, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:36:17,686 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 18, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:36:42,716 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 19, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:37:06,203 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 23, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:37:30,117 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 24, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:37:54,811 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 25, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:38:17,494 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 27, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:38:42,522 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 30, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:39:07,308 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 32, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:39:32,483 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 36, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:39:58,143 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 37, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:40:22,194 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 41, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:40:47,272 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 48, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:41:12,405 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 50, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:41:36,449 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 53, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:42:01,083 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 55, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:42:25,746 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 57, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:42:48,812 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 61, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:43:11,366 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 64, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:43:35,497 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 70, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:43:59,839 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 73, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:44:25,789 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 78, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:44:51,320 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 90, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:45:15,667 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 91, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:45:39,273 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 92, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:46:02,168 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 98, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:46:27,765 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: reg. nr. 99g, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:46:27,779 archeological_pottery_forms.my_models.my_decorators programa vykdyta 754.0148683 sek.
+INFO 2022-07-26 20:48:08,997 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:08,998 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.04691689999999937 sek.
+INFO 2022-07-26 20:48:09,003 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 11, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:14,151 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:14,152 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.05093199999999953 sek.
+INFO 2022-07-26 20:48:14,158 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 15, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:17,669 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:17,669 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.056046500000000776 sek.
+INFO 2022-07-26 20:48:17,677 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 17, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:21,666 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:21,667 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.06018879999999882 sek.
+INFO 2022-07-26 20:48:21,675 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 18, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:25,721 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:25,721 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.038061299999998965 sek.
+INFO 2022-07-26 20:48:25,728 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 19, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:29,217 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:29,217 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.0495851000000016 sek.
+INFO 2022-07-26 20:48:29,226 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 23, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:33,567 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:33,567 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.08561840000000132 sek.
+INFO 2022-07-26 20:48:33,577 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 24, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:37,359 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:37,359 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.08755239999999986 sek.
+INFO 2022-07-26 20:48:37,368 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 25, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:40,779 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:40,779 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.04465629999999976 sek.
+INFO 2022-07-26 20:48:40,788 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 27, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:44,764 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:44,765 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.06546819999999798 sek.
+INFO 2022-07-26 20:48:44,774 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 30, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:48,256 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:48,256 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.06425090000000466 sek.
+INFO 2022-07-26 20:48:48,265 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 32, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:51,817 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:51,818 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.05898399999999526 sek.
+INFO 2022-07-26 20:48:51,825 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 36, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:55,625 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:55,626 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.07089419999999791 sek.
+INFO 2022-07-26 20:48:55,633 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 37, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:48:59,288 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:48:59,289 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.0832146999999992 sek.
+INFO 2022-07-26 20:48:59,296 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 41, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:02,654 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:02,654 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.06849069999999813 sek.
+INFO 2022-07-26 20:49:02,661 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 48, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:06,245 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:06,245 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.0668816000000021 sek.
+INFO 2022-07-26 20:49:06,279 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 5, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:09,860 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:09,861 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.048507900000004156 sek.
+INFO 2022-07-26 20:49:09,894 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 50, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:13,125 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:13,126 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.0818127000000004 sek.
+INFO 2022-07-26 20:49:13,161 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 53, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:16,777 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:16,777 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.05427110000000823 sek.
+INFO 2022-07-26 20:49:16,782 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 55, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:20,857 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:20,857 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.05374319999999955 sek.
+INFO 2022-07-26 20:49:20,862 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 57, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:25,104 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:25,105 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.053786399999992796 sek.
+INFO 2022-07-26 20:49:25,111 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 6, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:28,753 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:28,754 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.07963380000001052 sek.
+INFO 2022-07-26 20:49:28,785 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 61, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:33,439 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:33,440 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.15862830000000372 sek.
+INFO 2022-07-26 20:49:33,503 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 64, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:37,298 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:37,299 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.09075290000001246 sek.
+INFO 2022-07-26 20:49:37,306 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 70, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:41,116 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:41,117 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.06934359999999629 sek.
+INFO 2022-07-26 20:49:41,123 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 73, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:44,739 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:44,739 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.1049284000000057 sek.
+INFO 2022-07-26 20:49:44,746 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 78, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:48,357 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:48,358 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.1021238000000011 sek.
+INFO 2022-07-26 20:49:48,366 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 90, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:52,847 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:52,848 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.06445329999999672 sek.
+INFO 2022-07-26 20:49:52,853 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 91, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:56,604 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:56,605 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.07785229999998933 sek.
+INFO 2022-07-26 20:49:56,613 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 92, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:49:59,793 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:49:59,794 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.08031730000000437 sek.
+INFO 2022-07-26 20:49:59,801 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 98, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-07-26 20:50:03,802 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-07-26 20:50:03,803 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.0821550000000002 sek.
+INFO 2022-07-26 20:50:03,808 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 99g, Subačiaus g. 11, 1996, detalūs tyrimai

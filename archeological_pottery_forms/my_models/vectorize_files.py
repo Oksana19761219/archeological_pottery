@@ -29,11 +29,11 @@ def _get_ceramic_id(file, object_id):
         if unique_profile:
             return find_id[0]
         else:
-            message = f'nepatvirtintas radinio unikalumas CeramicContour modelyje (reg. nr. {str(file)}, objekto id {object_id})'
+            message = f'toks radinys jau yra CeramicContour modelyje (reg. nr. {str(file)}, objekto id {object_id})'
             messages.append(message)
             logger.exception(message)
     else:
-        message = f'nepatvirtintas radinio unikalumas PotteryDescription modelyje (reg. nr. {str(file)}, objekto id {object_id})'
+        message = f'toks radinys jau yra PotteryDescription modelyje (reg. nr. {str(file)}, objekto id {object_id})'
         messages.append(message)
         logger.exception(message)
         return None
