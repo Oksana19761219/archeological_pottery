@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% if user.is_authenticated %}
-        <div class="card">
-            <div class="card-body">
-                <p>Archeologinio objekto paieška. Įveskite raktinius žodžius</p>
-                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
-                      <button class="btn btn-primary register-button" type="submit">Paieška</button>
-                </form>
-            </div>
-         </div>
-    {% endif %}
-
-    <div class="card">
-        <div class="card-body">
-            <p>Šis projektas – mano kuriamo Vilniaus archeologinės keramikos mokslinių tyrimų įrankio dalis.</p>
-            <p>Jo tikslas – paruošti duomenis statistiniam tyrimui.</p>
-            <br>
-            <p>Programa leidžia: </p>
-            <ul>
-                <li>Pasirinkti archeologinių tyrimų objektą;</li>
-                <li>aprašyti jo radinius;</li>
-                <li>vektorizuoti radinių brėžinius: iš rastrinio failo nuskaityti skersinio pjūvio koordinates ir išsaugoti jas modelyje;</li>
-                <li>atvaizduoti vektorizuotus radinių profilius ir patvirtinti jų kokybę arba ištrinti netinkamą profilį.</li>
-            </ul>
-        </div>
+{% if user.is_authenticated %}
+<div class="card">
+    <div class="card-body">
+        <p>Archeologinio objekto paieška. Įveskite raktinius žodžius</p>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+            <button class="btn btn-primary register-button" type="submit">Paieška</button>
+        </form>
     </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <div class="card-body">
+        <p>Šis projektas – mano kuriamo Vilniaus archeologinės keramikos mokslinių tyrimų įrankio dalis.</p>
+        <p>Jo tikslas – paruošti duomenis statistiniam tyrimui.</p>
+        <br>
+        <p>Programa leidžia: </p>
+        <ul>
+            <li>Pasirinkti archeologinių tyrimų objektą;</li>
+            <li>aprašyti jo radinius;</li>
+            <li>vektorizuoti radinių brėžinius: iš rastrinio failo nuskaityti skersinio pjūvio koordinates ir išsaugoti jas modelyje;</li>
+            <li>atvaizduoti vektorizuotus radinių profilius ir patvirtinti jų kokybę arba ištrinti netinkamą profilį.</li>
+        </ul>
+    </div>
+</div>
 
 
 {% endblock %}

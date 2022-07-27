@@ -3,45 +3,46 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
+{% if user.is_authenticated %}
+<br>
+
+{% if object%}
+<div class="card">
+    <div class="card-body">
+        <strong>Archeologinių tyrimų objektas: </strong>
+        <p>{{object.name}}, {{ object.year }}</p>
         <br>
+        <strong>Dokumentai:</strong>
+        {% for report in reports %}
+        <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
+        {% endfor %}
 
-        {% if object%}
-            <div class="card">
-              <div class="card-body">
-                <strong>Archeologinių tyrimų objektas: </strong>
-                <p>{{object.name}}, {{ object.year }}</p>
-                <br>
-                <strong>Dokumentai:</strong>
-                {% for report in reports %}
-                    <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
-                {% endfor %}
-
-                {% if vectors %}
-                  <br>
-                  <br>
-                  <label for="vectors">vektorizuotų radinių registracijos numeriai:</label>
-                  <br>
-                  <select class="w-25 p-3" id="vectors" name="vectors" multiple>
-                      {% for vector in vectors %}
-                        <option >{{vector.find_registration_nr}}</option>
-                      {% endfor %}
-                  </select>
-                {% endif %}
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-body">
-                  <form action="" method="post" enctype="multipart/form-data">
-                      {% csrf_token %}
-                      <button type="submit" class="btn btn-primary register-button" id="describe" name="describe">aprašyti radinius</button>
-                      <button type="submit" class="btn btn-primary register-button" id="read_drawings" name="read_drawings" >vektorizuoti brėžinius</button>
-                  </form>
-              </div>
-            </div>
-
+        {% if vectors %}
+        <br>
+        <strong>vektorizuota {{vectors_count}} radinių profilių</strong>
+        <br>
+        <label for="vectors">vektorizuotų radinių registracijos numeriai:</label>
+        <br>
+        <select class="w-25 p-3" id="vectors" name="vectors" multiple>
+            {% for vector in vectors %}
+            <option >{{vector.find_registration_nr}}</option>
+            {% endfor %}
+        </select>
         {% endif %}
-    {% endif %}
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary register-button" id="describe" name="describe">aprašyti radinius</button>
+            <button type="submit" class="btn btn-primary register-button" id="read_drawings" name="read_drawings" >vektorizuoti brėžinius</button>
+        </form>
+    </div>
+</div>
+
+{% endif %}
+{% endif %}
 
 {% endblock %}

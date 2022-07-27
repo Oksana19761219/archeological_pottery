@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -8,13 +9,13 @@
     <br>
     <div class="row align-items-start">
         <div class="col">
-            {% if ceramic %}
+            {% if my_ceramic %}
             <form action="" method="post">
                 {% csrf_token %}
-                <label for="my_ceramic">pasirinkite radinį:</label>
+                <label for="my_ceramic"><strong>pasirinkite radinį:</strong></label>
                 <br>
                 <select class="col" name="my_ceramic" id="my_ceramic" multiple>
-                    {% for item in ceramic %}
+                    {% for item in my_ceramic %}
                     <option value="{{item.id}}">reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</option>
                     {% endfor %}
                 </select>
@@ -23,13 +24,13 @@
                 <strong>Lyginamų radinių atrankos lygiai:</strong>
                 <br>
                 <br>
-                <input type="radio" id="contour" name="level" value="contour">
+                <input type="radio" id="contour" name="queryset_type" value="contour">
                 <label for="contour">tik puodo kontūras</label><br>
-                <input type="radio" id="contour_lip" name="level" value="contour_lip">
+                <input type="radio" id="contour_lip" name="queryset_type" value="contour_lip">
                 <label for="contour_lip">puodo kontūras ir snapelio forma</label><br>
-                <input type="radio" id="contour_ornament" name="level" value="contour_ornament">
+                <input type="radio" id="contour_ornament" name="queryset_type" value="contour_ornament">
                 <label for="contour_lip">puodo kontūras ir ornamentas</label><br>
-                <input type="radio" id="contour_ornament_lip" name="level" value="contour_ornament_lip">
+                <input type="radio" id="contour_ornament_lip" name="queryset_type" value="contour_ornament_lip">
                 <label for="contour_ornament_lip">puodo kontūras, ornamentas ir snapelio forma</label><br>
                 <br>
                 <br>
@@ -50,14 +51,16 @@
         </div>
         <div class="col">
 
-            {% if correlated_contours %}
+
             <form action="" method="post">
                 {% csrf_token %}
-                <strong>pasirinkite antrą radinį</strong>
+                <strong>pasirinkite antrą radinį:</strong>
                 <select class="col" name="correlated_contours" id="correlated_contours" multiple>
+                    {% if correlated_contours %}
                     {% for item in correlated_contours %}
-                    <option value="{{ceramic_id}} {{item.find_1}} {{item.find_2}}"> corr: {{item.correlation}}, length: {{item.length_compared}}</option>
+                    <option value="{{contour_1_id}} {{corr_min}} {{corr_max}} {{item.correlation}} {{queryset_type}} {{item.find_1}} {{item.find_2}}"> corr: {{item.correlation}}, length: {{item.length_compared}}</option>
                     {% endfor %}
+                    {% endif %}
                 </select>
                 <br>
                 <br>
@@ -66,7 +69,20 @@
                 <br>
             </form>
 
+            {% if object_1 %}
+            {% for item in object_1 %}
+            <p>pirmas radinys: reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</p>
+            {% endfor %}
             {% endif %}
+            {% if object_2 %}
+            {% for item in object_2 %}
+            <p>antras radinys: reg. nr. {{item.find_registration_nr}}, {{item.research_object}}</p>
+            {% endfor %}
+            {% endif %}
+            {% if corr_coeff %}
+            <p>koreliacijos koeficientas: {{corr_coeff}}</p>
+            {% endif %}
+
         </div>
         <div class="col">
             <canvas id="myCanvas" width="300" height="500" class="border"></canvas>
@@ -74,20 +90,19 @@
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
                     ctx.scale(1, 1);
-                    {% if this_contour %}
-                        {% for pixel in this_contour %}
-                            ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
+                    {% if contour_1 %}
+                        {% for pixel in contour_1 %}
+                            ctx.fillRect({{pixel.x}}, {{pixel.y}},2,2);
                         {% endfor %}
                     {% endif %}
-                    {% if second_contour %}
-                        {% for pixel in second_contour %}
+                    {% if contour_2 %}
+                        {% for pixel in contour_2 %}
                         ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'
-                        ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
+                        ctx.fillRect({{pixel.x}}, {{pixel.y}},2,2);
                         {% endfor %}
                     {% endif %}
             </script>
         </div>
-
     </div>
 </div>
 

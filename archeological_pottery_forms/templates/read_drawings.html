@@ -31,18 +31,18 @@
     <br>
     <div class="card">
         <div class="card-body">
-        {% if messages %}
-        <strong>Brėžinių vektorizavimo ataskaita</strong>
-        {% for message in messages %}
-        <p>{{message}}</p>
-        {% endfor %}
-        {% else %}
-        <p>Procesui pasibaigus čia bus jo ataskaita :)</p>
-        {% endif %}
+            {% if messages %}
+            <strong>Brėžinių vektorizavimo ataskaita</strong>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% else %}
+            <p>Procesui pasibaigus čia bus jo ataskaita :)</p>
+            {% endif %}
         </div>
     </div>
     <br>
     <br>
-{% endif %}
+    {% endif %}
 
-{% endblock %}
+    {% endblock %}

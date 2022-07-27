@@ -13,8 +13,10 @@ from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.messages import messages
 from .my_models.correlation import  calculate_correlation
+from .my_models.sounds import sound_files
 import pandas as pd
 import logging
+
 
 logger = logging.getLogger(__name__)
 
@@ -74,11 +76,13 @@ def object(request, object_id):
     this_object_vectors = PotteryDescription.objects\
         .filter(Q(research_object = object_id) & Q(pk__in=vectors_id))\
         .order_by('find_registration_nr')
+    this_object_vectors_count = this_object_vectors.count()
 
     context = {
         'object': single_object,
         'reports': reports,
-        'vectors': this_object_vectors
+        'vectors': this_object_vectors,
+        'vectors_count': this_object_vectors_count
     }
     if request.method == 'POST' and 'describe' in request.POST:
         return HttpResponseRedirect(reverse('describe', args=[object_id]))
@@ -180,73 +184,94 @@ def vectorize_drawings(request, object_id):
                             ceramic_color,
                             frame_color,
                             ceramic_orientation)
+            sound_files()
         form = DrawingForm()
     else:
         form = DrawingForm()
     return render(request, 'read_drawings.html', {'form': form, 'messages': messages})
 
 
+def get_queryset_type(request):
+    if 'queryset_type' in request.POST:
+        return request.POST['queryset_type']
+    else:
+        return 'contour'
+
+
+def get_correlated_contours(contour_1_id, corr_min, corr_max, queryset_type):
+    if queryset_type == 'contour':
+        queryset = PotteryDescription.objects.all()
+    elif queryset_type == 'contour_lip':
+        lip_id = PotteryDescription.objects.get(pk=contour_1_id).lip_id
+        queryset = PotteryDescription.objects.filter(lip_id=lip_id)
+    elif queryset_type == 'contour_ornament':
+        ornament_id = PotteryDescription.objects.get(pk=contour_1_id).ornament_id
+        queryset = PotteryDescription.objects.filter(ornament_id=ornament_id)
+    elif queryset_type == 'contour_ornament_lip':
+        object = PotteryDescription.objects.get(pk=contour_1_id)
+        lip_id, ornament_id = object.lip_id, object.ornament_id
+        queryset = PotteryDescription.objects.filter(Q(lip_id=lip_id) & Q(ornament_id=ornament_id))
+    id_list = list(queryset.values_list('pk', flat=True))
+    contours_queryset = ContourCorrelation.objects.filter(Q(find_1__in=id_list) & Q(find_2__in=id_list))
+    return contours_queryset.filter(
+            (Q(find_1=contour_1_id) | Q(find_2=contour_1_id)) &
+            (Q(correlation__gte=corr_min) & Q(correlation__lte=corr_max))
+        ).order_by('-correlation', '-length_compared')
+
+
 @csrf_protect
 def view_correlation(request):
-    ceramic = PotteryDescription.objects.filter(coordinates__isnull=False).distinct()
-    this_contour = None
-    second_contour = None
+    my_ceramic = PotteryDescription.objects.filter(coordinates__isnull=False).distinct()
+    object_1, object_2 = None, None
+    contour_1, contour_2  = None, None
     correlated_contours = None
-    ceramic_id = None
+    contour_1_id = None
+    corr_min, corr_max = None, None
+    corr_coeff = None
+    queryset_type = 'contour'
 
     select_1_contour = request.method == 'POST' and 'my_ceramic' in request.POST
     select_2_contour = request.method == 'POST' and 'correlated_contours' in request.POST
 
     if select_1_contour:
-        ceramic_id = int(request.POST['my_ceramic'])
-        this_contour = CeramicContour.objects.filter(Q(find__profile_reviewed=True) & Q(find_id=ceramic_id))
+        contour_1_id = int(request.POST['my_ceramic'])
+        contour_1 = CeramicContour.objects.filter(Q(find__profile_reviewed=True) & Q(find_id=contour_1_id))
+        object_1 = my_ceramic.filter(pk=contour_1_id)
 
         correlation = float(request.POST['correlation1']), float(request.POST['correlation2'])
         corr_min = min(correlation)
         corr_max= max(correlation)
 
-        correlated_contours = ContourCorrelation.objects.filter(
-            (Q(find_1=ceramic_id) | Q(find_2=ceramic_id)) &
-            (Q(correlation__gte=corr_min) & Q(correlation__lte=corr_max))
-        ).order_by('-correlation', '-length_compared')
-
-
-        if 'level' in request.POST:
-            level = request.POST['level']
-        else:
-            level = 'contour'
+        queryset_type = get_queryset_type(request)
+        correlated_contours = get_correlated_contours(contour_1_id, corr_min, corr_max, queryset_type)
 
     if select_2_contour:
-        ids = request.POST['correlated_contours']
-        first_id = ids.split()[0]
-        second_id = int(ids.replace(first_id, '').strip())
-        this_contour = CeramicContour.objects.filter(find_id=first_id)
-        second_contour = CeramicContour.objects.filter(find_id=second_id)
+        data = request.POST['correlated_contours'].split()
+        contour_1_id = data[0]
+        corr_min, corr_max = data[1], data[2]
+        corr_coeff = data[3]
+        queryset_type = data[4]
+        ids = data[5:]
+        ids.remove(contour_1_id)
+        contour_2_id = int(ids[0])
 
-
-
-
-
-
-        #
-        # if level == 'contour':
-        #     print(level)
-        # elif level == 'contour_lip':
-        #     print(level)
-        # elif level == 'contour_ornament':
-        #     print(level)
-        # elif level == 'contour_ornament_lip':
-        #     print(level)
-
-
-
-
+        contour_1 = CeramicContour.objects.filter(find_id=contour_1_id)
+        contour_2 = CeramicContour.objects.filter(find_id=contour_2_id)
+        object_1 = my_ceramic.filter(pk=contour_1_id)
+        object_2 = my_ceramic.filter(pk=contour_2_id)
+        correlated_contours = get_correlated_contours(contour_1_id, corr_min, corr_max, queryset_type)
 
     context = {
-        'ceramic': ceramic,
-        'ceramic_id': ceramic_id,
-        'this_contour': this_contour,
-        'second_contour': second_contour,
-        'correlated_contours': correlated_contours
+        'my_ceramic': my_ceramic,
+        'contour_1_id': contour_1_id,
+        'contour_1': contour_1,
+        'contour_2': contour_2,
+        'correlated_contours': correlated_contours,
+        'corr_min': corr_min,
+        'corr_max': corr_max,
+        'object_1': object_1,
+        'object_2': object_2,
+        'corr_coeff': corr_coeff,
+        'queryset_type': queryset_type
     }
     return render(request, 'view_correlation.html', context=context)

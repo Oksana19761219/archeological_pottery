@@ -10,6 +10,7 @@ from .read_image_data import \
     get_contour_coords
 from .my_decorators import calculate_time
 from .messages import messages
+from .sounds import  sound_one_file
 
 
 logger = logging.getLogger(__name__)
@@ -132,6 +133,7 @@ def vectorize_files(files,
                                     frame_width,
                                     frame_height,
                                     ceramic_orientation)
+                sound_one_file()
             else:
                 message = f'brėžinys nevektorizuotas: {file}, tyrimų objekto id {object_id}'
                 messages.append(message)

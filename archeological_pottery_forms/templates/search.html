@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="card">
-    <div class="card-body">
-      <strong>Paieškos pagal "{{query}}" rezultatai:</strong>
+<div class="card">
+  <div class="card-body">
+    <strong>Paieškos pagal "{{query}}" rezultatai:</strong>
+    <br>
+    <br>
+    {% if reports %}
+    <ul>
+      {% for report in reports %}
+      <li>
+        <a href="{% url 'object' report.research_object.id %}">{{ report.author }}, {{report.title}}, {{report.report_year}}</a>
+      </li>
       <br>
-      <br>
-      {% if reports %}
-        <ul>
-          {% for report in reports %}
-            <li>
-              <a href="{% url 'object' report.research_object.id %}">{{ report.author }}, {{report.title}}, {{report.report_year}}</a>
-            </li>
-          <br>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <a href="{% url 'index' %}">Nieko neradome. Pabandykite pakeisti raktinių žodžių kombinaciją, arba įvesti tik žodžių dalį</a>
-      {% endif %}
-    </div>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <a href="{% url 'index' %}">Nieko neradome. Pabandykite pakeisti raktinių žodžių kombinaciją, arba įvesti tik žodžių dalį</a>
+    {% endif %}
   </div>
+</div>
 
 {% endblock %}
