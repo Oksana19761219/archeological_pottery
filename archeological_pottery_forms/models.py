@@ -186,6 +186,10 @@ class PotteryDescription(models.Model):
         'profile reviewed',
         default=False
     )
+    correlation_calculated = models.BooleanField(
+        'correlation_calculated',
+        default=False
+    )
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']

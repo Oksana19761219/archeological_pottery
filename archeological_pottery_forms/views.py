@@ -12,7 +12,7 @@ from .models import Bibliography, \
 from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.messages import messages
-from .my_models.correlation import  calculate_correlation
+from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
 import pandas as pd
 import logging
@@ -142,13 +142,16 @@ def review_ceramic_profiles(request):
             logger.info(f'radinio profilis ištrintas: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
 
         elif action == 'confirm':
-            this_contour = CeramicContour.objects.filter(find_id=ceramic_id).values()
-            this_contour_df = pd.DataFrame.from_records(this_contour)
 
-            contours = CeramicContour.objects.filter(find__profile_reviewed=True).values()
-            contours_df = pd.DataFrame.from_records(contours)
-            if not contours_df.empty:
-                calculate_correlation(this_contour_df, contours_df, ceramic_id)
+            # uzkomentavau koreliacijos koeficiento skaiciavima
+
+            # this_contour = CeramicContour.objects.filter(find_id=ceramic_id).values()
+            # this_contour_df = pd.DataFrame.from_records(this_contour)
+            #
+            # contours = CeramicContour.objects.filter(find__profile_reviewed=True).values()
+            # contours_df = pd.DataFrame.from_records(contours)
+            # if not contours_df.empty:
+            #     calculate_correlation(this_contour_df, contours_df, ceramic_id)
 
             this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
             this_ceramic.profile_reviewed = True
@@ -275,3 +278,52 @@ def view_correlation(request):
         'queryset_type': queryset_type
     }
     return render(request, 'view_correlation.html', context=context)
+
+import time
+
+
+@csrf_protect
+def calculate_correlation_coefficient(request):
+
+
+    correlated_ids = PotteryDescription.objects.filter(correlation_calculated=True).values_list('pk', flat=True)
+    ids_to_correlate = PotteryDescription.objects.filter(correlation_calculated=False).values_list('pk', flat=True)
+    contours_correlated = CeramicContour.objects.filter(find_id__in=correlated_ids).values()
+    contours_to_correlate = CeramicContour.objects.filter(find_id__in=ids_to_correlate).values()
+    contours_correlated_df = pd.DataFrame.from_records(contours_correlated)
+    contours_to_correlate_df = pd.DataFrame.from_records(contours_to_correlate)
+
+    if not contours_correlated_df.empty:
+        contours_correlated_quantity = len(contours_correlated_df['find_id'].unique())
+    else:
+        contours_correlated_quantity = 0
+    if not contours_to_correlate_df.empty:
+        contours_to_correlate_quantity = len(contours_to_correlate_df['find_id'].unique())
+    else: contours_to_correlate_quantity = 0
+
+    if request.method == 'POST' and not contours_to_correlate_df.empty:
+        start_time = time.perf_counter()
+
+        ids = contours_to_correlate_df['find_id'].unique()
+        for id in ids:
+            this_contour = contours_to_correlate_df[contours_to_correlate_df['find_id'] == id]
+            other_contours = contours_to_correlate_df[contours_to_correlate_df['find_id'] != id]
+            calculate_correlation(this_contour, other_contours, id)
+            if not contours_correlated_df.empty:
+                calculate_correlation(this_contour, contours_correlated_df, id)
+            this_ceramic = PotteryDescription.objects.get(pk=id)
+            this_ceramic.correlation_calculated = True
+            this_ceramic.save()
+
+        sound_files()
+        end_time = time.perf_counter()
+        run_time = end_time - start_time
+        logger.info(f'koreliacijos koeficientai skaičiuoti {run_time} sek., lyginta {contours_correlated_quantity + contours_to_correlate_quantity} radinių')
+
+
+    context = {
+       'contours_correlated_quantity': contours_correlated_quantity,
+        'contours_to_correlate_quantity': contours_to_correlate_quantity
+    }
+
+    return render(request, 'calculate_correlation.html', context=context)
