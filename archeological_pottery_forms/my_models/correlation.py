@@ -51,5 +51,3 @@ def calculate_correlation (this_contour, other_contours, find_id):
     logger.info('įrašyti koreliacijos koeficientai')
 
 
-
-

@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q
+from django.db.models import Q, Min, Max
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -15,6 +15,7 @@ from .my_models.messages import messages
 from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
 import pandas as pd
+from math import pi
 import logging
 
 
@@ -304,3 +305,34 @@ def review_profiles(request):
     }
 
     return render(request, 'review_profiles.html', context=context)
+
+
+# def calculate_angle():
+#     queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(arc_angle=None)).distinct()
+#     ids = queryset.values_list('id')
+#
+#     for id in ids:
+#         x_max = CeramicContour.objects.filter(Q(find_id__in=id) & Q(y=0)).aggregate(Max('x'))['x__max']
+#         arc_length = PotteryDescription.objects.filter(pk__in=id).values('arc_length')[0]['arc_length']
+#         distance_to_center = PotteryDescription.objects.filter(pk__in=id).values('distance_to_center')[0]['distance_to_center']
+#         radius = x_max + abs(distance_to_center)
+#         angle = round((360 * (arc_length * 5))/(2 * pi * radius), 0)
+#
+#         object = PotteryDescription.objects.get(pk=id[0])
+#         object.arc_angle = angle
+#         object.save()
+
+
+@csrf_protect
+def group_ceramic_contours(request):
+    # calculate_angle()
+    objects = PotteryDescription.objects.filter(coordinates__isnull=False).distinct()
+
+    context = {
+        'objects': objects
+    }
+
+
+
+    return render(request, 'group_ceramic.html', context=context)
+

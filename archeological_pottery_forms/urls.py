@@ -11,7 +11,8 @@ urlpatterns = [
     path('read_drawings/<int:object_id>', views.vectorize_drawings, name='read_drawings'),
     path('view_correlation/', views.view_correlation, name='view_correlation'),
     path('calculate_correlation/', views.calculate_correlation_coefficient, name='calculate_correlation'),
-    path('review_profiles/', views.review_profiles, name='review_profiles')
+    path('review_profiles/', views.review_profiles, name='review_profiles'),
+    path('group_ceramic/', views.group_ceramic_contours, name='group_ceramic')
 ]
 
 

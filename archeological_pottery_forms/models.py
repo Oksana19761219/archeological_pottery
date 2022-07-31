@@ -1,7 +1,9 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.db.models import Q, Min, Max
 from tinymce.models import HTMLField
+from math import  pi
 # Create your models here.
 
 
@@ -130,6 +132,7 @@ class PotteryDescription(models.Model):
         blank=True,
         help_text='enter length of lip arc (milimeters)'
     )
+
     color = models.CharField(
         'color',
         max_length=10,
@@ -190,6 +193,12 @@ class PotteryDescription(models.Model):
         'correlation_calculated',
         default=False
     )
+    contour_group = models.ForeignKey(
+        'ContourGroup',
+        on_delete = models.SET_NULL,
+        null = True,
+        related_name = 'findings'
+    )
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']
@@ -200,6 +209,31 @@ class PotteryDescription(models.Model):
 
     def get_absolute_url(self):
         return reverse('pottery_description', args=[str(self.id)])
+
+    @property
+    def angle(self):
+        x_max = CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Max('x'))['x__max']
+        try:
+            radius = x_max + abs(self.distance_to_center)
+            return round((360 * (self.arc_length * 5))/(2 * pi * radius), 0)
+        except:
+            return None
+
+    @property
+    def length(self):
+            return CeramicContour.objects.filter(find_id=self.id).aggregate(Max('y'))['y__max']
+
+
+class ContourGroup(models.Model):
+    note = models.CharField(
+        'note',
+        max_length=255,
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return f'group description: {self.note}'
 
 
 class ResearchObject(models.Model):
@@ -235,6 +269,9 @@ class ResearchObject(models.Model):
 
     def __str__(self):
         return f'{self.name}, {self.year}, {self.research_type}'
+
+
+
 
 
 class CeramicContour(models.Model):

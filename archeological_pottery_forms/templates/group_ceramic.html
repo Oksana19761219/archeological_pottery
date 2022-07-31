@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if objects %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="my_ceramic"><strong>pasirinkite radinį:</strong></label>
+        <br>
+        <select class="col" name="my_ceramic" id="my_ceramic" multiple>
+            {% for item in objects %}
+            <option value="{{item.id}}">reg. nr. {{item.find_registration_nr}}, {{item.research_object}}, {{item.angle}} {{item.length}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary register-button" id="submit" name="submit">Ok</button>
+        <br>
+        <br>
+    </form>
+    {% endif %}
+{% endif %}
+{% endblock %}

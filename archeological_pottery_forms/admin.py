@@ -7,7 +7,9 @@ from .models import \
     PotteryDescription, \
     ResearchObject, \
     PotteryMakingAction, \
-    CeramicContour
+    CeramicContour, \
+    ContourGroup
+
 
 
 # Register your models here.
@@ -77,3 +79,5 @@ admin.site.register(PotteryDescription, PotteryDescriptionAdmin)
 admin.site.register(ResearchObject, ResearchObjectAdmin)
 admin.site.register(PotteryMakingAction)
 admin.site.register(CeramicContour)
+admin.site.register(ContourGroup)
+
