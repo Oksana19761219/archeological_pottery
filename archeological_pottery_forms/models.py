@@ -269,10 +269,15 @@ class ContourCorrelation(models.Model):
         null=False,
         blank=False
     )
-    correlation = models.FloatField(
-        'correlation',
-        null=False,
-        blank=False
+    correlation_x = models.FloatField(
+        'correlation_x',
+        null=True,
+        blank=True
+    )
+    correlation_width = models.FloatField(
+        'correlation_width',
+        null=True,
+        blank=True
     )
     length_compared = models.FloatField(
         'length_compared',

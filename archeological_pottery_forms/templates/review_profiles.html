@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="container">
+    <br>
+    <div class="row align-items-start">
+        <div class="col">
+            {% if objects_to_review_quantity %}
+            <p> turite {{objects_to_review_quantity}} neperžiūrėtų radinių profilių</p>
+            {% endif %}
+            <br>
+            <br>
+            {% if object %}
+            <p>radinio reg. nr. {{object.find_registration_nr}}, {{object.research_object}}</p>
+
+            <br>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="row align-items-start">
+                    <br>
+                    <br>
+                    <div class="col">
+                        <input type="radio" id="confirm" name="review" value="confirm" checked>
+                        <label for="confirm">patvirtinti</label><br>
+                        <br>
+                        <input type="radio" id="delete" name="review" value="delete">
+                        <label for="delete">trinti</label><br>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary register-button" id="submit" name="submit">Ok</button>
+                    </div>
+                </div>
+            </form>
+            {% else %}
+            <p>neperžiūrėtų radinių nėra</p>
+            {% endif %}
+        </div>
+        <div class="col">
+            <canvas id="myCanvas" width="600" height="800" class="border"></canvas>
+            <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.scale(1, 1);
+                    {% if this_profile%}
+                        {% for pixel in this_profile %}
+                            ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
+                        {% endfor %}
+                    {% endif %}
+            </script>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

@@ -113,61 +113,6 @@ def get_pottery_description(request, object_id):
 
 
 @csrf_protect
-def review_ceramic_profiles(request):
-    queryset = CeramicContour.objects.values_list('find_id').distinct()
-    ceramic_vectors = PotteryDescription.objects.filter(Q(pk__in=queryset) & Q(profile_reviewed=False))
-    this_profile = None
-    this_profile_description = None
-
-    show_profile = request.method == 'POST' and 'my_ceramic' in request.POST
-    review = request.method == 'POST' and 'review' in request.POST
-
-    if show_profile:
-        ceramic_id = int(request.POST['my_ceramic'])
-        this_profile = CeramicContour.objects.filter(find_id=ceramic_id)
-        this_profile_description = PotteryDescription.objects.filter(pk=ceramic_id)[0]
-
-    if review:
-        action, object = request.POST['review'].split(' ')
-        ceramic_id = int(object)
-
-        if action == 'delete':
-            queryset = CeramicContour.objects.filter(find_id=ceramic_id)
-            this_ceramic = PotteryDescription.objects.filter(pk=ceramic_id)[0]
-            for item in queryset:
-                item.delete()
-            this_ceramic.distance_to_center = None
-            this_ceramic.save()
-            this_profile_description = None
-            logger.info(f'radinio profilis ištrintas: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
-
-        elif action == 'confirm':
-
-            # uzkomentavau koreliacijos koeficiento skaiciavima
-
-            # this_contour = CeramicContour.objects.filter(find_id=ceramic_id).values()
-            # this_contour_df = pd.DataFrame.from_records(this_contour)
-            #
-            # contours = CeramicContour.objects.filter(find__profile_reviewed=True).values()
-            # contours_df = pd.DataFrame.from_records(contours)
-            # if not contours_df.empty:
-            #     calculate_correlation(this_contour_df, contours_df, ceramic_id)
-
-            this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
-            this_ceramic.profile_reviewed = True
-            this_ceramic.save()
-            this_profile_description = None
-            logger.info(f'patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}')
-
-    context = {
-        'my_ceramic': ceramic_vectors,
-        'profile': this_profile,
-        'profile_description': this_profile_description
-    }
-    return render(request, 'my_ceramic.html', context=context)
-
-
-@csrf_protect
 def vectorize_drawings(request, object_id):
     messages.clear()
     if request.method == 'POST':
@@ -284,10 +229,8 @@ import time
 
 @csrf_protect
 def calculate_correlation_coefficient(request):
-
-
     correlated_ids = PotteryDescription.objects.filter(correlation_calculated=True).values_list('pk', flat=True)
-    ids_to_correlate = PotteryDescription.objects.filter(correlation_calculated=False).values_list('pk', flat=True)
+    ids_to_correlate = PotteryDescription.objects.filter(Q(correlation_calculated=False) & Q(profile_reviewed=True)).values_list('pk', flat=True)
     contours_correlated = CeramicContour.objects.filter(find_id__in=correlated_ids).values()
     contours_to_correlate = CeramicContour.objects.filter(find_id__in=ids_to_correlate).values()
     contours_correlated_df = pd.DataFrame.from_records(contours_correlated)
@@ -297,14 +240,15 @@ def calculate_correlation_coefficient(request):
         contours_correlated_quantity = len(contours_correlated_df['find_id'].unique())
     else:
         contours_correlated_quantity = 0
+
     if not contours_to_correlate_df.empty:
         contours_to_correlate_quantity = len(contours_to_correlate_df['find_id'].unique())
     else: contours_to_correlate_quantity = 0
 
     if request.method == 'POST' and not contours_to_correlate_df.empty:
         start_time = time.perf_counter()
-
         ids = contours_to_correlate_df['find_id'].unique()
+
         for id in ids:
             this_contour = contours_to_correlate_df[contours_to_correlate_df['find_id'] == id]
             other_contours = contours_to_correlate_df[contours_to_correlate_df['find_id'] != id]
@@ -320,10 +264,43 @@ def calculate_correlation_coefficient(request):
         run_time = end_time - start_time
         logger.info(f'koreliacijos koeficientai skaičiuoti {run_time} sek., lyginta {contours_correlated_quantity + contours_to_correlate_quantity} radinių')
 
-
     context = {
        'contours_correlated_quantity': contours_correlated_quantity,
         'contours_to_correlate_quantity': contours_to_correlate_quantity
     }
-
     return render(request, 'calculate_correlation.html', context=context)
+
+
+@csrf_protect
+def review_profiles(request):
+    ids = CeramicContour.objects.values_list('find_id').distinct()
+    objects = PotteryDescription.objects.filter(Q(profile_reviewed=False) & Q(pk__in=ids))
+    object = objects.first()
+    objects_to_review_quantity = objects.count()
+    if object:
+        this_profile = CeramicContour.objects.filter(find_id=object.id)
+    else:
+        this_profile = None
+
+    if request.method == 'POST':
+        action = request.POST['review']
+
+        if object and action == 'delete':
+            data_to_delete = CeramicContour.objects.filter(find_id=object.id)
+            for item in data_to_delete:
+                item.delete()
+            object.distance_to_center = None
+            logger.info(f'radinio profilis ištrintas: reg. nr. {object.find_registration_nr}, {object.research_object}')
+
+        elif object and action == 'confirm':
+            object.profile_reviewed = True
+            object.save()
+            logger.info(f'patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. {object.find_registration_nr}, {object.research_object}')
+
+    context = {
+        'object': object,
+        'this_profile': this_profile,
+        'objects_to_review_quantity': objects_to_review_quantity
+    }
+
+    return render(request, 'review_profiles.html', context=context)
