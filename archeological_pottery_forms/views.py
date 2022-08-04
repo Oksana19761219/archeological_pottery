@@ -164,8 +164,8 @@ def get_correlated_contours(contour_1_id, corr_min, corr_max, queryset_type):
     contours_queryset = ContourCorrelation.objects.filter(Q(find_1__in=id_list) & Q(find_2__in=id_list))
     return contours_queryset.filter(
             (Q(find_1=contour_1_id) | Q(find_2=contour_1_id)) &
-            (Q(correlation__gte=corr_min) & Q(correlation__lte=corr_max))
-        ).order_by('-correlation', '-length_compared')
+            (Q(correlation_x__gte=corr_min) & Q(correlation_x__lte=corr_max))
+        ).order_by('-correlation_x', '-length_compared')
 
 
 @csrf_protect

@@ -58,7 +58,7 @@
                 <select class="col" name="correlated_contours" id="correlated_contours" multiple>
                     {% if correlated_contours %}
                     {% for item in correlated_contours %}
-                    <option value="{{contour_1_id}} {{corr_min}} {{corr_max}} {{item.correlation}} {{queryset_type}} {{item.find_1}} {{item.find_2}}"> corr: {{item.correlation}}, length: {{item.length_compared}}</option>
+                    <option value="{{contour_1_id}} {{corr_min}} {{corr_max}} {{item.correlation_x}} {{queryset_type}} {{item.find_1}} {{item.find_2}}"> corr: {{item.correlation_x}}, length: {{item.length_compared}}</option>
                     {% endfor %}
                     {% endif %}
                 </select>
