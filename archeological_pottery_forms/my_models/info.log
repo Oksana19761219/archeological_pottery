@@ -9962,3 +9962,17 @@ INFO 2022-07-31 16:40:49,234 archeological_pottery_forms.my_models.my_decorators
 INFO 2022-07-31 16:40:50,781 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
 INFO 2022-07-31 16:40:50,794 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1.5009381999998368 sek.
 INFO 2022-07-31 16:40:55,810 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 2199.3202209 sek., lyginta 1456 radinių
+INFO 2022-08-06 13:48:17,893 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4988
+INFO 2022-08-06 13:48:18,930 archeological_pottery_forms.my_models.my_decorators programa vykdyta 64.45731739999997 sek.
+INFO 2022-08-06 13:50:48,213 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 2146, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-08-06 17:59:24,251 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 5.1674826 sek., lyginta 1456 radinių
+INFO 2022-08-06 18:01:32,448 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 5.056964300000001 sek., lyginta 1456 radinių
+INFO 2022-08-06 18:13:41,234 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-08-06 18:13:41,247 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1.5893795000000068 sek.
+INFO 2022-08-06 18:13:46,272 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 6.629278699999986 sek., lyginta 1456 radinių
+INFO 2022-08-06 18:32:15,939 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4988
+INFO 2022-08-06 18:32:16,973 archeological_pottery_forms.my_models.my_decorators programa vykdyta 63.149556399999994 sek.
+INFO 2022-08-06 18:33:06,058 archeological_pottery_forms.views patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. 2146, Subačiaus g. 11, 1996, detalūs tyrimai
+INFO 2022-08-06 18:33:38,497 archeological_pottery_forms.my_models.correlation įrašyti koreliacijos koeficientai
+INFO 2022-08-06 18:33:38,510 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1.5751952999999617 sek.
+INFO 2022-08-06 18:33:43,523 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 6.589192200000014 sek., lyginta 1456 radinių

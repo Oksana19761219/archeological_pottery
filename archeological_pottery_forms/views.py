@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Min, Max
+from django.db.models import Q, Max, Avg, F
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -253,12 +253,13 @@ def calculate_correlation_coefficient(request):
         for id in ids:
             this_contour = contours_to_correlate_df[contours_to_correlate_df['find_id'] == id]
             other_contours = contours_to_correlate_df[contours_to_correlate_df['find_id'] != id]
-            calculate_correlation(this_contour, other_contours, id)
+            if not other_contours.empty:
+                calculate_correlation(this_contour, other_contours, id)
             if not contours_correlated_df.empty:
                 calculate_correlation(this_contour, contours_correlated_df, id)
-            this_ceramic = PotteryDescription.objects.get(pk=id)
-            this_ceramic.correlation_calculated = True
-            this_ceramic.save()
+        this_ceramic = PotteryDescription.objects.get(pk=id)
+        this_ceramic.correlation_calculated = True
+        this_ceramic.save()
 
         sound_files()
         end_time = time.perf_counter()
@@ -307,32 +308,69 @@ def review_profiles(request):
     return render(request, 'review_profiles.html', context=context)
 
 
-# def calculate_angle():
-#     queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(arc_angle=None)).distinct()
-#     ids = queryset.values_list('id')
-#
-#     for id in ids:
-#         x_max = CeramicContour.objects.filter(Q(find_id__in=id) & Q(y=0)).aggregate(Max('x'))['x__max']
-#         arc_length = PotteryDescription.objects.filter(pk__in=id).values('arc_length')[0]['arc_length']
-#         distance_to_center = PotteryDescription.objects.filter(pk__in=id).values('distance_to_center')[0]['distance_to_center']
-#         radius = x_max + abs(distance_to_center)
-#         angle = round((360 * (arc_length * 5))/(2 * pi * radius), 0)
-#
-#         object = PotteryDescription.objects.get(pk=id[0])
-#         object.arc_angle = angle
-#         object.save()
+def calculate_angle():
+    queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(arc_angle=None)).distinct()
+    ids = queryset.values_list('id')
+
+    for id in ids:
+        x_max = CeramicContour.objects.filter(Q(find_id__in=id) & Q(y=0)).aggregate(Max('x'))['x__max']
+        arc_length = PotteryDescription.objects.filter(pk__in=id).values('arc_length')[0]['arc_length']
+        distance_to_center = PotteryDescription.objects.filter(pk__in=id).values('distance_to_center')[0]['distance_to_center']
+        radius = x_max + abs(distance_to_center)
+        angle = round((360 * (arc_length * 5))/(2 * pi * radius), 0)
+
+        object = PotteryDescription.objects.get(pk=id[0])
+        object.arc_angle = angle
+        object.save()
+
+def calculate_length():
+    queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(find_length=None)).distinct()
+    ids = queryset.values_list('id')
+    for id in ids:
+        length = CeramicContour.objects.filter(find_id=id).aggregate(Max('y'))['y__max']
+        object = PotteryDescription.objects.get(pk=id[0])
+        object.find_length = length
+        object.save()
 
 
 @csrf_protect
-def group_ceramic_contours(request):
+def choose_contour(request):
     # calculate_angle()
-    objects = PotteryDescription.objects.filter(coordinates__isnull=False).distinct()
+    # calculate_length()
+
+    objects = PotteryDescription.objects.\
+        filter(Q(coordinates__isnull=False) & Q(contour_group=None)).\
+        distinct().\
+        order_by('-find_length', '-arc_angle')
+    contour = None
+    object = None
+    show_contour = 'submit_show' in request.POST and 'my_ceramic' in request.POST
+    choose_this_contour = 'submit_choose' in request.POST
+
+    if request.method == 'POST' and show_contour:
+        id = int(request.POST['my_ceramic'])
+        contour = CeramicContour.objects.filter(find_id=id)
+        object = PotteryDescription.objects.get(pk=id)
+
+    if request.method == 'POST' and choose_this_contour:
+        object_id = int(request.POST['submit_choose'])
+        print(object_id)
+        return HttpResponseRedirect(reverse('group_contours', args=[object_id]))
 
     context = {
-        'objects': objects
+        'objects': objects,
+        'object': object,
+        'contour': contour
     }
+    return render(request, 'choose_contour.html', context=context)
 
 
+def group_contours(request, object_id):
+    this_contour = CeramicContour.objects.filter(find_id=object_id)
+    mid_point = this_contour.filter(y=0).aggregate(Avg('x'))['x__avg']
+    this_contour_correction = this_contour.annotate(x_corr= F('x') - (mid_point - 500)) # 500 - midpoint of canvas, if zoom == 0.5
 
-    return render(request, 'group_ceramic.html', context=context)
-
+    context = {
+        'this_contour': this_contour_correction,
+    }
+    return render(request, 'group_contours.html', context=context)

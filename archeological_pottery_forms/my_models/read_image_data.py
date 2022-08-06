@@ -153,12 +153,13 @@ def get_contour_coords(image, ceramic_pixels, frame_pixels, ceramic_id):
         .drop_duplicates() \
         .sort_values(by=['x', 'y'])
 
-    x_min = coords_all['x'].min()
     y_min = coords_all['y'].min()
-    distance_to_pot_center = find_frame_corners_coords(image, frame_pixels)[0][0] - x_min
+    x_min = find_frame_corners_coords(image, frame_pixels)[0][0]
 
-    coords_all['x'] = coords_all['x'].apply(lambda  x: x-x_min)
+
+    coords_all['x'] = coords_all['x'].apply(lambda  x: x - x_min)
     coords_all['y'] = coords_all['y'].apply(lambda y: y - y_min)
     coords_all['find'] = ceramic_id
-    return coords_all, distance_to_pot_center
+    coords_all = coords_all.drop(coords_all[coords_all['x'] < 0].index)
+    return coords_all
 

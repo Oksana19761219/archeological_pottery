@@ -199,6 +199,16 @@ class PotteryDescription(models.Model):
         null = True,
         related_name = 'findings'
     )
+    arc_angle = models.FloatField(
+        'arc angle',
+        null=True,
+        blank=True
+    )
+    find_length = models.FloatField(
+        'find length',
+        null=True,
+        blank=True
+    )
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']
@@ -210,18 +220,18 @@ class PotteryDescription(models.Model):
     def get_absolute_url(self):
         return reverse('pottery_description', args=[str(self.id)])
 
-    @property
-    def angle(self):
-        x_max = CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Max('x'))['x__max']
-        try:
-            radius = x_max + abs(self.distance_to_center)
-            return round((360 * (self.arc_length * 5))/(2 * pi * radius), 0)
-        except:
-            return None
-
-    @property
-    def length(self):
-            return CeramicContour.objects.filter(find_id=self.id).aggregate(Max('y'))['y__max']
+    # @property
+    # def angle(self):
+    #     x_max = CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Max('x'))['x__max']
+    #     try:
+    #         radius = x_max + abs(self.distance_to_center)
+    #         return round((360 * (self.arc_length * 5))/(2 * pi * radius), 0)
+    #     except:
+    #         return None
+    #
+    # @property
+    # def length(self):
+    #         return CeramicContour.objects.filter(find_id=self.id).aggregate(Max('y'))['y__max']
 
 
 class ContourGroup(models.Model):
@@ -269,8 +279,6 @@ class ResearchObject(models.Model):
 
     def __str__(self):
         return f'{self.name}, {self.year}, {self.research_type}'
-
-
 
 
 

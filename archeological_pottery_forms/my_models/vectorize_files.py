@@ -53,18 +53,14 @@ def _write_dataframe_coords(coordinates):
         CeramicContour.objects.bulk_create(model_instances)
 
 
-def _write_coords_to_model(contour_coords, distance_to_pot_center, ceramic_id):
-    if  distance_to_pot_center and not contour_coords.empty:
-        this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
-        this_ceramic.distance_to_center = distance_to_pot_center
-        this_ceramic.save()
+def _write_coords_to_model(contour_coords, ceramic_id):
+    if  not contour_coords.empty:
         _write_dataframe_coords(contour_coords)
-        message = f'įrašytos profilio koordinatės: reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}'
+        message = f'įrašytos profilio koordinatės: id {ceramic_id}'
         messages.append(message)
         logger.info(message)
     else:
-        this_ceramic = PotteryDescription.objects.get(pk=ceramic_id)
-        message = f'nepavyko nuskaityti profilio koordinačių, reg. nr. {this_ceramic.find_registration_nr}, {this_ceramic.research_object}'
+        message = f'nepavyko nuskaityti profilio koordinačių, id {ceramic_id}'
         messages.append(message)
         logger.exception(message)
 
@@ -93,13 +89,13 @@ def _vectorize_one_file(file,
                                               frame_height)
             ceramic_pixels = find_pixels(ortho_image, ceramic_color)
             frame_pixels = find_pixels(ortho_image, frame_color)
-            ceramic_contour_coordinates, distance_to_pot_center = get_contour_coords(ortho_image,
+            ceramic_contour_coordinates = get_contour_coords(ortho_image,
                                                                                     ceramic_pixels,
                                                                                     frame_pixels,
                                                                                     ceramic_id)
 
             _write_coords_to_model(ceramic_contour_coordinates,
-                                   distance_to_pot_center,
+
                                    ceramic_id)
 
 

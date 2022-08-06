@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container">
+    <br>
+    <div class="row align-items-start">
+        <div class="col">
+            {% if objects %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="my_ceramic"><strong>pasirinkite radinį:</strong></label>
+                <br>
+                <select class="col" name="my_ceramic" id="my_ceramic" multiple>
+                    {% for item in objects %}
+                    <option value="{{item.id}}">reg. nr. {{item.find_registration_nr}}, {{item.research_object}}, {{item.arc_angle}} {{item.find_length}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary register-button" id="submit_1" name="submit_show">Parodyti profilį</button>
+                <br>
+                <br>
+                {% if object %}
+                <p>Pasirinkote radinį: {{object.find_registration_nr}}, {{object.research_object}}</p>
+                <button type="submit" class="btn btn-primary register-button" id="submit_2" name="submit_choose" value="{{object.id}}">Pradėti profilio grupavimą</button>
+                <br>
+                <br>
+                {% endif %}
+            </form>
+            {% endif %}
+        </div>
+        <div class="col">
+            <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
+            <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.scale(0.5, 0.5);
+                    {% if contour %}
+                        {% for pixel in contour %}
+                            ctx.fillRect({{pixel.x}}, {{pixel.y}},2,2);
+                        {% endfor %}
+                    {% endif %}
+            </script>
+        </div>
+    </div>
+
+</div>
+{% endif %}
+
+{% endblock %}
