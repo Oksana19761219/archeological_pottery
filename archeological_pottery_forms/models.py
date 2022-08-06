@@ -179,12 +179,6 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
-    distance_to_center = models.IntegerField(
-        'distance to center',
-        null=True,
-        blank=True,
-        help_text='distance from  profile min x coordinate to the center of pot (mm*5)'
-    )
     profile_reviewed = models.BooleanField(
         'profile reviewed',
         default=False
@@ -219,19 +213,6 @@ class PotteryDescription(models.Model):
 
     def get_absolute_url(self):
         return reverse('pottery_description', args=[str(self.id)])
-
-    # @property
-    # def angle(self):
-    #     x_max = CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Max('x'))['x__max']
-    #     try:
-    #         radius = x_max + abs(self.distance_to_center)
-    #         return round((360 * (self.arc_length * 5))/(2 * pi * radius), 0)
-    #     except:
-    #         return None
-    #
-    # @property
-    # def length(self):
-    #         return CeramicContour.objects.filter(find_id=self.id).aggregate(Max('y'))['y__max']
 
 
 class ContourGroup(models.Model):
