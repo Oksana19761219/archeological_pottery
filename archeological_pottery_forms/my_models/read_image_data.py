@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 import logging
-from .messages import messages
+from .variables import messages
 
 
 

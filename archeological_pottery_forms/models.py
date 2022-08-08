@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.db.models import Q, Min, Max
+from django.db.models import Q, Avg
 from tinymce.models import HTMLField
 from math import  pi
 # Create your models here.
@@ -214,6 +214,10 @@ class PotteryDescription(models.Model):
     def get_absolute_url(self):
         return reverse('pottery_description', args=[str(self.id)])
 
+    @property
+    def top_mid_point(self):
+        return CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
+
 
 class ContourGroup(models.Model):
     note = models.CharField(
@@ -282,6 +286,13 @@ class CeramicContour(models.Model):
         blank=False,
         related_name='coordinates'
     )
+
+    @property
+    def x_canvas_middle(self):
+        top_mid_point = CeramicContour.objects.filter(Q(find_id=self.find_id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
+        canvas_middle = 500 # canvas middle point if zoom == 0.5,0.5
+        return self.x - top_mid_point + canvas_middle
+
 
 
 class ContourCorrelation(models.Model):

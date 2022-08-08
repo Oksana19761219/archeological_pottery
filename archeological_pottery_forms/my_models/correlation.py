@@ -7,7 +7,7 @@ from .my_decorators import calculate_time
 logger = logging.getLogger(__name__)
 
 
-@calculate_time
+# @calculate_time
 def calculate_correlation (this_contour, other_contours, find_id):
     this_contour_sorted = this_contour.sort_values(by=['y', 'x'], ascending=True)
     this_contour_grouped = this_contour_sorted.groupby(['find_id', 'y'])['x']
@@ -48,6 +48,6 @@ def calculate_correlation (this_contour, other_contours, find_id):
     ) for record in df_records]
 
     ContourCorrelation.objects.bulk_create(model_instances)
-    logger.info('įrašyti koreliacijos koeficientai')
+    # logger.info('įrašyti koreliacijos koeficientai')
 
 

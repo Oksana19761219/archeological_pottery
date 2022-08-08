@@ -9,7 +9,7 @@ from .read_image_data import \
     orthogonalize_image, \
     get_contour_coords
 from .my_decorators import calculate_time
-from .messages import messages
+from .variables import messages
 from .sounds import  sound_one_file
 
 

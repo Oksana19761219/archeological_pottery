@@ -21,9 +21,9 @@
                 <button type="submit" class="btn btn-primary register-button" id="submit_1" name="submit_show">Parodyti profilį</button>
                 <br>
                 <br>
-                {% if object %}
-                <p>Pasirinkote radinį: {{object.find_registration_nr}}, {{object.research_object}}</p>
-                <button type="submit" class="btn btn-primary register-button" id="submit_2" name="submit_choose" value="{{object.id}}">Pradėti profilio grupavimą</button>
+                {% if this_object %}
+                <p>Pasirinkote radinį: {{this_object.find_registration_nr}}, {{this_object.research_object}}</p>
+                <button type="submit" class="btn btn-primary register-button" id="submit_2" name="submit_choose" value="{{this_object.id}}">Pradėti profilio grupavimą</button>
                 <br>
                 <br>
                 {% endif %}
@@ -36,9 +36,9 @@
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
                     ctx.scale(0.5, 0.5);
-                    {% if contour %}
-                        {% for pixel in contour %}
-                            ctx.fillRect({{pixel.x}}, {{pixel.y}},2,2);
+                    {% if this_contour %}
+                        {% for pixel in this_contour %}
+                            ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},2,2);
                         {% endfor %}
                     {% endif %}
             </script>
