@@ -6,28 +6,34 @@
     <br>
     <div class="row align-items-start">
         <div class="col">
-            {% if correlated_contours %}
+
+            {% if object %}
+            <p>{{object}}</p>
+            {% endif %}
+            {% if object_grouped %}
+            <p>{{object_grouped}}</p>
+            {% endif %}
+
+            {% if objects_grouped %}
             <form action="" method="post">
                 {% csrf_token %}
-                <label for="my_ceramic"><strong>pasirinkite radinį:</strong></label>
-                <br>
-                <p>koreliacijos koef. (išorinis kontūras) | koreliacijos koef. (radinio storis) | lygintas radinio ilgis </p>
-                <select class="col" name="my_ceramic" id="my_ceramic" multiple>
-                    {% for item in correlated_contours %}
-                    <option value="{{item.find_1}} {{item.find_2}}"> {{item.correlation_x}} | {{item.correlation_width}} | {{item.length_compared}}</option>
+
+                <select class="col" name="correlated_contours" id="correlated_contours" multiple>
+                    {% for item in objects_grouped %}
+                    <option> {{item}} </option>
                     {% endfor %}
                 </select>
+
+
+                <button type="submit" class="btn btn-primary register-button" id="show" name="show">rodyti</button>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary register-button" id="submit1" name="submit_show">Parodyti profilį</button>
-                <br>
-                <br>
-                {% if other_contour_id %}
-                <button type="submit" class="btn btn-primary register-button" id="submit2" name="submit_group" value="{{other_contour_id}}">Grupuoti</button>
-                <button type="submit" class="btn btn-primary register-button" id="submit3" name="submit_nogroup" value="{{other_contour_id}}">NEgrupuoti</button>
+                {% if contour_grouped %}
+                <button type="submit" class="btn btn-primary register-button" id="validate" name="validate">patvirtinti</button>
                 {% endif %}
             </form>
             {% endif %}
+
         </div>
         <div class="col">
             <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
@@ -35,17 +41,21 @@
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
                     ctx.scale(0.5, 0.5);
-                    {% if this_contour %}
-                        {% for pixel in this_contour %}
+                    {% if contour %}
+                        {% for pixel in contour %}
                             ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},2,2);
                         {% endfor %}
                     {% endif %}
-                    {% if other_contour %}
+
+                    {% if contour_grouped %}
                         ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'
-                        {% for pixel in other_contour %}
+                        {% for pixel in contour_grouped %}
                             ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},2,2);
                         {% endfor %}
                     {% endif %}
+
+
+
             </script>
         </div>
     </div>

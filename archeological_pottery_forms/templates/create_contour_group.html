@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container">
+     <div class="col">
+    <p> kuriame nauja grupe</p>
+    {% if object_id %}
+    <p>{{object_id}}</p>
+    {% endif %}
+    </div>
+ <div class="col">
+            <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
+            <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.scale(0.5, 0.5);
+                    {% if contour %}
+                        {% for pixel in contour %}
+                            ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},2,2);
+                        {% endfor %}
+                    {% endif %}
+
+            </script>
+        </div>
+</div>
+{% endif %}
+
+{% endblock %}

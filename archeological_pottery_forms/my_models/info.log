@@ -18513,3 +18513,5 @@ INFO 2022-08-08 18:50:06,857 archeological_pottery_forms.my_models.correlation �
 INFO 2022-08-08 18:50:06,857 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.03536529999996674 sek.
 INFO 2022-08-08 18:50:11,897 archeological_pottery_forms.views koreliacijos koeficientai skai훾iuoti 1348.4518882 sek., lyginta 1456 radini킬
 INFO 2022-08-08 19:21:29,501 archeological_pottery_forms.views koreliacijos koeficientai skai훾iuoti 1567.3027978 sek., lyginta 1456 radini킬
+INFO 2022-10-17 11:45:48,810 archeological_pottery_forms.views koreliacijos koeficientai skai훾iuoti 1211.0365671999998 sek., lyginta 1456 radini킬
+INFO 2022-10-17 12:47:19,284 archeological_pottery_forms.views koreliacijos koeficientai skai훾iuoti 1266.5727831 sek., lyginta 1456 radini킬
