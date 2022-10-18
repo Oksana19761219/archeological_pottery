@@ -8,7 +8,7 @@
         <div class="col">
 
             {% if object %}
-            <p>{{object}}</p>
+            <p>{{object}}, {{object.arc_angle}} kampas</p>
             {% endif %}
             {% if object_grouped %}
             <p>{{object_grouped}}</p>
@@ -24,7 +24,7 @@
                 <p>čia atrinkti panašaus profilio radiniai (koreliacijos koeficientas > 0,95). Pasirinkite vieną iš jų ir paspauskite "rodyti". Jeigu radinys tinka, spauskite "grupuoti radinius", arba pasirinkite kitą. Jeigu sąraše nėra tinkamų profilių, spauskite "kurti naują grupę"  </p>
                 <select class="col" name="objects_grouped" id="objects_grouped" multiple>
                     {% for item in objects_grouped %}
-                    <option value="{{item.id}}">{{item.contour_group_id}} grupė: {{item}}</option>
+                    <option value="{{item.id}}">{{item.contour_group_id}} grupė, {{item.arc_angle}} kampas: {{item}}</option>
                     {% endfor %}
                 </select>
                 <button type="submit" class="btn btn-primary register-button" id="show" name="show" value="{{objects_grouped}}">rodyti</button>

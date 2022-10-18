@@ -362,7 +362,7 @@ def group_contours(request):
     queryset = ContourCorrelation.objects. \
         filter(
         (Q(find_1=object.id) | Q(find_2=object.id)) &
-        Q(correlation_x__gte=0.90)). \
+        Q(correlation_x__gte=0.95)). \
         order_by('-correlation_x', '-correlation_width', '-length_compared'). \
         distinct()
     queryset_ids = list(
@@ -372,8 +372,8 @@ def group_contours(request):
         )
     )
     objects_grouped = PotteryDescription.objects.\
-        filter(Q(pk__in=queryset_ids) & Q(contour_group__isnull=False) & Q(arc_angle__gte=45)).\
-        order_by('contour_group').\
+        filter(Q(pk__in=queryset_ids) & Q(contour_group__isnull=False)).\
+        order_by('contour_group', '-arc_angle').\
         distinct('contour_group')
     choosed_contour = None
     choosed_id = None
