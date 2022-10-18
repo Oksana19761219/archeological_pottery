@@ -8,8 +8,9 @@ from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
                     CeramicContour, \
-                    ContourCorrelation
-from .forms import PotteryDescriptionForm, DrawingForm
+                    ContourCorrelation,\
+                    ContourGroup
+from .forms import PotteryDescriptionForm, DrawingForm, ContourGroupForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages, choosed_ids, ids_group
 from .my_models.correlation import calculate_correlation
@@ -350,7 +351,7 @@ def calculate_length():
 
 
 @csrf_protect
-def choose_contour(request):
+def group_contours(request):
     object = PotteryDescription.objects. \
         filter(Q(coordinates__isnull=False) & Q(contour_group=None)). \
         distinct(). \
@@ -370,85 +371,60 @@ def choose_contour(request):
             {item[1] for item in queryset.values_list('find_1', 'find_2') if item[1] != object.id}
         )
     )
-    objects_grouped = PotteryDescription.objects. \
-        filter(Q(pk__in=queryset_ids) & Q(contour_group__isnull=False)). \
-        values_list('id')
+    objects_grouped = PotteryDescription.objects.\
+        filter(Q(pk__in=queryset_ids) & Q(contour_group__isnull=False) & Q(arc_angle__gte=45)).\
+        order_by('contour_group').\
+        distinct('contour_group')
+    choosed_contour = None
+    choosed_id = None
 
-    context = {
-        'object': object,
-        'object_id': object.id,
-        'contour': contour,
-        'objects_grouped': objects_grouped,
-    }
-
-    return render(request, 'group_contours.html', context=context)
-
-'''
-toliau reikia tvarkyti group_contours funkcija, atsizvelgiant i choose_contour sutvarkytus parametrus
-'''
-
-@csrf_protect
-def group_contours(request, object, contour, objects_grouped, checked_ids=[]):
-
-    # object = PotteryDescription.objects.\
-    #     filter(Q(coordinates__isnull=False) & Q(contour_group=None)).\
-    #     distinct().\
-    #     order_by('-find_length', '-arc_angle').\
-    #     first()
-    # contour = CeramicContour.objects.filter(find_id=object.id)
-    #
-    # queryset = ContourCorrelation.objects. \
-    #     filter(
-    #     (Q(find_1=object.id) | Q(find_2=object.id)) &
-    #     Q(correlation_x__gte=0.90)). \
-    #     order_by('-correlation_x', '-correlation_width', '-length_compared'). \
-    #     distinct()
-    # queryset_ids = list(
-    #     {item[0] for item in queryset.values_list('find_1', 'find_2') if item[0] != object.id}.\
-    #     union(
-    #         {item[1] for item in queryset.values_list('find_1', 'find_2') if item[1] != object.id}
-    #     )
-    # )
-    # objects_grouped = PotteryDescription.objects.\
-    #     filter(Q(pk__in=queryset_ids) & Q(contour_group__isnull=False)).\
-    #     exclude(Q(pk__in=checked_ids)).\
-    #     values_list('id')
-    contour_grouped = None
-    object_grouped = None
-    print(objects_grouped)
-
-    if objects_grouped and request.method == 'POST' and 'show' in request.POST:
-
-        id_grouped = objects_grouped[0][0]
-        checked_ids.append(id_grouped)
-        contour_grouped = CeramicContour.objects.filter(find_id=id_grouped)
-        object_grouped = PotteryDescription.objects.filter(pk=id_grouped)
-
-    if not objects_grouped and request.method == 'POST' and 'show' in request.POST:
-        context = {
-            'object_id': object.id,
-            'contour': contour
-        }
-        return render(request, 'create_contour_group.html', context=context)
+    if request.method == 'POST' and 'objects_grouped' in request.POST:
+        choosed_id = int(request.POST['objects_grouped'])
+        choosed_contour = CeramicContour.objects.filter(find_id=choosed_id)
 
     if request.method == 'POST' and 'validate' in request.POST:
-        id_grouped = checked_ids[-1]
-        group = PotteryDescription.objects.get(pk=id_grouped).contour_group_id
-        object.contour_group_id = group
+        id_to_group = int(request.POST['validate'])
+        object.contour_group_id = PotteryDescription.objects.\
+            get(pk=id_to_group).\
+            contour_group_id
         object.save()
-
-
-
+        return HttpResponseRedirect(reverse('group_contours'))
 
     context = {
         'object': object,
         'contour': contour,
         'objects_grouped': objects_grouped,
-        'contour_grouped': contour_grouped,
-        'object_grouped': object_grouped
+        'choosed_contour': choosed_contour,
+        'choosed_id': choosed_id
     }
+
+    if request.method == 'POST' and 'create' in request.POST:
+        return HttpResponseRedirect(reverse('create_contour_group', args=[object.id]))
+
     return render(request, 'group_contours.html', context=context)
 
+
 @csrf_protect
-def create_contour_group(request):
-    return render(request, 'create_contour_group.html')
+def create_contour_group(request, object_id):
+    object = PotteryDescription.objects.get(pk=object_id)
+    contour = CeramicContour.objects.filter(find_id=object_id)
+    if request.method == 'POST':
+        form = ContourGroupForm(request.POST)
+        if form.is_valid():
+            data = ContourGroup(note=form.cleaned_data['note'],)
+            data.save()
+        group_id = ContourGroup.objects.last().id
+        object.contour_group_id = group_id
+        object.save()
+        return HttpResponseRedirect(reverse('group_contours'))
+    else:
+        form = ContourGroupForm()
+
+    context = {
+        'form': form,
+        'object': object,
+        'contour': contour
+    }
+    return render(request, 'create_contour_group.html', context=context)
+
+

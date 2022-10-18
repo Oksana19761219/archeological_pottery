@@ -1,4 +1,4 @@
-from .models import PotteryDescription
+from .models import PotteryDescription, ContourGroup
 from django import forms
 
 class PotteryDescriptionForm(forms.ModelForm):
@@ -58,4 +58,11 @@ class DrawingForm(forms.Form):
         self.fields['frame_color'].widget.attrs.update({'class': 'form-control'})
         self.fields['ceramic_color'].widget.attrs.update({'class': 'form-control'})
         self.fields['ceramic_orientation'].widget.attrs.update({'class': 'form-control'})
+
+class ContourGroupForm(forms.Form):
+    note = forms.CharField(label='pastaba', required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(ContourGroupForm, self).__init__(*args, **kwargs)
+        self.fields['note'].widget.attrs.update({'class': 'form-control'})
 

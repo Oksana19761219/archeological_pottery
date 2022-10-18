@@ -2,14 +2,25 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+
+
 <div class="container">
-     <div class="col">
-    <p> kuriame nauja grupe</p>
-    {% if object_id %}
-    <p>{{object_id}}</p>
-    {% endif %}
-    </div>
- <div class="col">
+    <br>
+    <div class="row align-items-start">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form}}
+                        <br>
+                        <input type="submit" class="btn btn-secondary" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
             <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
             <script>
                     var canvas = document.getElementById("myCanvas");
@@ -23,7 +34,7 @@
 
             </script>
         </div>
-</div>
-{% endif %}
+    </div>
+    {% endif %}
 
-{% endblock %}
+    {% endblock %}
