@@ -432,36 +432,86 @@ def create_contour_group(request, object_id):
 def auto_group_contours(request):
     if request.method == 'POST' and 'correlation' in request.POST:
         correlation_x = request.POST['correlation']
-        while True:
-            # pasirenkamas pirmas radinys pagal nustatytus koreliacijos kriterijus
-            object = PotteryDescription.objects. \
-                filter(Q(coordinates__isnull=False) & ~Q(groups__correlation_x=correlation_x)). \
-                distinct(). \
-                order_by('-find_length', '-arc_angle').\
-                first()
-            # grupuojami objektai
-            if object:
-                # pasirenkami radiniai grupavimui
-                queryset_to_group = ContourCorrelation.objects. \
-                    filter(
-                    (Q(find_1=object.id) | Q(find_2=object.id)) &
-                    Q(correlation_x__gte=correlation_x)). \
-                    distinct()
-                queryset_ids = list(
-                    {item[0] for item in queryset_to_group.values_list('find_1', 'find_2') if item[0] != object.id}. \
-                        union(
-                        {item[1] for item in queryset_to_group.values_list('find_1', 'find_2') if item[1] != object.id}
-                    )
-                )
-                objects_to_group = PotteryDescription.objects.filter(
-                    Q(pk__in=queryset_ids) & ~Q(groups__correlation_x=correlation_x))
+        queryset_by_correlation = ContourCorrelation.objects. \
+            filter(correlation_x__gte=correlation_x). \
+            distinct(). \
+            values_list('find_1', 'find_2')
+        queryset_ids = list(
+            {item[0] for item in queryset_by_correlation}. \
+                union({item[1] for item in queryset_by_correlation})
+        )
+        objects_to_group = PotteryDescription.objects.filter(
+            Q(pk__in=queryset_ids) &
+            ~Q(groups__correlation_x=correlation_x)
+        ).distinct()
+        loop_count = 0
+        for object in objects_to_group:
+            loop_count+=1
+            print(loop_count)
+            corelated_objects = ContourCorrelation.objects.filter(
+                (Q(find_1=object.id) | Q(find_2=object.id)) &
+                Q(correlation_x__gte=correlation_x)
+            ).distinct().\
+            values_list('find_1', 'find_2')
+            correlated_ids = list(
+                {item[0] for item in corelated_objects if item != object.id}. \
+                    union({item[1] for item in corelated_objects if item != object.id})
+            )
+            group_exist = PotteryDescription.objects.filter(Q(pk__in=correlated_ids) & Q(groups__correlation_x=correlation_x)).first()
+            if not group_exist:
                 group = ContourGroup(correlation_x=correlation_x, )
                 group.save()
-                object.groups.add(group)
-                object.save()
-                for object_to_group in objects_to_group:
-                    object_to_group.groups.add(group)
-                    object_to_group.save()
             else:
-                break
+                group = group_exist. \
+                    groups.all(). \
+                    get(correlation_x=correlation_x). \
+                    id
+            object.groups.add(group)
+            object.save()
+        print(f'pabaiga, {loop_count}')
+
+
+
+
+
+
+
+
+        # while True:
+        #     # pasirenkamas pirmas radinys pagal nustatytus koreliacijos kriterijus
+        #     object = PotteryDescription.objects. \
+        #         filter(Q(coordinates__isnull=False) & Q(groups__correlation_x=correlation_x)). \
+        #         distinct(). \
+        #         order_by('-find_length', '-arc_angle').\
+        #         first()
+        #
+        #     # pasirenkami radiniai grupavimui
+        #     queryset_to_group = ContourCorrelation.objects. \
+        #         filter(
+        #         (Q(find_1=object.id) | Q(find_2=object.id)) &
+        #         Q(correlation_x__gte=correlation_x)). \
+        #         distinct()
+        #     queryset_ids = list(
+        #         {item[0] for item in queryset_to_group.values_list('find_1', 'find_2') if item[0] != object.id}. \
+        #             union(
+        #             {item[1] for item in queryset_to_group.values_list('find_1', 'find_2') if item[1] != object.id}
+        #         )
+        #     )
+        #     objects_to_group = PotteryDescription.objects.filter(
+        #         Q(pk__in=queryset_ids) & ~Q(groups__correlation_x=correlation_x))
+        #
+        #     # grupuojami objektai
+        #     if object:
+        #         group = object.groups.all().get(correlation_x=correlation_x).id
+        #
+        #     else:
+        #         group = ContourGroup(correlation_x=correlation_x, )
+        #         group.save()
+        #
+        #     if objects_to_group:
+        #         for object_to_group in objects_to_group:
+        #             object_to_group.groups.add(group)
+        #             object_to_group.save()
+        #     else:
+        #         break
     return render(request, 'group_contours_auto.html')
