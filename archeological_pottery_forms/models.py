@@ -120,6 +120,23 @@ class PotteryOrnamentShape(models.Model):
     action = models.ManyToManyField(PotteryMakingAction)
 
 
+class ContourGroup(models.Model):
+    note = models.CharField(
+        'note',
+        max_length=255,
+        null=True,
+        blank=True
+    )
+    correlation_x = models.FloatField(
+        'correlation_x',
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        return f'group correlation: {self.correlation_x}'
+
+
 class PotteryDescription(models.Model):
     find_registration_nr = models.CharField(
         'registration number',
@@ -187,12 +204,6 @@ class PotteryDescription(models.Model):
         'correlation_calculated',
         default=False
     )
-    contour_group = models.ForeignKey(
-        'ContourGroup',
-        on_delete = models.SET_NULL,
-        null = True,
-        related_name = 'findings'
-    )
     arc_angle = models.FloatField(
         'arc angle',
         null=True,
@@ -203,10 +214,18 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
+    groups = models.ManyToManyField(ContourGroup)
+
+    # cia laikinas laukas, ji reikia istrinti, kai bus sutvarkytos konturu grupavimo funkcijos
+    contour_group = models.ForeignKey(
+        'ContourGroup',
+        on_delete = models.SET_NULL,
+        null = True,
+        related_name = 'findings'
+    )
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']
-
 
     def __str__(self):
         return f"reg. nr.: {self.find_registration_nr}, {self.research_object}"
@@ -217,18 +236,6 @@ class PotteryDescription(models.Model):
     @property
     def top_mid_point(self):
         return CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
-
-
-class ContourGroup(models.Model):
-    note = models.CharField(
-        'note',
-        max_length=255,
-        null=True,
-        blank=True
-    )
-
-    def __str__(self):
-        return f'group description: {self.note}'
 
 
 class ResearchObject(models.Model):
