@@ -12,9 +12,8 @@ urlpatterns = [
     path('view_correlation/', views.view_correlation, name='view_correlation'),
     path('calculate_correlation/', views.calculate_correlation_coefficient, name='calculate_correlation'),
     path('review_profiles/', views.review_profiles, name='review_profiles'),
-    path('group_contours/', views.group_contours, name='group_contours'),
-    path('create_contour_group/<int:object_id>', views.create_contour_group, name='create_contour_group'),
-    path('auto_group_contours/', views.auto_group_contours, name='auto_group_contours')
+    path('auto_group_contours/', views.auto_group_contours, name='auto_group_contours'),
+    path('review_groups/', views.review_groups, name='review_groups')
 ]
 
 

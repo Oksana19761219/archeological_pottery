@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Max, Avg, F
+from django.db.models import Q, Max, Count, Func, F
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -350,87 +350,10 @@ def calculate_length():
         object.save()
 
 
-@csrf_protect
-def group_contours(request):
-    object = PotteryDescription.objects. \
-        filter(Q(coordinates__isnull=False) & Q(contour_group=None)). \
-        distinct(). \
-        order_by('-find_length', '-arc_angle'). \
-        first()
-    contour = CeramicContour.objects.filter(find_id=object.id)
-
-    queryset = ContourCorrelation.objects. \
-        filter(
-        (Q(find_1=object.id) | Q(find_2=object.id)) &
-        Q(correlation_x__gte=0.95)). \
-        order_by('-correlation_x', '-correlation_width', '-length_compared'). \
-        distinct()
-    queryset_ids = list(
-        {item[0] for item in queryset.values_list('find_1', 'find_2') if item[0] != object.id}. \
-            union(
-            {item[1] for item in queryset.values_list('find_1', 'find_2') if item[1] != object.id}
-        )
-    )
-    objects_grouped = PotteryDescription.objects.\
-        filter(Q(pk__in=queryset_ids) & Q(contour_group__isnull=False)).\
-        order_by('contour_group', '-arc_angle').\
-        distinct('contour_group')
-    choosed_contour = None
-    choosed_id = None
-
-    if request.method == 'POST' and 'objects_grouped' in request.POST:
-        choosed_id = int(request.POST['objects_grouped'])
-        choosed_contour = CeramicContour.objects.filter(find_id=choosed_id)
-
-    if request.method == 'POST' and 'validate' in request.POST:
-        id_to_group = int(request.POST['validate'])
-        object.contour_group_id = PotteryDescription.objects.\
-            get(pk=id_to_group).\
-            contour_group_id
-        object.save()
-        return HttpResponseRedirect(reverse('group_contours'))
-
-    context = {
-        'object': object,
-        'contour': contour,
-        'objects_grouped': objects_grouped,
-        'choosed_contour': choosed_contour,
-        'choosed_id': choosed_id
-    }
-
-    if request.method == 'POST' and 'create' in request.POST:
-        return HttpResponseRedirect(reverse('create_contour_group', args=[object.id]))
-
-    return render(request, 'group_contours.html', context=context)
-
-
-@csrf_protect
-def create_contour_group(request, object_id):
-    object = PotteryDescription.objects.get(pk=object_id)
-    contour = CeramicContour.objects.filter(find_id=object_id)
-    if request.method == 'POST':
-        form = ContourGroupForm(request.POST)
-        if form.is_valid():
-            data = ContourGroup(note=form.cleaned_data['note'],)
-            data.save()
-        group_id = ContourGroup.objects.last().id
-        object.contour_group_id = group_id
-        object.save()
-        return HttpResponseRedirect(reverse('group_contours'))
-    else:
-        form = ContourGroupForm()
-
-    context = {
-        'form': form,
-        'object': object,
-        'contour': contour
-    }
-    return render(request, 'create_contour_group.html', context=context)
-
 
 @csrf_protect
 def auto_group_contours(request):
-    if request.method == 'POST' and 'correlation' in request.POST:
+    if request.method == 'POST' and 'create' in request.POST:
         correlation_x = request.POST['correlation']
         queryset_by_correlation = ContourCorrelation.objects. \
             filter(correlation_x__gte=correlation_x). \
@@ -457,7 +380,9 @@ def auto_group_contours(request):
                 {item[0] for item in corelated_objects if item != object.id}. \
                     union({item[1] for item in corelated_objects if item != object.id})
             )
-            group_exist = PotteryDescription.objects.filter(Q(pk__in=correlated_ids) & Q(groups__correlation_x=correlation_x)).first()
+            group_exist = PotteryDescription.objects.\
+                filter(Q(pk__in=correlated_ids) & Q(groups__correlation_x=correlation_x)).\
+                first()
             if not group_exist:
                 group = ContourGroup(correlation_x=correlation_x, )
                 group.save()
@@ -470,48 +395,31 @@ def auto_group_contours(request):
             object.save()
         print(f'pabaiga, {loop_count}')
 
-
-
-
-
-
-
-
-        # while True:
-        #     # pasirenkamas pirmas radinys pagal nustatytus koreliacijos kriterijus
-        #     object = PotteryDescription.objects. \
-        #         filter(Q(coordinates__isnull=False) & Q(groups__correlation_x=correlation_x)). \
-        #         distinct(). \
-        #         order_by('-find_length', '-arc_angle').\
-        #         first()
-        #
-        #     # pasirenkami radiniai grupavimui
-        #     queryset_to_group = ContourCorrelation.objects. \
-        #         filter(
-        #         (Q(find_1=object.id) | Q(find_2=object.id)) &
-        #         Q(correlation_x__gte=correlation_x)). \
-        #         distinct()
-        #     queryset_ids = list(
-        #         {item[0] for item in queryset_to_group.values_list('find_1', 'find_2') if item[0] != object.id}. \
-        #             union(
-        #             {item[1] for item in queryset_to_group.values_list('find_1', 'find_2') if item[1] != object.id}
-        #         )
-        #     )
-        #     objects_to_group = PotteryDescription.objects.filter(
-        #         Q(pk__in=queryset_ids) & ~Q(groups__correlation_x=correlation_x))
-        #
-        #     # grupuojami objektai
-        #     if object:
-        #         group = object.groups.all().get(correlation_x=correlation_x).id
-        #
-        #     else:
-        #         group = ContourGroup(correlation_x=correlation_x, )
-        #         group.save()
-        #
-        #     if objects_to_group:
-        #         for object_to_group in objects_to_group:
-        #             object_to_group.groups.add(group)
-        #             object_to_group.save()
-        #     else:
-        #         break
     return render(request, 'group_contours_auto.html')
+
+
+def review_groups(request):
+    contours = None
+    this_group = None
+    groups = ContourGroup.objects.\
+        annotate(findings_count=Count('potterydescription__id')).\
+        order_by('-correlation_x', '-findings_count').\
+        filter(findings_count__gt=1)
+
+
+    if request.method == 'POST' and 'groups' in request.POST:
+        group = int(request.POST['groups'])
+
+        y_max = CeramicContour.objects.aggregate(Max('y'))
+        filter_solution = [item for item in range(0, y_max['y__max'], 2)]
+
+        contours = CeramicContour.objects.filter(Q(find_id__groups=group) & Q(y__in=filter_solution))
+        this_group = group
+        print(group)
+        print(len(list(contours)))
+    context = {
+        'groups': groups,
+        'contours': contours,
+        'this_group': this_group
+    }
+    return render(request, 'review_groups.html', context=context)

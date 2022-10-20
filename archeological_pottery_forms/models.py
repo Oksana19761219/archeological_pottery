@@ -133,6 +133,7 @@ class ContourGroup(models.Model):
         blank=False
     )
 
+
     def __str__(self):
         return f'group correlation: {self.correlation_x}'
 
@@ -328,3 +329,4 @@ class ContourCorrelation(models.Model):
         null=True,
         blank=True
     )
+

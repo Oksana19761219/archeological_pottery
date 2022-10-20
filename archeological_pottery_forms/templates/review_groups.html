@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+    <br>
+    <div class="row align-items-start">
+        <div class="col">
+            {% if groups %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <strong>pasirinkite grupę:</strong>
+                <select class="col" name="groups" id="groups" multiple>
+
+                    {% for group in groups %}
+                    <option value="{{group.id}}">nr. {{group.id}}, kor. koef: {{group.correlation_x}}, radinių:
+                        {{group.findings_count}}
+                    </option>
+                    {% endfor %}
+
+                </select>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary register-button" id="submit" name="submit" value="">
+                    rodyti
+                </button>
+                <br>
+                <br>
+            </form>
+            <br>
+            <br>
+            {% endif %}
+            {% if this_group %}
+            <p>pasirinkote grupę nr. {{this_group}}</p>
+            {% endif %}
+        </div>
+
+        <div class="col">
+            <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
+            <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.scale(0.5, 0.5);
+                    {% if contours %}
+                        {% for pixel in contours %}
+                            ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},1,1);
+                        {% endfor %}
+                    {% endif %}
+
+
+            </script>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
