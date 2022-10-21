@@ -301,6 +301,11 @@ class CeramicContour(models.Model):
         canvas_middle = 500 # canvas middle point if zoom == 0.5,0.5
         return self.x - top_mid_point + canvas_middle
 
+    @property
+    def x_middle(self):
+        top_mid_point = CeramicContour.objects.filter(Q(find_id=self.find_id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
+        return self.x - top_mid_point
+
 
 
 class ContourCorrelation(models.Model):

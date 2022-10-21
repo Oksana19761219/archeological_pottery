@@ -24,6 +24,10 @@
                     <br>
                     <br>
                     <div class="col">
+                        <input type="text" id="x">
+                        <input type="text" id="y">
+                        <br>
+                        <br>
                         <input type="radio" id="confirm" name="review" value="confirm" checked>
                         <label for="confirm">patvirtinti</label><br>
                         <br>
@@ -40,17 +44,36 @@
             {% endif %}
         </div>
         <div class="col">
-            <canvas id="myCanvas" width="600" height="800" class="border"></canvas>
+            <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
             <script>
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
                     ctx.scale(0.5, 0.5);
                     {% if this_profile%}
                         {% for pixel in this_profile %}
-                            ctx.fillRect({{pixel.x}}, {{pixel.y}},1,1);
+                            ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},1,1);
                         {% endfor %}
                     {% endif %}
             </script>
+
+            <script>
+                    function getMousePosition(canvas, event) {
+                        let rect = canvas.getBoundingClientRect();
+                        let x = event.clientX - rect.left;
+                        let y = event.clientY - rect.top;
+                        console.log("Coordinate x: " + x,
+                                    "Coordinate y: " + y);
+                        document.getElementById("x").value = x*2
+                        document.getElementById("y").value = y*2
+                    }
+
+                    let canvasElem = document.querySelector("canvas");
+
+                    canvasElem.addEventListener("mousedown", function(e)
+                    {
+                        getMousePosition(canvasElem, e);
+                    });
+        </script>
         </div>
     </div>
 </div>

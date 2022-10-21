@@ -29,13 +29,24 @@
                 </button>
                 <br>
                 <br>
+                {% if this_group %}
+                <p>pasirinkote grupę nr. {{this_group}}</p>
+                <br>
+                <button type="submit" class="btn btn-primary register-button" id="make_image" name="make_image" value="{{this_group}}">
+                    daryti iliustraciją
+                </button>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary register-button" id="make_images" name="make_images" value="{{this_group}}">
+                    daryti visų susijusių grupių iliustracijas
+                </button>
+                {% endif %}
+
             </form>
             <br>
             <br>
             {% endif %}
-            {% if this_group %}
-            <p>pasirinkote grupę nr. {{this_group}}</p>
-            {% endif %}
+
         </div>
 
         <div class="col">
@@ -52,6 +63,8 @@
 
 
             </script>
+
+
         </div>
     </div>
 </div>

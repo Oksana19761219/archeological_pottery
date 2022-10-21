@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Max, Count, Func, F
+from django.db.models import Q, Max, Count, Min, Func, F
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -15,7 +15,9 @@ from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages, choosed_ids, ids_group
 from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
+import numpy as np
 import pandas as pd
+from PIL import Image
 from math import pi
 import logging
 
@@ -411,15 +413,51 @@ def review_groups(request):
         group = int(request.POST['groups'])
 
         y_max = CeramicContour.objects.aggregate(Max('y'))
-        filter_solution = [item for item in range(0, y_max['y__max'], 2)]
+        filter_solution = [item for item in range(0, y_max['y__max'], 1)]
 
-        contours = CeramicContour.objects.filter(Q(find_id__groups=group) & Q(y__in=filter_solution))
+        contours = CeramicContour.objects.filter(Q(find_id__groups=group) & Q(y__in=filter_solution)).distinct('x', 'y')
         this_group = group
-        print(group)
-        print(len(list(contours)))
+        print(len(contours))
+
+    if request.method == 'POST' and 'make_image' in request.POST:
+        group = int(request.POST['make_image'])
+
+        x_min = PotteryDescription.objects.all().\
+            annotate(x_min=Min('coordinates__x')).\
+            values_list('pk', 'x_min')
+        x_min_pd = pd.DataFrame(list(x_min), columns=['id', 'x_min'])
+
+        coords = CeramicContour.objects.\
+            filter(find_id__groups=group).\
+            distinct('x', 'y').\
+            values_list('find_id', 'x', 'y')
+
+        coords_pd = pd.DataFrame(list(coords), columns=['id', 'x', 'y'])
+        merged_pd = pd.merge(coords_pd, x_min_pd, on='id')
+        merged_pd['x_calculated'] = merged_pd['x'] - merged_pd['x_min']
+        pixels_pd = merged_pd[['x_calculated', 'y']]
+        pixels_np = pixels_pd.to_numpy()
+        pixels_max = np.max(pixels_np, axis=0)
+
+        image_width = int(pixels_max[0] + 1)
+        image_heigth = int(pixels_max[1] + 1)
+        image = Image.new('RGB', (image_width, image_heigth), color='white')
+        for pixel in pixels_np:
+            x, y = int(pixel[0]), int(pixel[1])
+            image.putpixel((x, y), (0, 0, 0))
+
+        image.show()
+
+
+
+    if request.method == 'POST' and 'make_images' in request.POST:
+        group = int(request.POST['make_images'])
+
+
     context = {
         'groups': groups,
         'contours': contours,
         'this_group': this_group
     }
     return render(request, 'review_groups.html', context=context)
+
