@@ -15,9 +15,12 @@ from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages, choosed_ids, ids_group
 from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
+from .my_models.draw_image import draw_group_image
 import numpy as np
 import pandas as pd
 from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 from math import pi
 import logging
 
@@ -419,39 +422,44 @@ def review_groups(request):
         this_group = group
         print(len(contours))
 
-    if request.method == 'POST' and 'make_image' in request.POST:
-        group = int(request.POST['make_image'])
-
+    if request.method == 'POST' and 'draw_image' in request.POST:
+        group_id = int(request.POST['draw_image'])
+        group = ContourGroup.objects.\
+            annotate(findings_count=Count('potterydescription__id')).\
+            get(pk=group_id)
+        # cia reikia taisyti, nes reikia ne min x, o x, kai y = 0
         x_min = PotteryDescription.objects.all().\
             annotate(x_min=Min('coordinates__x')).\
             values_list('pk', 'x_min')
-        x_min_pd = pd.DataFrame(list(x_min), columns=['id', 'x_min'])
 
         coords = CeramicContour.objects.\
-            filter(find_id__groups=group).\
-            distinct('x', 'y').\
+            filter(find_id__groups=group.id).\
             values_list('find_id', 'x', 'y')
 
-        coords_pd = pd.DataFrame(list(coords), columns=['id', 'x', 'y'])
-        merged_pd = pd.merge(coords_pd, x_min_pd, on='id')
-        merged_pd['x_calculated'] = merged_pd['x'] - merged_pd['x_min']
-        pixels_pd = merged_pd[['x_calculated', 'y']]
-        pixels_np = pixels_pd.to_numpy()
-        pixels_max = np.max(pixels_np, axis=0)
-
-        image_width = int(pixels_max[0] + 1)
-        image_heigth = int(pixels_max[1] + 1)
-        image = Image.new('RGB', (image_width, image_heigth), color='white')
-        for pixel in pixels_np:
-            x, y = int(pixel[0]), int(pixel[1])
-            image.putpixel((x, y), (0, 0, 0))
-
-        image.show()
+        draw_group_image(group, coords, x_min)
 
 
+    if request.method == 'POST' and 'draw_images' in request.POST:
+        group_id = int(request.POST['draw_images'])
+        group_correlation = ContourGroup.objects.get(pk=group_id).correlation_x
+        groups = ContourGroup.objects.filter(correlation_x=group_correlation).values_list('id')
+        for group in groups:
+            group_id = group[0]
+            group = ContourGroup.objects. \
+                annotate(findings_count=Count('potterydescription__id')). \
+                get(pk=group_id)
 
-    if request.method == 'POST' and 'make_images' in request.POST:
-        group = int(request.POST['make_images'])
+            x_min = PotteryDescription.objects.all(). \
+                annotate(x_min=Min('coordinates__x')). \
+                values_list('pk', 'x_min')
+
+            coords = CeramicContour.objects. \
+                filter(find_id__groups=group.id). \
+                values_list('find_id', 'x', 'y')
+
+            draw_group_image(group, coords, x_min)
+
+
 
 
     context = {
