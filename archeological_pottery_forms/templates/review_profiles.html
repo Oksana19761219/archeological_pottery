@@ -11,32 +11,28 @@
             {% if objects_to_review_quantity %}
             <p> turite {{objects_to_review_quantity}} neperžiūrėtų radinių profilių</p>
             {% endif %}
-            <br>
-            <br>
             {% if object %}
             <p>radinio reg. nr. {{object.find_registration_nr}}, {{object.research_object}}</p>
-
-            <br>
-            <br>
             <form action="" method="post">
                 {% csrf_token %}
                 <div class="row align-items-start">
-                    <br>
-                    <br>
                     <div class="col">
-                        <input type="text" id="x">
-                        <input type="text" id="y">
-                        <br>
-                        <br>
-                        <input type="radio" id="confirm" name="review" value="confirm" checked>
-                        <label for="confirm">patvirtinti</label><br>
-                        <br>
-                        <input type="radio" id="delete" name="review" value="delete">
-                        <label for="delete">trinti</label><br>
+                        <p id="y" value="">pasirinkite tašką</p>
+                        <button type="submit" class="btn btn-primary register-button" id="lip_base" name="lip_base">lupos apačia</button><br><br>
+                        <button type="submit" class="btn btn-primary register-button" id="neck_base" name="neck_base">kaklo apačia</button><br><br>
+                        <button type="submit" class="btn btn-primary register-button" id="shoulders_base" name="shoulders_base">petelių apačia</button><br><br>
+                        <button type="submit" class="btn btn-primary register-button" id="bottom" name="bottom">dugnas</button><br><br>
                     </div>
                     <div class="col">
-                        <button type="submit" class="btn btn-primary register-button" id="submit" name="submit">Ok</button>
+                        <button type="submit" class="btn btn-primary register-button" id="validate" name="validate">patvirtinti</button>
                     </div>
+
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <label for="delete">jeigu profilis neteisingai nubraižytas, jį galima ištrinti:</label><br>
+                    <button type="submit" class="btn btn-primary register-button" id="delete" name="delete">Trinti profilį</button>
                 </div>
             </form>
             {% else %}
@@ -49,11 +45,55 @@
                     var canvas = document.getElementById("myCanvas");
                     var ctx = canvas.getContext("2d");
                     ctx.scale(0.5, 0.5);
-                    {% if this_profile%}
+
+                    function drawProfile() {
+                    {% if this_profile %}
                         {% for pixel in this_profile %}
                             ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},1,1);
                         {% endfor %}
                     {% endif %}
+                    {% if object.lip_base_y %}
+                        ctx.beginPath();
+                        ctx.moveTo(0, {{object.lip_base_y}} );
+                        ctx.lineTo(canvas.width*2, {{object.lip_base_y}} );
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = '#ff0000'
+                        ctx.stroke();
+                    {% endif %}
+
+                    {% if object.neck_base_y %}
+                        ctx.beginPath();
+                        ctx.moveTo(0, {{object.neck_base_y}} );
+                        ctx.lineTo(canvas.width*2, {{object.neck_base_y}} );
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = '#ffb600'
+                        ctx.stroke();
+                    {% endif %}
+
+                    {% if object.shoulders_base_y %}
+                        ctx.beginPath();
+                        ctx.moveTo(0, {{object.shoulders_base_y}} );
+                        ctx.lineTo(canvas.width*2, {{object.shoulders_base_y}} );
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = '#8ae400'
+                        ctx.stroke();
+                    {% endif %}
+
+                    {% if object.bottom_base_y %}
+                        ctx.beginPath();
+                        ctx.moveTo(0, {{object.bottom_base_y}} );
+                        ctx.lineTo(canvas.width*2, {{object.bottom_base_y}} );
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = '#005cfe'
+                        ctx.stroke();
+                    {% endif %}
+
+
+
+                    };
+
+                    drawProfile()
+
             </script>
 
             <script>
@@ -63,17 +103,33 @@
                         let y = event.clientY - rect.top;
                         console.log("Coordinate x: " + x,
                                     "Coordinate y: " + y);
-                        document.getElementById("x").value = x*2
-                        document.getElementById("y").value = y*2
-                    }
+                        document.getElementById("y").innerHTML = "pasirinktas taškas: " + y*2;
+                        document.getElementById("y").value = y*2;
+                        document.getElementById("lip_base").value = y*2;
+                        document.getElementById("neck_base").value = y*2;
+                        document.getElementById("shoulders_base").value = y*2;
+                        document.getElementById("bottom").value = y*2;
+                    };
 
                     let canvasElem = document.querySelector("canvas");
 
                     canvasElem.addEventListener("mousedown", function(e)
                     {
                         getMousePosition(canvasElem, e);
+
+                        ctx.clearRect(0, 0, canvas.width*2, canvas.height*2);
+                        drawProfile()
+
+                        let y_line = document.getElementById("y").value;
+                        ctx.beginPath();
+                        ctx.moveTo(0, y_line);
+                        ctx.lineTo(canvas.width*2, y_line);
+                        ctx.lineWidth = 1;
+                        ctx.strokeStyle = '#b2b2b2'
+                        ctx.stroke();
                     });
-        </script>
+
+            </script>
         </div>
     </div>
 </div>

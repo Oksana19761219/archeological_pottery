@@ -301,25 +301,56 @@ def review_profiles(request):
     objects = PotteryDescription.objects.filter(Q(profile_reviewed=False) & Q(pk__in=ids))
     object = objects.first()
     objects_to_review_quantity = objects.count()
+
     if object:
         this_profile = CeramicContour.objects.filter(find_id=object.id)
     else:
         this_profile = None
 
-    if request.method == 'POST':
-        action = request.POST['review']
-
-        if object and action == 'delete':
-            data_to_delete = CeramicContour.objects.filter(find_id=object.id)
-            for item in data_to_delete:
-                item.delete()
-            object.distance_to_center = None
-            logger.info(f'radinio profilis ištrintas: reg. nr. {object.find_registration_nr}, {object.research_object}')
-
-        elif object and action == 'confirm':
-            object.profile_reviewed = True
+    if request.method == 'POST' and 'lip_base' in request.POST:
+        lip_base_value = request.POST['lip_base']
+        if lip_base_value:
+            lip_base_value = int(lip_base_value)
+            object.lip_base_y = lip_base_value
             object.save()
-            logger.info(f'patvirtinta profilio kokybė, paskaičiuotas koreliacijos koeficientas: reg. nr. {object.find_registration_nr}, {object.research_object}')
+
+    if request.method == 'POST' and 'neck_base' in request.POST:
+        neck_base_value = request.POST['neck_base']
+        if neck_base_value:
+            neck_base_value = int(neck_base_value)
+            object.neck_base_y = neck_base_value
+            object.save()
+
+    if request.method == 'POST' and 'shoulders_base' in request.POST:
+        shoulders_base_value = request.POST['shoulders_base']
+        if shoulders_base_value:
+            shoulders_base_value = int(shoulders_base_value)
+            object.shoulders_base_y = shoulders_base_value
+            object.save()
+
+    if request.method == 'POST' and 'bottom' in request.POST:
+        bottom_value = request.POST['bottom']
+        if bottom_value:
+            bottom_value = int(bottom_value)
+            object.bottom_y = bottom_value
+            object.save()
+
+    if request.method == 'POST' and 'validate' in request.POST:
+        object.profile_reviewed = True
+        object.save()
+        return redirect('review_profiles')
+
+
+    if request.method == 'POST' and 'delete' in request.POST:
+        data_to_delete = CeramicContour.objects.filter(find_id=object.id)
+        for item in data_to_delete:
+            item.delete()
+        object.lip_base_y = None
+        object.neck_base_y = None
+        object.shoulders_base_y = None
+        object.bottom_y = None
+        object.save()
+        return redirect('review_profiles')
 
     context = {
         'object': object,

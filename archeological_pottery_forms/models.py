@@ -215,6 +215,28 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
+
+    lip_base_y = models.IntegerField(
+        'lip_base_y',
+        null=True,
+        blank=True
+    )
+    neck_base_y = models.IntegerField(
+        'neck_base_y',
+        null=True,
+        blank=True
+    )
+    shoulders_base_y = models.IntegerField(
+        'shoulders_base_y',
+        null=True,
+        blank=True
+    )
+    bottom_y = models.IntegerField(
+        'bottom_y',
+        null=True,
+        blank=True
+    )
+
     groups = models.ManyToManyField(ContourGroup)
 
     # cia laikinas laukas, ji reikia istrinti, kai bus sutvarkytos konturu grupavimo funkcijos
@@ -224,6 +246,7 @@ class PotteryDescription(models.Model):
         null = True,
         related_name = 'findings'
     )
+
 
     class Meta:
         ordering = ['research_object', 'find_registration_nr']
