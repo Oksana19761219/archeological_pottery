@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Max, Count, Min, Func, F
+from django.db.models import Q, Max, Count, Min, Avg, Func, F
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -416,21 +416,22 @@ def review_groups(request):
         group = int(request.POST['groups'])
 
         y_max = CeramicContour.objects.aggregate(Max('y'))
-        filter_solution = [item for item in range(0, y_max['y__max'], 1)]
+        filter_solution = [item for item in range(0, y_max['y__max'], 1)] # laikinas kintamasis, reikalingas braizymo kokybei sumazinti, pagreitinti atvaizdavima
 
         contours = CeramicContour.objects.filter(Q(find_id__groups=group) & Q(y__in=filter_solution)).distinct('x', 'y')
         this_group = group
-        print(len(contours))
 
     if request.method == 'POST' and 'draw_image' in request.POST:
         group_id = int(request.POST['draw_image'])
         group = ContourGroup.objects.\
             annotate(findings_count=Count('potterydescription__id')).\
             get(pk=group_id)
-        # cia reikia taisyti, nes reikia ne min x, o x, kai y = 0
-        x_min = PotteryDescription.objects.all().\
-            annotate(x_min=Min('coordinates__x')).\
-            values_list('pk', 'x_min')
+
+        x_min = CeramicContour.objects.filter(y=0).\
+            values('y', 'find_id').\
+            annotate(x_min=Avg('x')).\
+            order_by().\
+            values_list('find_id', 'x_min')
 
         coords = CeramicContour.objects.\
             filter(find_id__groups=group.id).\
@@ -443,23 +444,24 @@ def review_groups(request):
         group_id = int(request.POST['draw_images'])
         group_correlation = ContourGroup.objects.get(pk=group_id).correlation_x
         groups = ContourGroup.objects.filter(correlation_x=group_correlation).values_list('id')
+        x_min = CeramicContour.objects.filter(y=0).\
+            values('y', 'find_id').\
+            annotate(x_min=Avg('x')).\
+            order_by().\
+            values_list('find_id', 'x_min')
+
         for group in groups:
             group_id = group[0]
             group = ContourGroup.objects. \
                 annotate(findings_count=Count('potterydescription__id')). \
                 get(pk=group_id)
 
-            x_min = PotteryDescription.objects.all(). \
-                annotate(x_min=Min('coordinates__x')). \
-                values_list('pk', 'x_min')
-
             coords = CeramicContour.objects. \
                 filter(find_id__groups=group.id). \
                 values_list('find_id', 'x', 'y')
 
             draw_group_image(group, coords, x_min)
-
-
+        # print('atlikta')
 
 
     context = {

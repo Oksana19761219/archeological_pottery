@@ -9,7 +9,10 @@ def draw_group_image(group, coords, x_min):
     coords_pd = pd.DataFrame(list(coords), columns=['id', 'x', 'y'])
     merged_pd = pd.merge(coords_pd, x_min_pd, on='id')
     merged_pd['x_calculated'] = merged_pd['x'] - merged_pd['x_min']
+    merged_pd['x_calculated'] = merged_pd['x_calculated'] - merged_pd['x_calculated'].min()
     pixels_pd = merged_pd[['x_calculated', 'y']]
+
+
     pixels_np = pixels_pd.to_numpy()
     pixels_max = np.max(pixels_np, axis=0)
 
@@ -21,7 +24,7 @@ def draw_group_image(group, coords, x_min):
 
     I1 = ImageDraw.Draw(image)
     I1.text((20, (image_heigth - 50)),
-            f'''grupe nr. {group.id}, 
+            f'''grupes nr. {group.id},
 koreliacija: {group.correlation_x},
 radiniu: {group.findings_count}''',
             fill=(70, 70, 70))
@@ -38,4 +41,5 @@ radiniu: {group.findings_count}''',
         for x in range(0, 10):
             image.putpixel((x, y), color)
 
-    image.show()
+    # image.show()
+    image.save(f'E:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{group.id}_gr.png')
