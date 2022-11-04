@@ -239,15 +239,6 @@ class PotteryDescription(models.Model):
 
     groups = models.ManyToManyField(ContourGroup)
 
-    # cia laikinas laukas, ji reikia istrinti, kai bus sutvarkytos konturu grupavimo funkcijos
-    contour_group = models.ForeignKey(
-        'ContourGroup',
-        on_delete = models.SET_NULL,
-        null = True,
-        related_name = 'findings'
-    )
-
-
     class Meta:
         ordering = ['research_object', 'find_registration_nr']
 

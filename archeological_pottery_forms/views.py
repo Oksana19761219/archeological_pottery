@@ -3,25 +3,22 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Max, Count, Min, Avg, Func, F
+from django.db.models import Q, Max, Count, Avg
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
                     CeramicContour, \
                     ContourCorrelation,\
-                    ContourGroup
-from .forms import PotteryDescriptionForm, DrawingForm, ContourGroupForm
+                    ContourGroup, \
+                    PotteryLipShape, \
+                    PotteryOrnamentShape
+from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
-from .my_models.variables import messages, choosed_ids, ids_group
+from .my_models.variables import messages
 from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
 from .my_models.draw_image import draw_group_image
-import numpy as np
 import pandas as pd
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
-from math import pi
 import logging
 
 
@@ -78,24 +75,101 @@ def object(request, object_id):
     single_object = get_object_or_404(ResearchObject, pk=object_id)
     reports = Bibliography.objects.filter(research_object = object_id)
 
-    vectors_queryset = CeramicContour.objects.values_list('find_id').distinct()
-    vectors_id = [item[0] for item in vectors_queryset]
-    this_object_vectors = PotteryDescription.objects\
-        .filter(Q(research_object = object_id) & Q(pk__in=vectors_id))\
-        .order_by('find_registration_nr')
-    this_object_vectors_count = this_object_vectors.count()
+    contours_ids = CeramicContour.objects.values_list('find_id').distinct()
+    ceramic = PotteryDescription.objects.filter(research_object = object_id).order_by('find_registration_nr')
+    ceramic_contours = ceramic.filter(pk__in=contours_ids)
+    ceramic_contours_count = ceramic_contours.count()
 
     context = {
         'object': single_object,
         'reports': reports,
-        'vectors': this_object_vectors,
-        'vectors_count': this_object_vectors_count
+        'ceramic': ceramic,
+        'ceramic_contours': ceramic_contours,
+        'ceramic_contours_count': ceramic_contours_count
     }
-    if request.method == 'POST' and 'describe' in request.POST:
+    if request.method == 'POST' and 'describe_new' in request.POST:
         return HttpResponseRedirect(reverse('describe', args=[object_id]))
+    elif request.method == 'POST' and 'describe_old' in request.POST:
+        find_id = PotteryDescription.objects.\
+            filter(research_object=object_id).\
+            order_by('find_registration_nr').\
+            first().\
+            id
+        return HttpResponseRedirect(reverse('update_description', args=[find_id]))
+
     elif request.method == 'POST' and 'read_drawings' in request.POST:
         return HttpResponseRedirect(reverse('read_drawings', args=[object_id]))
     return render(request, 'object.html', context=context)
+
+
+@csrf_protect
+def update_description(request, find_id):
+    contour = CeramicContour.objects.filter(find_id=find_id)
+    find = PotteryDescription.objects.get(pk=find_id)
+    lip_shape = PotteryLipShape.objects.filter(pk=find.lip_id).first()
+    ornament_shape = PotteryOrnamentShape.objects.filter(pk=find.ornament_id).first()
+
+    research_object = find.research_object
+    find_ids_queryset = PotteryDescription.objects.\
+            filter(research_object=research_object).\
+            order_by('find_registration_nr').\
+            values_list('id')
+    find_ids = [item[0] for item in find_ids_queryset]
+    this_id_index = find_ids.index(find_id)
+
+    if request.method == 'POST' and 'lip_base' in request.POST:
+        lip_base_value = request.POST['lip_base']
+        if lip_base_value:
+            lip_base_value = int(lip_base_value)
+            find.lip_base_y = lip_base_value
+            find.save()
+
+    if request.method == 'POST' and 'neck_base' in request.POST:
+        neck_base_value = request.POST['neck_base']
+        if neck_base_value:
+            neck_base_value = int(neck_base_value)
+            find.neck_base_y = neck_base_value
+            find.save()
+
+    if request.method == 'POST' and 'shoulders_base' in request.POST:
+        shoulders_base_value = request.POST['shoulders_base']
+        if shoulders_base_value:
+            shoulders_base_value = int(shoulders_base_value)
+            find.shoulders_base_y = shoulders_base_value
+            find.save()
+
+    if request.method == 'POST' and 'bottom' in request.POST:
+        bottom_value = request.POST['bottom']
+        if bottom_value:
+            bottom_value = int(bottom_value)
+            find.bottom_y = bottom_value
+            find.save()
+
+    if request.method == 'POST' and 'clear' in request.POST:
+        find.lip_base_y = None
+        find.neck_base_y = None
+        find.shoulders_base_y = None
+        find.bottom_y = None
+        find.save()
+
+    if request.method == 'POST' and 'previous' in request.POST:
+        if this_id_index > 0 and this_id_index < len(find_ids):
+            previous_id = find_ids[this_id_index-1]
+            return HttpResponseRedirect(reverse('update_description', args=[previous_id]))
+
+    elif request.method == 'POST' and 'next' in request.POST:
+        if this_id_index < len(find_ids):
+            next_id = find_ids[this_id_index+1]
+            return HttpResponseRedirect(reverse('update_description', args=[next_id]))
+
+    context = {
+        'contour': contour,
+        'find': find,
+        'lip_shape': lip_shape,
+        'ornament_shape': ornament_shape
+    }
+
+    return render(request, 'update_description.html', context=context)
 
 
 @csrf_protect
@@ -307,50 +381,17 @@ def review_profiles(request):
     else:
         this_profile = None
 
-    if request.method == 'POST' and 'lip_base' in request.POST:
-        lip_base_value = request.POST['lip_base']
-        if lip_base_value:
-            lip_base_value = int(lip_base_value)
-            object.lip_base_y = lip_base_value
-            object.save()
-
-    if request.method == 'POST' and 'neck_base' in request.POST:
-        neck_base_value = request.POST['neck_base']
-        if neck_base_value:
-            neck_base_value = int(neck_base_value)
-            object.neck_base_y = neck_base_value
-            object.save()
-
-    if request.method == 'POST' and 'shoulders_base' in request.POST:
-        shoulders_base_value = request.POST['shoulders_base']
-        if shoulders_base_value:
-            shoulders_base_value = int(shoulders_base_value)
-            object.shoulders_base_y = shoulders_base_value
-            object.save()
-
-    if request.method == 'POST' and 'bottom' in request.POST:
-        bottom_value = request.POST['bottom']
-        if bottom_value:
-            bottom_value = int(bottom_value)
-            object.bottom_y = bottom_value
-            object.save()
-
     if request.method == 'POST' and 'validate' in request.POST:
         object.profile_reviewed = True
         object.save()
         return redirect('review_profiles')
 
-
     if request.method == 'POST' and 'delete' in request.POST:
         data_to_delete = CeramicContour.objects.filter(find_id=object.id)
         for item in data_to_delete:
             item.delete()
-        object.lip_base_y = None
-        object.neck_base_y = None
-        object.shoulders_base_y = None
-        object.bottom_y = None
-        object.save()
         return redirect('review_profiles')
+
 
     context = {
         'object': object,

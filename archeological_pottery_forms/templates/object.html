@@ -17,30 +17,52 @@
         <p>{{report.author}}, {{report.title}}, {{report.report_year}}</p>
         {% endfor %}
 
-        {% if vectors %}
+
+        {% if ceramic_contours %}
         <br>
-        <strong>vektorizuota {{vectors_count}} radinių profilių</strong>
+        <strong>vektorizuota {{ceramic_contours_count}} radinių profilių</strong>
         <br>
-        <label for="vectors">vektorizuotų radinių registracijos numeriai:</label>
-        <br>
-        <select class="w-25 p-3" id="vectors" name="vectors" multiple>
-            {% for vector in vectors %}
-            <option >{{vector.find_registration_nr}}</option>
-            {% endfor %}
-        </select>
         {% endif %}
     </div>
 </div>
 
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card">
+        <div class="card-body">
+            <button type="submit" class="btn btn-primary register-button" id="describe_new" name="describe_new">
+                aprašyti naujus radinius
+            </button>
+            <button type="submit" class="btn btn-primary register-button" id="describe_old" name="describe_old">
+                tvarkyti esamus radinių aprašus
+            </button>
+            <button type="submit" class="btn btn-primary register-button" id="read_drawings" name="read_drawings">
+                vektorizuoti brėžinius
+            </button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p>Tvarkyti radinio aprašą (įveskite registracijos numerį)</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+            <button class="btn btn-primary register-button" type="submit">Paieška</button>
+        </div>
+    </div>
+</form>
+
+
 <div class="card">
     <div class="card-body">
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-primary register-button" id="describe" name="describe">aprašyti radinius</button>
-            <button type="submit" class="btn btn-primary register-button" id="read_drawings" name="read_drawings" >vektorizuoti brėžinius</button>
-        </form>
+        {% if ceramic %}
+        <p>Tvarkyti radinio aprašą (pasirinkite registracijos numerį):</p>
+        {% for item in ceramic %}
+        <a href="{% url 'update_description' item.id %}">{{item.find_registration_nr}} | </a>
+        {% endfor %}
+        {% endif %}
     </div>
 </div>
+
 
 {% endif %}
 {% endif %}
