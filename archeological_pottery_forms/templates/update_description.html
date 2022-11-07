@@ -14,11 +14,14 @@
                     <div class="card-body">
                         <p>registracijos numeris: {{find.find_registration_nr}}</p>
                         <label for="arc_length">lanko ilgis:</label>
-                        <input type="number" id="arc_length" name="arc_length"><br>
+                        <input type="number" id="arc_length" name="arc_length" required="required"><br>
                         <label for="color">spalva:</label>
                         <input type="text" id="color" name="color"><br>
                         <label for="note">pastaba:</label>
                         <input type="text" id="note" name="note"><br>
+                        <button type="submit" class="btn btn-primary register-button" id="change" name="change">
+                            Įrašyti pakeitimus
+                        </button>
                     </div>
 
                     <div class="card-body">
@@ -53,6 +56,8 @@
                 {% else %}
                 <p>nėra duomenų apie ornamentą</p>
                 {% endif %}
+
+
             </div>
 
             <div class="col">
@@ -63,6 +68,9 @@
                     </button>
                     <button type="submit" class="btn btn-primary register-button" id="next" name="next">
                         Kitas >
+                    </button>
+                    <button type="submit" class="btn btn-primary register-button" id="new" name="new">
+                        Naujas radinys
                     </button>
 
                 </div>

@@ -117,6 +117,12 @@ def update_description(request, find_id):
     find_ids = [item[0] for item in find_ids_queryset]
     this_id_index = find_ids.index(find_id)
 
+    if request.method == 'POST' and 'change' in request.POST:
+        find.arc_length = int(request.POST['arc_length'])
+        find.color = request.POST['color']
+        find.note = request.POST['note']
+        find.save()
+
     if request.method == 'POST' and 'lip_base' in request.POST:
         lip_base_value = request.POST['lip_base']
         if lip_base_value:
@@ -153,14 +159,16 @@ def update_description(request, find_id):
         find.save()
 
     if request.method == 'POST' and 'previous' in request.POST:
-        if this_id_index > 0 and this_id_index < len(find_ids):
+        if this_id_index > 0 and this_id_index < len(find_ids)-1:
             previous_id = find_ids[this_id_index-1]
             return HttpResponseRedirect(reverse('update_description', args=[previous_id]))
-
     elif request.method == 'POST' and 'next' in request.POST:
-        if this_id_index < len(find_ids):
+        if this_id_index < len(find_ids)-1:
             next_id = find_ids[this_id_index+1]
             return HttpResponseRedirect(reverse('update_description', args=[next_id]))
+    elif request.method == 'POST' and 'new' in request.POST:
+        object_id = PotteryDescription.objects.get(pk=find_id).research_object.id
+        return HttpResponseRedirect(reverse('describe', args=[object_id]))
 
     context = {
         'contour': contour,
@@ -175,22 +183,31 @@ def update_description(request, find_id):
 @csrf_protect
 def get_pottery_description(request, object_id):
     if request.method == 'POST':
-        form = PotteryDescriptionForm(request.POST)
-        if form.is_valid():
-            data = PotteryDescription(
-                find_registration_nr=form.cleaned_data['find_registration_nr'],
-                arc_length=form.cleaned_data['arc_length'],
-                color=form.cleaned_data['color'],
-                lip_id=form.cleaned_data['lip_id'],
-                ornament_id=form.cleaned_data['ornament_id'],
-                note=form.cleaned_data['note'],
-                research_object_id=object_id
-            )
+        find_registration_nr = request.POST['registration_nr']
+        find_exist = PotteryDescription.objects.filter(
+            Q(find_registration_nr=find_registration_nr) &
+            Q(research_object=object_id))
+        if not find_exist:
+            research_object = ResearchObject.objects.get(pk=object_id)
+            data = PotteryDescription(find_registration_nr=find_registration_nr,
+                                      research_object=research_object
+                                      )
             data.save()
-            form = PotteryDescriptionForm()
-    else:
-        form = PotteryDescriptionForm()
-    return render(request, 'describe.html', {'form': form})
+            return HttpResponseRedirect(reverse('update_description', args=[data.id]))
+        else:
+            print('toks radinys duomenu bazeje jau yra') # laikina eilute, cia turi buti message i template'a
+
+    #     form = PotteryDescriptionForm(request.POST)
+    #     if form.is_valid():
+    #         data = PotteryDescription(
+    #             find_registration_nr=form.cleaned_data['find_registration_nr'],
+    #         )
+    #         data.save()
+    #         form = PotteryDescriptionForm()
+    # else:
+    #     form = PotteryDescriptionForm()
+    # return render(request, 'describe.html', {'form': form})
+    return render(request, 'describe.html')
 
 
 @csrf_protect

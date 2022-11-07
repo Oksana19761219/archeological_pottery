@@ -6,9 +6,9 @@
     <div class="card-body">
         <form action="" method="post">
             {% csrf_token %}
-            {{form}}
-            <br>
-            <input type="submit" class="btn btn-secondary" value="Submit">
+            <label for="registration_nr">radinio registracijos numeris</label>
+            <input type="text" id="registration_nr" name="registration_nr">
+            <input type="submit" class="btn btn-secondary" value="Pildyti formą">
         </form>
     </div>
 </div>
