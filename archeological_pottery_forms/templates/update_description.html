@@ -12,53 +12,61 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <p>registracijos numeris: {{find.find_registration_nr}}</p>
+                        <p>registracijos numeris: {{find.find_registration_nr}}, {{find_nr}} iš {{finds_amount}} radinių</p>
                         <label for="arc_length">lanko ilgis:</label>
                         <input type="number" id="arc_length" name="arc_length" required="required"><br>
                         <label for="color">spalva:</label>
                         <input type="text" id="color" name="color"><br>
                         <label for="note">pastaba:</label>
                         <input type="text" id="note" name="note"><br>
+
+                        <label for="neck_type">kaklelio tipas:</label>
+                        <input list="neck_types" name="neck_type" id="neck_type">
+                        <datalist id="neck_types">
+                            <option value="tiesus">
+                            <option value="lenktas į vidų">
+                            <option value="lenktas į išorę">
+                        </datalist>
+
+                        <label for="neck_shoulders_union_type">kaklelio ir petelių jungties tipas:</label>
+                        <input list="neck_shoulders_union_types" name="neck_shoulders_union_type"
+                               id="neck_shoulders_union_type">
+                        <datalist id="neck_shoulders_union_types">
+                            <option value="neryški">
+                            <option value="apvali">
+                            <option value="užapvalintas lūžis">
+                            <option value="lūžis su įspauda">
+                        </datalist>
+
+                        <label for="shoulders_type">petelių tipas:</label>
+                        <input list="shoulders_types" name="shoulders_type" id="shoulders_type">
+                        <datalist id="shoulders_types">
+                            <option value="nežymiai išlenkta">
+                            <option value="apvaliai išlenkta">
+                            <option value="išlenkta su užapvalintu lūžiu">
+                        </datalist>
+
+                        <label for="neck_type">petelių ir kūno jungties tipas:</label>
+                        <input list="shoulders_body_union_types" name="shoulders_body_union_type"
+                               id="shoulders_body_union_type">
+                        <datalist id="shoulders_body_union_types">
+                            <option value="be lūžio">
+                            <option value="užapvalintas lūžis">
+                            <option value="ryškus lūžis">
+                        </datalist>
+
                         <button type="submit" class="btn btn-primary register-button" id="change" name="change">
                             Įrašyti pakeitimus
                         </button>
+                        <button type="submit" class="btn btn-primary register-button" id="change_new" name="change_new">
+                            Įrašyti ir tvarkyti kitą
+                        </button>
                     </div>
 
-                    <div class="card-body">
-                        <p id="y" value="">pasirinkite tašką profilio brėžinyje</p>
-                        <button type="submit" class="btn btn-info" id="lip_base" name="lip_base">lupos apačia</button>
-                        <br>
-                        <button type="submit" class="btn btn-info" id="neck_base" name="neck_base">kaklo apačia</button>
-                        <br>
-                        <button type="submit" class="btn btn-info" id="shoulders_base" name="shoulders_base">petelių
-                            apačia
-                        </button>
-                        <br>
-                        <button type="submit" class="btn btn-info" id="bottom" name="bottom">dugnas</button>
-                        <br>
-                        <button type="submit" class="btn btn-warning" id="clear" name="clear">pašalinti linijas</button>
-                        <br>
-                    </div>
 
                 </div>
             </div>
-            <div class="col">
 
-                {% if lip_shape %}
-                <p>lupos forma:</p>
-                <img src="{{lip_shape.lip_form.url}}" alt="this find lip form">
-                {% else %}
-                <p>nėra duomenų apie lupos formą</p>
-                {% endif %}
-
-                {% if ornament_shape %}
-                <img src="{{ornament_shape.ornament_form.url}}" alt="this find ornament form">
-                {% else %}
-                <p>nėra duomenų apie ornamentą</p>
-                {% endif %}
-
-
-            </div>
 
             <div class="col">
                 <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
@@ -74,6 +82,38 @@
                     </button>
 
                 </div>
+            </div>
+
+            <div class="col">
+                <div class="card-body">
+                    <p id="y" value="">pasirinkite tašką profilio brėžinyje</p>
+                    <button type="submit" class="btn btn-info" id="lip_base" name="lip_base">lupos apačia</button>
+                    <br>
+                    <button type="submit" class="btn btn-info" id="neck_base" name="neck_base">kaklo apačia</button>
+                    <br>
+                    <button type="submit" class="btn btn-info" id="shoulders_base" name="shoulders_base">petelių
+                        apačia
+                    </button>
+                    <br>
+                    <button type="submit" class="btn btn-info" id="bottom" name="bottom">dugnas</button>
+                    <br>
+                    <button type="submit" class="btn btn-warning" id="clear" name="clear">pašalinti linijas</button>
+                    <br>
+                </div>
+                {% if lip_shape %}
+                <p>lupos forma:</p>
+                <img src="{{lip_shape.lip_form.url}}" alt="this find lip form">
+                {% else %}
+                <p>nėra duomenų apie lupos formą</p>
+                {% endif %}
+
+                {% if ornament_shape %}
+                <img src="{{ornament_shape.ornament_form.url}}" alt="this find ornament form">
+                {% else %}
+                <p>nėra duomenų apie ornamentą</p>
+                {% endif %}
+
+
             </div>
         </div>
     </div>
@@ -129,10 +169,6 @@
     };
 
     drawProfile()
-
-
-
-
 </script>
 
 
@@ -140,15 +176,30 @@
     {% if find.arc_length %}
     document.getElementById("arc_length").value = {{find.arc_length}};
     {% endif %}
+
     {% if find.color %}
     document.getElementById("color").value = "{{find.color}}";
     {% endif %}
+
     {% if find.note %}
     document.getElementById("note").value = "{{find.note}}";
     {% endif %}
 
+    {% if find.neck_type %}
+    document.getElementById("neck_type").value = "{{find.neck_type}}";
+    {% endif %}
 
+    {% if find.shoulders_type %}
+    document.getElementById("shoulders_type").value = "{{find.shoulders_type}}";
+    {% endif %}
 
+    {% if find.neck_shoulders_union %}
+    document.getElementById("neck_shoulders_union_type").value = "{{find.neck_shoulders_union}}";
+    {% endif %}
+
+    {% if find.shoulders_body_union %}
+    document.getElementById("shoulders_body_union_type").value = "{{find.shoulders_body_union}}";
+    {% endif %}
 </script>
 
 <script>
@@ -183,11 +234,6 @@
         ctx.strokeStyle = '#b2b2b2'
         ctx.stroke();
     });
-
-
-
-
-
 </script>
 
 {% endif %}

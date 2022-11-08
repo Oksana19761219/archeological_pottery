@@ -50,13 +50,12 @@ class PotteryDescriptionAdmin(admin.ModelAdmin):
                     'ornament',
                     'note',
                     'researcher',
-                    'neck_nr'
                     )
     list_filter = ('lip',
                    'ornament',)
     fieldsets = (
         ('General', {'fields': ('find_registration_nr', 'research_object', 'researcher')}),
-        ('Description', {'fields': ('arc_length','color', 'lip', 'ornament', 'neck_nr')}),
+        ('Description', {'fields': ('arc_length','color', 'lip', 'ornament')}),
         ('Note', {'fields': ('note',)}),
     )
 

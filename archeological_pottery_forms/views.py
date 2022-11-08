@@ -102,6 +102,17 @@ def object(request, object_id):
     return render(request, 'object.html', context=context)
 
 
+def save_changes(request, find):
+    find.arc_length = int(request.POST['arc_length'])
+    find.color = request.POST['color']
+    find.note = request.POST['note']
+    find.neck_type = request.POST['neck_type']
+    find.shoulders_type = request.POST['shoulders_type']
+    find.neck_shoulders_union = request.POST['neck_shoulders_union_type']
+    find.shoulders_body_union = request.POST['shoulders_body_union_type']
+    find.save()
+
+
 @csrf_protect
 def update_description(request, find_id):
     contour = CeramicContour.objects.filter(find_id=find_id)
@@ -115,13 +126,19 @@ def update_description(request, find_id):
             order_by('find_registration_nr').\
             values_list('id')
     find_ids = [item[0] for item in find_ids_queryset]
+    finds_amount = len(find_ids)
     this_id_index = find_ids.index(find_id)
 
     if request.method == 'POST' and 'change' in request.POST:
-        find.arc_length = int(request.POST['arc_length'])
-        find.color = request.POST['color']
-        find.note = request.POST['note']
-        find.save()
+        save_changes(request, find)
+
+
+    if request.method == 'POST' and 'change_new' in request.POST:
+        save_changes(request, find)
+        if this_id_index < len(find_ids)-1:
+            next_id = find_ids[this_id_index+1]
+            return HttpResponseRedirect(reverse('update_description', args=[next_id]))
+
 
     if request.method == 'POST' and 'lip_base' in request.POST:
         lip_base_value = request.POST['lip_base']
@@ -174,7 +191,9 @@ def update_description(request, find_id):
         'contour': contour,
         'find': find,
         'lip_shape': lip_shape,
-        'ornament_shape': ornament_shape
+        'ornament_shape': ornament_shape,
+        'finds_amount': finds_amount,
+        'find_nr': this_id_index
     }
 
     return render(request, 'update_description.html', context=context)

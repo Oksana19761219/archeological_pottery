@@ -185,12 +185,6 @@ class PotteryDescription(models.Model):
         null=True,
         related_name='findings'
     )
-    neck_nr = models.IntegerField(
-        'neck number',
-        null=True,
-        blank=True,
-        help_text='temporary field, neck id from old database'
-    )
     researcher = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
@@ -215,7 +209,6 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
-
     lip_base_y = models.IntegerField(
         'lip_base_y',
         null=True,
@@ -233,6 +226,30 @@ class PotteryDescription(models.Model):
     )
     bottom_y = models.IntegerField(
         'bottom_y',
+        null=True,
+        blank=True
+    )
+    neck_type = models.CharField(
+        'neck_type',
+        max_length=50,
+        null=True,
+        blank=True
+    )
+    shoulders_type = models.CharField(
+        'shoulders_type',
+        max_length=50,
+        null=True,
+        blank=True
+    )
+    neck_shoulders_union = models.CharField(
+        'neck_shoulders_union',
+        max_length=50,
+        null=True,
+        blank=True
+    )
+    shoulders_body_union = models.CharField(
+        'shoulders_body_union',
+        max_length=50,
         null=True,
         blank=True
     )
