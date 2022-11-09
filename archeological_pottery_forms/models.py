@@ -229,18 +229,6 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
-    neck_type = models.CharField(
-        'neck_type',
-        max_length=50,
-        null=True,
-        blank=True
-    )
-    shoulders_type = models.CharField(
-        'shoulders_type',
-        max_length=50,
-        null=True,
-        blank=True
-    )
     neck_shoulders_union = models.CharField(
         'neck_shoulders_union',
         max_length=50,

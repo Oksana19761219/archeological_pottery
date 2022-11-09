@@ -20,33 +20,19 @@
                         <label for="note">pastaba:</label>
                         <input type="text" id="note" name="note"><br>
 
-                        <label for="neck_type">kaklelio tipas:</label>
-                        <input list="neck_types" name="neck_type" id="neck_type">
-                        <datalist id="neck_types">
-                            <option value="tiesus">
-                            <option value="lenktas į vidų">
-                            <option value="lenktas į išorę">
-                        </datalist>
 
                         <label for="neck_shoulders_union_type">kaklelio ir petelių jungties tipas:</label>
                         <input list="neck_shoulders_union_types" name="neck_shoulders_union_type"
                                id="neck_shoulders_union_type">
                         <datalist id="neck_shoulders_union_types">
                             <option value="neryški">
-                            <option value="apvali">
-                            <option value="užapvalintas lūžis">
+                            <option value="lankas">
+                            <option value="lankas su įspauda">
+                            <option value="lūžis">
                             <option value="lūžis su įspauda">
                         </datalist>
 
-                        <label for="shoulders_type">petelių tipas:</label>
-                        <input list="shoulders_types" name="shoulders_type" id="shoulders_type">
-                        <datalist id="shoulders_types">
-                            <option value="nežymiai išlenkta">
-                            <option value="apvaliai išlenkta">
-                            <option value="išlenkta su užapvalintu lūžiu">
-                        </datalist>
-
-                        <label for="neck_type">petelių ir kūno jungties tipas:</label>
+                        <label for="shoulders_body_union_type">petelių ir kūno jungties tipas:</label>
                         <input list="shoulders_body_union_types" name="shoulders_body_union_type"
                                id="shoulders_body_union_type">
                         <datalist id="shoulders_body_union_types">
@@ -183,14 +169,6 @@
 
     {% if find.note %}
     document.getElementById("note").value = "{{find.note}}";
-    {% endif %}
-
-    {% if find.neck_type %}
-    document.getElementById("neck_type").value = "{{find.neck_type}}";
-    {% endif %}
-
-    {% if find.shoulders_type %}
-    document.getElementById("shoulders_type").value = "{{find.shoulders_type}}";
     {% endif %}
 
     {% if find.neck_shoulders_union %}

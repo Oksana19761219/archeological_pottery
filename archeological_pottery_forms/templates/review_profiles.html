@@ -8,6 +8,9 @@
     <br>
     <div class="row align-items-start">
         <div class="col">
+            <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
+        </div>
+        <div class="col">
             {% if objects_to_review_quantity %}
             <p> turite {{objects_to_review_quantity}} neperžiūrėtų radinių profilių</p>
             {% endif %}
@@ -15,33 +18,109 @@
             <p>radinio reg. nr. {{object.find_registration_nr}}, {{object.research_object}}</p>
             <form action="" method="post">
                 {% csrf_token %}
+                <p>jeigu profilis neteisingai nubraižytas, jį galima ištrinti:</p>
+                <button type="submit" class="btn btn-dark" id="delete" name="delete">Trinti profilį</button>
+                <br>
+                <br>
+                <br>
+                <br>
+                <strong>Profilio apatinės dalies korekcija (nereikalingų duomenų šalinimas iš tyrimo)</strong>
+                <p>brėžinyje pasirinkite žymiausią nepažeistos profilio dalies tašką ir paspauskite "patvirtinti".
+                    Profilio koordinatės, esančios žemiau šios linijos, bus ištrintos iš duomenų bazės. Jeigu profilis
+                    turi sveiką dugną, pasirinkite tašką žemiau jo, tuomet bus išsaugotos visos
+                    koordinatės.</p>
+                {% if y_value_to_trim %}
+                <p>ar tikrai patvirtinti?</p>
+                <button type="submit" class="btn btn-success" id="yes" name="yes"
+                        value="{{y_value_to_trim}}">taip
+                </button>
+                <button type="submit" class="btn btn-danger" id="no" name="no">ne</button>
+                {% else %}
+                <button type="submit" class="btn btn-warning" id="validate" name="validate" value="">patvirtinti
+                </button>
 
-                    <button type="submit" class="btn btn-success" id="validate" name="validate">patvirtinti</button>
-                    <br><br>
-                    <p>jeigu profilis neteisingai nubraižytas, jį galima ištrinti:</p>
-                    <button type="submit" class="btn btn-dark" id="delete" name="delete">Trinti profilį</button>
+                {% endif %}
+
+
             </form>
             {% else %}
             <p>neperžiūrėtų radinių nėra</p>
             {% endif %}
         </div>
-        <div class="col">
-            <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
-        </div>
+
     </div>
 </div>
 
+
 <script>
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
-        ctx.scale(0.5, 0.5);
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.scale(0.5, 0.5);
+
+    function drawProfile() {
+
+
 
         {% if this_profile %}
             {% for pixel in this_profile %}
                 ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},1,1);
             {% endfor %}
         {% endif %}
+
+        {% if y_value_to_trim %}
+            ctx.beginPath();
+            ctx.moveTo(0, {{y_value_to_trim}});
+            ctx.lineTo(canvas.width*2, {{y_value_to_trim}});
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#ff4000';
+            ctx.stroke();
+        {% endif %}
+    };
+
+    drawProfile()
+
+
+
+
+
+
 </script>
+
+
+<script>
+    function getMousePosition(canvas, event) {
+        let rect = canvas.getBoundingClientRect();
+        let x = event.clientX - rect.left;
+        let y = event.clientY - rect.top;
+        console.log("Coordinate x: " + x,
+                    "Coordinate y: " + y);
+        document.getElementById("validate").value = y*2;
+    };
+
+    let canvasElem = document.querySelector("canvas");
+
+    canvasElem.addEventListener("mousedown", function(e)
+    {
+        getMousePosition(canvasElem, e);
+
+        ctx.clearRect(0, 0, canvas.width*2, canvas.height*2);
+        drawProfile()
+            let y_line = document.getElementById("validate").value;
+            ctx.beginPath();
+            ctx.moveTo(0, y_line);
+            ctx.lineTo(canvas.width*2, y_line);
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#b2b2b2';
+            ctx.stroke();
+    });
+
+
+
+
+
+
+</script>
+
 
 {% endif %}
 {% endblock %}

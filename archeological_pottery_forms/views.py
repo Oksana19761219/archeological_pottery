@@ -106,8 +106,6 @@ def save_changes(request, find):
     find.arc_length = int(request.POST['arc_length'])
     find.color = request.POST['color']
     find.note = request.POST['note']
-    find.neck_type = request.POST['neck_type']
-    find.shoulders_type = request.POST['shoulders_type']
     find.neck_shoulders_union = request.POST['neck_shoulders_union_type']
     find.shoulders_body_union = request.POST['shoulders_body_union_type']
     find.save()
@@ -115,10 +113,13 @@ def save_changes(request, find):
 
 @csrf_protect
 def update_description(request, find_id):
-    contour = CeramicContour.objects.filter(find_id=find_id)
     find = PotteryDescription.objects.get(pk=find_id)
     lip_shape = PotteryLipShape.objects.filter(pk=find.lip_id).first()
     ornament_shape = PotteryOrnamentShape.objects.filter(pk=find.ornament_id).first()
+    if find.profile_reviewed == True:
+        contour = CeramicContour.objects.filter(find_id=find_id)
+    else:
+        contour = None
 
     research_object = find.research_object
     find_ids_queryset = PotteryDescription.objects.\
@@ -132,13 +133,11 @@ def update_description(request, find_id):
     if request.method == 'POST' and 'change' in request.POST:
         save_changes(request, find)
 
-
     if request.method == 'POST' and 'change_new' in request.POST:
         save_changes(request, find)
         if this_id_index < len(find_ids)-1:
             next_id = find_ids[this_id_index+1]
             return HttpResponseRedirect(reverse('update_description', args=[next_id]))
-
 
     if request.method == 'POST' and 'lip_base' in request.POST:
         lip_base_value = request.POST['lip_base']
@@ -193,7 +192,7 @@ def update_description(request, find_id):
         'lip_shape': lip_shape,
         'ornament_shape': ornament_shape,
         'finds_amount': finds_amount,
-        'find_nr': this_id_index
+        'find_nr': this_id_index + 1
     }
 
     return render(request, 'update_description.html', context=context)
@@ -215,17 +214,6 @@ def get_pottery_description(request, object_id):
             return HttpResponseRedirect(reverse('update_description', args=[data.id]))
         else:
             print('toks radinys duomenu bazeje jau yra') # laikina eilute, cia turi buti message i template'a
-
-    #     form = PotteryDescriptionForm(request.POST)
-    #     if form.is_valid():
-    #         data = PotteryDescription(
-    #             find_registration_nr=form.cleaned_data['find_registration_nr'],
-    #         )
-    #         data.save()
-    #         form = PotteryDescriptionForm()
-    # else:
-    #     form = PotteryDescriptionForm()
-    # return render(request, 'describe.html', {'form': form})
     return render(request, 'describe.html')
 
 
@@ -398,6 +386,7 @@ def calculate_correlation_coefficient(request):
         run_time = end_time - start_time
         logger.info(f'koreliacijos koeficientai skaičiuoti {run_time} sek., lyginta {contours_correlated_quantity + contours_to_correlate_quantity} radinių')
 
+
     context = {
        'contours_correlated_quantity': contours_correlated_quantity,
         'contours_to_correlate_quantity': contours_to_correlate_quantity
@@ -411,6 +400,7 @@ def review_profiles(request):
     objects = PotteryDescription.objects.filter(Q(profile_reviewed=False) & Q(pk__in=ids))
     object = objects.first()
     objects_to_review_quantity = objects.count()
+    y_value_to_trim = None
 
     if object:
         this_profile = CeramicContour.objects.filter(find_id=object.id)
@@ -418,8 +408,22 @@ def review_profiles(request):
         this_profile = None
 
     if request.method == 'POST' and 'validate' in request.POST:
+        y_value_to_trim = request.POST['validate']
+        if y_value_to_trim:
+            y_value_to_trim = int(y_value_to_trim)
+
+    if request.method == 'POST' and 'yes' in request.POST:
+        y_value_to_trim = int(request.POST['yes'])
+        contour_to_trim = CeramicContour.objects.filter(Q(y__gte=y_value_to_trim) & Q(find_id=object.id))
+        if contour_to_trim:
+            contour_to_trim.delete()
+
         object.profile_reviewed = True
         object.save()
+        return redirect('review_profiles')
+
+    if request.method == 'POST' and 'no' in request.POST:
+        y_value_to_trim = None
         return redirect('review_profiles')
 
     if request.method == 'POST' and 'delete' in request.POST:
@@ -432,7 +436,8 @@ def review_profiles(request):
     context = {
         'object': object,
         'this_profile': this_profile,
-        'objects_to_review_quantity': objects_to_review_quantity
+        'objects_to_review_quantity': objects_to_review_quantity,
+        'y_value_to_trim': y_value_to_trim
     }
 
     return render(request, 'review_profiles.html', context=context)
