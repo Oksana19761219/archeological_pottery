@@ -71,7 +71,7 @@
 
             <div class="col">
                 <div class="card-body">
-                    <p id="y" value="">pasirinkite tašką profilio brėžinyje</p>
+                    <p id="y" value="">pasirinkite tašką brėžinyje</p>
                     <button type="submit" class="btn btn-info" id="lip_base" name="lip_base">lupos apačia</button>
                     <br>
                     <button type="submit" class="btn btn-info" id="neck_base" name="neck_base">kaklo apačia</button>
@@ -92,18 +92,21 @@
                     <button type="submit" class="btn btn-warning" id="clear_deviation" name="clear_deviation">pašalinti paklaidas</button>
 
                 </div>
-                {% if lip_shape %}
-                <p>lupos forma:</p>
-                <img src="{{lip_shape.lip_form.url}}" alt="this find lip form">
-                {% else %}
-                <p>nėra duomenų apie lupos formą</p>
-                {% endif %}
+                {% comment %}
+                    {% if lip_shape %}
+                    <p>lupos forma:</p>
+                    <img src="{{lip_shape.lip_form.url}}" alt="this find lip form">
+                    {% else %}
+                    <p>nėra duomenų apie lupos formą</p>
+                    {% endif %}
 
-                {% if ornament_shape %}
-                <img src="{{ornament_shape.ornament_form.url}}" alt="this find ornament form">
-                {% else %}
-                <p>nėra duomenų apie ornamentą</p>
-                {% endif %}
+                    {% if ornament_shape %}
+                    <img src="{{ornament_shape.ornament_form.url}}" alt="this find ornament form">
+                    {% else %}
+                    <p>nėra duomenų apie ornamentą</p>
+                    {% endif %}
+                {% endcomment %}
+
 
 
             </div>
@@ -117,6 +120,23 @@
     ctx.scale(0.5, 0.5);
 
     function drawProfile() {
+        {% if min_neck_point and max_neck_point %}
+            ctx.rect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "#719dbf";
+            ctx.stroke();
+            ctx.fillStyle = "#fafad2";
+            ctx.fillRect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
+        {% endif %}
+
+        {% if min_shoulders_point and max_shoulders_point %}
+            ctx.rect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.fillStyle = "#ecffcc";
+            ctx.fillRect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
+        {% endif %}
+
         {% if find.lip_base_y %}
             ctx.beginPath();
             ctx.moveTo(0, {{find.lip_base_y}} );
@@ -153,23 +173,8 @@
             ctx.stroke();
         {% endif %}
 
-        {% if min_neck_point and max_neck_point %}
-        ctx.beginPath();
-        ctx.lineWidth = "1";
-        ctx.strokeStyle = "grey";
-        ctx.rect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
-        ctx.stroke();
-        {% endif %}
-
-        {% if min_shoulders_point and max_shoulders_point %}
-        ctx.beginPath();
-        ctx.lineWidth = "1";
-        ctx.strokeStyle = "grey";
-        ctx.rect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
-        ctx.stroke();
-        {% endif %}
-
         {% if contour %}
+            ctx.fillStyle = "#000000";
             {% for pixel in contour %}
                 ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},1,1);
             {% endfor %}
@@ -234,11 +239,12 @@
         drawProfile()
 
         let y_line = document.getElementById("y").value;
+        ctx.strokeStyle = '#b2b2b2'
         ctx.beginPath();
         ctx.moveTo(0, y_line);
         ctx.lineTo(canvas.width*2, y_line);
         ctx.lineWidth = 1;
-        ctx.strokeStyle = '#b2b2b2'
+
         ctx.stroke();
     });
 </script>

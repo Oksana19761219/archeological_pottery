@@ -197,31 +197,31 @@ def update_description(request, find_id):
         find.save()
 
     if request.method == 'POST' and 'neck_deviation' in request.POST:
-        data = ContourNodeDeviation(
-            find_id = find.id,
-            deviation = int(request.POST['neck_deviation']),
-            node = 'neck'
-        )
-        data.save()
-        return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+        deviation = request.POST['neck_deviation']
+        if deviation:
+            data = ContourNodeDeviation(
+                find_id = find.id,
+                deviation = int(deviation),
+                node = 'neck'
+            )
+            data.save()
+            return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
     if request.method == 'POST' and 'shoulders_deviation' in request.POST:
-        data = ContourNodeDeviation(
-            find_id = find.id,
-            deviation = int(request.POST['shoulders_deviation']),
-            node = 'shoulders'
-        )
-        data.save()
-        return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+        deviation = request.POST['shoulders_deviation']
+        if deviation:
+            data = ContourNodeDeviation(
+                find_id = find.id,
+                deviation = int(deviation),
+                node = 'shoulders'
+            )
+            data.save()
+            return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
     if request.method == 'POST' and 'clear_deviation' in request.POST:
         data = ContourNodeDeviation.objects.filter(find_id = find.id)
         data.delete()
         return HttpResponseRedirect(reverse('update_description', args=[find.id]))
-        # min_neck_point = None
-        # max_neck_point = None
-        # min_shoulders_point = None
-        # max_shoulders_point = None
 
 
     if request.method == 'POST' and 'previous' in request.POST:

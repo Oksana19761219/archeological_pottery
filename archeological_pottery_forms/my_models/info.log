@@ -20103,3 +20103,266 @@ INFO 2022-11-16 18:36:39,762 archeological_pottery_forms.my_models.my_decorators
 INFO 2022-11-16 19:02:25,278 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6824
 INFO 2022-11-16 19:02:38,057 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6935
 INFO 2022-11-16 19:02:39,074 archeological_pottery_forms.my_models.my_decorators programa vykdyta 28.354991399999562 sek.
+ERROR 2022-11-17 16:38:28,237 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2141.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,243 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2141.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,246 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2142.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,246 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2142.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,248 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2143.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,248 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2143.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,251 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2144.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,251 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2144.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,253 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2145.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,254 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2145.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,280 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2146.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,281 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2146.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,284 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2147.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,285 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2147.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:38:28,304 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2148.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:38:28,305 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2148.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:38:56,389 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4987
+INFO 2022-11-17 16:39:26,077 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4984
+ERROR 2022-11-17 16:39:27,107 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2152.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:39:27,107 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2152.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:39:52,513 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 5402
+ERROR 2022-11-17 16:39:53,540 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2156.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:39:53,541 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2156.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:40:19,192 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4994
+ERROR 2022-11-17 16:40:20,223 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2158.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:40:20,224 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2158.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:40:20,227 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2159.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:40:20,227 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2159.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:40:20,231 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2160.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:40:20,232 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2160.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:40:20,236 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2162.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:40:20,236 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2162.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:40:20,241 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2163.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:40:20,241 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2163.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:40:45,586 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 5000
+INFO 2022-11-17 16:41:12,165 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 5001
+INFO 2022-11-17 16:41:38,220 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4983
+INFO 2022-11-17 16:42:03,058 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 5404
+INFO 2022-11-17 16:42:27,093 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 5405
+INFO 2022-11-17 16:42:51,835 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4999
+INFO 2022-11-17 16:43:16,937 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4990
+INFO 2022-11-17 16:43:42,585 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4992
+ERROR 2022-11-17 16:43:43,613 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2175.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:43:43,613 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2175.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:43:43,616 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2176.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:43:43,616 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2176.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:43:43,619 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2177.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:43:43,619 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2177.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:44:07,258 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4989
+INFO 2022-11-17 16:44:31,620 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4995
+ERROR 2022-11-17 16:44:32,648 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2180.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:44:32,649 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2180.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:44:56,209 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4996
+INFO 2022-11-17 16:45:20,928 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4997
+ERROR 2022-11-17 16:45:21,950 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2184.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:45:21,951 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2184.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:45:21,954 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2997.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:45:21,954 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2997.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:45:45,837 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 4991
+ERROR 2022-11-17 16:45:46,866 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2999.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:45:46,866 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2999.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:45:46,866 archeological_pottery_forms.my_models.my_decorators programa vykdyta 438.71098429999984 sek.
+ERROR 2022-11-17 16:51:23,381 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2141.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,381 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2141.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,384 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2142.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,384 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2142.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,386 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2143.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,386 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2143.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,389 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2144.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,389 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2144.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,393 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2145.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,393 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2145.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,426 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2146.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,426 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2146.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,429 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2147.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,429 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2147.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,456 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2148.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,456 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2148.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,483 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2150.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,483 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2150.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,560 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2151.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,560 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2151.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,563 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2152.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,563 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2152.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,598 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2153.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,599 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2153.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,602 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2156.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,602 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2156.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,629 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2157.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,630 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2157.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,633 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2158.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,633 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2158.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,637 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2159.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,637 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2159.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,641 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2160.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,641 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2160.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,644 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2162.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,644 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2162.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,648 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2163.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,648 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2163.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,672 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2165.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,672 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2165.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,704 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2166.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,705 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2166.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,731 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2167.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,731 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2167.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,755 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2168.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,755 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2168.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,793 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2169.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,794 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2169.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,858 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2171.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,858 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2171.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,891 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2173.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,891 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2173.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,922 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2174.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,923 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2174.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,927 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2175.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,927 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2175.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,931 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2176.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,931 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2176.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,935 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2177.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,940 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2177.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,968 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2178.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,968 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2178.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,990 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2179.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,991 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2179.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:23,993 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2180.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:23,993 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2180.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:24,018 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2181.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:24,018 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2181.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:24,031 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2182.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:24,032 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2182.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:24,034 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2184.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:24,034 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2184.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:24,037 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2997.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:24,037 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2997.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:24,061 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 2998.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:24,061 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2998.png, tyrimų objekto id 670
+NoneType: None
+ERROR 2022-11-17 16:51:24,064 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2999.png, objekto id 670)
+NoneType: None
+ERROR 2022-11-17 16:51:24,065 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2999.png, tyrimų objekto id 670
+NoneType: None
+INFO 2022-11-17 16:51:24,065 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.7692936999992526 sek.
