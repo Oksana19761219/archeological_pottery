@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Max, Count, Avg
+from django.db.models import Q, Max, Min, Count, Avg
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -11,7 +11,9 @@ from .models import Bibliography, \
                     ContourCorrelation,\
                     ContourGroup, \
                     PotteryLipShape, \
-                    PotteryOrnamentShape
+                    PotteryOrnamentShape, \
+                    ContourNodeDeviation
+
 from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages
@@ -121,6 +123,26 @@ def update_description(request, find_id):
     else:
         contour = None
 
+    neck_deviation = ContourNodeDeviation.objects.\
+        filter(Q(find_id=find.id) & Q(node='neck')).\
+        values_list('deviation')
+    shoulders_deviation = ContourNodeDeviation.objects.\
+        filter(Q(find_id=find.id) & Q(node='shoulders')).\
+        values_list('deviation')
+    if neck_deviation:
+        min_neck_point = min(neck_deviation)[0]
+        max_neck_point = max(neck_deviation)[0]
+    else:
+        min_neck_point = None
+        max_neck_point = None
+    if shoulders_deviation:
+        min_shoulders_point = min(shoulders_deviation)[0]
+        max_shoulders_point = max(shoulders_deviation)[0]
+    else:
+        min_shoulders_point = None
+        max_shoulders_point = None
+
+
     research_object = find.research_object
     find_ids_queryset = PotteryDescription.objects.\
             filter(research_object=research_object).\
@@ -174,6 +196,34 @@ def update_description(request, find_id):
         find.bottom_y = None
         find.save()
 
+    if request.method == 'POST' and 'neck_deviation' in request.POST:
+        data = ContourNodeDeviation(
+            find_id = find.id,
+            deviation = int(request.POST['neck_deviation']),
+            node = 'neck'
+        )
+        data.save()
+        return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+
+    if request.method == 'POST' and 'shoulders_deviation' in request.POST:
+        data = ContourNodeDeviation(
+            find_id = find.id,
+            deviation = int(request.POST['shoulders_deviation']),
+            node = 'shoulders'
+        )
+        data.save()
+        return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+
+    if request.method == 'POST' and 'clear_deviation' in request.POST:
+        data = ContourNodeDeviation.objects.filter(find_id = find.id)
+        data.delete()
+        return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+        # min_neck_point = None
+        # max_neck_point = None
+        # min_shoulders_point = None
+        # max_shoulders_point = None
+
+
     if request.method == 'POST' and 'previous' in request.POST:
         if this_id_index > 0 and this_id_index < len(find_ids)-1:
             previous_id = find_ids[this_id_index-1]
@@ -192,7 +242,11 @@ def update_description(request, find_id):
         'lip_shape': lip_shape,
         'ornament_shape': ornament_shape,
         'finds_amount': finds_amount,
-        'find_nr': this_id_index + 1
+        'find_nr': this_id_index + 1,
+        'min_neck_point': min_neck_point,
+        'max_neck_point': max_neck_point,
+        'min_shoulders_point': min_shoulders_point,
+        'max_shoulders_point': max_shoulders_point
     }
 
     return render(request, 'update_description.html', context=context)

@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <p>registracijos numeris: {{find.find_registration_nr}}, {{find_nr}} iš {{finds_amount}} radinių</p>
                         <label for="arc_length">lanko ilgis:</label>
-                        <input type="number" id="arc_length" name="arc_length" required="required"><br>
+                        <input type="number" id="arc_length" name="arc_length"><br>
                         <label for="color">spalva:</label>
                         <input type="text" id="color" name="color"><br>
                         <label for="note">pastaba:</label>
@@ -27,16 +27,15 @@
                         <datalist id="neck_shoulders_union_types">
                             <option value="neryški">
                             <option value="lankas">
-                            <option value="lankas su įspauda">
                             <option value="lūžis">
-                            <option value="lūžis su įspauda">
+                            <option value="įspauda">
                         </datalist>
 
                         <label for="shoulders_body_union_type">petelių ir kūno jungties tipas:</label>
                         <input list="shoulders_body_union_types" name="shoulders_body_union_type"
                                id="shoulders_body_union_type">
                         <datalist id="shoulders_body_union_types">
-                            <option value="be lūžio">
+                            <option value="lankas">
                             <option value="užapvalintas lūžis">
                             <option value="ryškus lūžis">
                         </datalist>
@@ -85,6 +84,13 @@
                     <br>
                     <button type="submit" class="btn btn-warning" id="clear" name="clear">pašalinti linijas</button>
                     <br>
+                    <br>
+                    <button type="submit" class="btn btn-info" id="neck_deviation" name="neck_deviation">kaklo paklaida</button>
+                    <br>
+                    <button type="submit" class="btn btn-info" id="shoulders_deviation" name="shoulders_deviation">petelių paklaida</button>
+                    <br>
+                    <button type="submit" class="btn btn-warning" id="clear_deviation" name="clear_deviation">pašalinti paklaidas</button>
+
                 </div>
                 {% if lip_shape %}
                 <p>lupos forma:</p>
@@ -147,10 +153,31 @@
             ctx.stroke();
         {% endif %}
 
+        {% if min_neck_point and max_neck_point %}
+        ctx.beginPath();
+        ctx.lineWidth = "1";
+        ctx.strokeStyle = "grey";
+        ctx.rect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
+        ctx.stroke();
+        {% endif %}
+
+        {% if min_shoulders_point and max_shoulders_point %}
+        ctx.beginPath();
+        ctx.lineWidth = "1";
+        ctx.strokeStyle = "grey";
+        ctx.rect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
+        ctx.stroke();
+        {% endif %}
+
         {% if contour %}
             {% for pixel in contour %}
                 ctx.fillRect({{pixel.x_canvas_middle}}, {{pixel.y}},1,1);
             {% endfor %}
+        {% else %}
+        ctx.font = "50px Arial";
+        ctx.textAlign = "left";
+        ctx.fillText("kontūro nėra", 100, 100);
+
         {% endif %}
     };
 
@@ -193,6 +220,8 @@
         document.getElementById("neck_base").value = y*2;
         document.getElementById("shoulders_base").value = y*2;
         document.getElementById("bottom").value = y*2;
+        document.getElementById("neck_deviation").value = y*2;
+        document.getElementById("shoulders_deviation").value = y*2;
     };
 
     let canvasElem = document.querySelector("canvas");

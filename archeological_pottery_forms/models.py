@@ -258,6 +258,27 @@ class PotteryDescription(models.Model):
         return CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
 
 
+class ContourNodeDeviation(models.Model):
+    find = models.ForeignKey(
+        'PotteryDescription',
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+        related_name='deviation'
+    )
+    deviation = models.IntegerField(
+        'deviation',
+        null=False,
+        blank=False
+    )
+    node = models.CharField(
+        'node',
+        max_length=20,
+        null=False,
+        blank=False
+    )
+
+
 class ResearchObject(models.Model):
     research_object_nr = models.IntegerField(
         'research object number',

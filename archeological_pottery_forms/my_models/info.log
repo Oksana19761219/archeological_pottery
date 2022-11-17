@@ -18606,3 +18606,1500 @@ INFO 2022-11-09 14:50:50,894 archeological_pottery_forms.my_models.vectorize_fil
 INFO 2022-11-09 14:50:51,913 archeological_pottery_forms.my_models.my_decorators programa vykdyta 30.02283699999998 sek.
 INFO 2022-11-09 20:15:58,771 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6136
 INFO 2022-11-09 20:15:59,797 archeological_pottery_forms.my_models.my_decorators programa vykdyta 23.736584599999333 sek.
+ERROR 2022-11-15 21:43:35,835 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 814.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 21:43:35,841 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 814.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 21:43:48,073 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6618
+INFO 2022-11-15 21:44:00,145 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6634
+INFO 2022-11-15 21:44:12,166 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6568
+INFO 2022-11-15 21:44:23,977 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6617
+INFO 2022-11-15 21:44:35,851 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6613
+INFO 2022-11-15 21:44:47,773 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6606
+ERROR 2022-11-15 21:44:48,788 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 888.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 21:44:48,788 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 888.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 21:44:59,495 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6632
+INFO 2022-11-15 21:45:11,355 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6614
+INFO 2022-11-15 21:45:23,161 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6625
+INFO 2022-11-15 21:45:35,042 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6580
+INFO 2022-11-15 21:45:46,999 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6588
+INFO 2022-11-15 21:45:58,739 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6586
+INFO 2022-11-15 21:46:10,479 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6629
+INFO 2022-11-15 21:46:22,332 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6594
+INFO 2022-11-15 21:46:34,094 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6637
+INFO 2022-11-15 21:46:46,154 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6545
+INFO 2022-11-15 21:46:58,062 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6569
+INFO 2022-11-15 21:47:09,979 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6612
+INFO 2022-11-15 21:47:21,862 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6544
+INFO 2022-11-15 21:47:33,509 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6616
+INFO 2022-11-15 21:47:44,662 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6583
+INFO 2022-11-15 21:47:55,713 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6622
+INFO 2022-11-15 21:48:07,649 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6627
+INFO 2022-11-15 21:48:18,834 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6584
+INFO 2022-11-15 21:48:30,097 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6565
+INFO 2022-11-15 21:48:41,469 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6561
+INFO 2022-11-15 21:48:52,923 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6596
+INFO 2022-11-15 21:49:03,956 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6608
+INFO 2022-11-15 21:49:15,143 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6598
+INFO 2022-11-15 21:49:26,457 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6543
+INFO 2022-11-15 21:49:37,702 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6555
+INFO 2022-11-15 21:49:48,930 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6548
+INFO 2022-11-15 21:50:00,084 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6589
+INFO 2022-11-15 21:50:11,224 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6556
+INFO 2022-11-15 21:50:22,430 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6602
+INFO 2022-11-15 21:50:34,020 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6631
+INFO 2022-11-15 21:50:45,175 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6564
+INFO 2022-11-15 21:50:56,204 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6553
+INFO 2022-11-15 21:51:07,409 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6590
+INFO 2022-11-15 21:51:18,674 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6585
+INFO 2022-11-15 21:51:30,640 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6554
+INFO 2022-11-15 21:51:41,847 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6603
+INFO 2022-11-15 21:51:53,255 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6621
+INFO 2022-11-15 21:52:04,458 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6636
+INFO 2022-11-15 21:52:15,604 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6628
+INFO 2022-11-15 21:52:26,846 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6604
+INFO 2022-11-15 21:52:37,913 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6595
+INFO 2022-11-15 21:52:49,000 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6623
+INFO 2022-11-15 21:53:00,132 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6601
+INFO 2022-11-15 21:53:11,407 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6597
+INFO 2022-11-15 21:53:22,509 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6626
+INFO 2022-11-15 21:53:33,628 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6619
+INFO 2022-11-15 21:53:44,803 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6547
+INFO 2022-11-15 21:53:56,026 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6552
+INFO 2022-11-15 21:54:07,229 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6549
+INFO 2022-11-15 21:54:18,473 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6574
+INFO 2022-11-15 21:54:29,653 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6559
+INFO 2022-11-15 21:54:40,744 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6576
+INFO 2022-11-15 21:54:51,768 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6593
+INFO 2022-11-15 21:55:02,929 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6557
+INFO 2022-11-15 21:55:14,099 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6587
+INFO 2022-11-15 21:55:25,303 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6560
+INFO 2022-11-15 21:55:36,482 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6579
+INFO 2022-11-15 21:55:47,644 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6563
+INFO 2022-11-15 21:55:58,821 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6551
+INFO 2022-11-15 21:56:10,211 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6592
+INFO 2022-11-15 21:56:21,414 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6546
+INFO 2022-11-15 21:56:32,763 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6566
+INFO 2022-11-15 21:56:44,201 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6624
+INFO 2022-11-15 21:56:55,300 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6575
+INFO 2022-11-15 21:57:06,396 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6562
+INFO 2022-11-15 21:57:17,629 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6635
+INFO 2022-11-15 21:57:28,740 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6611
+INFO 2022-11-15 21:57:39,954 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6573
+INFO 2022-11-15 21:57:51,089 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6630
+ERROR 2022-11-15 21:57:52,119 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 1069.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 21:57:52,119 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 1069.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 21:58:02,214 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6609
+INFO 2022-11-15 21:58:13,493 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6600
+INFO 2022-11-15 21:58:24,872 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6550
+INFO 2022-11-15 21:58:35,945 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6610
+INFO 2022-11-15 21:58:47,135 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6615
+INFO 2022-11-15 21:58:58,335 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6582
+INFO 2022-11-15 21:59:09,542 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6581
+INFO 2022-11-15 21:59:20,671 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6605
+INFO 2022-11-15 21:59:31,910 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6571
+INFO 2022-11-15 21:59:43,015 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6591
+INFO 2022-11-15 21:59:54,070 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6567
+INFO 2022-11-15 22:00:05,121 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6620
+INFO 2022-11-15 22:00:16,334 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6607
+INFO 2022-11-15 22:00:27,627 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6558
+INFO 2022-11-15 22:00:38,785 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6633
+INFO 2022-11-15 22:00:49,940 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6578
+INFO 2022-11-15 22:01:01,077 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6570
+INFO 2022-11-15 22:01:02,091 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1046.4441999 sek.
+INFO 2022-11-15 22:02:22,942 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6752
+INFO 2022-11-15 22:02:34,058 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6751
+INFO 2022-11-15 22:02:45,192 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6724
+INFO 2022-11-15 22:02:56,327 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6744
+INFO 2022-11-15 22:03:07,575 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6736
+INFO 2022-11-15 22:03:18,724 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6729
+INFO 2022-11-15 22:03:29,926 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6747
+INFO 2022-11-15 22:03:41,293 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6737
+INFO 2022-11-15 22:03:52,406 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6746
+INFO 2022-11-15 22:04:03,669 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6711
+INFO 2022-11-15 22:04:14,721 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6718
+INFO 2022-11-15 22:04:26,308 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6714
+INFO 2022-11-15 22:04:37,668 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6735
+INFO 2022-11-15 22:04:48,914 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6750
+INFO 2022-11-15 22:05:00,015 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6721
+INFO 2022-11-15 22:05:11,238 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6734
+INFO 2022-11-15 22:05:22,326 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6708
+INFO 2022-11-15 22:05:33,518 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6715
+INFO 2022-11-15 22:05:44,619 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6710
+INFO 2022-11-15 22:05:55,784 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6739
+INFO 2022-11-15 22:06:06,794 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6722
+INFO 2022-11-15 22:06:17,915 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6726
+INFO 2022-11-15 22:06:29,087 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6732
+INFO 2022-11-15 22:06:40,244 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6733
+INFO 2022-11-15 22:06:51,370 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6749
+INFO 2022-11-15 22:07:02,623 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6745
+INFO 2022-11-15 22:07:13,936 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6738
+INFO 2022-11-15 22:07:25,072 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6727
+INFO 2022-11-15 22:07:36,111 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6748
+INFO 2022-11-15 22:07:47,134 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6707
+INFO 2022-11-15 22:07:58,351 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6712
+INFO 2022-11-15 22:08:09,461 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6740
+INFO 2022-11-15 22:08:20,830 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6723
+INFO 2022-11-15 22:08:32,662 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6728
+ERROR 2022-11-15 22:08:33,682 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 834.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:08:33,683 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 834.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:08:43,795 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6716
+INFO 2022-11-15 22:08:55,299 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6754
+INFO 2022-11-15 22:09:06,426 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6717
+INFO 2022-11-15 22:09:18,144 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6725
+INFO 2022-11-15 22:09:29,244 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6753
+INFO 2022-11-15 22:09:40,278 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6713
+INFO 2022-11-15 22:09:51,384 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6743
+INFO 2022-11-15 22:10:02,500 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6720
+INFO 2022-11-15 22:10:13,741 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6742
+INFO 2022-11-15 22:10:24,877 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6709
+INFO 2022-11-15 22:10:35,938 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6741
+INFO 2022-11-15 22:10:47,146 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6719
+INFO 2022-11-15 22:10:58,275 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6646
+INFO 2022-11-15 22:11:10,479 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6671
+INFO 2022-11-15 22:11:22,163 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6641
+INFO 2022-11-15 22:11:33,352 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6661
+INFO 2022-11-15 22:11:44,745 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6673
+INFO 2022-11-15 22:11:56,101 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6730
+INFO 2022-11-15 22:12:07,274 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6679
+INFO 2022-11-15 22:12:18,364 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6667
+INFO 2022-11-15 22:12:29,695 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6665
+INFO 2022-11-15 22:12:41,090 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6649
+INFO 2022-11-15 22:12:52,388 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6638
+INFO 2022-11-15 22:13:03,433 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6701
+INFO 2022-11-15 22:13:14,618 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6643
+INFO 2022-11-15 22:13:25,870 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6648
+INFO 2022-11-15 22:13:37,057 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6640
+INFO 2022-11-15 22:13:48,209 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6693
+INFO 2022-11-15 22:13:59,406 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6698
+INFO 2022-11-15 22:14:10,571 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6686
+INFO 2022-11-15 22:14:21,742 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6644
+INFO 2022-11-15 22:14:32,941 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6664
+INFO 2022-11-15 22:14:44,163 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6699
+INFO 2022-11-15 22:14:55,345 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6654
+INFO 2022-11-15 22:15:06,485 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6700
+INFO 2022-11-15 22:15:17,570 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6706
+INFO 2022-11-15 22:15:28,827 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6704
+INFO 2022-11-15 22:15:39,928 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6697
+INFO 2022-11-15 22:15:51,041 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6682
+INFO 2022-11-15 22:16:02,277 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6650
+INFO 2022-11-15 22:16:13,501 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6674
+INFO 2022-11-15 22:16:24,776 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6645
+INFO 2022-11-15 22:16:35,879 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6668
+INFO 2022-11-15 22:16:47,439 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6680
+INFO 2022-11-15 22:16:59,032 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6681
+INFO 2022-11-15 22:17:10,259 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6662
+INFO 2022-11-15 22:17:21,443 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6657
+INFO 2022-11-15 22:17:32,793 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6705
+INFO 2022-11-15 22:17:44,020 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6652
+INFO 2022-11-15 22:17:55,015 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6658
+INFO 2022-11-15 22:18:06,139 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6696
+INFO 2022-11-15 22:18:17,313 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6653
+INFO 2022-11-15 22:18:28,563 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6702
+INFO 2022-11-15 22:18:39,875 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6689
+INFO 2022-11-15 22:18:51,050 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6684
+INFO 2022-11-15 22:19:02,083 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6687
+INFO 2022-11-15 22:19:13,264 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6690
+INFO 2022-11-15 22:19:24,505 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6695
+INFO 2022-11-15 22:19:35,683 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6656
+INFO 2022-11-15 22:19:46,869 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6660
+INFO 2022-11-15 22:19:57,906 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6703
+INFO 2022-11-15 22:20:09,158 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6683
+INFO 2022-11-15 22:20:20,201 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6655
+INFO 2022-11-15 22:20:31,400 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6692
+INFO 2022-11-15 22:20:42,627 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6642
+INFO 2022-11-15 22:20:53,804 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6672
+INFO 2022-11-15 22:21:04,834 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6670
+INFO 2022-11-15 22:21:16,054 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6675
+INFO 2022-11-15 22:21:27,936 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6685
+INFO 2022-11-15 22:21:39,148 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6691
+INFO 2022-11-15 22:21:50,299 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6663
+INFO 2022-11-15 22:22:01,937 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6676
+INFO 2022-11-15 22:22:13,165 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6647
+INFO 2022-11-15 22:22:24,387 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6677
+INFO 2022-11-15 22:22:35,391 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6669
+ERROR 2022-11-15 22:22:36,407 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 1069_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:22:36,407 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 1069_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:22:46,772 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6678
+INFO 2022-11-15 22:22:57,873 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6666
+INFO 2022-11-15 22:23:09,017 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6659
+INFO 2022-11-15 22:23:20,057 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6688
+INFO 2022-11-15 22:23:31,187 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6694
+INFO 2022-11-15 22:23:42,309 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6639
+INFO 2022-11-15 22:23:43,324 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1290.7112668 sek.
+INFO 2022-11-15 22:27:03,344 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6820
+INFO 2022-11-15 22:27:14,654 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6811
+INFO 2022-11-15 22:27:25,954 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6809
+ERROR 2022-11-15 22:27:26,977 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 165.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:27:26,977 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 165.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:27:37,219 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6760
+INFO 2022-11-15 22:27:48,477 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6775
+INFO 2022-11-15 22:27:59,783 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6798
+INFO 2022-11-15 22:28:11,157 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6815
+INFO 2022-11-15 22:28:22,373 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6814
+INFO 2022-11-15 22:28:33,876 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6817
+INFO 2022-11-15 22:28:45,192 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6970
+INFO 2022-11-15 22:28:56,414 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6816
+ERROR 2022-11-15 22:28:57,448 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 701.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:28:57,449 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 701.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:29:07,782 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6759
+ERROR 2022-11-15 22:29:08,800 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 703.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:29:08,801 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 703.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:29:19,147 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6764
+INFO 2022-11-15 22:29:30,335 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6822
+ERROR 2022-11-15 22:29:31,346 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 707.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:29:31,346 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 707.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:29:41,591 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6769
+ERROR 2022-11-15 22:29:42,607 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 709.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:29:42,608 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 709.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:29:53,032 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6799
+INFO 2022-11-15 22:30:04,266 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6762
+ERROR 2022-11-15 22:30:05,290 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 717.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:30:05,290 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 717.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:30:15,555 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6800
+ERROR 2022-11-15 22:30:16,576 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 720.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:30:16,576 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 720.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:30:16,586 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 721.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:30:16,587 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 721.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:30:16,597 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 723.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:30:16,597 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 723.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:30:16,603 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 727.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:30:16,603 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 727.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:30:27,008 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6801
+ERROR 2022-11-15 22:30:28,018 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 730.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:30:28,018 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 730.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:30:38,290 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6772
+INFO 2022-11-15 22:30:49,665 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6755
+INFO 2022-11-15 22:31:00,958 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6765
+ERROR 2022-11-15 22:31:01,969 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 735.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:31:01,969 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 735.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:31:12,504 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6794
+ERROR 2022-11-15 22:31:13,525 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 738.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:31:13,527 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 738.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:31:24,000 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6810
+ERROR 2022-11-15 22:31:25,009 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 740.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:31:25,009 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 740.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:31:35,202 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6813
+INFO 2022-11-15 22:31:46,579 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6797
+INFO 2022-11-15 22:31:57,962 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6766
+INFO 2022-11-15 22:32:09,204 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6805
+INFO 2022-11-15 22:32:20,416 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6776
+INFO 2022-11-15 22:32:31,891 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6789
+INFO 2022-11-15 22:32:43,214 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6784
+INFO 2022-11-15 22:32:54,531 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6773
+INFO 2022-11-15 22:33:05,835 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6792
+INFO 2022-11-15 22:33:17,167 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6790
+INFO 2022-11-15 22:33:28,540 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6819
+INFO 2022-11-15 22:33:39,779 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6802
+INFO 2022-11-15 22:33:51,001 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6821
+ERROR 2022-11-15 22:33:52,026 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 767.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:33:52,026 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 767.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:34:02,248 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6791
+INFO 2022-11-15 22:34:13,523 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6806
+ERROR 2022-11-15 22:34:14,544 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 777.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:34:14,544 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 777.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:34:14,547 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 778.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:34:14,547 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 778.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:34:14,551 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 779.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:34:14,552 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 779.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:34:24,950 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6777
+ERROR 2022-11-15 22:34:25,965 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 781.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:34:25,965 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 781.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:34:36,161 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6786
+ERROR 2022-11-15 22:34:37,176 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 783.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:34:37,177 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 783.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:34:47,540 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6771
+ERROR 2022-11-15 22:34:48,557 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 785.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:34:48,557 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 785.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:35:00,317 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6779
+ERROR 2022-11-15 22:35:01,337 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 787.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:35:01,337 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 787.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:35:12,299 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6778
+INFO 2022-11-15 22:35:24,198 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6767
+INFO 2022-11-15 22:35:36,137 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6770
+ERROR 2022-11-15 22:35:37,162 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 795.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:35:37,163 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 795.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:35:37,167 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 796.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:35:37,167 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 796.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:35:37,172 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 798.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:35:37,172 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 798.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:35:48,008 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6812
+INFO 2022-11-15 22:35:59,762 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6803
+ERROR 2022-11-15 22:36:00,783 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 801.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:36:00,784 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 801.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:36:00,788 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 802.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:36:00,788 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 802.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:36:00,792 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 806.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:36:00,792 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 806.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:36:11,654 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6795
+INFO 2022-11-15 22:36:23,614 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6796
+ERROR 2022-11-15 22:36:24,641 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 814_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:36:24,641 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 814_1.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:36:24,645 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 817.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:36:24,645 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 817.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:36:24,649 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 819.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:36:24,649 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 819.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:36:35,424 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6823
+INFO 2022-11-15 22:36:47,357 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6781
+INFO 2022-11-15 22:36:59,327 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6788
+INFO 2022-11-15 22:37:11,405 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6761
+ERROR 2022-11-15 22:37:12,424 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 831.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:12,424 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 831.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:37:12,429 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 835.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:12,429 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 835.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:37:23,270 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6758
+ERROR 2022-11-15 22:37:24,287 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 838.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:24,288 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 838.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:37:35,341 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6757
+INFO 2022-11-15 22:37:47,297 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6780
+ERROR 2022-11-15 22:37:48,308 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 842.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:48,308 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 842.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:37:48,311 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 845.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:48,311 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 845.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:37:48,314 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 851.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:48,315 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 851.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:37:48,317 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 855.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:37:48,318 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 855.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:37:59,271 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6768
+INFO 2022-11-15 22:38:11,253 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6808
+ERROR 2022-11-15 22:38:12,274 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 860.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:12,274 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 860.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:38:12,277 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 861.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:12,278 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 861.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:38:12,281 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 863.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:12,281 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 863.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:38:12,285 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 865.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:12,285 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 865.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:38:12,289 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 866.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:12,290 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 866.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:38:23,406 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6782
+ERROR 2022-11-15 22:38:24,427 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 869.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:24,428 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 869.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:38:24,434 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 870.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:38:24,434 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 870.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:38:35,468 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6818
+INFO 2022-11-15 22:38:47,538 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6774
+INFO 2022-11-15 22:38:59,480 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6785
+INFO 2022-11-15 22:39:11,455 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6783
+ERROR 2022-11-15 22:39:12,479 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 884.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:39:12,480 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 884.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:39:12,488 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 885.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:39:12,489 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 885.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-15 22:39:12,495 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 888_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-15 22:39:12,495 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 888_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-15 22:39:23,441 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6763
+INFO 2022-11-15 22:39:35,447 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6807
+INFO 2022-11-15 22:39:36,465 archeological_pottery_forms.my_models.my_decorators programa vykdyta 763.6019313999996 sek.
+INFO 2022-11-16 12:47:31,659 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6891
+INFO 2022-11-16 12:47:51,039 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6893
+INFO 2022-11-16 12:48:04,307 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6859
+INFO 2022-11-16 12:48:19,117 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6888
+INFO 2022-11-16 12:48:37,162 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6870
+INFO 2022-11-16 12:48:54,482 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6885
+INFO 2022-11-16 12:49:12,788 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6852
+INFO 2022-11-16 12:49:29,235 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6839
+INFO 2022-11-16 12:49:44,892 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6882
+INFO 2022-11-16 12:49:56,526 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6912
+INFO 2022-11-16 12:50:07,894 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6837
+INFO 2022-11-16 12:50:19,276 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6876
+INFO 2022-11-16 12:50:30,693 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6851
+INFO 2022-11-16 12:50:42,007 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6850
+INFO 2022-11-16 12:50:53,372 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6898
+INFO 2022-11-16 12:51:04,670 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6857
+INFO 2022-11-16 12:51:15,922 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6875
+INFO 2022-11-16 12:51:27,290 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6923
+INFO 2022-11-16 12:51:38,556 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6840
+INFO 2022-11-16 12:51:49,807 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6878
+INFO 2022-11-16 12:52:01,053 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6856
+INFO 2022-11-16 12:52:12,373 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6909
+INFO 2022-11-16 12:52:23,690 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6904
+INFO 2022-11-16 12:52:34,882 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6895
+INFO 2022-11-16 12:52:46,158 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6899
+INFO 2022-11-16 12:52:57,514 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6832
+INFO 2022-11-16 12:53:11,265 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6881
+INFO 2022-11-16 12:53:22,780 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6836
+INFO 2022-11-16 12:53:33,957 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6914
+INFO 2022-11-16 12:53:45,164 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6921
+INFO 2022-11-16 12:53:56,560 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6867
+INFO 2022-11-16 12:54:07,850 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6877
+INFO 2022-11-16 12:54:19,042 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6880
+INFO 2022-11-16 12:54:30,918 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6906
+INFO 2022-11-16 12:54:43,386 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6901
+INFO 2022-11-16 12:54:54,695 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6864
+INFO 2022-11-16 12:55:05,952 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6892
+INFO 2022-11-16 12:55:17,176 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6889
+INFO 2022-11-16 12:55:28,341 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6865
+INFO 2022-11-16 12:55:39,623 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6858
+INFO 2022-11-16 12:55:50,820 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6905
+INFO 2022-11-16 12:56:02,043 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6845
+INFO 2022-11-16 12:56:13,247 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6862
+INFO 2022-11-16 12:56:24,457 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6849
+INFO 2022-11-16 12:56:35,712 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6826
+INFO 2022-11-16 12:56:46,970 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6844
+INFO 2022-11-16 12:56:58,144 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6890
+INFO 2022-11-16 12:57:09,282 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6853
+INFO 2022-11-16 12:57:20,627 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6897
+INFO 2022-11-16 12:57:33,531 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6846
+INFO 2022-11-16 12:57:44,834 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6843
+INFO 2022-11-16 12:57:56,059 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6902
+INFO 2022-11-16 12:58:07,288 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6842
+INFO 2022-11-16 12:58:18,595 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6900
+INFO 2022-11-16 12:58:29,959 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6916
+INFO 2022-11-16 12:58:41,175 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6868
+INFO 2022-11-16 12:58:52,397 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6879
+ERROR 2022-11-16 12:58:53,432 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 606.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 12:58:53,434 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 606.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 12:59:03,796 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6915
+INFO 2022-11-16 12:59:15,155 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6884
+INFO 2022-11-16 12:59:26,473 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6913
+INFO 2022-11-16 12:59:37,689 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6848
+INFO 2022-11-16 12:59:49,349 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6918
+INFO 2022-11-16 13:00:01,622 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6834
+INFO 2022-11-16 13:00:12,981 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6894
+INFO 2022-11-16 13:00:24,168 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6928
+INFO 2022-11-16 13:00:35,328 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6825
+INFO 2022-11-16 13:00:46,494 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6910
+INFO 2022-11-16 13:00:57,935 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6872
+INFO 2022-11-16 13:01:09,203 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6927
+INFO 2022-11-16 13:01:20,451 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6831
+INFO 2022-11-16 13:01:31,789 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6926
+INFO 2022-11-16 13:01:43,091 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6887
+INFO 2022-11-16 13:01:54,325 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6871
+INFO 2022-11-16 13:02:05,578 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6829
+INFO 2022-11-16 13:02:16,845 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6907
+INFO 2022-11-16 13:02:28,069 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6855
+INFO 2022-11-16 13:02:39,348 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6883
+INFO 2022-11-16 13:02:50,952 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6911
+INFO 2022-11-16 13:03:02,235 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6873
+INFO 2022-11-16 13:03:13,498 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6874
+INFO 2022-11-16 13:03:24,823 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6903
+INFO 2022-11-16 13:03:36,070 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6866
+INFO 2022-11-16 13:03:47,312 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6924
+INFO 2022-11-16 13:10:26,941 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7010
+INFO 2022-11-16 13:10:38,400 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6991
+INFO 2022-11-16 13:10:49,689 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6978
+INFO 2022-11-16 13:11:00,872 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7006
+INFO 2022-11-16 13:11:12,193 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7018
+INFO 2022-11-16 13:11:23,490 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6998
+INFO 2022-11-16 13:11:34,801 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7008
+INFO 2022-11-16 13:11:46,062 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6971
+INFO 2022-11-16 13:11:57,372 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6995
+INFO 2022-11-16 13:12:08,760 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7015
+INFO 2022-11-16 13:12:19,992 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6980
+INFO 2022-11-16 13:12:32,472 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6986
+INFO 2022-11-16 13:12:44,337 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6988
+INFO 2022-11-16 13:12:55,716 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6968
+INFO 2022-11-16 13:13:07,115 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6985
+INFO 2022-11-16 13:13:18,455 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6975
+INFO 2022-11-16 13:13:29,876 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7007
+INFO 2022-11-16 13:13:41,052 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6996
+INFO 2022-11-16 13:13:52,300 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7017
+INFO 2022-11-16 13:14:03,846 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7003
+INFO 2022-11-16 13:14:15,177 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6981
+INFO 2022-11-16 13:14:26,637 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6979
+INFO 2022-11-16 13:14:37,883 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6997
+INFO 2022-11-16 13:14:49,336 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6967
+INFO 2022-11-16 13:15:00,696 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7029
+INFO 2022-11-16 13:15:12,054 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6993
+INFO 2022-11-16 13:15:23,306 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6969
+INFO 2022-11-16 13:15:34,557 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6992
+INFO 2022-11-16 13:15:45,857 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7005
+INFO 2022-11-16 13:15:57,180 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6972
+INFO 2022-11-16 13:16:08,510 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6999
+INFO 2022-11-16 13:16:19,778 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6982
+INFO 2022-11-16 13:16:31,136 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6990
+INFO 2022-11-16 13:16:42,386 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7030
+INFO 2022-11-16 13:16:53,582 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7027
+ERROR 2022-11-16 13:16:54,600 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 606_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 13:16:54,600 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 606_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 13:17:04,980 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6973
+INFO 2022-11-16 13:17:16,376 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7031
+INFO 2022-11-16 13:17:27,671 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6983
+INFO 2022-11-16 13:17:39,012 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7026
+INFO 2022-11-16 13:17:50,356 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7025
+INFO 2022-11-16 13:18:01,643 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6984
+INFO 2022-11-16 13:18:12,986 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7011
+INFO 2022-11-16 13:18:24,323 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7002
+ERROR 2022-11-16 13:18:25,339 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 636_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 13:18:25,339 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 636_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 13:18:35,582 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7024
+INFO 2022-11-16 13:18:46,883 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7004
+INFO 2022-11-16 13:18:58,210 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7028
+INFO 2022-11-16 13:19:09,532 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7012
+INFO 2022-11-16 13:19:20,846 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7019
+INFO 2022-11-16 13:19:32,124 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7022
+INFO 2022-11-16 13:19:43,434 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7021
+INFO 2022-11-16 13:19:54,862 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7020
+INFO 2022-11-16 13:20:06,229 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6994
+INFO 2022-11-16 13:20:17,511 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6987
+INFO 2022-11-16 13:20:28,739 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7001
+INFO 2022-11-16 13:20:40,182 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7023
+INFO 2022-11-16 13:20:51,435 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7000
+INFO 2022-11-16 13:21:02,708 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7009
+INFO 2022-11-16 13:21:14,192 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6989
+INFO 2022-11-16 13:21:25,583 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7032
+INFO 2022-11-16 13:21:36,859 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6977
+INFO 2022-11-16 13:21:48,205 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7013
+INFO 2022-11-16 13:21:59,537 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6974
+INFO 2022-11-16 13:22:11,003 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7014
+INFO 2022-11-16 13:22:22,332 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6976
+INFO 2022-11-16 13:22:33,607 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7067
+INFO 2022-11-16 13:22:44,864 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7050
+INFO 2022-11-16 13:22:56,231 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7082
+INFO 2022-11-16 13:23:07,511 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7065
+INFO 2022-11-16 13:23:19,099 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7066
+INFO 2022-11-16 13:23:30,526 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7075
+INFO 2022-11-16 13:23:41,838 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7060
+INFO 2022-11-16 13:23:53,184 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7058
+INFO 2022-11-16 13:24:04,915 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7061
+INFO 2022-11-16 13:24:16,214 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7044
+INFO 2022-11-16 13:24:27,500 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7077
+INFO 2022-11-16 13:24:38,833 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7056
+INFO 2022-11-16 13:24:50,226 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7081
+INFO 2022-11-16 13:25:01,555 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7087
+INFO 2022-11-16 13:25:12,807 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7036
+INFO 2022-11-16 13:25:24,164 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7037
+INFO 2022-11-16 13:25:35,456 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7042
+INFO 2022-11-16 13:25:46,692 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7040
+INFO 2022-11-16 13:25:57,974 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7045
+INFO 2022-11-16 13:26:09,356 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7057
+INFO 2022-11-16 13:26:20,634 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7059
+INFO 2022-11-16 13:26:31,923 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7088
+INFO 2022-11-16 13:26:43,198 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7047
+INFO 2022-11-16 13:26:54,435 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7072
+INFO 2022-11-16 13:27:05,770 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7080
+INFO 2022-11-16 13:27:17,035 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7046
+INFO 2022-11-16 13:27:28,388 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7053
+INFO 2022-11-16 13:27:39,724 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7074
+INFO 2022-11-16 13:27:50,952 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7054
+INFO 2022-11-16 13:28:02,230 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7078
+INFO 2022-11-16 13:28:13,584 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7085
+INFO 2022-11-16 13:28:24,876 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7064
+INFO 2022-11-16 13:28:36,229 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7068
+INFO 2022-11-16 13:28:47,552 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7073
+INFO 2022-11-16 13:28:58,900 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7051
+INFO 2022-11-16 13:29:10,192 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7041
+INFO 2022-11-16 13:29:21,430 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7092
+INFO 2022-11-16 13:29:32,759 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7048
+INFO 2022-11-16 13:29:44,041 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7091
+INFO 2022-11-16 13:29:55,294 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7039
+INFO 2022-11-16 13:30:06,701 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7035
+INFO 2022-11-16 13:30:17,918 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7083
+INFO 2022-11-16 13:30:29,248 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7063
+INFO 2022-11-16 13:30:40,524 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7034
+INFO 2022-11-16 13:30:51,805 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7043
+INFO 2022-11-16 13:31:03,105 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7038
+INFO 2022-11-16 13:31:14,441 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7079
+INFO 2022-11-16 13:31:25,756 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7084
+INFO 2022-11-16 13:31:36,921 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7090
+INFO 2022-11-16 13:31:48,171 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7062
+INFO 2022-11-16 13:31:59,429 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7069
+INFO 2022-11-16 13:32:10,791 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7093
+INFO 2022-11-16 13:32:22,105 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7070
+INFO 2022-11-16 13:32:33,380 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7089
+INFO 2022-11-16 13:32:44,789 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7071
+INFO 2022-11-16 13:32:55,943 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7086
+INFO 2022-11-16 13:33:07,433 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7076
+INFO 2022-11-16 13:33:18,711 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7033
+INFO 2022-11-16 13:33:29,955 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7052
+INFO 2022-11-16 13:33:41,298 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7049
+INFO 2022-11-16 13:33:52,637 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7055
+INFO 2022-11-16 13:34:03,973 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7094
+INFO 2022-11-16 13:34:04,994 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1428.4318274999998 sek.
+INFO 2022-11-16 13:35:16,006 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7234
+INFO 2022-11-16 13:35:27,301 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7142
+INFO 2022-11-16 13:35:38,589 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7217
+INFO 2022-11-16 13:35:49,923 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7223
+INFO 2022-11-16 13:36:01,299 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7125
+INFO 2022-11-16 13:36:12,590 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7183
+INFO 2022-11-16 13:36:23,940 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7127
+INFO 2022-11-16 13:36:35,344 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7216
+INFO 2022-11-16 13:36:46,634 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7157
+INFO 2022-11-16 13:36:58,043 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7167
+INFO 2022-11-16 13:37:09,356 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7120
+INFO 2022-11-16 13:37:20,698 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7109
+INFO 2022-11-16 13:37:32,084 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7227
+INFO 2022-11-16 13:37:43,392 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7202
+INFO 2022-11-16 13:37:54,669 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7117
+INFO 2022-11-16 13:38:06,062 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7155
+INFO 2022-11-16 13:38:17,348 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7153
+INFO 2022-11-16 13:38:28,590 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7198
+INFO 2022-11-16 13:38:39,883 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7154
+INFO 2022-11-16 13:38:51,114 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7213
+INFO 2022-11-16 13:39:02,534 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7140
+INFO 2022-11-16 13:39:13,745 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7114
+INFO 2022-11-16 13:39:25,080 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7209
+INFO 2022-11-16 13:39:36,234 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7176
+INFO 2022-11-16 13:39:47,486 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7139
+INFO 2022-11-16 13:39:58,773 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7181
+INFO 2022-11-16 13:40:10,194 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7158
+INFO 2022-11-16 13:40:21,512 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7201
+INFO 2022-11-16 13:40:32,789 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7161
+INFO 2022-11-16 13:40:44,033 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7129
+INFO 2022-11-16 13:40:55,365 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7156
+INFO 2022-11-16 13:41:06,662 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7224
+INFO 2022-11-16 13:41:17,984 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7180
+INFO 2022-11-16 13:41:29,351 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7126
+INFO 2022-11-16 13:41:40,678 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7160
+INFO 2022-11-16 13:41:52,019 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7164
+INFO 2022-11-16 13:42:03,458 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7141
+INFO 2022-11-16 13:42:14,794 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7166
+INFO 2022-11-16 13:42:26,221 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7133
+INFO 2022-11-16 13:42:37,511 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7208
+INFO 2022-11-16 13:42:48,740 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7203
+INFO 2022-11-16 13:43:00,114 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7225
+INFO 2022-11-16 13:43:11,431 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7235
+INFO 2022-11-16 13:43:22,813 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7118
+INFO 2022-11-16 13:43:34,247 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7136
+INFO 2022-11-16 13:43:45,541 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7200
+INFO 2022-11-16 13:43:56,989 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7143
+INFO 2022-11-16 13:44:08,717 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7197
+INFO 2022-11-16 13:44:19,999 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7222
+INFO 2022-11-16 13:44:31,496 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7215
+INFO 2022-11-16 13:44:42,824 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7121
+INFO 2022-11-16 13:44:54,105 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7186
+INFO 2022-11-16 13:45:05,459 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7147
+INFO 2022-11-16 13:45:16,659 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7221
+INFO 2022-11-16 13:45:28,048 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7230
+INFO 2022-11-16 13:45:39,332 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7128
+INFO 2022-11-16 13:45:50,637 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7199
+INFO 2022-11-16 13:46:01,999 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7111
+INFO 2022-11-16 13:46:13,359 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7194
+INFO 2022-11-16 13:46:24,667 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7195
+INFO 2022-11-16 13:46:35,890 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7130
+INFO 2022-11-16 13:46:47,093 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7115
+INFO 2022-11-16 13:46:58,447 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7168
+INFO 2022-11-16 13:47:09,843 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7108
+INFO 2022-11-16 13:47:21,083 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7193
+INFO 2022-11-16 13:47:32,463 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7196
+INFO 2022-11-16 13:47:43,772 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7207
+INFO 2022-11-16 13:47:56,990 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7173
+INFO 2022-11-16 13:48:08,373 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7146
+INFO 2022-11-16 13:48:19,654 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7144
+INFO 2022-11-16 13:48:30,973 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7178
+INFO 2022-11-16 13:48:42,170 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7148
+INFO 2022-11-16 13:48:53,512 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7214
+INFO 2022-11-16 13:49:04,846 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7134
+INFO 2022-11-16 13:49:16,122 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7236
+INFO 2022-11-16 13:49:27,505 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7110
+INFO 2022-11-16 13:49:38,822 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7149
+INFO 2022-11-16 13:49:50,145 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7179
+INFO 2022-11-16 13:50:01,527 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7174
+INFO 2022-11-16 13:50:12,818 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7206
+INFO 2022-11-16 13:50:24,040 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7220
+INFO 2022-11-16 13:50:35,326 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7237
+INFO 2022-11-16 13:50:46,667 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7137
+INFO 2022-11-16 13:50:57,979 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7131
+INFO 2022-11-16 13:51:09,255 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7135
+INFO 2022-11-16 13:51:20,524 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7210
+INFO 2022-11-16 13:51:31,850 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7162
+INFO 2022-11-16 13:51:43,081 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7159
+INFO 2022-11-16 13:51:54,300 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7205
+INFO 2022-11-16 13:52:05,625 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7233
+INFO 2022-11-16 13:52:16,914 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7177
+INFO 2022-11-16 13:52:28,243 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7150
+INFO 2022-11-16 13:52:39,532 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7124
+INFO 2022-11-16 13:52:50,826 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7138
+INFO 2022-11-16 13:53:02,088 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7172
+INFO 2022-11-16 13:53:13,522 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7229
+INFO 2022-11-16 13:53:24,978 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7145
+INFO 2022-11-16 13:53:36,196 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7165
+INFO 2022-11-16 13:53:47,442 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7212
+INFO 2022-11-16 13:53:58,780 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7192
+INFO 2022-11-16 13:54:10,089 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7218
+INFO 2022-11-16 13:54:21,356 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7163
+INFO 2022-11-16 13:54:32,681 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7132
+INFO 2022-11-16 13:54:43,965 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7191
+INFO 2022-11-16 13:54:55,411 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7169
+INFO 2022-11-16 13:55:06,652 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7187
+INFO 2022-11-16 13:55:17,889 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7226
+INFO 2022-11-16 13:55:29,230 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7232
+INFO 2022-11-16 13:55:40,399 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7211
+INFO 2022-11-16 13:55:51,631 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7112
+INFO 2022-11-16 13:56:02,933 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7116
+INFO 2022-11-16 13:56:14,214 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7184
+INFO 2022-11-16 13:56:25,519 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7185
+INFO 2022-11-16 13:56:36,928 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7219
+INFO 2022-11-16 13:56:48,147 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7171
+INFO 2022-11-16 13:56:59,439 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7190
+INFO 2022-11-16 13:57:10,742 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7189
+INFO 2022-11-16 13:57:22,083 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7123
+INFO 2022-11-16 13:57:33,445 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7170
+INFO 2022-11-16 13:57:44,643 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7119
+INFO 2022-11-16 13:57:55,978 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7152
+INFO 2022-11-16 13:58:07,259 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7122
+INFO 2022-11-16 13:58:18,498 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7231
+INFO 2022-11-16 13:58:29,751 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7204
+INFO 2022-11-16 13:58:41,094 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7175
+INFO 2022-11-16 13:58:52,352 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7228
+INFO 2022-11-16 13:59:03,756 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7151
+ERROR 2022-11-16 13:59:04,798 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 306.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 13:59:04,799 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 306.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 13:59:15,121 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7182
+INFO 2022-11-16 13:59:26,521 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7188
+INFO 2022-11-16 13:59:37,812 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7096
+INFO 2022-11-16 13:59:49,128 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7103
+INFO 2022-11-16 14:00:00,351 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7101
+INFO 2022-11-16 14:00:11,789 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7107
+INFO 2022-11-16 14:00:23,078 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7106
+INFO 2022-11-16 14:00:34,341 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7095
+INFO 2022-11-16 14:00:45,628 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7102
+INFO 2022-11-16 14:00:56,853 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7104
+INFO 2022-11-16 14:01:08,205 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7099
+INFO 2022-11-16 14:01:19,468 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7105
+INFO 2022-11-16 14:01:30,752 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7097
+INFO 2022-11-16 14:01:42,075 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7098
+INFO 2022-11-16 14:01:53,393 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7100
+INFO 2022-11-16 14:01:54,398 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1609.0149236000002 sek.
+INFO 2022-11-16 14:05:13,587 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7247
+INFO 2022-11-16 14:05:24,768 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7260
+INFO 2022-11-16 14:05:35,887 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7239
+INFO 2022-11-16 14:05:47,036 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7255
+INFO 2022-11-16 14:05:58,232 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7261
+INFO 2022-11-16 14:06:09,463 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7242
+ERROR 2022-11-16 14:06:10,476 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 129.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:06:10,476 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 129.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:06:20,656 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7268
+INFO 2022-11-16 14:06:31,783 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7270
+ERROR 2022-11-16 14:06:32,809 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 153.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:06:32,809 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 153.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:06:32,813 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 153_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:06:32,813 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 153_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:06:42,926 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7251
+INFO 2022-11-16 14:06:54,064 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7244
+INFO 2022-11-16 14:07:05,581 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7241
+INFO 2022-11-16 14:07:18,470 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7258
+INFO 2022-11-16 14:07:30,903 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7262
+INFO 2022-11-16 14:07:41,983 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7267
+INFO 2022-11-16 14:07:53,105 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7254
+INFO 2022-11-16 14:08:04,322 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7243
+INFO 2022-11-16 14:08:15,470 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7264
+INFO 2022-11-16 14:08:26,686 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7271
+INFO 2022-11-16 14:08:37,912 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7249
+INFO 2022-11-16 14:08:49,019 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7259
+INFO 2022-11-16 14:09:00,201 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7250
+INFO 2022-11-16 14:09:12,674 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7252
+INFO 2022-11-16 14:09:23,975 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7263
+INFO 2022-11-16 14:09:35,121 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7245
+INFO 2022-11-16 14:09:46,261 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7253
+INFO 2022-11-16 14:09:57,572 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7256
+INFO 2022-11-16 14:10:08,842 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7269
+INFO 2022-11-16 14:10:20,070 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7272
+INFO 2022-11-16 14:10:31,542 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7238
+INFO 2022-11-16 14:10:42,785 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7257
+INFO 2022-11-16 14:10:53,950 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7240
+INFO 2022-11-16 14:11:05,045 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7266
+INFO 2022-11-16 14:11:16,159 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7305
+INFO 2022-11-16 14:11:27,289 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7373
+INFO 2022-11-16 14:11:38,499 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7319
+INFO 2022-11-16 14:11:49,561 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7346
+INFO 2022-11-16 14:12:00,711 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7357
+INFO 2022-11-16 14:12:11,857 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7347
+INFO 2022-11-16 14:12:22,957 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7295
+INFO 2022-11-16 14:12:34,122 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7285
+INFO 2022-11-16 14:12:45,183 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7286
+INFO 2022-11-16 14:12:56,262 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7301
+INFO 2022-11-16 14:13:07,478 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7327
+INFO 2022-11-16 14:13:18,648 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7370
+INFO 2022-11-16 14:13:29,844 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7330
+INFO 2022-11-16 14:13:40,970 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7284
+INFO 2022-11-16 14:13:52,094 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7279
+INFO 2022-11-16 14:14:03,271 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7311
+INFO 2022-11-16 14:14:14,382 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7355
+INFO 2022-11-16 14:14:25,511 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7300
+INFO 2022-11-16 14:14:36,708 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7276
+INFO 2022-11-16 14:14:47,809 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7291
+INFO 2022-11-16 14:14:59,151 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7315
+INFO 2022-11-16 14:15:10,217 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7313
+INFO 2022-11-16 14:15:21,265 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7331
+INFO 2022-11-16 14:15:32,469 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7360
+INFO 2022-11-16 14:15:43,573 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7368
+INFO 2022-11-16 14:15:54,679 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7294
+INFO 2022-11-16 14:16:05,820 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7297
+INFO 2022-11-16 14:16:16,951 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7337
+INFO 2022-11-16 14:16:28,094 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7366
+INFO 2022-11-16 14:16:39,158 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7348
+INFO 2022-11-16 14:16:50,202 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7371
+INFO 2022-11-16 14:17:01,347 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7323
+INFO 2022-11-16 14:17:12,367 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7332
+INFO 2022-11-16 14:17:23,452 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7358
+INFO 2022-11-16 14:17:34,607 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7372
+INFO 2022-11-16 14:17:45,710 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7380
+INFO 2022-11-16 14:17:56,771 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7275
+INFO 2022-11-16 14:18:07,960 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7296
+INFO 2022-11-16 14:18:19,040 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7369
+INFO 2022-11-16 14:18:30,180 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7324
+INFO 2022-11-16 14:18:41,245 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7304
+INFO 2022-11-16 14:18:52,369 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7362
+ERROR 2022-11-16 14:18:53,386 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 1170.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:18:53,386 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 1170.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:18:53,390 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 1170_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:18:53,390 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 1170_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:19:03,825 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7356
+INFO 2022-11-16 14:19:14,926 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7280
+INFO 2022-11-16 14:19:26,018 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7340
+INFO 2022-11-16 14:19:37,440 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7293
+INFO 2022-11-16 14:19:48,482 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7353
+INFO 2022-11-16 14:19:59,631 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7306
+INFO 2022-11-16 14:20:10,734 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7379
+INFO 2022-11-16 14:20:21,862 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7350
+INFO 2022-11-16 14:20:32,967 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7307
+INFO 2022-11-16 14:20:44,077 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7374
+INFO 2022-11-16 14:20:55,236 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7351
+INFO 2022-11-16 14:21:06,364 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7302
+INFO 2022-11-16 14:21:17,500 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7282
+INFO 2022-11-16 14:21:28,617 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7312
+INFO 2022-11-16 14:21:39,757 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7336
+INFO 2022-11-16 14:21:50,937 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7364
+INFO 2022-11-16 14:22:02,139 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7325
+INFO 2022-11-16 14:22:13,322 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7283
+INFO 2022-11-16 14:22:24,361 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7277
+INFO 2022-11-16 14:22:35,494 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7314
+INFO 2022-11-16 14:22:46,665 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7378
+INFO 2022-11-16 14:22:57,822 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7339
+INFO 2022-11-16 14:23:08,954 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7354
+INFO 2022-11-16 14:23:20,064 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7310
+INFO 2022-11-16 14:23:31,218 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7299
+INFO 2022-11-16 14:23:42,302 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7338
+INFO 2022-11-16 14:23:53,418 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7334
+INFO 2022-11-16 14:24:04,529 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7329
+INFO 2022-11-16 14:24:15,595 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7377
+INFO 2022-11-16 14:24:26,668 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7345
+INFO 2022-11-16 14:24:37,774 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7281
+INFO 2022-11-16 14:24:48,838 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7326
+INFO 2022-11-16 14:25:01,203 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7333
+INFO 2022-11-16 14:25:12,752 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7343
+INFO 2022-11-16 14:25:23,888 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7318
+INFO 2022-11-16 14:25:35,189 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7290
+INFO 2022-11-16 14:25:46,229 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7322
+INFO 2022-11-16 14:25:57,323 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7287
+INFO 2022-11-16 14:26:08,454 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7321
+INFO 2022-11-16 14:26:19,567 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7349
+INFO 2022-11-16 14:26:30,685 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7359
+INFO 2022-11-16 14:26:41,774 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7288
+INFO 2022-11-16 14:26:54,959 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7375
+INFO 2022-11-16 14:27:06,187 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7320
+INFO 2022-11-16 14:27:17,275 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7278
+INFO 2022-11-16 14:27:28,445 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7328
+INFO 2022-11-16 14:27:39,522 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7365
+INFO 2022-11-16 14:27:50,598 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7303
+INFO 2022-11-16 14:28:01,877 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7292
+INFO 2022-11-16 14:28:13,078 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7289
+INFO 2022-11-16 14:28:24,206 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7335
+INFO 2022-11-16 14:28:35,341 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7316
+INFO 2022-11-16 14:28:46,453 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7298
+INFO 2022-11-16 14:28:57,580 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7361
+INFO 2022-11-16 14:29:08,694 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7308
+INFO 2022-11-16 14:29:20,222 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7352
+INFO 2022-11-16 14:29:31,429 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7363
+INFO 2022-11-16 14:29:42,547 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7341
+INFO 2022-11-16 14:29:53,652 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7376
+INFO 2022-11-16 14:30:04,881 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7273
+INFO 2022-11-16 14:30:16,032 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7317
+INFO 2022-11-16 14:30:27,217 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7309
+INFO 2022-11-16 14:30:38,404 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7274
+INFO 2022-11-16 14:30:49,456 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7367
+INFO 2022-11-16 14:30:50,475 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1547.3158133999996 sek.
+INFO 2022-11-16 14:32:04,665 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7429
+INFO 2022-11-16 14:32:15,777 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7457
+ERROR 2022-11-16 14:32:16,796 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 3.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:32:16,796 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 3.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:32:16,800 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 3_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:32:16,801 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 3_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:32:26,982 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7428
+INFO 2022-11-16 14:32:38,206 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7423
+INFO 2022-11-16 14:32:49,334 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7419
+INFO 2022-11-16 14:33:00,505 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7430
+INFO 2022-11-16 14:33:11,746 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7464
+INFO 2022-11-16 14:33:22,947 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7427
+INFO 2022-11-16 14:33:34,158 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7452
+INFO 2022-11-16 14:33:45,344 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7426
+INFO 2022-11-16 14:33:56,530 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7431
+INFO 2022-11-16 14:34:07,674 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7459
+INFO 2022-11-16 14:34:18,802 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7463
+INFO 2022-11-16 14:34:30,004 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7433
+INFO 2022-11-16 14:34:41,259 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7458
+INFO 2022-11-16 14:34:52,389 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7432
+INFO 2022-11-16 14:35:03,602 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7470
+INFO 2022-11-16 14:35:14,694 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7456
+INFO 2022-11-16 14:35:25,886 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7467
+INFO 2022-11-16 14:35:37,039 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7439
+INFO 2022-11-16 14:35:48,164 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7465
+INFO 2022-11-16 14:35:59,954 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7418
+INFO 2022-11-16 14:36:11,144 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7472
+INFO 2022-11-16 14:36:22,248 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7461
+INFO 2022-11-16 14:36:33,564 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7437
+INFO 2022-11-16 14:36:45,154 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7444
+INFO 2022-11-16 14:36:56,317 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7462
+INFO 2022-11-16 14:37:07,537 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7424
+INFO 2022-11-16 14:37:18,645 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7420
+INFO 2022-11-16 14:37:29,791 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7422
+INFO 2022-11-16 14:37:40,945 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7440
+INFO 2022-11-16 14:37:52,067 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7460
+INFO 2022-11-16 14:38:03,289 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7447
+INFO 2022-11-16 14:38:14,512 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7469
+INFO 2022-11-16 14:38:25,657 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7473
+INFO 2022-11-16 14:38:36,751 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7466
+INFO 2022-11-16 14:38:47,857 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7446
+INFO 2022-11-16 14:38:59,037 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7448
+INFO 2022-11-16 14:39:10,154 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7451
+INFO 2022-11-16 14:39:21,296 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7468
+INFO 2022-11-16 14:39:32,523 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7415
+INFO 2022-11-16 14:39:43,612 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7450
+INFO 2022-11-16 14:39:54,749 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7435
+INFO 2022-11-16 14:40:05,963 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7441
+INFO 2022-11-16 14:40:17,127 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7475
+INFO 2022-11-16 14:40:28,250 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7455
+INFO 2022-11-16 14:40:39,363 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7438
+INFO 2022-11-16 14:40:50,400 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7434
+INFO 2022-11-16 14:41:01,539 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7449
+INFO 2022-11-16 14:41:12,672 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7417
+INFO 2022-11-16 14:41:23,779 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7471
+INFO 2022-11-16 14:41:34,908 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7474
+INFO 2022-11-16 14:41:46,028 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7454
+INFO 2022-11-16 14:41:57,047 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7416
+INFO 2022-11-16 14:42:07,998 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7436
+INFO 2022-11-16 14:42:18,877 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7421
+ERROR 2022-11-16 14:42:19,888 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 129_1.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:42:19,888 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 129_1.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:42:30,336 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7453
+INFO 2022-11-16 14:42:41,479 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7400
+INFO 2022-11-16 14:42:52,703 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7412
+INFO 2022-11-16 14:43:04,068 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7392
+INFO 2022-11-16 14:43:15,215 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7391
+INFO 2022-11-16 14:43:26,362 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7405
+INFO 2022-11-16 14:43:37,509 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7408
+INFO 2022-11-16 14:43:48,781 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7388
+INFO 2022-11-16 14:44:00,017 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7387
+INFO 2022-11-16 14:44:11,338 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7413
+INFO 2022-11-16 14:44:22,535 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7390
+INFO 2022-11-16 14:44:33,733 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7389
+INFO 2022-11-16 14:44:44,807 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7386
+INFO 2022-11-16 14:44:55,897 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7396
+INFO 2022-11-16 14:45:07,888 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7399
+INFO 2022-11-16 14:45:19,038 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7411
+INFO 2022-11-16 14:45:30,131 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7397
+INFO 2022-11-16 14:45:41,354 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7401
+INFO 2022-11-16 14:45:52,450 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7414
+INFO 2022-11-16 14:46:03,649 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7393
+INFO 2022-11-16 14:46:14,852 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7407
+INFO 2022-11-16 14:46:26,038 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7384
+INFO 2022-11-16 14:46:37,111 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7410
+INFO 2022-11-16 14:46:48,607 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7398
+INFO 2022-11-16 14:46:59,745 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7394
+INFO 2022-11-16 14:47:10,765 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7404
+INFO 2022-11-16 14:47:21,796 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7395
+INFO 2022-11-16 14:47:32,989 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7385
+INFO 2022-11-16 14:47:44,023 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7382
+INFO 2022-11-16 14:47:55,356 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7409
+INFO 2022-11-16 14:48:06,557 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7403
+INFO 2022-11-16 14:48:17,734 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7383
+INFO 2022-11-16 14:48:28,886 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7402
+INFO 2022-11-16 14:48:40,000 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7406
+INFO 2022-11-16 14:48:51,046 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7445
+INFO 2022-11-16 14:49:02,226 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7443
+INFO 2022-11-16 14:49:03,248 archeological_pottery_forms.my_models.my_decorators programa vykdyta 1028.8720936 sek.
+ERROR 2022-11-16 14:50:56,147 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2141.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,147 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2141.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,150 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2142.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,150 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2142.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,153 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2143.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,153 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2143.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,156 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2144.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,156 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2144.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,159 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2145.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,160 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2145.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,163 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2146.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,164 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2146.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,166 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2147.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,167 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2147.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,170 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2148.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,170 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2148.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,173 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2150.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,174 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2150.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,176 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2151.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,176 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2151.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,180 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2152.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,180 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2152.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,183 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2153.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,183 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2153.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,185 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2156.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,185 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2156.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,188 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2157.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,188 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2157.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,190 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2158.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,190 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2158.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,192 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2159.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,192 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2159.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,195 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2160.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,195 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2160.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,197 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2162.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,198 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2162.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,200 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2163.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,200 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2163.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,203 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2165.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,203 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2165.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,205 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2166.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,205 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2166.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,207 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2167.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,207 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2167.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,209 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2168.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,210 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2168.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,213 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2169.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,213 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2169.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,216 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2171.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,217 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2171.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,220 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2173.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,220 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2173.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,223 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2174.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,224 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2174.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,227 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2175.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,227 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2175.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,231 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2176.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,231 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2176.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,234 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2177.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,234 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2177.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,237 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2178.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,237 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2178.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,240 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2179.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,240 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2179.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,244 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2180.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,244 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2180.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,247 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2181.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,248 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2181.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,251 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2182.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,251 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2182.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,254 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2184.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,254 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2184.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,257 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2997.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,257 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2997.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,260 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2998.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,260 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2998.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:50:56,264 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2999.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:50:56,264 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2999.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:50:56,264 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.20844909999959782 sek.
+ERROR 2022-11-16 14:51:38,657 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2141.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,657 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2141.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,659 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2142.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,659 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2142.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,662 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2143.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,663 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2143.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,665 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2144.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,665 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2144.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,668 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2145.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,668 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2145.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,670 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2146.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,670 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2146.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,672 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2147.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,673 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2147.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,675 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2148.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,675 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2148.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,678 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2150.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,678 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2150.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,681 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2151.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,681 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2151.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,683 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2152.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,684 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2152.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,686 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2153.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,686 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2153.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,689 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2156.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,689 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2156.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,691 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2157.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,691 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2157.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,695 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2158.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,695 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2158.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,697 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2159.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,697 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2159.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,700 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2160.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,701 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2160.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,703 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2162.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,703 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2162.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,706 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2163.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,706 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2163.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,708 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2165.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,708 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2165.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,711 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2166.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,712 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2166.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,714 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2167.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,714 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2167.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,716 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2168.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,716 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2168.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,719 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2169.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,719 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2169.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,721 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2171.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,721 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2171.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,724 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2173.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,724 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2173.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,727 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2174.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,727 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2174.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,729 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2175.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,730 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2175.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,732 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2176.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,732 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2176.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,734 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2177.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,735 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2177.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,737 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2178.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,737 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2178.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,739 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2179.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,739 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2179.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,742 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2180.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,742 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2180.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,745 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2181.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,745 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2181.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,748 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2182.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,748 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2182.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,750 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2184.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,750 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2184.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,752 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2997.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,753 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2997.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,755 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2998.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,755 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2998.png, tyrimų objekto id 1433
+NoneType: None
+ERROR 2022-11-16 14:51:38,759 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra PotteryDescription modelyje (reg. nr. 2999.png, objekto id 1433)
+NoneType: None
+ERROR 2022-11-16 14:51:38,759 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 2999.png, tyrimų objekto id 1433
+NoneType: None
+INFO 2022-11-16 14:51:38,759 archeological_pottery_forms.my_models.my_decorators programa vykdyta 0.1837665000002744 sek.
+INFO 2022-11-16 18:14:57,277 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6939
+INFO 2022-11-16 18:15:09,125 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6932
+INFO 2022-11-16 18:15:20,936 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6937
+INFO 2022-11-16 18:15:32,949 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6949
+INFO 2022-11-16 18:15:44,842 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6938
+INFO 2022-11-16 18:15:57,111 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6951
+INFO 2022-11-16 18:16:09,027 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6941
+INFO 2022-11-16 18:16:20,986 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6961
+INFO 2022-11-16 18:16:32,944 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6934
+INFO 2022-11-16 18:16:44,748 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6948
+INFO 2022-11-16 18:16:56,572 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6953
+INFO 2022-11-16 18:17:08,564 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6947
+INFO 2022-11-16 18:17:20,434 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6946
+INFO 2022-11-16 18:17:32,222 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6954
+INFO 2022-11-16 18:17:44,045 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6966
+INFO 2022-11-16 18:17:55,867 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6960
+INFO 2022-11-16 18:17:56,876 archeological_pottery_forms.my_models.my_decorators programa vykdyta 190.73467739999978 sek.
+INFO 2022-11-16 18:29:02,986 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6896
+INFO 2022-11-16 18:29:14,643 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6925
+INFO 2022-11-16 18:29:26,452 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6830
+INFO 2022-11-16 18:29:38,145 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6919
+INFO 2022-11-16 18:29:49,780 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6922
+INFO 2022-11-16 18:30:01,588 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6827
+INFO 2022-11-16 18:30:13,269 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6841
+INFO 2022-11-16 18:30:24,865 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6835
+INFO 2022-11-16 18:30:36,608 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6838
+INFO 2022-11-16 18:30:48,368 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6920
+INFO 2022-11-16 18:30:59,983 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6854
+INFO 2022-11-16 18:31:11,734 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6847
+INFO 2022-11-16 18:31:23,425 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6863
+INFO 2022-11-16 18:31:35,159 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6860
+INFO 2022-11-16 18:31:46,805 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6886
+INFO 2022-11-16 18:31:58,013 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6861
+INFO 2022-11-16 18:32:09,119 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6917
+INFO 2022-11-16 18:32:20,290 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6833
+INFO 2022-11-16 18:32:31,383 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6908
+INFO 2022-11-16 18:32:42,580 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6869
+INFO 2022-11-16 18:32:54,065 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6963
+INFO 2022-11-16 18:33:06,047 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6962
+INFO 2022-11-16 18:33:17,495 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6945
+INFO 2022-11-16 18:33:28,672 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6931
+INFO 2022-11-16 18:33:39,778 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6942
+INFO 2022-11-16 18:33:50,880 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6944
+INFO 2022-11-16 18:34:02,139 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6959
+INFO 2022-11-16 18:34:13,430 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6956
+INFO 2022-11-16 18:34:24,576 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6958
+INFO 2022-11-16 18:34:35,771 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6957
+INFO 2022-11-16 18:34:46,865 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6940
+INFO 2022-11-16 18:34:57,926 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6965
+INFO 2022-11-16 18:35:09,025 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6936
+INFO 2022-11-16 18:35:20,129 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6933
+INFO 2022-11-16 18:35:31,732 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6955
+INFO 2022-11-16 18:35:42,885 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6929
+INFO 2022-11-16 18:35:54,015 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6950
+INFO 2022-11-16 18:36:05,174 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6930
+INFO 2022-11-16 18:36:16,439 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6952
+INFO 2022-11-16 18:36:27,567 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6943
+INFO 2022-11-16 18:36:38,754 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6964
+INFO 2022-11-16 18:36:39,762 archeological_pottery_forms.my_models.my_decorators programa vykdyta 467.5305655999982 sek.
+INFO 2022-11-16 19:02:25,278 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6824
+INFO 2022-11-16 19:02:38,057 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 6935
+INFO 2022-11-16 19:02:39,074 archeological_pottery_forms.my_models.my_decorators programa vykdyta 28.354991399999562 sek.
