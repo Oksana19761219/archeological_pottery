@@ -113,6 +113,7 @@ def save_changes(request, find):
     find.save()
 
 
+
 @csrf_protect
 def update_description(request, find_id):
     find = PotteryDescription.objects.get(pk=find_id)
@@ -197,15 +198,17 @@ def update_description(request, find_id):
         find.save()
 
     if request.method == 'POST' and 'neck_deviation' in request.POST:
+        print('ok')
         deviation = request.POST['neck_deviation']
-        if deviation:
-            data = ContourNodeDeviation(
-                find_id = find.id,
-                deviation = int(deviation),
-                node = 'neck'
-            )
-            data.save()
-            return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+        print(deviation)
+        # if deviation:
+        #     data = ContourNodeDeviation(
+        #         find_id = find.id,
+        #         deviation = int(deviation),
+        #         node = 'neck'
+        #     )
+        #     data.save()
+        #     return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
     if request.method == 'POST' and 'shoulders_deviation' in request.POST:
         deviation = request.POST['shoulders_deviation']

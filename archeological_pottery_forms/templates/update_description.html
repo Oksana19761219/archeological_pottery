@@ -85,11 +85,11 @@
                     <button type="submit" class="btn btn-warning" id="clear" name="clear">pašalinti linijas</button>
                     <br>
                     <br>
-                    <button type="submit" class="btn btn-info" id="neck_deviation" name="neck_deviation">kaklo paklaida</button>
+                    <button type="submit" class="btn btn-info" id="neck_deviation" name="neck_deviation" >kaklo lūžio zona</button>
                     <br>
-                    <button type="submit" class="btn btn-info" id="shoulders_deviation" name="shoulders_deviation">petelių paklaida</button>
+                    <button type="submit" class="btn btn-info" id="shoulders_deviation" name="shoulders_deviation">petelių lūžio zona</button>
                     <br>
-                    <button type="submit" class="btn btn-warning" id="clear_deviation" name="clear_deviation">pašalinti paklaidas</button>
+                    <button type="submit" class="btn btn-warning" id="clear_deviation" name="clear_deviation">pašalinti lūžio zonas</button>
 
                 </div>
                 {% comment %}
@@ -120,6 +120,7 @@
     ctx.scale(0.5, 0.5);
 
     function drawProfile() {
+        {% comment %}
         {% if min_neck_point and max_neck_point %}
             ctx.rect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
             ctx.lineWidth = 1;
@@ -136,6 +137,7 @@
             ctx.fillStyle = "#ecffcc";
             ctx.fillRect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
         {% endif %}
+        {% endcomment %}
 
         {% if find.lip_base_y %}
             ctx.beginPath();
@@ -163,6 +165,7 @@
             ctx.strokeStyle = '#8ae400'
             ctx.stroke();
         {% endif %}
+
 
         {% if find.bottom_y %}
             ctx.beginPath();
@@ -213,12 +216,15 @@
 </script>
 
 <script>
+var values = []
     function getMousePosition(canvas, event) {
         let rect = canvas.getBoundingClientRect();
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
         console.log("Coordinate x: " + x,
                     "Coordinate y: " + y);
+        values.push(y*2);
+
         document.getElementById("y").innerHTML = "pasirinktas taškas: " + y*2;
         document.getElementById("y").value = y*2;
         document.getElementById("lip_base").value = y*2;
@@ -234,7 +240,12 @@
     canvasElem.addEventListener("mousedown", function(e)
     {
         getMousePosition(canvasElem, e);
+        console.log(values)
+        if (values.length >= 2) {
+        values = [];
+        console.log("empty", values)
 
+        };
         ctx.clearRect(0, 0, canvas.width*2, canvas.height*2);
         drawProfile()
 
@@ -244,9 +255,13 @@
         ctx.moveTo(0, y_line);
         ctx.lineTo(canvas.width*2, y_line);
         ctx.lineWidth = 1;
-
         ctx.stroke();
+
     });
+
+
+
+
 </script>
 
 {% endif %}
