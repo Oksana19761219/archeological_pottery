@@ -11,8 +11,7 @@ from .models import Bibliography, \
                     ContourCorrelation,\
                     ContourGroup, \
                     PotteryLipShape, \
-                    PotteryOrnamentShape, \
-                    ContourNodeDeviation
+                    PotteryOrnamentShape
 
 from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
@@ -124,26 +123,6 @@ def update_description(request, find_id):
     else:
         contour = None
 
-    neck_deviation = ContourNodeDeviation.objects.\
-        filter(Q(find_id=find.id) & Q(node='neck')).\
-        values_list('deviation')
-    shoulders_deviation = ContourNodeDeviation.objects.\
-        filter(Q(find_id=find.id) & Q(node='shoulders')).\
-        values_list('deviation')
-    if neck_deviation:
-        min_neck_point = min(neck_deviation)[0]
-        max_neck_point = max(neck_deviation)[0]
-    else:
-        min_neck_point = None
-        max_neck_point = None
-    if shoulders_deviation:
-        min_shoulders_point = min(shoulders_deviation)[0]
-        max_shoulders_point = max(shoulders_deviation)[0]
-    else:
-        min_shoulders_point = None
-        max_shoulders_point = None
-
-
     research_object = find.research_object
     find_ids_queryset = PotteryDescription.objects.\
             filter(research_object=research_object).\
@@ -163,68 +142,95 @@ def update_description(request, find_id):
             return HttpResponseRedirect(reverse('update_description', args=[next_id]))
 
     if request.method == 'POST' and 'lip_base' in request.POST:
-        lip_base_value = request.POST['lip_base']
-        if lip_base_value:
-            lip_base_value = int(lip_base_value)
-            find.lip_base_y = lip_base_value
+        deviation = request.POST['lip_base']
+        if deviation:
+            _, value2 = sorted([int(item) for item in deviation.split()])
+            find.lip_base_y = value2
             find.save()
-
-    if request.method == 'POST' and 'neck_base' in request.POST:
-        neck_base_value = request.POST['neck_base']
-        if neck_base_value:
-            neck_base_value = int(neck_base_value)
-            find.neck_base_y = neck_base_value
-            find.save()
-
-    if request.method == 'POST' and 'shoulders_base' in request.POST:
-        shoulders_base_value = request.POST['shoulders_base']
-        if shoulders_base_value:
-            shoulders_base_value = int(shoulders_base_value)
-            find.shoulders_base_y = shoulders_base_value
-            find.save()
+            return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
     if request.method == 'POST' and 'bottom' in request.POST:
-        bottom_value = request.POST['bottom']
-        if bottom_value:
-            bottom_value = int(bottom_value)
-            find.bottom_y = bottom_value
-            find.save()
-
-    if request.method == 'POST' and 'clear' in request.POST:
-        find.lip_base_y = None
-        find.neck_base_y = None
-        find.shoulders_base_y = None
-        find.bottom_y = None
+        find.bottom_exist = True
         find.save()
+        return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
     if request.method == 'POST' and 'neck_deviation' in request.POST:
-        print('ok')
         deviation = request.POST['neck_deviation']
-        print(deviation)
-        # if deviation:
-        #     data = ContourNodeDeviation(
-        #         find_id = find.id,
-        #         deviation = int(deviation),
-        #         node = 'neck'
-        #     )
-        #     data.save()
-        #     return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+        if deviation:
+            value1, value2 = sorted([int(item) for item in deviation.split()])
+            find.neck_min_y = value1
+            find.neck_max_y = value2
+            find.save()
+            return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
     if request.method == 'POST' and 'shoulders_deviation' in request.POST:
         deviation = request.POST['shoulders_deviation']
         if deviation:
-            data = ContourNodeDeviation(
-                find_id = find.id,
-                deviation = int(deviation),
-                node = 'shoulders'
-            )
-            data.save()
+            value1, value2 = sorted([int(item) for item in deviation.split()])
+            find.shoulders_min_y = value1
+            find.shoulders_max_y = value2
+            find.save()
             return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
-    if request.method == 'POST' and 'clear_deviation' in request.POST:
-        data = ContourNodeDeviation.objects.filter(find_id = find.id)
-        data.delete()
+    if request.method == 'POST' and 'clear' in request.POST:
+        find.lip_base_y = None
+        find.neck_min_y = None
+        find.neck_max_y = None
+        find.shoulders_min_y = None
+        find.shoulders_max_y = None
+        find.bottom_exist = False
+        find.save()
         return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+
+    # if request.method == 'POST' and 'calculate' in request.POST:
+    #     if find.lip_base_y:
+    #         lip_base_point = CeramicContour.objects.\
+    #             filter(Q(find_id=find.id) & Q(y=find.lip_base_y)).\
+    #             values_list('x', 'y').\
+    #             order_by('x').\
+    #             first()
+    #     else:
+    #         lip_base_point = CeramicContour.objects. \
+    #             filter(Q(find_id=find.id) & Q(y=0)). \
+    #             values_list('x', 'y'). \
+    #             order_by('x'). \
+    #             first()
+    #
+    #     if find.neck_min_y and find.neck_max_y:
+    #         neck_y = (find.neck_max_y - find.neck_min_y)/2 + find.neck_min_y
+    #         neck_point = CeramicContour.objects.\
+    #         filter(Q(find_id=find.id) & Q(y=neck_y)).\
+    #         values_list('x', 'y').\
+    #         order_by('x').\
+    #         first()
+    #     else:
+    #         neck_point = CeramicContour.objects.\
+    #             filter(find_id=find.id).\
+    #             values_list('x', 'y').\
+    #             order_by('-y', 'x').\
+    #             first()
+    #
+    #     if find.shoulders_min_y and find.shoulders_max_y:
+    #         shoulders_y = (find.shoulders_max_y - find.shoulders_min_y)/2 + find.shoulders_min_y
+    #         shoulders_point = CeramicContour.objects.\
+    #         filter(Q(find_id=find.id) & Q(y=shoulders_y)).\
+    #         values_list('x', 'y').\
+    #         order_by('x').\
+    #         first()
+    #     else:
+    #         shoulders_point = CeramicContour.objects.\
+    #             filter(find_id=find.id).\
+    #             values_list('x', 'y').\
+    #             order_by('-y', 'x').\
+    #             first()
+    #
+    #     if lip_base_point[0] < neck_point[0]:
+    #         print('lenktas į vidų kaklas')
+    #     else:
+    #         print('lenktas į išorę kaklas')
+
+
+
 
 
     if request.method == 'POST' and 'previous' in request.POST:
@@ -245,11 +251,7 @@ def update_description(request, find_id):
         'lip_shape': lip_shape,
         'ornament_shape': ornament_shape,
         'finds_amount': finds_amount,
-        'find_nr': this_id_index + 1,
-        'min_neck_point': min_neck_point,
-        'max_neck_point': max_neck_point,
-        'min_shoulders_point': min_shoulders_point,
-        'max_shoulders_point': max_shoulders_point
+        'find_nr': this_id_index + 1
     }
 
     return render(request, 'update_description.html', context=context)

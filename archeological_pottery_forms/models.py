@@ -214,20 +214,29 @@ class PotteryDescription(models.Model):
         null=True,
         blank=True
     )
-    neck_base_y = models.IntegerField(
-        'neck_base_y',
+    neck_min_y = models.IntegerField(
+        'neck_min_y',
         null=True,
         blank=True
     )
-    shoulders_base_y = models.IntegerField(
-        'shoulders_base_y',
+    neck_max_y = models.IntegerField(
+        'neck_max_y',
         null=True,
         blank=True
     )
-    bottom_y = models.IntegerField(
-        'bottom_y',
+    shoulders_min_y = models.IntegerField(
+        'shoulders_min_y',
         null=True,
         blank=True
+    )
+    shoulders_max_y = models.IntegerField(
+        'shoulders_max_y',
+        null=True,
+        blank=True
+    )
+    bottom_exist = models.BooleanField(
+        'bottom_exist',
+        default=False
     )
     neck_shoulders_union = models.CharField(
         'neck_shoulders_union',
@@ -256,27 +265,6 @@ class PotteryDescription(models.Model):
     @property
     def top_mid_point(self):
         return CeramicContour.objects.filter(Q(find_id=self.id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
-
-
-class ContourNodeDeviation(models.Model):
-    find = models.ForeignKey(
-        'PotteryDescription',
-        on_delete=models.CASCADE,
-        null=False,
-        blank=False,
-        related_name='deviation'
-    )
-    deviation = models.IntegerField(
-        'deviation',
-        null=False,
-        blank=False
-    )
-    node = models.CharField(
-        'node',
-        max_length=20,
-        null=False,
-        blank=False
-    )
 
 
 class ResearchObject(models.Model):

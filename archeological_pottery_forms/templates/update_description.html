@@ -71,25 +71,22 @@
 
             <div class="col">
                 <div class="card-body">
-                    <p id="y" value="">pasirinkite tašką brėžinyje</p>
-                    <button type="submit" class="btn btn-info" id="lip_base" name="lip_base">lupos apačia</button>
-                    <br>
-                    <button type="submit" class="btn btn-info" id="neck_base" name="neck_base">kaklo apačia</button>
-                    <br>
-                    <button type="submit" class="btn btn-info" id="shoulders_base" name="shoulders_base">petelių
-                        apačia
-                    </button>
-                    <br>
-                    <button type="submit" class="btn btn-info" id="bottom" name="bottom">dugnas</button>
-                    <br>
-                    <button type="submit" class="btn btn-warning" id="clear" name="clear">pašalinti linijas</button>
-                    <br>
+                    <p id="y" value="">brėžinyje pasirinkite du taškus</p>
+                    <button type="submit" class="btn btn-info" id="lip_base" name="lip_base">lupos zona</button>
                     <br>
                     <button type="submit" class="btn btn-info" id="neck_deviation" name="neck_deviation" >kaklo lūžio zona</button>
                     <br>
                     <button type="submit" class="btn btn-info" id="shoulders_deviation" name="shoulders_deviation">petelių lūžio zona</button>
                     <br>
-                    <button type="submit" class="btn btn-warning" id="clear_deviation" name="clear_deviation">pašalinti lūžio zonas</button>
+                    <button type="submit" class="btn btn-info" id="bottom" name="bottom">yra dugnas</button>
+                    <br>
+                    <button type="submit" class="btn btn-warning" id="clear" name="clear">pašalinti linijas</button>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-warning" id="calculate" name="calculate">laikinas mygtukas</button>
+                    <br>
+                    <br>
+
 
                 </div>
                 {% comment %}
@@ -119,25 +116,8 @@
     var ctx = canvas.getContext("2d");
     ctx.scale(0.5, 0.5);
 
-    function drawProfile() {
-        {% comment %}
-        {% if min_neck_point and max_neck_point %}
-            ctx.rect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
-            ctx.lineWidth = 1;
-            ctx.strokeStyle = "#719dbf";
-            ctx.stroke();
-            ctx.fillStyle = "#fafad2";
-            ctx.fillRect(0, {{ min_neck_point }}, canvas.width*2, ({{ max_neck_point }}-{{ min_neck_point }}));
-        {% endif %}
 
-        {% if min_shoulders_point and max_shoulders_point %}
-            ctx.rect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
-            ctx.lineWidth = 1;
-            ctx.stroke();
-            ctx.fillStyle = "#ecffcc";
-            ctx.fillRect(0, {{ min_shoulders_point }}, canvas.width*2, ({{ max_shoulders_point }}-{{ min_shoulders_point }}));
-        {% endif %}
-        {% endcomment %}
+    function drawProfile() {
 
         {% if find.lip_base_y %}
             ctx.beginPath();
@@ -148,32 +128,24 @@
             ctx.stroke();
         {% endif %}
 
-        {% if find.neck_base_y %}
-            ctx.beginPath();
-            ctx.moveTo(0, {{find.neck_base_y}} );
-            ctx.lineTo(canvas.width*2, {{find.neck_base_y}} );
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = '#ffb600'
-            ctx.stroke();
+        {% if find.neck_min_y %}
+            {% if find.neck_max_y %}
+                let max_neck_y = {{find.neck_max_y}}-{{find.neck_min_y}};
+            {% else %}
+                let max_neck_y = 1;
+            {% endif %}
+            ctx.fillStyle = "#ff8a0d";
+            ctx.fillRect(0, {{find.neck_min_y}}, canvas.width*2, max_neck_y);
         {% endif %}
 
-        {% if find.shoulders_base_y %}
-            ctx.beginPath();
-            ctx.moveTo(0, {{find.shoulders_base_y}} );
-            ctx.lineTo(canvas.width*2, {{find.shoulders_base_y}} );
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = '#8ae400'
-            ctx.stroke();
-        {% endif %}
-
-
-        {% if find.bottom_y %}
-            ctx.beginPath();
-            ctx.moveTo(0, {{find.bottom_y}} );
-            ctx.lineTo(canvas.width*2, {{find.bottom_y}} );
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = '#005cfe'
-            ctx.stroke();
+        {% if find.shoulders_min_y %}
+            {% if find.shoulders_max_y %}
+                let max_shoulders_y = {{find.shoulders_max_y}}-{{find.shoulders_min_y}};
+            {% else %}
+                let max_shoulders_y = 1;
+            {% endif %}
+            ctx.fillStyle = "#5acc02";
+            ctx.fillRect(0, {{find.shoulders_min_y}}, canvas.width*2, max_shoulders_y);
         {% endif %}
 
         {% if contour %}
@@ -225,14 +197,16 @@ var values = []
                     "Coordinate y: " + y);
         values.push(y*2);
 
-        document.getElementById("y").innerHTML = "pasirinktas taškas: " + y*2;
-        document.getElementById("y").value = y*2;
-        document.getElementById("lip_base").value = y*2;
-        document.getElementById("neck_base").value = y*2;
-        document.getElementById("shoulders_base").value = y*2;
-        document.getElementById("bottom").value = y*2;
-        document.getElementById("neck_deviation").value = y*2;
-        document.getElementById("shoulders_deviation").value = y*2;
+        ctx.clearRect(0, 0, canvas.width*2, canvas.height*2);
+        drawProfile()
+
+        ctx.strokeStyle = '#b2b2b2'
+        ctx.beginPath();
+        ctx.moveTo(0, y*2);
+        ctx.lineTo(canvas.width*2, y*2);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
     };
 
     let canvasElem = document.querySelector("canvas");
@@ -240,22 +214,20 @@ var values = []
     canvasElem.addEventListener("mousedown", function(e)
     {
         getMousePosition(canvasElem, e);
+
+
         console.log(values)
-        if (values.length >= 2) {
+        if (values.length == 2) {
+        document.getElementById("y").innerHTML = "pasirinkti taškai: " + values[0] + ", " + values[1];
+        document.getElementById("lip_base").value = values[0] + " " + values[1];
+        document.getElementById("neck_deviation").value = values[0] + " " + values[1];
+        document.getElementById("shoulders_deviation").value = values[0] + " " + values[1];
         values = [];
         console.log("empty", values)
+        console.log(document.getElementById("neck_deviation").value)
 
         };
-        ctx.clearRect(0, 0, canvas.width*2, canvas.height*2);
-        drawProfile()
 
-        let y_line = document.getElementById("y").value;
-        ctx.strokeStyle = '#b2b2b2'
-        ctx.beginPath();
-        ctx.moveTo(0, y_line);
-        ctx.lineTo(canvas.width*2, y_line);
-        ctx.lineWidth = 1;
-        ctx.stroke();
 
     });
 
