@@ -407,7 +407,8 @@ def calculate_correlation_coefficient(request):
     ids_to_correlate = PotteryDescription.objects.\
         filter(Q(correlation_calculated=False) & Q(profile_reviewed=True)).\
         distinct().\
-        values_list('pk', flat=True)
+        values_list('pk', flat=True).\
+        exclude(research_object_id=1433) # laikina salyga, filtruoja fiktivu objekta
     contours_correlated = CeramicContour.objects.filter(find_id__in=correlated_ids).values()
     contours_to_correlate = CeramicContour.objects.filter(find_id__in=ids_to_correlate).values()
     contours_correlated_df = pd.DataFrame.from_records(contours_correlated)
@@ -429,16 +430,21 @@ def calculate_correlation_coefficient(request):
 
         for id in sorted(ids):
             this_contour = contours_to_correlate_df[contours_to_correlate_df['find_id'] == id]
+            this_object = PotteryDescription.objects.get(pk=id)
+            neck_min_y = this_object.neck_min_y
+            shoulders_min_y = this_object.shoulders_min_y
             other_contours = contours_to_correlate_df[contours_to_correlate_df['find_id'] > id]
 
             if not other_contours.empty:
-                calculate_correlation(this_contour, other_contours, id)
+                calculate_correlation(this_contour, other_contours, id, neck_min_y, shoulders_min_y)
 
             if not contours_correlated_df.empty:
-                calculate_correlation(this_contour, contours_correlated_df, id)
+                calculate_correlation(this_contour, contours_correlated_df, id, neck_min_y, shoulders_min_y)
+
             this_ceramic = PotteryDescription.objects.get(pk=id)
             this_ceramic.correlation_calculated = True
             this_ceramic.save()
+
 
         sound_files()
         end_time = time.perf_counter()

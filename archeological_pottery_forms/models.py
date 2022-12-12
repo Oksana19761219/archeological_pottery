@@ -347,11 +347,27 @@ class ContourCorrelation(models.Model):
         null=True,
         blank=True
     )
+    correlation_x_neck = models.FloatField(
+        'correlation_x_neck',
+        null=True,
+        blank=True
+    )
+    correlation_x_shoulders = models.FloatField(
+        'correlation_x_shoulders',
+        null=True,
+        blank=True
+    )
+    correlation_x_body = models.FloatField(
+        'correlation_x_body',
+        null=True,
+        blank=True
+    )
     correlation_width = models.FloatField(
         'correlation_width',
         null=True,
         blank=True
     )
+
     length_compared = models.FloatField(
         'length_compared',
         null=True,
