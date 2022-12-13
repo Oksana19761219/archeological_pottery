@@ -182,57 +182,6 @@ def update_description(request, find_id):
         find.save()
         return HttpResponseRedirect(reverse('update_description', args=[find.id]))
 
-    # if request.method == 'POST' and 'calculate' in request.POST:
-    #     if find.lip_base_y:
-    #         lip_base_point = CeramicContour.objects.\
-    #             filter(Q(find_id=find.id) & Q(y=find.lip_base_y)).\
-    #             values_list('x', 'y').\
-    #             order_by('x').\
-    #             first()
-    #     else:
-    #         lip_base_point = CeramicContour.objects. \
-    #             filter(Q(find_id=find.id) & Q(y=0)). \
-    #             values_list('x', 'y'). \
-    #             order_by('x'). \
-    #             first()
-    #
-    #     if find.neck_min_y and find.neck_max_y:
-    #         neck_y = (find.neck_max_y - find.neck_min_y)/2 + find.neck_min_y
-    #         neck_point = CeramicContour.objects.\
-    #         filter(Q(find_id=find.id) & Q(y=neck_y)).\
-    #         values_list('x', 'y').\
-    #         order_by('x').\
-    #         first()
-    #     else:
-    #         neck_point = CeramicContour.objects.\
-    #             filter(find_id=find.id).\
-    #             values_list('x', 'y').\
-    #             order_by('-y', 'x').\
-    #             first()
-    #
-    #     if find.shoulders_min_y and find.shoulders_max_y:
-    #         shoulders_y = (find.shoulders_max_y - find.shoulders_min_y)/2 + find.shoulders_min_y
-    #         shoulders_point = CeramicContour.objects.\
-    #         filter(Q(find_id=find.id) & Q(y=shoulders_y)).\
-    #         values_list('x', 'y').\
-    #         order_by('x').\
-    #         first()
-    #     else:
-    #         shoulders_point = CeramicContour.objects.\
-    #             filter(find_id=find.id).\
-    #             values_list('x', 'y').\
-    #             order_by('-y', 'x').\
-    #             first()
-    #
-    #     if lip_base_point[0] < neck_point[0]:
-    #         print('lenktas į vidų kaklas')
-    #     else:
-    #         print('lenktas į išorę kaklas')
-
-
-
-
-
     if request.method == 'POST' and 'previous' in request.POST:
         if this_id_index > 0 and this_id_index < len(find_ids)-1:
             previous_id = find_ids[this_id_index-1]
@@ -407,8 +356,7 @@ def calculate_correlation_coefficient(request):
     ids_to_correlate = PotteryDescription.objects.\
         filter(Q(correlation_calculated=False) & Q(profile_reviewed=True)).\
         distinct().\
-        values_list('pk', flat=True).\
-        exclude(research_object_id=1433) # laikina salyga, filtruoja fiktivu objekta
+        values_list('pk', flat=True)
     contours_correlated = CeramicContour.objects.filter(find_id__in=correlated_ids).values()
     contours_to_correlate = CeramicContour.objects.filter(find_id__in=ids_to_correlate).values()
     contours_correlated_df = pd.DataFrame.from_records(contours_correlated)
