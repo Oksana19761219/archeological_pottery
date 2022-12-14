@@ -16,7 +16,7 @@
                 <select class="col" name="groups" id="groups" multiple>
 
                     {% for group in groups %}
-                    <option value="{{group.id}}">nr. {{group.id}}, kor. koef: {{group.correlation_x}}, radinių:
+                    <option value="{{group.id}}">nr. {{group.id}} | {{ group.length_group}} | {{group.correlation_x}} | {{ group.correlation_avg }}, radinių:
                         {{group.findings_count}}
                     </option>
                     {% endfor %}

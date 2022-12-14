@@ -132,6 +132,17 @@ class ContourGroup(models.Model):
         null=False,
         blank=False
     )
+    correlation_avg = models.FloatField(
+        'correlation_avg',
+        null=False,
+        blank=False,
+        default=0
+    )
+    length_group = models.IntegerField(
+        'length_group',
+        null=True
+    )
+
 
 
     def __str__(self):
@@ -362,12 +373,16 @@ class ContourCorrelation(models.Model):
         null=True,
         blank=True
     )
+    correlation_avg = models.FloatField(
+        'correlation_avg',
+        null=True,
+        blank=True
+    )
     correlation_width = models.FloatField(
         'correlation_width',
         null=True,
         blank=True
     )
-
     length_compared = models.FloatField(
         'length_compared',
         null=True,

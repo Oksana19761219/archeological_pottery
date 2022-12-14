@@ -505,53 +505,84 @@ def auto_group_contours(request):
                     }
 
 
-
     if request.method == 'POST' and 'create' in request.POST:
         correlation_x = request.POST['correlation']
+        correlation_avg = request.POST['correlation_avg']
+        loop_count = 0
 
         for item in range(1, 5):
             length_limits = group_limits[item]
-            print(length_limits)
             queryset_by_correlation = ContourCorrelation.objects. \
-                filter(correlation_x__gte=correlation_x). \
+                filter(
+                Q(correlation_x__gte=correlation_x) &
+                Q(correlation_avg__gte=correlation_avg)). \
                 distinct(). \
                 values_list('find_1', 'find_2')
+            queryset_ids = list(
+                {item[0] for item in queryset_by_correlation}. \
+                    union({item[1] for item in queryset_by_correlation})
+            )
 
-            # queryset_ids = list(
-            #     {item[0] for item in queryset_by_correlation}. \
-            #         union({item[1] for item in queryset_by_correlation})
-            # )
-            # objects_to_group = PotteryDescription.objects.filter(
-            #     Q(pk__in=queryset_ids) &
-            #     ~Q(groups__correlation_x=correlation_x)
-            # ).distinct()
-            # loop_count = 0
-            # for object in objects_to_group:
-            #     loop_count+=1
-            #     print(loop_count)
-            #     corelated_objects = ContourCorrelation.objects.filter(
-            #         (Q(find_1=object.id) | Q(find_2=object.id)) &
-            #         Q(correlation_x__gte=correlation_x)
-            #     ).distinct().\
-            #     values_list('find_1', 'find_2')
-            #     correlated_ids = list(
-            #         {item[0] for item in corelated_objects if item != object.id}. \
-            #             union({item[1] for item in corelated_objects if item != object.id})
-            #     )
-            #     group_exist = PotteryDescription.objects.\
-            #         filter(Q(pk__in=correlated_ids) & Q(groups__correlation_x=correlation_x)).\
-            #         first()
-            #     if not group_exist:
-            #         group = ContourGroup(correlation_x=correlation_x, )
-            #         group.save()
-            #     else:
-            #         group = group_exist. \
-            #             groups.all(). \
-            #             get(correlation_x=correlation_x). \
-            #             id
-            #     object.groups.add(group)
-            #     object.save()
-            # print(f'pabaiga, {loop_count}')
+            length_queryset = CeramicContour.objects.\
+                filter(Q(find_id__in=queryset_ids)).\
+                values('find_id').\
+                annotate(Max('y'))
+            this_group_queryset = length_queryset.\
+                filter(Q(y__max__gt=length_limits[0]) & Q(y__max__lte=length_limits[1]))
+            this_group_ids = this_group_queryset.values_list('find_id', flat=True)
+
+            objects_to_group = PotteryDescription.objects.filter(
+                Q(pk__in=this_group_ids) &
+                ~Q(groups__correlation_x=correlation_x) &
+                ~Q(groups__correlation_avg=correlation_avg)
+            ).distinct()
+
+
+            for object in objects_to_group:
+                loop_count+=1
+                print(loop_count)
+
+                corelated_objects = ContourCorrelation.objects.\
+                    filter((Q(find_1=object.id) |
+                            Q(find_2=object.id)) &
+                           (Q(correlation_x__gte=correlation_x) & Q(correlation_avg__gte=correlation_avg))).\
+                    distinct().\
+                    values_list('find_1', 'find_2')
+                correlated_ids = list(
+                    {item[0] for item in corelated_objects if item != object.id}. \
+                        union({item[1] for item in corelated_objects if item != object.id})
+                )
+
+                correlated_ids_with_length = PotteryDescription.objects.\
+                    filter(pk__in=correlated_ids).\
+                    values('pk').\
+                    annotate(Max('coordinates__y'))
+
+                correlated_ids_this_group = correlated_ids_with_length.\
+                    filter(Q(coordinates__y__max__gt=length_limits[0]) &
+                           Q(coordinates__y__max__lte=length_limits[1])).\
+                    values_list('pk', flat=True)
+
+
+                group_exist = PotteryDescription.objects.\
+                    filter(Q(pk__in=correlated_ids_this_group) &
+                           (Q(groups__correlation_x=correlation_x) & Q(groups__correlation_avg=correlation_avg))).\
+                    first()
+
+                if not group_exist:
+                    group = ContourGroup(correlation_x=correlation_x,
+                                         correlation_avg=correlation_avg,
+                                         length_group=item)
+                    group.save()
+                else:
+                    group = group_exist. \
+                        groups.all(). \
+                        get(Q(correlation_x=correlation_x) & Q(correlation_avg=correlation_avg)). \
+                        id
+                object.groups.add(group)
+                object.save()
+        print(f'pabaiga, {loop_count}')
+
 
     return render(request, 'group_contours_auto.html')
 
@@ -563,7 +594,6 @@ def review_groups(request):
         annotate(findings_count=Count('potterydescription__id')).\
         order_by('-correlation_x', '-findings_count').\
         filter(findings_count__gt=1)
-
 
     if request.method == 'POST' and 'groups' in request.POST:
         group = int(request.POST['groups'])

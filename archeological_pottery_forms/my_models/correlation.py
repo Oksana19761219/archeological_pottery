@@ -92,6 +92,7 @@ def calculate_correlation (this_contour, other_contours, find_id, neck_min_y, sh
                                     'x_x': 'correlation_x',
                                     'width_x': 'correlation_width'})
     result['find_2'] = find_id
+    result['correlation_avg'] = (result['correlation_x_neck'] + result['correlation_x_shoulders'] + result['correlation_x_body']) / 3
     result = result.fillna(value=0)
 
 
@@ -104,6 +105,7 @@ def calculate_correlation (this_contour, other_contours, find_id, neck_min_y, sh
         correlation_x_neck=round(record['correlation_x_neck'],4),
         correlation_x_shoulders=round(record['correlation_x_shoulders'], 4),
         correlation_x_body=round(record['correlation_x_body'], 4),
+        correlation_avg=round(record['correlation_avg'], 4),
         length_compared=record['length_compared']
     ) for record in df_records]
 

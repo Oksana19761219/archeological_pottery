@@ -25,7 +25,7 @@ def draw_group_image(group, coords, x_min):
     I1 = ImageDraw.Draw(image)
     I1.text((20, (image_heigth - 50)),
             f'''grupes nr. {group.id},
-koreliacija: {group.correlation_x},
+koreliacija: {group.correlation_x}, {group.correlation_avg}
 radiniu: {group.findings_count}''',
             fill=(70, 70, 70))
     # braizoma profiliu grupes iliustracija
