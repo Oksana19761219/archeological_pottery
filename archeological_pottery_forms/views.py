@@ -21,6 +21,7 @@ from .my_models.sounds import sound_files
 from .my_models.draw_image import draw_group_image
 import pandas as pd
 import logging
+import time
 
 
 logger = logging.getLogger(__name__)
@@ -337,7 +338,7 @@ def view_correlation(request):
     }
     return render(request, 'view_correlation.html', context=context)
 
-import time
+
 
 
 @csrf_protect
@@ -484,47 +485,73 @@ def calculate_length():
 
 @csrf_protect
 def auto_group_contours(request):
+    neck_avg = PotteryDescription.objects.aggregate(Avg('neck_min_y'))['neck_min_y__avg']
+    shoulders_avg = PotteryDescription.objects.aggregate(Avg('shoulders_min_y'))['shoulders_min_y__avg']
+
+    bottom_queryset = CeramicContour.objects.filter(Q(find_id__bottom_exist=True))
+    bottom_avg = bottom_queryset.values('find_id').annotate(Max('y')).aggregate(Avg('y__max'))['y__max__avg']
+    bottom_max = bottom_queryset.aggregate(Max('y'))['y__max']
+
+    group_1_max_length = (shoulders_avg - neck_avg) / 2 + neck_avg
+    group_2_max_length = shoulders_avg
+    group_3_max_length = bottom_avg / 2
+    group_4_max_length = bottom_max
+
+    group_limits = {
+        1: [0, group_1_max_length],
+        2: [group_1_max_length, group_2_max_length],
+        3: [group_2_max_length, group_3_max_length],
+        4: [group_3_max_length, group_4_max_length]
+                    }
+
+
+
     if request.method == 'POST' and 'create' in request.POST:
         correlation_x = request.POST['correlation']
-        queryset_by_correlation = ContourCorrelation.objects. \
-            filter(correlation_x__gte=correlation_x). \
-            distinct(). \
-            values_list('find_1', 'find_2')
-        queryset_ids = list(
-            {item[0] for item in queryset_by_correlation}. \
-                union({item[1] for item in queryset_by_correlation})
-        )
-        objects_to_group = PotteryDescription.objects.filter(
-            Q(pk__in=queryset_ids) &
-            ~Q(groups__correlation_x=correlation_x)
-        ).distinct()
-        loop_count = 0
-        for object in objects_to_group:
-            loop_count+=1
-            print(loop_count)
-            corelated_objects = ContourCorrelation.objects.filter(
-                (Q(find_1=object.id) | Q(find_2=object.id)) &
-                Q(correlation_x__gte=correlation_x)
-            ).distinct().\
-            values_list('find_1', 'find_2')
-            correlated_ids = list(
-                {item[0] for item in corelated_objects if item != object.id}. \
-                    union({item[1] for item in corelated_objects if item != object.id})
-            )
-            group_exist = PotteryDescription.objects.\
-                filter(Q(pk__in=correlated_ids) & Q(groups__correlation_x=correlation_x)).\
-                first()
-            if not group_exist:
-                group = ContourGroup(correlation_x=correlation_x, )
-                group.save()
-            else:
-                group = group_exist. \
-                    groups.all(). \
-                    get(correlation_x=correlation_x). \
-                    id
-            object.groups.add(group)
-            object.save()
-        print(f'pabaiga, {loop_count}')
+
+        for item in range(1, 5):
+            length_limits = group_limits[item]
+            print(length_limits)
+            queryset_by_correlation = ContourCorrelation.objects. \
+                filter(correlation_x__gte=correlation_x). \
+                distinct(). \
+                values_list('find_1', 'find_2')
+
+            # queryset_ids = list(
+            #     {item[0] for item in queryset_by_correlation}. \
+            #         union({item[1] for item in queryset_by_correlation})
+            # )
+            # objects_to_group = PotteryDescription.objects.filter(
+            #     Q(pk__in=queryset_ids) &
+            #     ~Q(groups__correlation_x=correlation_x)
+            # ).distinct()
+            # loop_count = 0
+            # for object in objects_to_group:
+            #     loop_count+=1
+            #     print(loop_count)
+            #     corelated_objects = ContourCorrelation.objects.filter(
+            #         (Q(find_1=object.id) | Q(find_2=object.id)) &
+            #         Q(correlation_x__gte=correlation_x)
+            #     ).distinct().\
+            #     values_list('find_1', 'find_2')
+            #     correlated_ids = list(
+            #         {item[0] for item in corelated_objects if item != object.id}. \
+            #             union({item[1] for item in corelated_objects if item != object.id})
+            #     )
+            #     group_exist = PotteryDescription.objects.\
+            #         filter(Q(pk__in=correlated_ids) & Q(groups__correlation_x=correlation_x)).\
+            #         first()
+            #     if not group_exist:
+            #         group = ContourGroup(correlation_x=correlation_x, )
+            #         group.save()
+            #     else:
+            #         group = group_exist. \
+            #             groups.all(). \
+            #             get(correlation_x=correlation_x). \
+            #             id
+            #     object.groups.add(group)
+            #     object.save()
+            # print(f'pabaiga, {loop_count}')
 
     return render(request, 'group_contours_auto.html')
 
