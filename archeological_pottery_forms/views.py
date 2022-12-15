@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
-from django.db.models import Q, Max, Min, Count, Avg
+from django.db.models import Q, Max, Min, Count, Avg, F
 from .models import Bibliography, \
                     PotteryDescription, \
                     ResearchObject, \
@@ -27,8 +27,90 @@ import time
 logger = logging.getLogger(__name__)
 
 
+@csrf_protect
 def index(request):
-    return render(request, 'index.html')
+    finds_amount = PotteryDescription.objects.count()
+
+    if request.method == 'POST' and 'calculate' in request.POST:
+        print('ok')
+        top_points = CeramicContour.objects.\
+            filter(y=0).\
+            values('find_id', 'y').\
+            annotate(x=Avg('x'))
+
+        neck_points = CeramicContour.objects.\
+            filter(y=(F('find_id__neck_max_y') - F('find_id__neck_min_y')) / 2 +
+                     F('find_id__neck_min_y')).\
+            values('find_id', 'y').\
+            annotate(x=Avg('x'))
+
+        shoulders_points = CeramicContour.objects.\
+            filter(y=(F('find_id__shoulders_max_y') - F('find_id__shoulders_min_y')) / 2 +
+                     F('find_id__shoulders_min_y')).\
+            values('find_id', 'y').\
+            annotate(x=Avg('x'))
+
+        neck_avg_y = PotteryDescription.objects.\
+            values('pk').\
+            annotate(y=(F('neck_max_y') - F('neck_min_y')) / 2 + F('neck_min_y')).\
+            aggregate(Avg('y'))['y__avg']
+        shoulders_avg_y = PotteryDescription.objects.\
+            values('pk').\
+            annotate(y=(F('shoulders_max_y') - F('shoulders_min_y')) / 2 + F('shoulders_min_y')).\
+            aggregate(Avg('y'))['y__avg']
+        shoulders_avg_midpoint = (shoulders_avg_y - neck_avg_y) / 2 + neck_avg_y
+
+        finds_without_neck_type = PotteryDescription.objects.filter(neck_type=None)
+        if finds_without_neck_type:
+            for find in finds_without_neck_type:
+                top_point = top_points.filter(find_id=find.id)
+                neck_point = neck_points.filter(find_id=find.id)
+
+                if top_point and neck_point:
+                    x_top, y_top = top_point[0]['x'], top_point[0]['y']
+                    x_neck, y_neck = neck_point[0]['x'], neck_point[0]['y']
+                    if (x_top - x_neck) / (y_top - y_neck) > 0:
+                        find.neck_type = 'lenktas į vidų'
+                        find.save()
+                    else:
+                        find.neck_type = 'lenktas į išorę'
+                        find.save()
+
+        finds_without_shoulders_type = PotteryDescription.objects.filter(shoulders_type=None)
+        if finds_without_shoulders_type:
+            for find in finds_without_shoulders_type:
+                neck_point = neck_points.filter(find_id=find.id)
+                shoulders_point = shoulders_points.filter(find_id=find.id)
+                find_length = CeramicContour.objects.filter(find_id=find.id).aggregate(Max('y'))
+
+                if neck_point and find_length['y__max']:
+                    calculate_shoulders_type = find_length['y__max'] > shoulders_avg_midpoint
+                else:
+                    calculate_shoulders_type = False
+
+                if calculate_shoulders_type:
+                    x_neck, y_neck = neck_point[0]['x'], neck_point[0]['y']
+                    if shoulders_point:
+                        x_shoulders, y_shoulders = shoulders_point[0]['x'], shoulders_point[0]['y']
+                    else:
+                        shoulders_point = CeramicContour.objects.\
+                            filter(Q(find_id=find.id) & Q(y=find_length['y__max'])).\
+                            values('y').\
+                            annotate(x=Avg('x'))
+                        x_shoulders, y_shoulders = shoulders_point[0]['x'], shoulders_point[0]['y']
+
+                    coords_delta = (x_shoulders - x_neck) / (y_shoulders - y_neck)
+                    if coords_delta < 0.7:
+                        find.shoulders_type = 'didelio nuolydžio'
+                    elif coords_delta > 0.7 and coords_delta < 1.42:
+                        find.shoulders_type = 'vidutinio nuolydžio'
+                    elif coords_delta > 1.42:
+                        find.shoulders_type = 'mažo nuolydžio'
+                    find.save()
+    context = {
+        'finds_amount': finds_amount
+    }
+    return render(request, 'index.html', context=context)
 
 
 def search(request):
@@ -111,7 +193,6 @@ def save_changes(request, find):
     find.neck_shoulders_union = request.POST['neck_shoulders_union_type']
     find.shoulders_body_union = request.POST['shoulders_body_union_type']
     find.save()
-
 
 
 @csrf_protect
@@ -337,8 +418,6 @@ def view_correlation(request):
         'queryset_type': queryset_type
     }
     return render(request, 'view_correlation.html', context=context)
-
-
 
 
 @csrf_protect

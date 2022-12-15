@@ -22,10 +22,29 @@
         <ul>
             <li>Pasirinkti archeologinių tyrimų objektą;</li>
             <li>aprašyti jo radinius;</li>
-            <li>vektorizuoti radinių brėžinius: iš rastrinio failo nuskaityti skersinio pjūvio koordinates ir išsaugoti jas modelyje;</li>
-            <li>atvaizduoti vektorizuotus radinių profilius ir patvirtinti jų kokybę arba ištrinti netinkamą profilį.</li>
+            <li>vektorizuoti radinių brėžinius: iš rastrinio failo nuskaityti skersinio pjūvio koordinates ir išsaugoti
+                jas modelyje;
+            </li>
+            <li>atvaizduoti vektorizuotus radinių profilius ir patvirtinti jų kokybę arba ištrinti netinkamą profilį.
+            </li>
         </ul>
+
+
     </div>
+    <div class="card-body">
+        {% if finds_amount %}
+        <strong>duomenų bazėje yra {{finds_amount}} radinių</strong><br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-warning" id="calculate" name="calculate">nustatyti kaklelio ir petelių
+                tipus
+            </button>
+
+            {% endif %}
+        </form>
+    </div>
+
+
 </div>
 
 
