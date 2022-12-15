@@ -132,12 +132,6 @@ class ContourGroup(models.Model):
         null=False,
         blank=False
     )
-    correlation_avg = models.FloatField(
-        'correlation_avg',
-        null=False,
-        blank=False,
-        default=0
-    )
     length_group = models.IntegerField(
         'length_group',
         null=True

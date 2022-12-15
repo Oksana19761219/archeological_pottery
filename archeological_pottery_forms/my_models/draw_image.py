@@ -16,18 +16,20 @@ def draw_group_image(group, coords, x_min):
     pixels_np = pixels_pd.to_numpy()
     pixels_max = np.max(pixels_np, axis=0)
 
-    image_width = int(pixels_max[0] + 50)
+    image_width = int(pixels_max[0] + 70)
     image_heigth = int(pixels_max[1] + 80)
     image = Image.new('RGB', (image_width, image_heigth), color='white')
 
     color = (0, 0, 0)
 
     I1 = ImageDraw.Draw(image)
-    I1.text((20, (image_heigth - 50)),
+    I1.text((20, (image_heigth - 70)),
             f'''grupes nr. {group.id},
-koreliacija: {group.correlation_x}, {group.correlation_avg}
-radiniu: {group.findings_count}''',
+koreliacija: {group.correlation_x},
+ilgio grupe: {group.length_group},
+radiniu kiekis: {group.findings_count}''',
             fill=(70, 70, 70))
+
     # braizoma profiliu grupes iliustracija
     for pixel in pixels_np:
         x, y = int(pixel[0]+40), int(pixel[1])

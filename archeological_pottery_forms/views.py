@@ -507,15 +507,12 @@ def auto_group_contours(request):
 
     if request.method == 'POST' and 'create' in request.POST:
         correlation_x = request.POST['correlation']
-        correlation_avg = request.POST['correlation_avg']
         loop_count = 0
 
         for item in range(1, 5):
             length_limits = group_limits[item]
             queryset_by_correlation = ContourCorrelation.objects. \
-                filter(
-                Q(correlation_x__gte=correlation_x) &
-                Q(correlation_avg__gte=correlation_avg)). \
+                filter(correlation_x__gte=correlation_x). \
                 distinct(). \
                 values_list('find_1', 'find_2')
             queryset_ids = list(
@@ -533,8 +530,7 @@ def auto_group_contours(request):
 
             objects_to_group = PotteryDescription.objects.filter(
                 Q(pk__in=this_group_ids) &
-                ~Q(groups__correlation_x=correlation_x) &
-                ~Q(groups__correlation_avg=correlation_avg)
+                ~Q(groups__correlation_x=correlation_x)
             ).distinct()
 
 
@@ -545,7 +541,7 @@ def auto_group_contours(request):
                 corelated_objects = ContourCorrelation.objects.\
                     filter((Q(find_1=object.id) |
                             Q(find_2=object.id)) &
-                           (Q(correlation_x__gte=correlation_x) & Q(correlation_avg__gte=correlation_avg))).\
+                           Q(correlation_x__gte=correlation_x)).\
                     distinct().\
                     values_list('find_1', 'find_2')
                 correlated_ids = list(
@@ -566,23 +562,21 @@ def auto_group_contours(request):
 
                 group_exist = PotteryDescription.objects.\
                     filter(Q(pk__in=correlated_ids_this_group) &
-                           (Q(groups__correlation_x=correlation_x) & Q(groups__correlation_avg=correlation_avg))).\
+                           Q(groups__correlation_x=correlation_x)).\
                     first()
 
                 if not group_exist:
                     group = ContourGroup(correlation_x=correlation_x,
-                                         correlation_avg=correlation_avg,
                                          length_group=item)
                     group.save()
                 else:
                     group = group_exist. \
                         groups.all(). \
-                        get(Q(correlation_x=correlation_x) & Q(correlation_avg=correlation_avg)). \
+                        get(correlation_x=correlation_x). \
                         id
                 object.groups.add(group)
                 object.save()
         print(f'pabaiga, {loop_count}')
-
 
     return render(request, 'group_contours_auto.html')
 
@@ -621,6 +615,7 @@ def review_groups(request):
             values_list('find_id', 'x', 'y')
 
         draw_group_image(group, coords, x_min)
+
 
 
     if request.method == 'POST' and 'draw_images' in request.POST:
