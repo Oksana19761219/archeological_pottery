@@ -103,6 +103,16 @@ class PotteryLipShape(models.Model):
         null=True,
         help_text='temporary field, lip number from old database'
     )
+    relative_lip = models.IntegerField(
+        'relative_lip',
+        null=True
+    )
+    note = models.CharField(
+        'note',
+        max_length=255,
+        null=True,
+        blank=True
+    )
     action = models.ManyToManyField(PotteryMakingAction)
 
 
@@ -264,6 +274,16 @@ class PotteryDescription(models.Model):
     shoulders_type = models.CharField(
         'shoulders_type',
         max_length=50,
+        null=True,
+        blank=True
+    )
+    neck_slope = models.FloatField(
+        'neck_slope',
+        null=True,
+        blank=True
+    )
+    shoulders_slope = models.FloatField(
+        'shoulders_slope',
         null=True,
         blank=True
     )

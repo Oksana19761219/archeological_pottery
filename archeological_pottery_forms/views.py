@@ -22,17 +22,77 @@ from .my_models.draw_image import draw_group_image
 import pandas as pd
 import logging
 import time
+from math import pi
 
 
 logger = logging.getLogger(__name__)
+
+
+def determine_neck_type(find, top_point, neck_point):
+    if top_point and neck_point:
+        x_top, y_top = top_point[0]['x'], top_point[0]['y']
+        x_neck, y_neck = neck_point[0]['x'], neck_point[0]['y']
+        y_delta = y_neck - y_top
+        if y_delta == 0:
+            find.neck_type = 'horizontalus'
+        else:
+            neck_slope = round((x_neck - x_top) / (y_neck - y_top), 3)
+            find.neck_slope = neck_slope
+            if neck_slope < 0:
+                find.neck_type = 'lenktas į vidų'
+            else:
+                find.neck_type = 'lenktas į išorę'
+        find.save()
+
+
+def determine_shoulders_type(find, find_length, neck_point, shoulders_point):
+    x_neck, y_neck = neck_point[0]['x'], neck_point[0]['y']
+    if shoulders_point:
+        x_shoulders, y_shoulders = shoulders_point[0]['x'], shoulders_point[0]['y']
+    else:
+        shoulders_point = CeramicContour.objects. \
+            filter(Q(find_id=find.id) & Q(y=find_length['y__max'])). \
+            values('y'). \
+            annotate(x=Avg('x'))
+        x_shoulders, y_shoulders = shoulders_point[0]['x'], shoulders_point[0]['y']
+
+    y_delta = y_shoulders - y_neck
+    if y_delta == 0:
+        find.soulders_type = 'be nuolydžio'
+    else:
+        shoulders_slope = round((x_shoulders - x_neck) / (y_shoulders - y_neck), 3)
+        find.shoulders_slope = shoulders_slope
+        if shoulders_slope < 0.7:
+            find.shoulders_type = 'didelio nuolydžio'
+        elif shoulders_slope > 0.7 and shoulders_slope < 1.42:
+            find.shoulders_type = 'vidutinio nuolydžio'
+        elif shoulders_slope > 1.42:
+            find.shoulders_type = 'mažo nuolydžio'
+    find.save()
+
+
+def calculate_angle():
+    queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(arc_angle=None)).distinct()
+    ids = queryset.values_list('id')
+    for id in ids:
+        radius = CeramicContour.objects.filter(Q(find_id__in=id) & Q(y=0)).aggregate(Max('x'))['x__max']
+        arc_length = PotteryDescription.objects.filter(pk__in=id).values_list('arc_length')[0][0]
+        if arc_length:
+            angle = round((360 * (arc_length * 5))/(2 * pi * radius), 0)
+            print(angle)
+            object = PotteryDescription.objects.get(pk=id[0])
+            object.arc_angle = angle
+            object.save()
 
 
 @csrf_protect
 def index(request):
     finds_amount = PotteryDescription.objects.count()
 
-    if request.method == 'POST' and 'calculate' in request.POST:
-        print('ok')
+    if request.method == 'POST' and 'arc_angle' in request.POST:
+        calculate_angle()
+
+    if request.method == 'POST' and 'neck_shoulders_type' in request.POST:
         top_points = CeramicContour.objects.\
             filter(y=0).\
             values('find_id', 'y').\
@@ -65,16 +125,7 @@ def index(request):
             for find in finds_without_neck_type:
                 top_point = top_points.filter(find_id=find.id)
                 neck_point = neck_points.filter(find_id=find.id)
-
-                if top_point and neck_point:
-                    x_top, y_top = top_point[0]['x'], top_point[0]['y']
-                    x_neck, y_neck = neck_point[0]['x'], neck_point[0]['y']
-                    if (x_top - x_neck) / (y_top - y_neck) > 0:
-                        find.neck_type = 'lenktas į vidų'
-                        find.save()
-                    else:
-                        find.neck_type = 'lenktas į išorę'
-                        find.save()
+                determine_neck_type(find, top_point, neck_point)
 
         finds_without_shoulders_type = PotteryDescription.objects.filter(shoulders_type=None)
         if finds_without_shoulders_type:
@@ -84,29 +135,13 @@ def index(request):
                 find_length = CeramicContour.objects.filter(find_id=find.id).aggregate(Max('y'))
 
                 if neck_point and find_length['y__max']:
-                    calculate_shoulders_type = find_length['y__max'] > shoulders_avg_midpoint
+                    shoulders_type_can_be_set = find_length['y__max'] > shoulders_avg_midpoint
                 else:
-                    calculate_shoulders_type = False
+                    shoulders_type_can_be_set = False
 
-                if calculate_shoulders_type:
-                    x_neck, y_neck = neck_point[0]['x'], neck_point[0]['y']
-                    if shoulders_point:
-                        x_shoulders, y_shoulders = shoulders_point[0]['x'], shoulders_point[0]['y']
-                    else:
-                        shoulders_point = CeramicContour.objects.\
-                            filter(Q(find_id=find.id) & Q(y=find_length['y__max'])).\
-                            values('y').\
-                            annotate(x=Avg('x'))
-                        x_shoulders, y_shoulders = shoulders_point[0]['x'], shoulders_point[0]['y']
+                if shoulders_type_can_be_set:
+                    determine_shoulders_type(find, find_length, neck_point, shoulders_point)
 
-                    coords_delta = (x_shoulders - x_neck) / (y_shoulders - y_neck)
-                    if coords_delta < 0.7:
-                        find.shoulders_type = 'didelio nuolydžio'
-                    elif coords_delta > 0.7 and coords_delta < 1.42:
-                        find.shoulders_type = 'vidutinio nuolydžio'
-                    elif coords_delta > 1.42:
-                        find.shoulders_type = 'mažo nuolydžio'
-                    find.save()
     context = {
         'finds_amount': finds_amount
     }
@@ -536,20 +571,7 @@ def review_profiles(request):
     return render(request, 'review_profiles.html', context=context)
 
 
-# def calculate_angle():
-#     queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(arc_angle=None)).distinct()
-#     ids = queryset.values_list('id')
-#
-#     for id in ids:
-#         x_max = CeramicContour.objects.filter(Q(find_id__in=id) & Q(y=0)).aggregate(Max('x'))['x__max']
-#         arc_length = PotteryDescription.objects.filter(pk__in=id).values('arc_length')[0]['arc_length']
-#         distance_to_center = PotteryDescription.objects.filter(pk__in=id).values('distance_to_center')[0]['distance_to_center']
-#         radius = x_max + abs(distance_to_center)
-#         angle = round((360 * (arc_length * 5))/(2 * pi * radius), 0)
-#
-#         object = PotteryDescription.objects.get(pk=id[0])
-#         object.arc_angle = angle
-#         object.save()
+
 
 def calculate_length():
     queryset = PotteryDescription.objects.filter(Q(coordinates__isnull=False) & Q(find_length=None)).distinct()

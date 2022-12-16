@@ -36,9 +36,12 @@
         <strong>duomenų bazėje yra {{finds_amount}} radinių</strong><br>
         <form action="" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-warning" id="calculate" name="calculate">nustatyti kaklelio ir petelių
+            <button type="submit" class="btn btn-warning" id="neck_shoulders_type" name="neck_shoulders_type">nustatyti kaklelio ir petelių
                 tipus
             </button>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-warning" id="arc_angle" name="arc_angle">nustatyti radinių segmentų kampus</button>
 
             {% endif %}
         </form>
