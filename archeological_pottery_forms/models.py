@@ -127,6 +127,16 @@ class PotteryOrnamentShape(models.Model):
         null=True,
         help_text='temporary field, ornament number from old database'
     )
+    relative_ornament = models.IntegerField(
+        'relative_ornament',
+        null=True
+    )
+    note = models.CharField(
+        'note',
+        max_length=255,
+        null=True,
+        blank=True
+    )
     action = models.ManyToManyField(PotteryMakingAction)
 
 
@@ -284,6 +294,11 @@ class PotteryDescription(models.Model):
     )
     shoulders_slope = models.FloatField(
         'shoulders_slope',
+        null=True,
+        blank=True
+    )
+    width_avg = models.FloatField(
+        'width_avg',
         null=True,
         blank=True
     )

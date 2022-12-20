@@ -18,7 +18,8 @@ from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages
 from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
-from .my_models.draw_image import draw_group_image
+from .my_models.draw_image import draw_group_image, draw_one_object_group_image
+import numpy as np
 import pandas as pd
 import logging
 import time
@@ -84,6 +85,22 @@ def calculate_angle():
             object.arc_angle = angle
             object.save()
 
+def calculate_average_width():
+    width_queryset = CeramicContour.objects. \
+        filter(y__gt=F('find_id__lip_base_y')). \
+        values('find_id', 'y'). \
+        annotate(x_max=Max('x'), x_min=Min('x')). \
+        annotate(width=(F('x_max') - F('x_min'))).values('find_id', 'width')
+    ids = width_queryset.values_list('find_id', flat=True).distinct()
+    for this_id in ids:
+        width_avg = width_queryset. \
+            filter(find_id=this_id). \
+            aggregate(width_avg=Avg('width'))['width_avg']
+        width_avg = round(width_avg, 4)
+        find = PotteryDescription.objects.get(pk=this_id)
+        find.width_avg = width_avg
+        find.save()
+
 
 @csrf_protect
 def index(request):
@@ -91,6 +108,9 @@ def index(request):
 
     if request.method == 'POST' and 'arc_angle' in request.POST:
         calculate_angle()
+
+    if request.method == 'POST' and 'width_avg' in request.POST:
+        calculate_average_width()
 
     if request.method == 'POST' and 'neck_shoulders_type' in request.POST:
         top_points = CeramicContour.objects.\
@@ -298,6 +318,29 @@ def update_description(request, find_id):
         find.bottom_exist = False
         find.save()
         return HttpResponseRedirect(reverse('update_description', args=[find.id]))
+
+    if request.method == 'POST' and 'draw_image' in request.POST:
+        correlation_x = request.POST['correlation']
+        ids_queryset = ContourCorrelation.objects.\
+            filter(Q(correlation_x__gte=correlation_x) & (Q(find_1=find_id) | Q(find_2=find_id)))
+        ids_find_1 = ids_queryset.values_list('find_1', flat=True).distinct()
+        ids_find_2 = ids_queryset.values_list('find_2', flat=True).distinct()
+        ids = set(ids_find_1).union(set(ids_find_2))
+        finds_amount = len(ids)
+
+        x_min = CeramicContour.objects.filter(y=0).\
+            values('y', 'find_id').\
+            annotate(x_min=Avg('x')).\
+            order_by().\
+            values_list('find_id', 'x_min')
+
+        coords = CeramicContour.objects.\
+            filter(Q(find_id__in=ids_find_1) | Q(find_id__in=ids_find_2)).\
+            values_list('find_id', 'x', 'y').\
+            distinct()
+
+        if finds_amount > 1:
+            draw_one_object_group_image(find_id, finds_amount, correlation_x, coords, x_min)
 
     if request.method == 'POST' and 'previous' in request.POST:
         if this_id_index > 0 and this_id_index < len(find_ids)-1:
@@ -739,8 +782,9 @@ def review_groups(request):
                 filter(find_id__groups=group.id). \
                 values_list('find_id', 'x', 'y')
 
-            draw_group_image(group, coords, x_min)
-        # print('atlikta')
+            if group.findings_count > 1:
+                draw_group_image(group, coords, x_min)
+
 
 
     context = {
