@@ -18,7 +18,9 @@ from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages
 from .my_models.correlation import calculate_correlation
 from .my_models.sounds import sound_files
-from .my_models.draw_image import draw_group_image, draw_one_object_group_image
+from .my_models.draw_image import draw_group_image, \
+                                  draw_one_object_group_image, \
+                                  draw_two_correlated_finds_image
 import numpy as np
 import pandas as pd
 import logging
@@ -161,6 +163,28 @@ def index(request):
 
                 if shoulders_type_can_be_set:
                     determine_shoulders_type(find, find_length, neck_point, shoulders_point)
+
+    if request.method == 'POST' and 'draw_image' in request.POST:
+        id_corr = request.POST['correlation_id']
+        correlation_queryset = ContourCorrelation.objects.\
+            filter(pk=id_corr).\
+            values('id', 'find_1', 'find_2', 'correlation_x')
+        if correlation_queryset:
+            ids = [correlation_queryset[0]['find_1'], correlation_queryset[0]['find_2']]
+            x_min = CeramicContour.objects.filter(y=0). \
+                values('y', 'find_id'). \
+                annotate(x_min=Avg('x')). \
+                order_by(). \
+                values_list('find_id', 'x_min')
+
+            coords = CeramicContour.objects. \
+                filter(find_id__in=ids). \
+                values_list('find_id', 'x', 'y'). \
+                distinct()
+            draw_two_correlated_finds_image(coords, x_min, correlation_queryset)
+        else:
+            print('neteisingas ID')
+
 
     context = {
         'finds_amount': finds_amount

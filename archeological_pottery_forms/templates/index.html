@@ -14,23 +14,7 @@
 {% endif %}
 
 <div class="card">
-    <div class="card-body">
-        <p>Šis projektas – mano kuriamo Vilniaus archeologinės keramikos mokslinių tyrimų įrankio dalis.</p>
-        <p>Jo tikslas – paruošti duomenis statistiniam tyrimui.</p>
-        <br>
-        <p>Programa leidžia: </p>
-        <ul>
-            <li>Pasirinkti archeologinių tyrimų objektą;</li>
-            <li>aprašyti jo radinius;</li>
-            <li>vektorizuoti radinių brėžinius: iš rastrinio failo nuskaityti skersinio pjūvio koordinates ir išsaugoti
-                jas modelyje;
-            </li>
-            <li>atvaizduoti vektorizuotus radinių profilius ir patvirtinti jų kokybę arba ištrinti netinkamą profilį.
-            </li>
-        </ul>
 
-
-    </div>
     <div class="card-body">
         {% if finds_amount %}
         <strong>duomenų bazėje yra {{finds_amount}} radinių</strong><br>
@@ -39,11 +23,15 @@
             <button type="submit" class="btn btn-warning" id="neck_shoulders_type" name="neck_shoulders_type">nustatyti kaklelio ir petelių
                 tipus
             </button>
-            <br>
-            <br>
+            <br><br>
             <button type="submit" class="btn btn-warning" id="arc_angle" name="arc_angle">nustatyti radinių segmentų kampus</button>
-            <br>
+            <br><br>
             <button type="submit" class="btn btn-warning" id="width_avg" name="width_avg">apskaičiuoti radinių vidutinius storius</button>
+            <br><br>
+            <strong>dviejų koreliuotų radinių iliustracija</strong>
+            <p>įvesti ID (iš lentelės archeological_pottery_forms_contourcorrelation)</p>
+            <input type="number" id="correlation_id" name="correlation_id" step="1" value="0">
+            <button type="submit" class="btn btn-warning" id="draw_image" name="draw_image">padaryti iliustraciją</button>
 
 
             {% endif %}

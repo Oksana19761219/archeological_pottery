@@ -41,6 +41,13 @@ def draw_image(x_min, coords, text, adress):
 
     image.save(adress)
 
+def draw_two_correlated_finds_image(coords, x_min, correlation_queryset):
+    text = f'''radiniu id: {correlation_queryset[0]['find_1']}, {correlation_queryset[0]['find_2']}
+koreliacija: {correlation_queryset[0]['correlation_x']}
+koreliacijos id: {correlation_queryset[0]['id']}
+'''
+    adress = f'E:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{correlation_queryset[0]["id"]}_id__{correlation_queryset[0]["find_1"]}_{correlation_queryset[0]["find_2"]}_obj.png'
+    draw_image(x_min, coords, text, adress)
 
 def draw_group_image(group, coords, x_min):
     text = f'''grupes nr. {group.id},
