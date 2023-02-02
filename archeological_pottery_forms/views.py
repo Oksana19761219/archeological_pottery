@@ -119,8 +119,8 @@ def index(request):
     if request.method == 'POST' and 'curvature' in request.POST:
         all_nodes = CeramicContour.objects.all()
         find_ids = all_nodes.values_list('find_id', flat=True).distinct()
-        for nr, find_id in enumerate(find_ids):
-            print(nr)
+
+        for find_id in find_ids:
             single_profile_nodes = pd.DataFrame.from_records(CeramicContour.objects.
                                                              filter(find_id=find_id).
                                                              values('x', 'y'))
@@ -584,15 +584,13 @@ def calculate_correlation_coefficient(request):
         for id in sorted(ids):
             this_contour = contours_to_correlate_df[contours_to_correlate_df['find_id'] == id]
             this_object = PotteryDescription.objects.get(pk=id)
-            neck_min_y = this_object.neck_min_y
-            shoulders_min_y = this_object.shoulders_min_y
             other_contours = contours_to_correlate_df[contours_to_correlate_df['find_id'] > id]
 
             if not other_contours.empty:
-                calculate_correlation(this_contour, other_contours, id, neck_min_y, shoulders_min_y)
+                calculate_correlation(this_contour, other_contours, id)
 
             if not contours_correlated_df.empty:
-                calculate_correlation(this_contour, contours_correlated_df, id, neck_min_y, shoulders_min_y)
+                calculate_correlation(this_contour, contours_correlated_df, id)
 
             this_ceramic = PotteryDescription.objects.get(pk=id)
             this_ceramic.correlation_calculated = True
