@@ -361,6 +361,7 @@ class CeramicContour(models.Model):
         null=False,
         blank=False
     )
+
     y = models.IntegerField(
         'y',
         null=False,
@@ -373,6 +374,12 @@ class CeramicContour(models.Model):
         null=False,
         blank=False,
         related_name='coordinates'
+    )
+
+    curvature=models.FloatField(
+        'curvature',
+        null=True,
+        blank=True
     )
 
     @property

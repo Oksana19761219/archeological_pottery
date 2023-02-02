@@ -12,8 +12,6 @@ from .models import Bibliography, \
                     ContourGroup, \
                     PotteryLipShape, \
                     PotteryOrnamentShape
-
-from .forms import PotteryDescriptionForm, DrawingForm
 from .my_models.vectorize_files import vectorize_files
 from .my_models.variables import messages
 from .my_models.correlation import calculate_correlation
@@ -21,6 +19,9 @@ from .my_models.sounds import sound_files
 from .my_models.draw_image import draw_group_image, \
                                   draw_one_object_group_image, \
                                   draw_two_correlated_finds_image
+from .my_models.profile_curvature import calculate_curvature, \
+                                         order_curve_nodes
+from .forms import PotteryDescriptionForm, DrawingForm
 import numpy as np
 import pandas as pd
 import logging
@@ -87,6 +88,7 @@ def calculate_angle():
             object.arc_angle = angle
             object.save()
 
+
 def calculate_average_width():
     width_queryset = CeramicContour.objects. \
         filter(y__gt=F('find_id__lip_base_y')). \
@@ -113,6 +115,27 @@ def index(request):
 
     if request.method == 'POST' and 'width_avg' in request.POST:
         calculate_average_width()
+
+    if request.method == 'POST' and 'curvature' in request.POST:
+        all_nodes = CeramicContour.objects.all()
+        find_ids = all_nodes.values_list('find_id', flat=True).distinct()
+        for nr, find_id in enumerate(find_ids):
+            print(nr)
+            single_profile_nodes = pd.DataFrame.from_records(CeramicContour.objects.
+                                                             filter(find_id=find_id).
+                                                             values('x', 'y'))
+            ordered_nodes = order_curve_nodes(single_profile_nodes)
+            curvature = calculate_curvature(ordered_nodes)
+            ordered_nodes_curvature = np.c_[ordered_nodes, curvature]
+            for item in ordered_nodes_curvature:
+                data = CeramicContour(
+                    x=int(item[0]),
+                    y= int(item[1]),
+                    curvature=item[2],
+                    find_id=find_id
+                )
+                data.save()
+
 
     if request.method == 'POST' and 'neck_shoulders_type' in request.POST:
         top_points = CeramicContour.objects.\

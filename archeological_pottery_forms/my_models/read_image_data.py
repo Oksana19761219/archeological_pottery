@@ -139,6 +139,12 @@ def orthogonalize_image(image, pixels, frame_width, frame_height):
 
 
 def get_contour_coords(image, ceramic_pixels, frame_pixels, ceramic_id):
+
+    """
+    reikia tobulinti funkcija: prideti kreivio skaiciavima
+
+
+    """
     x, y = _get_pixels_coords(image, ceramic_pixels)
     coords = pd.DataFrame({'x': x[0], 'y': y[0]})
     index_list = []
