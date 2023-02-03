@@ -22,10 +22,6 @@ def calculate_curvature(ordered_nodes):
     return curvature
 
 
-# coords_pd = pd.read_csv('coords_find_id_5471.csv')
-# nodes = coords_pd.drop(['id', 'find_id'], axis=1)
-
-
 def order_curve_nodes(nodes):
     nodes_y_max = nodes[nodes['y'] == nodes['y'].max()]
     start_node = nodes_y_max[nodes_y_max['x'] == nodes_y_max['x'].max()]
@@ -41,12 +37,3 @@ def order_curve_nodes(nodes):
         ordered_nodes = np.append(ordered_nodes, node.reshape((1, 2)), axis=0)
     return ordered_nodes
 
-
-
-# curvature = calculate_curvature(ordered_nodes)
-# ordered_nodes_curvature = np.c_[ordered_nodes, curvature]
-# for item in ordered_nodes_curvature:
-#     x = int(item[0])
-#     y = int(item[1])
-#     node_curvature = item[2]
-#     print(x, y, node_curvature)

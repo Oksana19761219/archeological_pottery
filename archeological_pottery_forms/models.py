@@ -382,6 +382,13 @@ class CeramicContour(models.Model):
         blank=True
     )
 
+    profile_side = models.CharField(
+        'profile_side',
+        max_length=10,
+        null=True,
+        blank=True
+    )
+
     @property
     def x_canvas_middle(self):
         top_mid_point = CeramicContour.objects.filter(Q(find_id=self.find_id) & Q(y=0)).aggregate(Avg('x'))['x__avg']
@@ -421,4 +428,8 @@ class ContourCorrelation(models.Model):
         null=True,
         blank=True
     )
-
+    area = models.FloatField(
+        'area',
+        null=True,
+        blank=True
+    )

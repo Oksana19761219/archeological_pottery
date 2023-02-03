@@ -21891,3 +21891,25 @@ INFO 2023-02-02 15:42:42,647 archeological_pottery_forms.views koreliacijos koef
 INFO 2023-02-02 15:58:33,472 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7476
 INFO 2023-02-02 15:58:34,498 archeological_pottery_forms.my_models.my_decorators programa vykdyta 23.070098299999998 sek.
 INFO 2023-02-02 16:05:51,639 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 7.726967500000001 sek., lyginta 1516 radinių
+ERROR 2023-02-03 10:01:26,972 archeological_pottery_forms.my_models.vectorize_files toks radinys jau yra CeramicContour modelyje (reg. nr. 19aaa.tif, objekto id 449)
+NoneType: None
+ERROR 2023-02-03 10:01:26,973 archeological_pottery_forms.my_models.vectorize_files brėžinys nevektorizuotas: 19aaa.tif, tyrimų objekto id 449
+NoneType: None
+INFO 2023-02-03 10:01:51,304 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7477
+INFO 2023-02-03 10:02:16,075 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7478
+INFO 2023-02-03 10:02:17,104 archeological_pottery_forms.my_models.my_decorators programa vykdyta 50.222392799999994 sek.
+INFO 2023-02-03 10:03:05,407 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7479
+INFO 2023-02-03 10:03:06,428 archeological_pottery_forms.my_models.my_decorators programa vykdyta 22.564738699999964 sek.
+INFO 2023-02-03 13:26:10,338 archeological_pottery_forms.my_models.my_decorators programa vykdyta 21.940423400000014 sek.
+INFO 2023-02-03 13:29:53,489 archeological_pottery_forms.my_models.my_decorators programa vykdyta 21.443027500000003 sek.
+INFO 2023-02-03 13:30:49,795 archeological_pottery_forms.my_models.my_decorators programa vykdyta 21.033998599999997 sek.
+INFO 2023-02-03 13:34:20,664 archeological_pottery_forms.my_models.my_decorators programa vykdyta 20.9977472 sek.
+INFO 2023-02-03 13:41:54,126 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7476
+INFO 2023-02-03 13:41:55,158 archeological_pottery_forms.my_models.my_decorators programa vykdyta 22.031286599999998 sek.
+INFO 2023-02-03 13:45:26,104 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7477
+INFO 2023-02-03 13:45:48,207 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7478
+INFO 2023-02-03 13:45:49,224 archeological_pottery_forms.my_models.my_decorators programa vykdyta 44.866542400000014 sek.
+INFO 2023-02-03 13:46:29,842 archeological_pottery_forms.my_models.vectorize_files įrašytos profilio koordinatės: id 7479
+INFO 2023-02-03 13:46:30,862 archeological_pottery_forms.my_models.my_decorators programa vykdyta 21.793591900000024 sek.
+INFO 2023-02-03 13:51:27,650 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 24.210988300000054 sek., lyginta 1519 radinių
+INFO 2023-02-03 16:57:27,235 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 26.6039057 sek., lyginta 1519 radinių
