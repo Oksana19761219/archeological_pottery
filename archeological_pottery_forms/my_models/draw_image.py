@@ -46,15 +46,15 @@ def draw_two_correlated_finds_image(coords, x_min, correlation_queryset):
 koreliacija: {correlation_queryset[0]['correlation_x']}
 koreliacijos id: {correlation_queryset[0]['id']}
 '''
-    adress = f'E:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{correlation_queryset[0]["id"]}_id__{correlation_queryset[0]["find_1"]}_{correlation_queryset[0]["find_2"]}_obj.png'
+    adress = f'F:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{correlation_queryset[0]["id"]}_id__{correlation_queryset[0]["find_1"]}_{correlation_queryset[0]["find_2"]}_obj.png'
     draw_image(x_min, coords, text, adress)
 
 def draw_group_image(group, coords, x_min):
     text = f'''grupes nr. {group.id},
 koreliacija: {group.correlation_x},
-ilgio grupe: {group.length_group},
+tikslumas: {group.precision},
 radiniu kiekis: {group.findings_count}'''
-    adress = f'E:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{group.id}_gr.png'
+    adress = f'F:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{group.id}_gr.png'
     draw_image(x_min, coords, text, adress)
 
 
@@ -62,5 +62,5 @@ def draw_one_object_group_image(find_id, finds_amount, correlation_x, coords, x_
     text = f'''radinio ID. {find_id},
 koreliacija: {correlation_x},
 radiniu kiekis: {finds_amount}'''
-    adress = f'E:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{find_id}_obj_{correlation_x}_corr.png'
+    adress = f'F:/buitine_keramika_tyrimai/tyrimai/Subaciaus_11/grupiu_breziniai_coreliacija/{find_id}_obj_{correlation_x}_corr.png'
     draw_image(x_min, coords, text, adress)

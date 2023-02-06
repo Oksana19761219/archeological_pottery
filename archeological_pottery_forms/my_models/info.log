@@ -21913,3 +21913,4 @@ INFO 2023-02-03 13:46:29,842 archeological_pottery_forms.my_models.vectorize_fil
 INFO 2023-02-03 13:46:30,862 archeological_pottery_forms.my_models.my_decorators programa vykdyta 21.793591900000024 sek.
 INFO 2023-02-03 13:51:27,650 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 24.210988300000054 sek., lyginta 1519 radinių
 INFO 2023-02-03 16:57:27,235 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 26.6039057 sek., lyginta 1519 radinių
+INFO 2023-02-03 19:19:02,234 archeological_pottery_forms.views koreliacijos koeficientai skaičiuoti 3963.2403968 sek., lyginta 1515 radinių

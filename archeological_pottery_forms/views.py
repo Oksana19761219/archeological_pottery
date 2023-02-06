@@ -596,12 +596,10 @@ def calculate_correlation_coefficient(request):
             this_ceramic.correlation_calculated = True
             this_ceramic.save()
 
-
         sound_files()
         end_time = time.perf_counter()
         run_time = end_time - start_time
         logger.info(f'koreliacijos koeficientai skaičiuoti {run_time} sek., lyginta {contours_correlated_quantity + contours_to_correlate_quantity} radinių')
-
 
     context = {
        'contours_correlated_quantity': contours_correlated_quantity,
@@ -648,17 +646,13 @@ def review_profiles(request):
             item.delete()
         return redirect('review_profiles')
 
-
     context = {
         'object': object,
         'this_profile': this_profile,
         'objects_to_review_quantity': objects_to_review_quantity,
         'y_value_to_trim': y_value_to_trim
     }
-
     return render(request, 'review_profiles.html', context=context)
-
-
 
 
 def calculate_length():
@@ -672,56 +666,40 @@ def calculate_length():
 
 
 
+
+
+
+
 @csrf_protect
 def auto_group_contours(request):
-    neck_avg = PotteryDescription.objects.aggregate(Avg('neck_min_y'))['neck_min_y__avg']
-    shoulders_avg = PotteryDescription.objects.aggregate(Avg('shoulders_min_y'))['shoulders_min_y__avg']
-
-    bottom_queryset = CeramicContour.objects.filter(Q(find_id__bottom_exist=True))
-    bottom_avg = bottom_queryset.values('find_id').annotate(Max('y')).aggregate(Avg('y__max'))['y__max__avg']
-    bottom_max = bottom_queryset.aggregate(Max('y'))['y__max']
-
-    group_1_max_length = (shoulders_avg - neck_avg) / 2 + neck_avg
-    group_2_max_length = shoulders_avg
-    group_3_max_length = bottom_avg / 2
-    group_4_max_length = bottom_max
-
-    group_limits = {
-        1: [0, group_1_max_length],
-        2: [group_1_max_length, group_2_max_length],
-        3: [group_2_max_length, group_3_max_length],
-        4: [group_3_max_length, group_4_max_length]
-                    }
-
 
     if request.method == 'POST' and 'create' in request.POST:
-        correlation_x = request.POST['correlation']
-        loop_count = 0
 
-        for item in range(1, 5):
-            length_limits = group_limits[item]
+        correlation_x = request.POST['correlation']
+        precision_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2]
+
+        for precision in precision_list:
+            loop_count = 0
+
             queryset_by_correlation = ContourCorrelation.objects. \
-                filter(correlation_x__gte=correlation_x). \
+                filter(correlation_x__gte=correlation_x)
+            area_avg = queryset_by_correlation.distinct().aggregate(Avg('area'))['area__avg']
+            area_filter_value = area_avg * precision
+
+            queryset_by_correlation_ids = queryset_by_correlation.\
+                filter(area__lte=area_filter_value).\
                 distinct(). \
                 values_list('find_1', 'find_2')
+
             queryset_ids = list(
-                {item[0] for item in queryset_by_correlation}. \
-                    union({item[1] for item in queryset_by_correlation})
+                {item[0] for item in queryset_by_correlation_ids}. \
+                    union({item[1] for item in queryset_by_correlation_ids})
             )
 
-            length_queryset = CeramicContour.objects.\
-                filter(Q(find_id__in=queryset_ids)).\
-                values('find_id').\
-                annotate(Max('y'))
-            this_group_queryset = length_queryset.\
-                filter(Q(y__max__gt=length_limits[0]) & Q(y__max__lte=length_limits[1]))
-            this_group_ids = this_group_queryset.values_list('find_id', flat=True)
-
             objects_to_group = PotteryDescription.objects.filter(
-                Q(pk__in=this_group_ids) &
-                ~Q(groups__correlation_x=correlation_x)
+                Q(pk__in=queryset_ids) &
+                ~(Q(groups__correlation_x=correlation_x) & Q(groups__precision=precision))
             ).distinct()
-
 
             for object in objects_to_group:
                 loop_count+=1
@@ -730,7 +708,9 @@ def auto_group_contours(request):
                 corelated_objects = ContourCorrelation.objects.\
                     filter((Q(find_1=object.id) |
                             Q(find_2=object.id)) &
-                           Q(correlation_x__gte=correlation_x)).\
+                           Q(correlation_x__gte=correlation_x) &
+                           Q(area__lte=area_filter_value)
+                           ).\
                     distinct().\
                     values_list('find_1', 'find_2')
                 correlated_ids = list(
@@ -738,36 +718,27 @@ def auto_group_contours(request):
                         union({item[1] for item in corelated_objects if item != object.id})
                 )
 
-                correlated_ids_with_length = PotteryDescription.objects.\
-                    filter(pk__in=correlated_ids).\
-                    values('pk').\
-                    annotate(Max('coordinates__y'))
-
-                correlated_ids_this_group = correlated_ids_with_length.\
-                    filter(Q(coordinates__y__max__gt=length_limits[0]) &
-                           Q(coordinates__y__max__lte=length_limits[1])).\
-                    values_list('pk', flat=True)
-
-
                 group_exist = PotteryDescription.objects.\
-                    filter(Q(pk__in=correlated_ids_this_group) &
-                           Q(groups__correlation_x=correlation_x)).\
+                    filter(Q(pk__in=correlated_ids) &
+                           Q(groups__correlation_x=correlation_x) &
+                           Q(groups__precision=precision)).\
                     first()
 
                 if not group_exist:
                     group = ContourGroup(correlation_x=correlation_x,
-                                         length_group=item)
+                                         precision=precision)
                     group.save()
                 else:
                     group = group_exist. \
                         groups.all(). \
-                        get(correlation_x=correlation_x). \
+                        get(Q(correlation_x=correlation_x) &
+                            Q(precision=precision)). \
                         id
                 object.groups.add(group)
                 object.save()
-        print(f'pabaiga, {loop_count}')
-
+    #
     return render(request, 'group_contours_auto.html')
+
 
 
 def review_groups(request):
@@ -806,11 +777,14 @@ def review_groups(request):
         draw_group_image(group, coords, x_min)
 
 
-
     if request.method == 'POST' and 'draw_images' in request.POST:
         group_id = int(request.POST['draw_images'])
-        group_correlation = ContourGroup.objects.get(pk=group_id).correlation_x
-        groups = ContourGroup.objects.filter(correlation_x=group_correlation).values_list('id')
+        group = ContourGroup.objects.get(pk=group_id)
+        group_correlation = group.correlation_x
+        group_precision = group.precision
+        groups = ContourGroup.objects.\
+            filter(Q(correlation_x=group_correlation) & Q(precision=group_precision)).\
+            values_list('id')
         x_min = CeramicContour.objects.filter(y=0).\
             values('y', 'find_id').\
             annotate(x_min=Avg('x')).\

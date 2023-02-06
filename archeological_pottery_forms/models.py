@@ -152,12 +152,11 @@ class ContourGroup(models.Model):
         null=False,
         blank=False
     )
-    length_group = models.IntegerField(
-        'length_group',
-        null=True
+    precision = models.FloatField(
+        'precision',
+        null=True,
+        blank=True
     )
-
-
 
     def __str__(self):
         return f'group correlation: {self.correlation_x}'
